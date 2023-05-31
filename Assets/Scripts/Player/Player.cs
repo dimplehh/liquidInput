@@ -20,23 +20,30 @@ public class Player : MonoBehaviour
     void Update()
     {
         //Jump
-        if (Input.GetButtonDown("Jump") && !anim.GetBool("IsJump"))
-        {
-            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            anim.SetBool("IsJump", true);
-        }
         //stop speed
-        if (Input.GetButtonUp("Horizontal")){
-            rigid.velocity = new Vector2(rigid.velocity.normalized.x *0.5f, rigid.velocity.y);
+        if (Input.GetButtonUp("Horizontal"))
+        {
+            rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
             realMaxSpeed = maxSpeed;
             anim.SetBool("IsRun", false);
         }
-        if(Input.GetButtonDown("Horizontal"))
+        if (Input.GetButtonDown("Horizontal"))
             spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
         if (Input.GetKey(KeyCode.LeftShift))
         {
             realMaxSpeed = 10f;
             anim.SetBool("IsRun", true);
+        }
+        else
+        {
+            realMaxSpeed = maxSpeed;
+            anim.SetBool("IsRun", false);
+        }
+        if (Input.GetButtonDown("Jump") && !anim.GetBool("IsJump"))
+        {
+            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            anim.SetBool("IsJump", true);
+            anim.SetBool("IsRun", false);
         }
         //Animation
         if (Mathf.Abs(rigid.velocity.x) < 0.3)
