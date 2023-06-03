@@ -17,13 +17,17 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
        realMaxSpeed = maxSpeed;
     }
+    private void Update()
+    {
+        Turn(); //이미지 좌우전환
+        Run(); //달리기 
+        Jump(); //점프
+    }
     private void FixedUpdate()
     {
         Move(); //플레이어 이동
         JumpCheck(); //플레이어 바닥에 닿았을 때 점프 가능한지 체크
-        Turn(); //이미지 좌우전환
-        Run(); //달리기 
-        Jump(); //점프
+        
     }
     private void Move()
     {
