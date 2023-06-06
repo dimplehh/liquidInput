@@ -13,12 +13,15 @@ public class Player : MonoBehaviour
     float width_between_back;
     [SerializeField]
     GameObject[] background = new GameObject[3];
+
+    [Header("상태")]
+    public bool isJump = false;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-       realMaxSpeed = maxSpeed;
+        realMaxSpeed = maxSpeed;
         width_between_back = Mathf.Abs(background[0].transform.position.x - background[1].transform.position.x);
     }
     private void Update()
@@ -30,7 +33,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         Move(); //플레이어 이동
-        JumpCheck(); //플레이어 바닥에 닿았을 때 점프 가능한지 체크
+        //JumpCheck(); //플레이어 바닥에 닿았을 때 점프 가능한지 체크
         
     }
     private void Move()
@@ -64,40 +67,47 @@ public class Player : MonoBehaviour
             anim.SetBool("IsRun", false);
         }
     }
-    private void JumpCheck()
-    {
-        if (rigid.velocity.y < 0)
-        {
-            Debug.DrawRay(rigid.position, Vector3.down, new Color(0, 1, 0));
-            RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.down, 1, LayerMask.GetMask("Platform"));
-            if (rayHit.collider != null)
-            {
-                if (rayHit.distance < 0.5f)
-                    anim.SetBool("IsJump", false);
-            }
-        }
-        else
-        {
-            anim.SetBool("IsJump", false);
-        }
-    }
+    //private void JumpCheck()
+    //{
+    //    if (rigid.velocity.y < 0)
+    //    {
+    //        Debug.DrawRay(rigid.position, Vector3.down, new Color(0, 1, 0));
+    //        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.down, 1, LayerMask.GetMask("Platform"));
+    //        if (rayHit.collider != null)
+    //        {
+    //            if (rayHit.distance < 0.5f)
+    //                anim.SetBool("IsJump", false);
+    //        }
+    //    }
+    //    else
+    //    {
+    //        anim.SetBool("IsJump", false);
+    //    }
+    //}
     private void Jump()
     {
-        if (Input.GetButtonDown("Jump") && !anim.GetBool("IsJump")) //점프 가능한 상태일 때 점프 기능
+        if (Input.GetButtonDown("Jump") && !isJump) //점프 가능한 상태일 때 점프 기능
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            anim.SetBool("IsJump", true);
-            anim.SetBool("IsRun", false);
+            anim.SetTrigger("DoJump");
+            //anim.SetBool("IsRun", false);
+            isJump = true;
         }
     }
     private void Turn()
     {
-        if (Input.GetButtonDown("Horizontal"))
+        if (Input.GetButton("Horizontal"))
             spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //바닥과 닿았는지 체크 후 점프 가능한 상태로 만들어줌
+        if (collision.gameObject.CompareTag("Platform")) 
+        {
+            isJump = false;
+        }
+
         Debug.Log(collision.gameObject);
         if (collision.gameObject == background[2])
         {
