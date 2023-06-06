@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class makeMap : MonoBehaviour
 {
-    float width_between_back = 38.0f;
+    float width_between_back = 39.5f;
     [SerializeField]
     GameObject[] background = new GameObject[2];
     GameObject bg;
