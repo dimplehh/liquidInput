@@ -10,12 +10,16 @@ public class Player : MonoBehaviour
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     Animator anim;
+    float width_between_back;
+    [SerializeField]
+    GameObject[] background = new GameObject[3];
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
        realMaxSpeed = maxSpeed;
+        width_between_back = Mathf.Abs(background[0].transform.position.x - background[1].transform.position.x);
     }
     private void Update()
     {
@@ -90,5 +94,31 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Horizontal"))
             spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject);
+        if (collision.gameObject == background[2])
+        {
+            background[0].transform.position = new Vector3(background[2].transform.position.x + width_between_back,
+                background[2].transform.position.y, background[2].transform.position.z);
+            background[1].transform.position = new Vector3(background[2].transform.position.x - width_between_back,
+                background[2].transform.position.y, background[2].transform.position.z);
+        }
+        if (collision.gameObject == background[0])
+        {
+            background[1].transform.position = new Vector3(background[0].transform.position.x + width_between_back,
+                background[0].transform.position.y, background[0].transform.position.z);
+            background[2].transform.position = new Vector3(background[0].transform.position.x - width_between_back,
+                background[0].transform.position.y, background[0].transform.position.z);
+        }
+        if (collision.gameObject == background[1])
+        {
+            background[2].transform.position = new Vector3(background[1].transform.position.x + width_between_back,
+                background[1].transform.position.y, background[1].transform.position.z);
+            background[0].transform.position = new Vector3(background[1].transform.position.x - width_between_back,
+                background[1].transform.position.y, background[1].transform.position.z);
+        }
     }
 }
