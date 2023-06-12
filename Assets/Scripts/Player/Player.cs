@@ -13,6 +13,11 @@ public class Player : MonoBehaviour
 
     [Header("상태")]
     public bool isJump = false;
+    public bool isSlime = false;
+
+    //슬라임 시간 계산
+    public const float maxSlimeTime = 10f;
+    public float curSlimeTime;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -25,6 +30,8 @@ public class Player : MonoBehaviour
         Turn(); //이미지 좌우전환
         Run(); //달리기 
         Jump(); //점프
+        ChangeSlime(); //슬라임 변신
+        SlimeTimeCheck(); //슬라임 시간 체크
     }
     private void FixedUpdate()
     {
@@ -95,7 +102,34 @@ public class Player : MonoBehaviour
         if (Input.GetButton("Horizontal"))
             spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
     }
+    
+    private void ChangeSlime()
+    {
+        if (Input.GetKeyDown(KeyCode.C) && !isSlime)
+        {
+            if (GameManager.instance.curWaterReserves <= 0)
+                return;
 
+            GameManager.instance.curWaterReserves--;
+            isSlime = true;
+            anim.SetBool("IsSlime", true);
+            //여기서 이벤트가 발생해야함
+        }
+        
+    }
+    private void SlimeTimeCheck()
+    {
+        if (isSlime)
+        {
+            curSlimeTime += Time.deltaTime;
+            if(curSlimeTime >= maxSlimeTime)
+            {
+                curSlimeTime = 0;
+                isSlime = false;
+                anim.SetBool("IsSlime", false);
+            }
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //바닥과 닿았는지 체크 후 점프 가능한 상태로 만들어줌
