@@ -8,12 +8,15 @@ public class Player : MonoBehaviour
     private float realMaxSpeed;
     public float jumpPower;
     Rigidbody2D rigid;
-    SpriteRenderer spriteRenderer;
-    Animator anim;
+    public SpriteRenderer spriteRenderer;
+    public Animator anim;
 
     [Header("상태")]
     public bool isJump = false;
     public bool isSlime = false;
+    public bool canGrab = false;
+    public bool pressX = false;
+    public float h;
 
     //슬라임 시간 계산
     public const float maxSlimeTime = 10f;
@@ -30,6 +33,7 @@ public class Player : MonoBehaviour
         Turn(); //이미지 좌우전환
         Run(); //달리기 
         Jump(); //점프
+        Grab();//잡기
         ChangeSlime(); //슬라임 변신
         SlimeTimeCheck(); //슬라임 시간 체크
     }
@@ -41,7 +45,7 @@ public class Player : MonoBehaviour
     }
     private void Move()
     {
-        float h = Input.GetAxisRaw("Horizontal");
+        h = Input.GetAxisRaw("Horizontal");
         rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
 
         //플레이어 이동 속도 제어
@@ -99,10 +103,32 @@ public class Player : MonoBehaviour
     }
     private void Turn()
     {
-        if (Input.GetButton("Horizontal"))
+        if (Input.GetButton("Horizontal") && !canGrab)
             spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
     }
-    
+
+    private void Grab()
+    {
+        if(Input.GetKey(KeyCode.X))
+        {
+            pressX = true;
+            if (canGrab)
+            {
+                realMaxSpeed = 1f;
+                anim.SetBool("canGrab", true);
+            }
+        }
+        else if(Input.GetKeyUp(KeyCode.X))
+        {
+            pressX = false;
+            canGrab = false;
+            realMaxSpeed = maxSpeed;
+            anim.SetBool("canGrab", false);
+            anim.SetBool("isPull", false);
+            anim.SetBool("isPush", false);
+        }
+    }
+
     private void ChangeSlime()
     {
         if (Input.GetKeyDown(KeyCode.C) && !isSlime)
@@ -130,12 +156,19 @@ public class Player : MonoBehaviour
             }
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         //바닥과 닿았는지 체크 후 점프 가능한 상태로 만들어줌
         if (collision.gameObject.CompareTag("Platform")) 
         {
             isJump = false;
+        }
+        if (collision.gameObject.tag == "Object")
+        {
+            if (pressX && !anim.GetBool("IsWalk"))
+            {
+                canGrab = true;
+            }
         }
     }
 }
