@@ -34,14 +34,15 @@ public class Player : MonoBehaviour
         Run(); //달리기 
         Jump(); //점프
         Grab();//잡기
+        Climb();//오르기
         ChangeSlime(); //슬라임 변신
         SlimeTimeCheck(); //슬라임 시간 체크
     }
     private void FixedUpdate()
     {
         Move(); //플레이어 이동
-        //JumpCheck(); //플레이어 바닥에 닿았을 때 점프 가능한지 체크
-        
+                //JumpCheck(); //플레이어 바닥에 닿았을 때 점프 가능한지 체크
+
     }
     private void Move()
     {
@@ -55,7 +56,7 @@ public class Player : MonoBehaviour
             rigid.velocity = new Vector2(realMaxSpeed * (-1), rigid.velocity.y);
 
         //걷기 애니메이션
-        if (Mathf.Abs(rigid.velocity.x) < 0.3) 
+        if (Mathf.Abs(rigid.velocity.x) < 0.3)
             anim.SetBool("IsWalk", false);
         else
             anim.SetBool("IsWalk", true);
@@ -109,7 +110,7 @@ public class Player : MonoBehaviour
 
     private void Grab()
     {
-        if(Input.GetKey(KeyCode.X))
+        if (Input.GetKey(KeyCode.X))
         {
             pressX = true;
             if (canGrab)
@@ -118,7 +119,7 @@ public class Player : MonoBehaviour
                 anim.SetBool("canGrab", true);
             }
         }
-        else if(Input.GetKeyUp(KeyCode.X))
+        else if (Input.GetKeyUp(KeyCode.X))
         {
             pressX = false;
             canGrab = false;
@@ -126,6 +127,53 @@ public class Player : MonoBehaviour
             anim.SetBool("canGrab", false);
             anim.SetBool("isPull", false);
             anim.SetBool("isPush", false);
+        }
+    }
+
+    private void Climb()
+    {
+        float k = Input.GetAxisRaw("Vertical");
+        if (k != 0)
+        {
+            Ladder(k);
+        }
+        else
+        {
+            if(this.tag == "inLadder")
+            {
+                anim.SetBool("isClimb", false);
+                anim.SetBool("inLadder", true);
+            }
+        }
+    }
+
+    private void Ladder(float k)
+    {
+        if (this.tag == "inLadder")
+        {
+            rigid.gravityScale = 0;
+            if (k > 0)
+            {
+                anim.SetBool("isClimb", true);
+                this.transform.Translate(0, 5 * Time.deltaTime, 0);
+            }
+            else if (k < 0)
+            {
+                anim.SetBool("isClimb", true);
+                this.transform.Translate(0, -5 * Time.deltaTime, 0);
+            }
+        }
+        else if(this.tag == "inSafetyZone")
+        {
+            rigid.gravityScale = 0;
+            if (k < 0)
+            {
+                this.transform.Translate(0, -10 * Time.deltaTime, 0);
+            }
+        }
+        else
+        {
+            anim.SetBool("inLadder", false);
         }
     }
 
@@ -141,14 +189,14 @@ public class Player : MonoBehaviour
             anim.SetBool("IsSlime", true);
             //여기서 이벤트가 발생해야함
         }
-        
+
     }
     private void SlimeTimeCheck()
     {
         if (isSlime)
         {
             curSlimeTime += Time.deltaTime;
-            if(curSlimeTime >= maxSlimeTime)
+            if (curSlimeTime >= maxSlimeTime)
             {
                 curSlimeTime = 0;
                 isSlime = false;
@@ -159,7 +207,7 @@ public class Player : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
         //바닥과 닿았는지 체크 후 점프 가능한 상태로 만들어줌
-        if (collision.gameObject.CompareTag("Platform")) 
+        if (collision.gameObject.CompareTag("Platform"))
         {
             isJump = false;
         }
@@ -170,5 +218,35 @@ public class Player : MonoBehaviour
                 canGrab = true;
             }
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == 7)
+        {
+            this.gameObject.tag = "inLadder";
+        }
+        if (other.gameObject.layer == 10)
+        {
+            this.gameObject.tag = "inSafetyZone";
+        }
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.layer == 7)
+        {
+            LadderOut();
+        }
+        if (other.gameObject.layer == 10)
+        {
+            this.gameObject.tag = "inLadder";
+        }
+    }
+    void LadderOut()
+    {
+        this.rigid.gravityScale = 3.0f;
+        this.gameObject.tag = "Player";
+        anim.SetBool("inLadder", false);
+        anim.SetBool("isClimb", false);
     }
 }

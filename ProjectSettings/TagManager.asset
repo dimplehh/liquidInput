@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Platform
   - Object
+  - inLadder
+  - inSafetyZone
   layers:
   - Default
   - TransparentFX
@@ -14,10 +16,10 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Ladder
   - Platform
-  - 
-  - 
+  - Player
+  - SafetyZone
   - 
   - 
   - 
@@ -42,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: player
+    uniqueID: 3942269763
     locked: 0
