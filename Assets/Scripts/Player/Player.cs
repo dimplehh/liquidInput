@@ -97,9 +97,11 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Jump") && !isJump) //점프 가능한 상태일 때 점프 기능
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            anim.SetTrigger("DoJump");
-            //anim.SetBool("IsRun", false);
             isJump = true;
+            if (isSlime)
+                anim.SetTrigger("DoSlimeJump");
+            else
+                anim.SetTrigger("DoJump");
         }
     }
     private void Turn()
