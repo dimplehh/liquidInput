@@ -190,6 +190,8 @@ public class Player : MonoBehaviour
             isSlime = true;
             anim.SetBool("IsSlime", true);
             //여기서 이벤트가 발생해야함
+           
+            
         }
 
     }
