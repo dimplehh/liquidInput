@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public bool isJump = false;
     public bool isSlime = false;
     public bool canGrab = false;
+    public bool canStepup = false;
+    Vector3 sVec; 
     public bool pressX = false;
     public float h;
 
@@ -34,7 +36,8 @@ public class Player : MonoBehaviour
         Run(); //달리기 
         Jump(); //점프
         Grab();//잡기
-        Climb();//오르기
+        Climb();//사다리오르기
+        Stepup();//잡고오르기
         ChangeSlime(); //슬라임 변신
         SlimeTimeCheck(); //슬라임 시간 체크
     }
@@ -46,20 +49,23 @@ public class Player : MonoBehaviour
     }
     private void Move()
     {
-        h = Input.GetAxisRaw("Horizontal");
-        rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
+        if(rigid.gravityScale != 0)
+        {
+            h = Input.GetAxisRaw("Horizontal");
+            rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
 
-        //플레이어 이동 속도 제어
-        if (rigid.velocity.x > realMaxSpeed)
-            rigid.velocity = new Vector2(realMaxSpeed, rigid.velocity.y);
-        else if (rigid.velocity.x < realMaxSpeed * (-1))
-            rigid.velocity = new Vector2(realMaxSpeed * (-1), rigid.velocity.y);
+            //플레이어 이동 속도 제어
+            if (rigid.velocity.x > realMaxSpeed)
+                rigid.velocity = new Vector2(realMaxSpeed, rigid.velocity.y);
+            else if (rigid.velocity.x < realMaxSpeed * (-1))
+                rigid.velocity = new Vector2(realMaxSpeed * (-1), rigid.velocity.y);
 
-        //걷기 애니메이션
-        if (Mathf.Abs(rigid.velocity.x) < 0.3)
-            anim.SetBool("IsWalk", false);
-        else
-            anim.SetBool("IsWalk", true);
+            //걷기 애니메이션
+            if (Mathf.Abs(rigid.velocity.x) < 0.3)
+                anim.SetBool("IsWalk", false);
+            else
+                anim.SetBool("IsWalk", true);
+        }
     }
     private void Run()
     {
@@ -130,6 +136,30 @@ public class Player : MonoBehaviour
             anim.SetBool("isPull", false);
             anim.SetBool("isPush", false);
         }
+    }
+
+    private void Stepup()
+    {
+        if (this.tag == "inStepupZone")
+        {   canStepup = true;   }
+        else
+        {   canStepup = false;  }
+        if(canStepup && pressX)
+        {
+            StartCoroutine("SteppingUp");
+        }
+    }
+
+    IEnumerator SteppingUp()
+    {
+        rigid.gravityScale = 0;
+        rigid.velocity = Vector3.zero;
+        anim.SetBool("canStepup", true);
+        yield return new WaitForSeconds(0.8f);
+        this.transform.position = sVec + new Vector3(-0.25f, 2.0f, 0);
+        rigid.gravityScale = 3;
+        yield return new WaitForSeconds(0.2f);
+        anim.SetBool("canStepup", false);
     }
 
     private void Climb()
@@ -215,6 +245,7 @@ public class Player : MonoBehaviour
         {
             isJump = false;
         }
+        //Object를 잡을 수 있는 상태인지 체크
         if (collision.gameObject.tag == "Object")
         {
             if (pressX && !anim.GetBool("IsWalk"))
@@ -234,6 +265,11 @@ public class Player : MonoBehaviour
         {
             this.gameObject.tag = "inSafetyZone";
         }
+        if (other.gameObject.layer == 11)
+        {
+            this.gameObject.tag = "inStepupZone";
+            sVec = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y, other.gameObject.transform.position.z);
+        }
     }
     void OnTriggerExit2D(Collider2D other)
     {
@@ -244,6 +280,10 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == 10)
         {
             this.gameObject.tag = "inLadder";
+        }
+        if (other.gameObject.layer == 11)
+        {
+            this.gameObject.tag = "Player";
         }
     }
     void LadderOut()
