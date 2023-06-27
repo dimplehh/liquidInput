@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     //물 보유량
     public const int maxWaterReserves = 100;
     public int curWaterReserves;
+    public int oldCurWaterReserves;
     public Image curWaterReservesImage;
     public Text curWaterReservesTxt;
     public GameObject player;
@@ -36,7 +37,13 @@ public class GameManager : MonoBehaviour
     private void WaterReservesUI()
     {
         curWaterReservesTxt.text = curWaterReserves.ToString();
-        curWaterReservesImage.fillAmount = (float)curWaterReserves / maxWaterReserves;
+
+        if(oldCurWaterReserves != curWaterReserves)
+        {
+            curWaterReservesImage.fillAmount = (float)curWaterReserves / maxWaterReserves;
+            oldCurWaterReserves = curWaterReserves;
+        }
+        
     }
 
     public GameObject Spawn(string path, Transform parent = null)
