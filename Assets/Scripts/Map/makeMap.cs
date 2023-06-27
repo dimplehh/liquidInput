@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class makeMap : MonoBehaviour
 {
-    float width_between_back = 39.5f;
     [SerializeField]
     GameObject[] background = new GameObject[2];
     GameObject bg;
@@ -15,14 +14,33 @@ public class makeMap : MonoBehaviour
         bg = this.gameObject;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            background[0].transform.position = new Vector3(bg.transform.position.x - width_between_back,
-               bg.transform.position.y, bg.transform.position.z);
-            background[1].transform.position = new Vector3(bg.transform.position.x + width_between_back,
-                bg.transform.position.y, bg.transform.position.z);
+            if (collision.gameObject.transform.position.x < bg.transform.position.x && background[1])
+            {
+                background[1].SetActive(false);
+            }
+            else if (bg.transform.position.x < collision.gameObject.transform.position.x && background[0])
+            {
+                background[0].SetActive(false);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            if (collision.gameObject.transform.position.x < bg.transform.position.x &&background[0])
+            {
+                background[0].SetActive(true);
+            }
+            else if (bg.transform.position.x < collision.gameObject.transform.position.x &&  background[1])
+            {
+                background[1].SetActive(true);
+            }
         }
     }
 }

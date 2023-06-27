@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public int curWaterReserves;
     public Image curWaterReservesImage;
     public Text curWaterReservesTxt;
+    public GameObject player;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     private void Initialized()
     {
         curWaterReserves = 5;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
     private void LateUpdate()
     {
@@ -35,5 +37,10 @@ public class GameManager : MonoBehaviour
     {
         curWaterReservesTxt.text = curWaterReserves.ToString();
         curWaterReservesImage.fillAmount = (float)curWaterReserves / maxWaterReserves;
+    }
+    public GameObject Spawn(string path, Transform parent = null)
+    {
+        GameObject go = Managers.Resource.Instantiate(path, parent);
+        return go;
     }
 }
