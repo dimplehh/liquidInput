@@ -31,9 +31,4 @@ public class Managers : MonoBehaviour
             s_instance = go.GetComponent<Managers>();
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

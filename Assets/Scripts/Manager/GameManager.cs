@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
         curWaterReservesTxt.text = curWaterReserves.ToString();
         curWaterReservesImage.fillAmount = (float)curWaterReserves / maxWaterReserves;
     }
+
     public GameObject Spawn(string path, Transform parent = null)
     {
         GameObject go = Managers.Resource.Instantiate(path, parent);

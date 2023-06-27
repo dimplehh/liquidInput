@@ -18,6 +18,7 @@ public class makeMap : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            GameObject.FindGameObjectWithTag("@Scene").GetComponent<GameScene>().savePoint = int.Parse(this.gameObject.name.Substring(16, 1));//savePoint 현재 위치로
             if (collision.gameObject.transform.position.x < bg.transform.position.x && background[1])
             {
                 background[1].SetActive(false);

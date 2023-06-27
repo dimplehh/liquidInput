@@ -12,7 +12,7 @@ public class GameScene : BaseScene
     [SerializeField]
     int stage;
     [SerializeField]
-    int savePoint;
+    public int savePoint;
     void Start()
     {
 
@@ -41,11 +41,5 @@ public class GameScene : BaseScene
     public override void Clear()
     {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
