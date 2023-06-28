@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
             curWaterReservesImage.fillAmount = (float)curWaterReserves / maxWaterReserves;
             oldCurWaterReserves = curWaterReserves;
         }
-        
+       
     }
 
     public GameObject Spawn(string path, Transform parent = null)
