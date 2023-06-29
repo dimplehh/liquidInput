@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
         Stepup();//잡고오르기
         ChangeSlime(); //슬라임 변신
         SlimeTimeCheck(); //슬라임 시간 체크
+        Die();//게임오버 체크
     }
     private void FixedUpdate()
     {
@@ -213,10 +214,9 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C) && !isSlime)
         {
-            if (GameManager.instance.curWaterReserves <= 0)
-                return;
-
             GameManager.instance.curWaterReserves--;
+            if (GameManager.instance.curWaterReserves <= -2) //현재 시작 물 보유량이 0으로 세팅되어 있어서 테스트용
+                return;
             isSlime = true;
             anim.SetBool("IsSlime", true);
             //여기서 이벤트가 발생해야함
@@ -237,6 +237,15 @@ public class Player : MonoBehaviour
                 anim.SetBool("IsSlime", false);
             }
         }
+    }
+
+    private void Die()
+    {
+        if(GameManager.instance.curWaterReserves <= -2) //현재 시작 물보유량이 0이어서 test용
+        {
+            anim.SetBool("isDie", true);
+        }
+        //if (GameManager.instance.curWaterReserves <= 0)
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
