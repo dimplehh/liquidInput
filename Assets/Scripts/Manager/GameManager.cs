@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -13,6 +14,13 @@ public class GameManager : MonoBehaviour
     public Text curWaterReservesTxt;
     public GameObject player;
 
+    public int currentStage; //test
+    public void HomeButton()
+    {
+        Managers.Data.SaveData(0, player.gameObject, currentStage, curWaterReserves);
+        Debug.Log("0번째에 마지막 챕터 저장하였습니다.");
+        SceneManager.LoadScene("HomeScene");
+    }
     private void Awake()
     {
         if (instance == null)
@@ -27,8 +35,9 @@ public class GameManager : MonoBehaviour
     }
     private void Initialized()
     {
-        curWaterReserves = 5;
         player = GameObject.FindGameObjectWithTag("Player");
+        player.transform.position = new Vector3(Managers.Data.playerData.playerXPos,0,0);
+        curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
     }
     private void LateUpdate()
     {
