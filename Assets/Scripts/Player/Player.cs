@@ -241,12 +241,12 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        if(GameManager.instance.curWaterReserves <= -2) //현재 시작 물보유량이 0이어서 test용
+        if(GameManager.instance.curWaterReserves <= -2) //현재 시작 물보유량이 0이어서 test용         //if (GameManager.instance.curWaterReserves <= 0)
         {
             anim.SetBool("isDie", true);
         }
-        //if (GameManager.instance.curWaterReserves <= 0)
     }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         //바닥과 닿았는지 체크 후 점프 가능한 상태로 만들어줌

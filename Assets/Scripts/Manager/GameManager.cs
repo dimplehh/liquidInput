@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    GameObject gameOverPanel;
     public static GameManager instance;
     //물 보유량
     public const int maxWaterReserves = 100;
@@ -42,6 +44,8 @@ public class GameManager : MonoBehaviour
     private void LateUpdate()
     {
         WaterReservesUI();
+        if (curWaterReserves <= -2)
+            StartCoroutine("OpenGameOverPanel"); 
     }
     private void WaterReservesUI()
     {
@@ -52,7 +56,12 @@ public class GameManager : MonoBehaviour
             curWaterReservesImage.fillAmount = (float)curWaterReserves / maxWaterReserves;
             oldCurWaterReserves = curWaterReserves;
         }
-       
+    }
+
+    IEnumerator OpenGameOverPanel()
+    {
+        yield return new WaitForSeconds(3.0f);
+        gameOverPanel.gameObject.SetActive(true);
     }
 
     public GameObject Spawn(string path, Transform parent = null)
