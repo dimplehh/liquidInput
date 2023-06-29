@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public int currentStage; //test
     public void HomeButton()
     {
-        Managers.Data.SaveData(0, player.gameObject, currentStage, curWaterReserves);
+        Managers.Data.SaveData(0, player.gameObject, currentStage+1, curWaterReserves = 5);
         Debug.Log("0번째에 마지막 챕터 저장하였습니다.");
         SceneManager.LoadScene("HomeScene");
     }

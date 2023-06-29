@@ -28,8 +28,8 @@ public class DataManager : MonoBehaviour
 
     public void SaveData(int index, GameObject pos, int stage, int curWater)
     {
-        playerData.playerXPos = pos.transform.position.x + 2f;
-        playerData.currentStage = stage+1;
+        playerData.playerXPos = pos.transform.position.x;
+        playerData.currentStage = stage;
         playerData.playerWaterReserves = curWater;
         string data = JsonUtility.ToJson(playerData);
         File.WriteAllText(path + index.ToString(), data);
