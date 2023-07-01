@@ -218,6 +218,7 @@ public class Player : MonoBehaviour
             if (GameManager.instance.curWaterReserves <= -2) //현재 시작 물 보유량이 0으로 세팅되어 있어서 테스트용
                 return;
             isSlime = true;
+            isJump = true; //슬라임으로 변신과 동시에 점프안되게
             anim.SetBool("IsSlime", true);
             //여기서 이벤트가 발생해야함
            
@@ -234,6 +235,7 @@ public class Player : MonoBehaviour
             {
                 curSlimeTime = 0;
                 isSlime = false;
+                isJump = false; //다시 인간형태로 돌아오면 점프가능하게
                 anim.SetBool("IsSlime", false);
             }
         }
@@ -250,7 +252,7 @@ public class Player : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
         //바닥과 닿았는지 체크 후 점프 가능한 상태로 만들어줌
-        if (collision.gameObject.CompareTag("Platform"))
+        if (collision.gameObject.CompareTag("Platform") && !isSlime)
         {
             isJump = false;
         }

@@ -24,7 +24,9 @@ public class LoadSlotSelect : MonoBehaviour
                 if (i == 0)
                     slotTxt[i].text = "현재 스테이지 : " + Managers.Data.playerData.currentStage.ToString() + " Stage";
                 else
-                    slotTxt[i].text = "캐릭터 위치 : " + Managers.Data.playerData.playerXPos.ToString();
+                    slotTxt[i].text = "캐릭터 위치 : " + Managers.Data.playerData.playerXPos.ToString() + 
+                                    "\n 현재 스테이지 : " + Managers.Data.playerData.currentStage.ToString() + " Stage" +
+                                    "\n 물방울 보유량 : " + Managers.Data.playerData.playerWaterReserves.ToString();
             }
             else
             {
