@@ -9,6 +9,9 @@ public class Npc1 : Npc
     {
         if (other.gameObject.CompareTag("SaveZone") && Input.GetKeyDown(KeyCode.X))
         {
+            if (anim.GetBool("IsSlime"))
+                return;
+            
             GameManager.instance.curWaterReserves--;
             anim.SetBool("IsSlime", true); //motion test
             StartCoroutine(Messege());
