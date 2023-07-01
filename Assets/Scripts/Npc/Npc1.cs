@@ -19,7 +19,7 @@ public class Npc1 : Npc
         }
     }
 
-    private IEnumerator Messege()
+    public override IEnumerator Messege()
     {
         messegeImage.SetActive(true);
         messegeTxt.text = "π∞ ∏¿¿÷¥Ÿ.";

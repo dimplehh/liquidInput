@@ -13,7 +13,7 @@ public class Npc2 : Npc
         }
     }
 
-    private IEnumerator Messege()
+    public override IEnumerator Messege()
     {
         messegeImage.SetActive(true);
         messegeTxt.text = "난 물이 필요없어!";
