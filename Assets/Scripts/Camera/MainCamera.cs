@@ -18,7 +18,11 @@ public class MainCamera : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if(start.position.x < target.position.x && target.position.x < end.position.x)
+        if (start.position.x < target.position.x && target.position.x < end.position.x)
             transform.position = target.position + offset;
+        else if(start.position.x >= target.position.x)
+            transform.position = new Vector3(start.position.x,  target.position.y, target.position.z) + offset;
+        else if (target.position.x >= end.position.x)
+            transform.position = new Vector3(end.position.x, target.position.y, target.position.z) + offset;
     }
 }

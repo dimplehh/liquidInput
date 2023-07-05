@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public Animator anim;
 
     [Header("상태")]
-    public bool isJump = false;
+    public bool isGround = false;
     public bool isSlime = false;
     public bool canGrab = false;
     public bool canStepup = false;
@@ -81,33 +81,19 @@ public class Player : MonoBehaviour
             anim.SetBool("IsRun", false);
         }
     }
-    //private void JumpCheck()
-    //{
-    //    if (rigid.velocity.y < 0)
-    //    {
-    //        Debug.DrawRay(rigid.position, Vector3.down, new Color(0, 1, 0));
-    //        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.down, 1, LayerMask.GetMask("Platform"));
-    //        if (rayHit.collider != null)
-    //        {
-    //            if (rayHit.distance < 0.5f)
-    //                anim.SetBool("IsJump", false);
-    //        }
-    //    }
-    //    else
-    //    {
-    //        anim.SetBool("IsJump", false);
-    //    }
-    //}
+
     private void Jump()
     {
-        if (Input.GetButtonDown("Jump") && rigid.velocity.y == 0) //점프 가능한 상태일 때 점프 기능
+        if(isGround && !isSlime)
         {
-            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            isJump = true;
-            if (isSlime)
-                anim.SetTrigger("DoSlimeJump");
-            else
-                anim.SetTrigger("DoJump");
+            if (Input.GetButtonDown("Jump"))
+            {
+                rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+                if (isSlime)
+                    anim.SetTrigger("DoSlimeJump");
+                else
+                    anim.SetTrigger("DoJump");
+            }
         }
     }
     private void Turn()
@@ -210,7 +196,6 @@ public class Player : MonoBehaviour
             if (GameManager.instance.curWaterReserves <= -2) //현재 시작 물 보유량이 0으로 세팅되어 있어서 테스트용
                 return;
             isSlime = true;
-            isJump = true; //슬라임으로 변신과 동시에 점프안되게
             anim.SetBool("IsSlime", true);
             //여기서 이벤트가 발생해야함
            
@@ -227,7 +212,6 @@ public class Player : MonoBehaviour
             {
                 curSlimeTime = 0;
                 isSlime = false;
-                isJump = false; //다시 인간형태로 돌아오면 점프가능하게
                 anim.SetBool("IsSlime", false);
             }
         }
@@ -246,7 +230,7 @@ public class Player : MonoBehaviour
         //바닥과 닿았는지 체크 후 점프 가능한 상태로 만들어줌
         if (collision.gameObject.CompareTag("Platform") && !isSlime)
         {
-            isJump = false;
+            isGround = true;
         }
         //Object를 잡을 수 있는 상태인지 체크
         if (collision.gameObject.tag == "Object")
@@ -256,6 +240,12 @@ public class Player : MonoBehaviour
                 canGrab = true;
             }
         }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform") && !isSlime)
+            isGround = false;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -279,6 +269,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == 7)
         {
             LadderOut();
+            this.gameObject.tag = "Player";
         }
         else if (other.gameObject.layer == 10)
         {
@@ -292,7 +283,6 @@ public class Player : MonoBehaviour
     void LadderOut()
     {
         this.rigid.gravityScale = 3.0f;
-        this.gameObject.tag = "Player";
         anim.SetBool("inLadder", false);
         anim.SetBool("isClimb", false);
     }
