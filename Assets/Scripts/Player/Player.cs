@@ -50,11 +50,11 @@ public class Player : MonoBehaviour
     }
     private void Move()
     {
-        if(rigid.gravityScale != 0)
+        if(!anim.GetBool("inLadder"))
         {
             h = Input.GetAxisRaw("Horizontal");
             rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
-
+        }
             //플레이어 이동 속도 제어
             if (rigid.velocity.x > realMaxSpeed)
                 rigid.velocity = new Vector2(realMaxSpeed, rigid.velocity.y);
@@ -66,7 +66,6 @@ public class Player : MonoBehaviour
                 anim.SetBool("IsWalk", false);
             else
                 anim.SetBool("IsWalk", true);
-        }
     }
     private void Run()
     {
@@ -101,7 +100,7 @@ public class Player : MonoBehaviour
     //}
     private void Jump()
     {
-        if (Input.GetButtonDown("Jump") && !isJump) //점프 가능한 상태일 때 점프 기능
+        if (Input.GetButtonDown("Jump") && rigid.velocity.y == 0) //점프 가능한 상태일 때 점프 기능
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isJump = true;
@@ -113,7 +112,7 @@ public class Player : MonoBehaviour
     }
     private void Turn()
     {
-        if (Input.GetButton("Horizontal") && !canGrab)
+        if (Input.GetButton("Horizontal") && !canGrab && rigid.gravityScale != 0)
             spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
     }
 
@@ -163,50 +162,43 @@ public class Player : MonoBehaviour
         anim.SetBool("canStepup", false);
     }
 
-    private void Climb()
+    private void Climb()//사다리 오르기
     {
-        float k = Input.GetAxisRaw("Vertical");
-        if (k != 0)
+        if (this.tag == "inLadder" && Input.GetKeyDown(KeyCode.X))
+            anim.SetBool("inLadder", true);
+        else if(anim.GetBool("inLadder"))
         {
+            float k = Input.GetAxisRaw("Vertical");
             Ladder(k);
         }
-        else
-        {
-            if(this.tag == "inLadder")
-            {
-                anim.SetBool("isClimb", false);
-                anim.SetBool("inLadder", true);
-            }
-        }
+        if(!(this.tag == "inLadder" || this.tag == "inSafetyZone"))
+            LadderOut();
     }
 
     private void Ladder(float k)
     {
         if (this.tag == "inLadder")
         {
-            rigid.gravityScale = 0;
-            if (k > 0)
+            if (k != 0)
             {
-                anim.SetBool("isClimb", true);
-                this.transform.Translate(0, 5 * Time.deltaTime, 0);
-            }
-            else if (k < 0)
-            {
-                anim.SetBool("isClimb", true);
-                this.transform.Translate(0, -5 * Time.deltaTime, 0);
+                rigid.gravityScale = 0;
+                if (k > 0)
+                {
+                    anim.SetBool("isClimb", true);
+                    this.transform.Translate(0, 5 * Time.deltaTime, 0);
+                }
+                else if (k < 0)
+                {
+                    anim.SetBool("isClimb", true);
+                    this.transform.Translate(0, -5 * Time.deltaTime, 0);
+                }
             }
         }
-        else if(this.tag == "inSafetyZone")
+        else if (this.tag == "inSafetyZone")
         {
-            rigid.gravityScale = 0;
+            anim.SetBool("isClimb", false);
             if (k < 0)
-            {
-                this.transform.Translate(0, -10 * Time.deltaTime, 0);
-            }
-        }
-        else
-        {
-            anim.SetBool("inLadder", false);
+                this.transform.Translate(0, -5 * Time.deltaTime, 0);
         }
     }
 
@@ -268,7 +260,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == 7)
+        if (other.gameObject.layer == 7)//사다리에 닿았을 때
         {
             this.gameObject.tag = "inLadder";
         }
@@ -288,7 +280,7 @@ public class Player : MonoBehaviour
         {
             LadderOut();
         }
-        if (other.gameObject.layer == 10)
+        else if (other.gameObject.layer == 10)
         {
             this.gameObject.tag = "inLadder";
         }
