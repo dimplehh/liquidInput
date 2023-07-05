@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 3944498665559805127}
   - component: {fileID: 3944498665559805121}
   - component: {fileID: 3944498665559805120}
+  - component: {fileID: -2208984865573406086}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -109,17 +110,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c544bb18c1170740bf7ee8f88c90700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPanel: {fileID: 969216681710323555, guid: 96fc600fe4f76a54b94c521cc2d80533, type: 3}
   maxSpeed: 5
   jumpPower: 25
   spriteRenderer: {fileID: 0}
   anim: {fileID: 0}
-  isJump: 0
+  isGround: 0
   isSlime: 0
   canGrab: 0
   canStepup: 0
   pressX: 0
   h: 0
+  pushForce: 30
+  attached: 0
+  attachedTo: {fileID: 0}
   curSlimeTime: 0
 --- !u!50 &3944498665559805125
 Rigidbody2D:
@@ -257,6 +260,30 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.7}
   serializedVersion: 2
   m_Radius: 0.4524095
+--- !u!233 &-2208984865573406086
+HingeJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3944498665559805135}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 0
+  m_AngleLimits:
+    m_LowerAngle: 0
+    m_UpperAngle: 359
 --- !u!1 &4821976611783506837
 GameObject:
   m_ObjectHideFlags: 0

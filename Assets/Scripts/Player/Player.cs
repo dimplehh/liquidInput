@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     private float realMaxSpeed;
     public float jumpPower;
     Rigidbody2D rigid;
+    private HingeJoint2D hj;
     public SpriteRenderer spriteRenderer;
     public Animator anim;
 
@@ -19,6 +20,9 @@ public class Player : MonoBehaviour
     Vector3 sVec; 
     public bool pressX = false;
     public float h;
+    public float pushForce;
+    public bool attached = false;
+    public Transform attachedTo;
 
     //슬라임 시간 계산
     public const float maxSlimeTime = 10f;
@@ -26,6 +30,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        hj = gameObject.GetComponent<HingeJoint2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         realMaxSpeed = maxSpeed;
@@ -41,6 +46,7 @@ public class Player : MonoBehaviour
         ChangeSlime(); //슬라임 변신
         SlimeTimeCheck(); //슬라임 시간 체크
         Die();//게임오버 체크
+        Swing();//줄반동
     }
     private void FixedUpdate()
     {
@@ -225,7 +231,42 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    void Swing()
+    {
+        if (attached)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+                Detach();
+            else if (Input.GetKeyDown(KeyCode.S))
+                rigid.AddRelativeForce(new Vector3(-1, 0, 0) * pushForce);
+            else if (Input.GetKeyDown(KeyCode.D))
+                rigid.AddRelativeForce(new Vector3(1, 0, 0) * pushForce);
+        }
+    }
+    public void Attach(Rigidbody2D ropeBone)
+    {
+        ropeBone.gameObject.GetComponent<RopeSegment>().isPlayerAttached = true;
+        hj.connectedBody = ropeBone;
+        hj.enabled = true;
+        attached = true;
+        attachedTo = ropeBone.gameObject.transform.parent;
+    }
+    void Detach()
+    {
+        hj.connectedBody.gameObject.GetComponent<RopeSegment>().isPlayerAttached = false;
+        attached = false;
+        hj.enabled = false;
+        hj.connectedBody = null;
+        StartCoroutine("ChangeAttachedTo");
+    }
+
+    IEnumerator ChangeAttachedTo()
+    {
+        yield return new WaitForSeconds(1.5f);
+        attachedTo = null;
+    }
+
+        private void OnCollisionStay2D(Collision2D collision)
     {
         //바닥과 닿았는지 체크 후 점프 가능한 상태로 만들어줌
         if (collision.gameObject.CompareTag("Platform") && !isSlime)
@@ -250,6 +291,14 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (!attached)
+        {
+            if(other.gameObject.tag == "Rope")
+            {
+                if(attachedTo != other.gameObject.transform.parent)
+                    Attach(other.gameObject.GetComponent<Rigidbody2D>());
+            }
+        }
         if (other.gameObject.layer == 7)//사다리에 닿았을 때
         {
             this.gameObject.tag = "inLadder";
