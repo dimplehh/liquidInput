@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float maxSpeed;
-    private float realMaxSpeed;
+    public float realMaxSpeed;
     public float jumpPower;
     Rigidbody2D rigid;
     private HingeJoint2D hj;
