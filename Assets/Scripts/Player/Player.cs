@@ -257,6 +257,7 @@ public class Player : MonoBehaviour
         attached = false;
         hj.enabled = false;
         hj.connectedBody = null;
+        rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         StartCoroutine("ChangeAttachedTo");
     }
 
