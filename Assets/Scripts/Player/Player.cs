@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public bool isSlime = false;
     public bool canGrab = false;
     public bool canStepup = false;
+    public bool isSlow = false;
     Vector3 sVec; 
     public bool pressX = false;
     public float h;
@@ -61,17 +62,21 @@ public class Player : MonoBehaviour
             h = Input.GetAxisRaw("Horizontal");
             rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
         }
-            //플레이어 이동 속도 제어
-            if (rigid.velocity.x > realMaxSpeed)
-                rigid.velocity = new Vector2(realMaxSpeed, rigid.velocity.y);
-            else if (rigid.velocity.x < realMaxSpeed * (-1))
-                rigid.velocity = new Vector2(realMaxSpeed * (-1), rigid.velocity.y);
+        if (isSlow)
+        {
+            realMaxSpeed = maxSpeed / 3;
+        }
+        //플레이어 이동 속도 제어
+        if (rigid.velocity.x > realMaxSpeed)
+            rigid.velocity = new Vector2(realMaxSpeed, rigid.velocity.y);
+        else if (rigid.velocity.x < realMaxSpeed * (-1))
+            rigid.velocity = new Vector2(realMaxSpeed * (-1), rigid.velocity.y);
 
-            //걷기 애니메이션
-            if (Mathf.Abs(rigid.velocity.x) < 0.3)
-                anim.SetBool("IsWalk", false);
-            else
-                anim.SetBool("IsWalk", true);
+        //걷기 애니메이션
+        if (Mathf.Abs(rigid.velocity.x) < 0.3)
+            anim.SetBool("IsWalk", false);
+        else
+            anim.SetBool("IsWalk", true);
     }
     private void Run()
     {
@@ -313,6 +318,11 @@ public class Player : MonoBehaviour
             this.gameObject.tag = "inStepupZone";
             sVec = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y, other.gameObject.transform.position.z);
         }
+
+        if (other.gameObject.CompareTag("SandSwamp"))
+        {
+            isSlow = true;
+        }
     }
     void OnTriggerExit2D(Collider2D other)
     {
@@ -328,6 +338,10 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == 11)
         {
             this.gameObject.tag = "Player";
+        }
+        if (other.gameObject.CompareTag("SandSwamp"))
+        {
+            isSlow = false;
         }
     }
     void LadderOut()

@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 5
+  realMaxSpeed: 0
   jumpPower: 25
   spriteRenderer: {fileID: 0}
   anim: {fileID: 0}
@@ -118,6 +119,7 @@ MonoBehaviour:
   isSlime: 0
   canGrab: 0
   canStepup: 0
+  isSlow: 0
   pressX: 0
   h: 0
   pushForce: 30
@@ -309,8 +311,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4821976611783506837}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.05, z: 0}
+  m_LocalScale: {x: 0.78493, y: 1.077, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3944498666240910391}

@@ -4,25 +4,63 @@ using UnityEngine;
 
 public class SandSwamp : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    [SerializeField] private GameObject downLoad;
+    public Vector3 initdownLoadPos;
+    public bool isTriggerPlayer = false;
+    private float downSpeed = 0.3f;
+    private float initDownSpeed = 0.3f;
+    private bool isDown = false;
+
+    private void Start()
     {
-        if (other.gameObject.CompareTag("SaveZone"))
+        //첫 위치 저장
+        initdownLoadPos = downLoad.transform.position; 
+        initDownSpeed = downSpeed;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("SaveZone"))
         {
-            Debug.Log("모래늪에 입장하였습니다.");
+            isTriggerPlayer = true;
+            Debug.Log("내려감");
         }
     }
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("SaveZone"))
         {
-            Debug.Log("모래늪에 있습니다.");
+            isTriggerPlayer = false;
+            downLoad.transform.position = initdownLoadPos;
+            Debug.Log("원래대로 위치");
         }
     }
-    private void OnTriggerExit2D(Collider2D other)
+    private void Update()
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (isTriggerPlayer) //플레이어가 들어왔을 때
         {
-            Debug.Log("모래늪에서 퇴장하였습니다.");
+            DownTime(); 
+            Down();
         }
     }
+
+    public void DownTime()
+    {
+        if (!isDown)
+        {
+            downSpeed -= Time.deltaTime;
+            if(downSpeed < 0)
+            {
+                downSpeed = initDownSpeed;
+                isDown = true;
+            }
+        }
+    }
+    public void Down()
+    {
+        if (isDown)
+        {
+            downLoad.transform.position = downLoad.transform.position + new Vector3(0, -0.001f, 0);
+        }
+    }
+
 }

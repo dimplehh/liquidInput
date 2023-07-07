@@ -23,6 +23,14 @@ public class GameManager : MonoBehaviour
         Debug.Log("0번째에 마지막 챕터 저장하였습니다.");
         SceneManager.LoadScene("HomeScene");
     }
+    public void PlayGame()
+    {
+        Time.timeScale = 1;
+    }
+    public void StopGame()
+    {
+        Time.timeScale = 0;
+    }
     private void Awake()
     {
         if (instance == null)
@@ -33,6 +41,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        PlayGame();
         Initialized();
     }
     private void Initialized()
@@ -58,12 +67,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    IEnumerator OpenGameOverPanel()
+    public IEnumerator GameOverPanel()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSecondsRealtime(3.0f);
         gameOverPanel.gameObject.SetActive(true);
     }
-
+    public void OpenGameOverPanel()
+    {
+        StopGame();
+        StartCoroutine(GameOverPanel());
+    }
     public GameObject Spawn(string path, Transform parent = null)
     {
         GameObject go = Managers.Resource.Instantiate(path, parent);
