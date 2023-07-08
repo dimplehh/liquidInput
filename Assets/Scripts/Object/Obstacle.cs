@@ -8,7 +8,7 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Managers.Game.curWaterReserves -= 1;
+            GameManager.instance.OpenGameOverPanel();
         }
     }
 }

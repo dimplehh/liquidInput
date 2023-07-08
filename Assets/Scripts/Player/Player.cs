@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public bool canGrab = false;
     public bool canStepup = false;
     public bool isSlow = false;
+    private bool isFlicker = false; //슬라임 형태에서 9초가 되었을 때 반짝이면서 유저에게 인간에게 돌아간다는 표현
     Vector3 sVec; 
     public bool pressX = false;
     public float h;
@@ -199,20 +200,28 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void ChangeSlime()
+    private void ChangeSlime() //슬라임 형태일 때는 깜빡일 때 체인지슬라임 키 누르면 슬라임 시간 10초 추가 깜빡이지 않을 때 면서 슬라임 일때는 불가
     {
-        if (Input.GetKeyDown(KeyCode.C) && !isSlime)
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            GameManager.instance.curWaterReserves--;
-            if (GameManager.instance.curWaterReserves <= -2) //현재 시작 물 보유량이 0으로 세팅되어 있어서 테스트용
-                return;
-            isSlime = true;
-            anim.SetBool("IsSlime", true);
-            //여기서 이벤트가 발생해야함
-           
-            
-        }
+            if(!isSlime && !isFlicker)
+            {
+                GameManager.instance.curWaterReserves--;
+                //if (GameManager.instance.curWaterReserves <= -2) //현재 시작 물 보유량이 0으로 세팅되어 있어서 테스트용
+                //    return;
+                isSlime = true;
+                anim.SetBool("IsSlime", true);
+            }
+            else if (isSlime && isFlicker)
+            {
+                GameManager.instance.curWaterReserves--;
+                //if (GameManager.instance.curWaterReserves <= -2) //현재 시작 물 보유량이 0으로 세팅되어 있어서 테스트용
+                //    return;
+                isFlicker = false;
+                curSlimeTime = 0;
+            }
 
+        }
     }
     private void SlimeTimeCheck()
     {
@@ -223,15 +232,23 @@ public class Player : MonoBehaviour
             {
                 curSlimeTime = 0;
                 isSlime = false;
+                isFlicker = false;
                 anim.SetBool("IsSlime", false);
+            }
+            
+            if(curSlimeTime >= maxSlimeTime * 0.9) //인간으로 돌아가기 1초전
+            {
+                Debug.Log("반짝임");
+                isFlicker = true;
             }
         }
     }
 
     private void Die()
     {
-        if(GameManager.instance.curWaterReserves <= -2) //현재 시작 물보유량이 0이어서 test용         //if (GameManager.instance.curWaterReserves <= 0)
+        if(GameManager.instance.curWaterReserves <= 0 && !isSlime) //현재 시작 물보유량이 0이어서 test용         //if (GameManager.instance.curWaterReserves <= 0)
         {
+            GameManager.instance.OpenGameOverPanel();
             anim.SetBool("isDie", true);
         }
     }

@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
     }
     public void OpenGameOverPanel()
     {
-        StopGame();
+        //StopGame();
         StartCoroutine(GameOverPanel());
     }
     public GameObject Spawn(string path, Transform parent = null)
