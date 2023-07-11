@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     {
         WaterReservesUI();
         if (curWaterReserves <= -2)
-            StartCoroutine("OpenGameOverPanel"); 
+            StartCoroutine("OpenGameOver"); 
     }
     private void WaterReservesUI()
     {
@@ -70,15 +70,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public IEnumerator GameOverPanel()
+    public IEnumerator GameOver()
     {
         yield return new WaitForSecondsRealtime(3.0f);
-        gameOverPanel.gameObject.SetActive(true);
+        LoadingSceneController.Instance.LoadScene("GameScene");
     }
-    public void OpenGameOverPanel()
+    public void OpenGameOver()
     {
         //StopGame();
-        StartCoroutine(GameOverPanel());
+        StartCoroutine(GameOver());
     }
     public GameObject Spawn(string path, Transform parent = null)
     {

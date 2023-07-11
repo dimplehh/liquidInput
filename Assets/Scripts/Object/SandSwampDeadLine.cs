@@ -9,7 +9,7 @@ public class SandSwampDeadLine : MonoBehaviour
         if (other.gameObject.CompareTag("SaveZone"))
         {
             Debug.Log("»ç¸Á");
-            GameManager.instance.OpenGameOverPanel();
+            GameManager.instance.OpenGameOver();
         }
     }
 }

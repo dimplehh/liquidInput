@@ -251,7 +251,7 @@ public class Player : MonoBehaviour
     {
         if(GameManager.instance.curWaterReserves <= 0 && !isSlime) //현재 시작 물보유량이 0이어서 test용         //if (GameManager.instance.curWaterReserves <= 0)
         {
-            GameManager.instance.OpenGameOverPanel();
+            GameManager.instance.OpenGameOver();
             GameManager.instance.isPlay = false;
             anim.SetBool("isDie", true);
         }

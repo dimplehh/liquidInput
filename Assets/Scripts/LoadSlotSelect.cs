@@ -58,8 +58,8 @@ public class LoadSlotSelect : MonoBehaviour
         if(Managers.Data.nowSlot == 0)
         {
             Initialized();
-        }     
-        SceneManager.LoadScene("GameScene");
+        }
+        LoadingSceneController.Instance.LoadScene("GameScene");
     }
     private void Initialized()
     {
@@ -71,6 +71,6 @@ public class LoadSlotSelect : MonoBehaviour
     {
         Initialized();
         Debug.Log("새 게임에 들어왔습니다.");
-        SceneManager.LoadScene("GameScene");
+        LoadingSceneController.Instance.LoadScene("GameScene");
     }
 }
