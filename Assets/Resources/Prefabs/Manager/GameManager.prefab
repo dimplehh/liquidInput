@@ -44,6 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 925ebc6cba3d97d4198e454df4b33598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sandBoxGridPrefab: {fileID: 3767264360502089245, guid: 27103f8a497277a458eacf6b41218bd5, type: 3}
+  gridGroup: {fileID: 0}
+  gameOverPanel: {fileID: 0}
   curWaterReserves: 0
+  oldCurWaterReserves: 0
   curWaterReservesImage: {fileID: 0}
   curWaterReservesTxt: {fileID: 0}
+  player: {fileID: 0}
+  isPlay: 0
+  currentStage: 0

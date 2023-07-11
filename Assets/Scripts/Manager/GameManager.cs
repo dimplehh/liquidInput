@@ -5,6 +5,17 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
+    [Header("Grid")]
+    private int _row = 20;
+    private int _column = 25;
+    [SerializeField] private Grid sandBoxGridPrefab;
+    public Vector3[,] gridPosition;
+    private float marginLeft = 0;
+    private float marginTop = 800;
+    private float offset = 35;
+    private Grid[,] _sandBoxGrids;
+    [SerializeField] private GameObject gridGroup;
+    //------------------------------------------------------
     [SerializeField]
     GameObject gameOverPanel;
     public static GameManager instance;
@@ -40,12 +51,40 @@ public class GameManager : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
+
         
     }
     private void Start()
     {
         PlayGame();
         Initialized();
+
+        //CreateGrid(); 
+    }
+    public void CreateGrid()
+    {
+        gridPosition = new Vector3[_row, _column];
+        for (int i = 0; i < _row; i++)
+        {
+            for (int j = 0; j < _column; j++)
+            {
+                gridPosition[i, j] = new Vector3(marginLeft + (j + 1) * offset - Screen.width / 2, -marginTop - (Screen.height - 1920) / 2 + Screen.height / 2 - (i + 1) * offset, 0);
+            }
+        }
+
+        _sandBoxGrids = new Grid[_row, _column];
+        for (int i = 3; i < _row; i++)
+        {
+            for (int j = 0; j < _column; j++)
+            {
+                var instance = Instantiate(sandBoxGridPrefab.gameObject);
+                instance.transform.SetParent(gridGroup.transform, false);
+                instance.GetComponent<Grid>().row = i;
+                instance.GetComponent<Grid>().column = j;
+                instance.GetComponent<RectTransform>().localPosition = GameManager.instance.gridPosition[i, j];
+                _sandBoxGrids[i, j] = instance.GetComponent<Grid>();
+            }
+        }
     }
     private void Initialized()
     {
