@@ -5,12 +5,13 @@ using UnityEngine;
 public class MainCamera : MonoBehaviour
 {
     [SerializeField] private Transform target;
-    private Vector3 offset;
+    public Vector3 offset;
     [SerializeField]
     Transform start, end;
+    GameObject go;
     void Start()
     {
-        GameObject go = GameObject.FindWithTag("Player");
+        go = GameObject.FindWithTag("Player");
         target = go.transform;
         offset = new Vector3(0, this.transform.position.y, this.transform.position.z);
     }
@@ -19,9 +20,19 @@ public class MainCamera : MonoBehaviour
     void LateUpdate()
     {
         if (start.position.x < target.position.x && target.position.x < end.position.x)
-            transform.position = target.position + offset;
-        else if(start.position.x >= target.position.x)
-            transform.position = new Vector3(start.position.x,  target.position.y, target.position.z) + offset;
+        {
+            if (go.GetComponent<Player>().anim.GetBool("canStepup"))
+            {
+                if (transform.position.x < go.GetComponent<Player>().tempVec.x + offset.x && transform.position.y < go.GetComponent<Player>().tempVec.y + offset.y)
+                    transform.position += new Vector3(1f * Time.deltaTime, 2f * Time.deltaTime, 0);
+            }
+            else
+            {
+                transform.position = target.position + offset;
+            }
+        }
+        else if (start.position.x >= target.position.x)
+            transform.position = new Vector3(start.position.x, target.position.y, target.position.z) + offset;
         else if (target.position.x >= end.position.x)
             transform.position = new Vector3(end.position.x, target.position.y, target.position.z) + offset;
     }
