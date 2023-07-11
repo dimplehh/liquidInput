@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private HingeJoint2D hj;
     public SpriteRenderer spriteRenderer;
     public Animator anim;
+    public Vector3 tempVec;
 
     [Header("상태")]
     public bool isGround = false;
@@ -19,7 +20,7 @@ public class Player : MonoBehaviour
     public bool canStepup = false;
     public bool isSlow = false;
     private bool isFlicker = false; //슬라임 형태에서 9초가 되었을 때 반짝이면서 유저에게 인간에게 돌아간다는 표현
-    Vector3 sVec; 
+    public Vector3 sVec; 
     public bool pressX = false;
     public float h;
     public float pushForce;
@@ -156,11 +157,11 @@ public class Player : MonoBehaviour
         rigid.gravityScale = 0;
         rigid.velocity = Vector3.zero;
         anim.SetBool("canStepup", true);
+        tempVec = sVec + new Vector3(-0.3f, 1.9f, 0);
         yield return new WaitForSeconds(0.8f);
-        this.transform.position = sVec + new Vector3(-0.25f, 2.0f, 0);
-        rigid.gravityScale = 3;
-        yield return new WaitForSeconds(0.2f);
         anim.SetBool("canStepup", false);
+        this.transform.position = sVec + new Vector3(-0.3f , 1.9f, 0);
+        rigid.gravityScale = 3;
     }
 
     private void Climb()//사다리 오르기
@@ -337,7 +338,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == 11)
         {
             this.gameObject.tag = "inStepupZone";
-            sVec = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y, other.gameObject.transform.position.z);
+            sVec = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y, 0);
         }
 
         if (other.gameObject.CompareTag("SandSwamp"))

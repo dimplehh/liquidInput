@@ -51,7 +51,8 @@ public class GameManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = new Vector3(Managers.Data.playerData.playerXPos,0,0);
-        curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
+        // curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
+        curWaterReserves = 5;
     }
     private void LateUpdate()
     {
