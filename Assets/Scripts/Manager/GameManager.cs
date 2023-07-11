@@ -16,7 +16,9 @@ public class GameManager : MonoBehaviour
     public Text curWaterReservesTxt;
     public GameObject player;
 
-    public int currentStage; //test
+    public bool isPlay = false;
+
+    public int currentStage;
     public void HomeButton()
     {
         Managers.Data.SaveData(0, player.gameObject, currentStage+1, curWaterReserves = 5);
@@ -26,6 +28,7 @@ public class GameManager : MonoBehaviour
     public void PlayGame()
     {
         Time.timeScale = 1;
+        isPlay = true;
     }
     public void StopGame()
     {

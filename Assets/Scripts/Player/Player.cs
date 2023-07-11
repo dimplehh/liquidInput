@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
+        if (!GameManager.instance.isPlay)
+            return;
         Turn(); //이미지 좌우전환
         Run(); //달리기 
         Jump(); //점프
@@ -52,9 +54,10 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (!GameManager.instance.isPlay)
+            return;
         Move(); //플레이어 이동
                 //JumpCheck(); //플레이어 바닥에 닿았을 때 점프 가능한지 체크
-
     }
     private void Move()
     {
@@ -249,6 +252,7 @@ public class Player : MonoBehaviour
         if(GameManager.instance.curWaterReserves <= 0 && !isSlime) //현재 시작 물보유량이 0이어서 test용         //if (GameManager.instance.curWaterReserves <= 0)
         {
             GameManager.instance.OpenGameOverPanel();
+            GameManager.instance.isPlay = false;
             anim.SetBool("isDie", true);
         }
     }
