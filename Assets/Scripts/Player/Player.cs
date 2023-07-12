@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public bool isSlow = false;
     private bool isFlicker = false; //슬라임 형태에서 9초가 되었을 때 반짝이면서 유저에게 인간에게 돌아간다는 표현
     public Vector3 sVec; 
-    public bool pressX = false;
+    public bool pressX = true;
     public float h;
     public float pushForce;
     public bool attached = false;
@@ -122,7 +122,6 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.X))
         {
-            pressX = true;
             if (canGrab)
             {
                 realMaxSpeed = 1f;
@@ -131,7 +130,6 @@ public class Player : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.X))
         {
-            pressX = false;
             canGrab = false;
             realMaxSpeed = maxSpeed;
             anim.SetBool("canGrab", false);
@@ -146,22 +144,26 @@ public class Player : MonoBehaviour
         {   canStepup = true;   }
         else
         {   canStepup = false;  }
+        if (Input.GetKey(KeyCode.X))
+            pressX = true;
         if(canStepup && pressX)
         {
-            StartCoroutine("SteppingUp");
+            if(pressX)
+                StartCoroutine("SteppingUp");
         }
     }
 
     IEnumerator SteppingUp()
     {
+        anim.SetBool("canStepup", true);
         rigid.gravityScale = 0;
         rigid.velocity = Vector3.zero;
-        anim.SetBool("canStepup", true);
-        tempVec = sVec + new Vector3(-0.3f, 1.9f, 0);
+        tempVec = sVec + new Vector3(-0.3f, 2.4f, 0);
         yield return new WaitForSeconds(0.8f);
-        anim.SetBool("canStepup", false);
-        this.transform.position = sVec + new Vector3(-0.3f , 1.9f, 0);
+        pressX = false;
+        this.transform.position = sVec + new Vector3(-0.3f, 2.4f, 0);
         rigid.gravityScale = 3;
+        anim.SetBool("canStepup", false);
     }
 
     private void Climb()//사다리 오르기
@@ -211,16 +213,12 @@ public class Player : MonoBehaviour
             if(!isSlime && !isFlicker)
             {
                 GameManager.instance.curWaterReserves--;
-                //if (GameManager.instance.curWaterReserves <= -2) //현재 시작 물 보유량이 0으로 세팅되어 있어서 테스트용
-                //    return;
                 isSlime = true;
                 anim.SetBool("IsSlime", true);
             }
             else if (isSlime && isFlicker)
             {
                 GameManager.instance.curWaterReserves--;
-                //if (GameManager.instance.curWaterReserves <= -2) //현재 시작 물 보유량이 0으로 세팅되어 있어서 테스트용
-                //    return;
                 isFlicker = false;
                 curSlimeTime = 0;
             }
@@ -272,11 +270,11 @@ public class Player : MonoBehaviour
     }
     public void Attach(Rigidbody2D ropeBone)
     {
-        ropeBone.gameObject.GetComponent<RopeSegment>().isPlayerAttached = true;
-        hj.connectedBody = ropeBone;
-        hj.enabled = true;
-        attached = true;
-        attachedTo = ropeBone.gameObject.transform.parent;
+            ropeBone.gameObject.GetComponent<RopeSegment>().isPlayerAttached = true;
+            hj.connectedBody = ropeBone;
+            hj.enabled = true;
+            attached = true;
+            attachedTo = ropeBone.gameObject.transform.parent;
     }
     void Detach()
     {
@@ -297,14 +295,14 @@ public class Player : MonoBehaviour
         private void OnCollisionStay2D(Collision2D collision)
     {
         //바닥과 닿았는지 체크 후 점프 가능한 상태로 만들어줌
-        if (collision.gameObject.CompareTag("Platform") && !isSlime)
+            if (collision.gameObject.CompareTag("Platform") && !isSlime)
         {
             isGround = true;
         }
         //Object를 잡을 수 있는 상태인지 체크
         if (collision.gameObject.tag == "Object")
         {
-            if (pressX && !anim.GetBool("IsWalk"))
+            if (Input.GetKey(KeyCode.X) && !anim.GetBool("IsWalk"))
             {
                 canGrab = true;
             }
@@ -319,14 +317,6 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!attached)
-        {
-            if(other.gameObject.tag == "Rope")
-            {
-                if(attachedTo != other.gameObject.transform.parent)
-                    Attach(other.gameObject.GetComponent<Rigidbody2D>());
-            }
-        }
         if (other.gameObject.layer == 7)//사다리에 닿았을 때
         {
             this.gameObject.tag = "inLadder";
@@ -344,6 +334,18 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("SandSwamp"))
         {
             isSlow = true;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (!attached && Input.GetKeyDown(KeyCode.X))
+        {
+            if (other.gameObject.tag == "Rope")
+            {
+                if (attachedTo != other.gameObject.transform.parent)
+                    Attach(other.gameObject.GetComponent<Rigidbody2D>());
+            }
         }
     }
     void OnTriggerExit2D(Collider2D other)
