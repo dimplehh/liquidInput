@@ -20,7 +20,8 @@ public class Player : MonoBehaviour
     public bool canStepup = false;
     public bool isSlow = false;
     private bool isFlicker = false; //슬라임 형태에서 9초가 되었을 때 반짝이면서 유저에게 인간에게 돌아간다는 표현
-    public Vector3 sVec; 
+    public Vector3 sVec;
+    Vector3 ladderPosition;
     public bool pressX = true;
     public float h;
     public float pushForce;
@@ -62,11 +63,9 @@ public class Player : MonoBehaviour
     }
     private void Move()
     {
-        if(!anim.GetBool("inLadder"))
-        {
+        if (!anim.GetBool("inLadder"))
             h = Input.GetAxisRaw("Horizontal");
-            rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
-        }
+        rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
         if (isSlow)
         {
             realMaxSpeed = maxSpeed / 3;
@@ -114,8 +113,15 @@ public class Player : MonoBehaviour
     }
     private void Turn()
     {
-        if (Input.GetButton("Horizontal") && !canGrab && rigid.gravityScale != 0)
-            spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
+        if (Input.GetButton("Horizontal") && !canGrab)
+        {
+             if (anim.GetBool("inLadder"))
+            {
+                spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == 1;
+            }
+             else
+                spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
+        }
     }
 
     private void Grab()
@@ -144,7 +150,7 @@ public class Player : MonoBehaviour
         {   canStepup = true;   }
         else
         {   canStepup = false;  }
-        if (Input.GetKey(KeyCode.X))
+        if (canStepup  && Input.GetKey(KeyCode.X))
             pressX = true;
         if(canStepup && pressX)
         {
@@ -175,7 +181,12 @@ public class Player : MonoBehaviour
             float k = Input.GetAxisRaw("Vertical");
             Ladder(k);
         }
-        if(!(this.tag == "inLadder" || this.tag == "inSafetyZone"))
+        //Debug.Log(ladderPosition.x + ", " + this.transform.position.x);
+        if(anim.GetBool("inLadder") && Input.GetKeyDown(KeyCode.A) && ladderPosition.x < this.transform.position.x)
+            this.transform.position+= new Vector3(-0.5f,0,0);
+        if (anim.GetBool("inLadder") && Input.GetKeyDown(KeyCode.D) && ladderPosition.x > this.transform.position.x)
+            this.transform.position += new Vector3(0.5f, 0, 0);
+        if ((anim.GetBool("inLadder") || this.tag == "inSafetyZone") && (Input.GetKeyDown(KeyCode.Space)))
             LadderOut();
     }
 
@@ -320,6 +331,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == 7)//사다리에 닿았을 때
         {
             this.gameObject.tag = "inLadder";
+            ladderPosition =other.gameObject.transform.position;
         }
         if (other.gameObject.layer == 10)
         {
