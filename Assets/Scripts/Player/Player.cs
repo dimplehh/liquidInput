@@ -223,13 +223,13 @@ public class Player : MonoBehaviour
         {
             if(!isSlime && !isFlicker)
             {
-                GameManager.instance.curWaterReserves--;
+                GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(GameManager.instance.currentStage); //코드가 별로임... 너무 안이뻐..
                 isSlime = true;
                 anim.SetBool("IsSlime", true);
             }
             else if (isSlime && isFlicker)
             {
-                GameManager.instance.curWaterReserves--;
+                GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(GameManager.instance.currentStage);
                 isFlicker = false;
                 curSlimeTime = 0;
             }

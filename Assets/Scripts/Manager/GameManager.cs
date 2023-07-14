@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
         player.transform.position = new Vector3(Managers.Data.playerData.playerXPos,0,0);
         // curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
         curWaterReserves = 5;
+        currentStage = 1; //나중에 스테이지 매니저 생성해서 관리하는게 편함
     }
     private void LateUpdate()
     {
@@ -117,9 +118,31 @@ public class GameManager : MonoBehaviour
     }
     public void OpenGameOver()
     {
-        //StopGame();
         StartCoroutine(GameOver());
     }
+
+    public int CurrentStageWaterConsume(int currentStage)
+    {
+        int waterConsume = 0;
+        switch (currentStage)
+        {
+            case 1:
+                waterConsume = 1;
+                break;
+            case 2:
+                waterConsume = 2;
+                break;
+            case 3:
+                waterConsume = 4;
+                break;
+            case 4:
+                waterConsume = 5;
+                break;
+            default:
+                break;
+        }
+        return waterConsume;
+    } //스테이지의 따른 물방울 소모량
     public GameObject Spawn(string path, Transform parent = null)
     {
         GameObject go = Managers.Resource.Instantiate(path, parent);
