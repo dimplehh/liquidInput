@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     GameObject gameOverPanel;
     public static GameManager instance;
     //물 보유량
-    public const int maxWaterReserves = 100;
+    public const int maxWaterReserves = 50;
     public int curWaterReserves;
     public int oldCurWaterReserves;
     public Image curWaterReservesImage;
