@@ -120,7 +120,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButton("Horizontal") && !canGrab)
         {
-             if (anim.GetBool("inLadder"))
+             if (anim.GetBool("inLadder") && anim.GetBool("inLadder"))
             {
                 spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == 1;
             }
@@ -179,18 +179,23 @@ public class Player : MonoBehaviour
 
     private void Climb()//사다리 오르기
     {
-        if (this.tag == "inLadder" && Input.GetKeyDown(KeyCode.X))
+        if (this.tag == "inLadder" && Input.GetKeyDown(KeyCode.X) && !anim.GetBool("inLadder"))
+        {
+            float alpha;
+            alpha = (ladderPosition.x <= this.transform.position.x) ? 0.3f : -0.3f;
+            this.transform.position = new Vector3(ladderPosition.x + alpha, transform.position.y, transform.position.z);
             anim.SetBool("inLadder", true);
+            spriteRenderer.flipX = (ladderPosition.x <= this.transform.position.x);
+        }
         else if(anim.GetBool("inLadder"))
         {
             float k = Input.GetAxisRaw("Vertical");
             Ladder(k);
+            if (Input.GetKeyDown(KeyCode.A) && ladderPosition.x < this.transform.position.x)
+                this.transform.position = new Vector3(ladderPosition.x - 0.3f, transform.position.y, transform.position.z);
+            else if (Input.GetKeyDown(KeyCode.D) && ladderPosition.x > this.transform.position.x)
+                this.transform.position = new Vector3(ladderPosition.x + 0.3f, transform.position.y, transform.position.z);
         }
-        //Debug.Log(ladderPosition.x + ", " + this.transform.position.x);
-        if(anim.GetBool("inLadder") && Input.GetKeyDown(KeyCode.A) && ladderPosition.x < this.transform.position.x)
-            this.transform.position+= new Vector3(-0.5f,0,0);
-        if (anim.GetBool("inLadder") && Input.GetKeyDown(KeyCode.D) && ladderPosition.x > this.transform.position.x)
-            this.transform.position += new Vector3(0.5f, 0, 0);
         if ((anim.GetBool("inLadder") || this.tag == "inSafetyZone") && (Input.GetKeyDown(KeyCode.Space)))
             LadderOut();
     }

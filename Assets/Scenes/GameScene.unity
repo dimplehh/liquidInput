@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -612,9 +612,69 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 758208637164824925, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 758208637164824926, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: numLinks
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 758208637164824926, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: prefabRopeSegs.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 758208637164824926, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: prefabRopeSegs.Array.data[6]
+      value: 
+      objectReference: {fileID: 6208464201021464086, guid: f922f276b3c67c94c9397708dcca2810, type: 3}
+    - target: {fileID: 758208637164824926, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: prefabRopeSegs.Array.data[7]
+      value: 
+      objectReference: {fileID: 6208464201021464086, guid: f922f276b3c67c94c9397708dcca2810, type: 3}
+    - target: {fileID: 758208637164824926, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: prefabRopeSegs.Array.data[8]
+      value: 
+      objectReference: {fileID: 6208464201021464086, guid: f922f276b3c67c94c9397708dcca2810, type: 3}
+    - target: {fileID: 758208637164824926, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: prefabRopeSegs.Array.data[9]
+      value: 
+      objectReference: {fileID: 6208464201021464086, guid: f922f276b3c67c94c9397708dcca2810, type: 3}
+    - target: {fileID: 758208637164824926, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: prefabRopeSegs.Array.data[10]
+      value: 
+      objectReference: {fileID: 6208464201021464086, guid: f922f276b3c67c94c9397708dcca2810, type: 3}
+    - target: {fileID: 758208637164824926, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: prefabRopeSegs.Array.data[11]
+      value: 
+      objectReference: {fileID: 6208464201021464086, guid: f922f276b3c67c94c9397708dcca2810, type: 3}
+    - target: {fileID: 758208637164824926, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: prefabRopeSegs.Array.data[12]
+      value: 
+      objectReference: {fileID: 6208464201021464086, guid: f922f276b3c67c94c9397708dcca2810, type: 3}
+    - target: {fileID: 758208637164824926, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: prefabRopeSegs.Array.data[13]
+      value: 
+      objectReference: {fileID: 6208464201021464086, guid: f922f276b3c67c94c9397708dcca2810, type: 3}
+    - target: {fileID: 758208637164824926, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: prefabRopeSegs.Array.data[14]
+      value: 
+      objectReference: {fileID: 6208464201021464086, guid: f922f276b3c67c94c9397708dcca2810, type: 3}
     - target: {fileID: 758208638152748428, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
       propertyPath: m_Name
       value: BaseStage1
+      objectReference: {fileID: 0}
+    - target: {fileID: 758208638177349375, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: m_Size.x
+      value: 0.016444052
+      objectReference: {fileID: 0}
+    - target: {fileID: 758208638177349375, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0127026895
+      objectReference: {fileID: 0}
+    - target: {fileID: 758208638968641073, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
