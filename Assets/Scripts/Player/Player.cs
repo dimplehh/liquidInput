@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public bool canStepup = false;
     public bool isSlow = false;
     private bool isFlicker = false; //슬라임 형태에서 9초가 되었을 때 반짝이면서 유저에게 인간에게 돌아간다는 표현
+    private bool isHill = false; //언덕 오르기 
     public Vector3 sVec;
     Vector3 ladderPosition;
     public bool pressX = true;
@@ -66,10 +67,14 @@ public class Player : MonoBehaviour
         if (!anim.GetBool("inLadder"))
             h = Input.GetAxisRaw("Horizontal");
         rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
-        if (isSlow)
+
+        if (isSlow) realMaxSpeed = maxSpeed / 3;
+        if (isHill)
         {
-            realMaxSpeed = maxSpeed / 3;
+            if (h == 0) rigid.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            else rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
+        
         //플레이어 이동 속도 제어
         if (rigid.velocity.x > realMaxSpeed)
             rigid.velocity = new Vector2(realMaxSpeed, rigid.velocity.y);
@@ -303,10 +308,10 @@ public class Player : MonoBehaviour
         attachedTo = null;
     }
 
-        private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         //바닥과 닿았는지 체크 후 점프 가능한 상태로 만들어줌
-            if (collision.gameObject.CompareTag("Platform") && !isSlime)
+        if (collision.gameObject.CompareTag("Platform") && !isSlime)
         {
             isGround = true;
         }
@@ -347,6 +352,10 @@ public class Player : MonoBehaviour
         {
             isSlow = true;
         }
+        if (other.gameObject.CompareTag("Hill"))
+        {
+            isHill = true;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -359,6 +368,7 @@ public class Player : MonoBehaviour
                     Attach(other.gameObject.GetComponent<Rigidbody2D>());
             }
         }
+       
     }
     void OnTriggerExit2D(Collider2D other)
     {
@@ -378,6 +388,10 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("SandSwamp"))
         {
             isSlow = false;
+        }
+        if (other.gameObject.CompareTag("Hill"))
+        {
+            isHill = false;
         }
     }
     void LadderOut()
