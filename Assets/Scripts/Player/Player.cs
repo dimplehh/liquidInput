@@ -69,11 +69,11 @@ public class Player : MonoBehaviour
         rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
 
         if (isSlow) realMaxSpeed = maxSpeed / 3;
-        if (isHill)
-        {
-            if (h == 0) rigid.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            else rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
+        //if (isHill)
+        //{
+        //    if (h == 0) rigid.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        //    else rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
+        //}
         
         //플레이어 이동 속도 제어
         if (rigid.velocity.x > realMaxSpeed)
@@ -352,10 +352,10 @@ public class Player : MonoBehaviour
         {
             isSlow = true;
         }
-        if (other.gameObject.CompareTag("Hill"))
-        {
-            isHill = true;
-        }
+        //if (other.gameObject.CompareTag("Hill"))
+        //{
+        //    isHill = true;
+        //}
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -389,10 +389,10 @@ public class Player : MonoBehaviour
         {
             isSlow = false;
         }
-        if (other.gameObject.CompareTag("Hill"))
-        {
-            isHill = false;
-        }
+        //if (other.gameObject.CompareTag("Hill"))
+        //{
+        //    isHill = false;
+        //}
     }
     void LadderOut()
     {
