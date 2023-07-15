@@ -6,9 +6,13 @@ public class Obstacle : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Player player = collision.gameObject.GetComponent<Player>();
         if (collision.gameObject.tag == "Player")
         {
-            GameManager.instance.curWaterReserves = 0;
+            if(player != null && !player.isSlime)
+            {
+                GameManager.instance.curWaterReserves = 0;
+            }
         }
     }
 }

@@ -50,10 +50,10 @@ public class Player : MonoBehaviour
         Grab();//잡기
         Climb();//사다리오르기
         Stepup();//잡고오르기
+        Swing();//줄반동
         ChangeSlime(); //슬라임 변신
         SlimeTimeCheck(); //슬라임 시간 체크
         Die();//게임오버 체크
-        Swing();//줄반동
     }
     private void FixedUpdate()
     {
@@ -231,7 +231,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if(!isSlime && !isFlicker)
+            if(!isSlime && !isFlicker && anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
             {
                 GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(GameManager.instance.currentStage); //코드가 별로임... 너무 안이뻐..
                 isSlime = true;
