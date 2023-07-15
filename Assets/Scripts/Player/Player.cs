@@ -65,9 +65,10 @@ public class Player : MonoBehaviour
     private void Move()
     {
         if (!anim.GetBool("inLadder"))
+        {
             h = Input.GetAxisRaw("Horizontal");
-        rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
-
+            rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
+        }
         if (isSlow) realMaxSpeed = maxSpeed / 3;
         //if (isHill)
         //{
@@ -84,7 +85,7 @@ public class Player : MonoBehaviour
         //걷기 애니메이션
         if (Mathf.Abs(rigid.velocity.x) < 0.3)
             anim.SetBool("IsWalk", false);
-        else
+        else if(!attached)
             anim.SetBool("IsWalk", true);
     }
     private void Run()
@@ -118,14 +119,16 @@ public class Player : MonoBehaviour
     }
     private void Turn()
     {
-        if (Input.GetButton("Horizontal") && !canGrab)
+        if (Input.GetButton("Horizontal") && !canGrab && !attached)
         {
-             if (anim.GetBool("inLadder") && anim.GetBool("inLadder"))
+             if (anim.GetBool("inLadder") && this.tag =="inLadder")
             {
                 spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == 1;
             }
              else
+            {
                 spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
+            }
         }
     }
 
@@ -283,19 +286,28 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
                 Detach();
-            else if (Input.GetKeyDown(KeyCode.S))
+            else if (Input.GetKeyDown(KeyCode.A))
+            {
                 rigid.AddRelativeForce(new Vector3(-1, 0, 0) * pushForce);
+            }
             else if (Input.GetKeyDown(KeyCode.D))
+            {
                 rigid.AddRelativeForce(new Vector3(1, 0, 0) * pushForce);
+            }
+            else if (Input.GetKeyDown(KeyCode.W))
+                Slide(1);
+            else if (Input.GetKeyDown(KeyCode.S))
+                Slide(-1);
         }
     }
     public void Attach(Rigidbody2D ropeBone)
     {
-            ropeBone.gameObject.GetComponent<RopeSegment>().isPlayerAttached = true;
-            hj.connectedBody = ropeBone;
-            hj.enabled = true;
-            attached = true;
-            attachedTo = ropeBone.gameObject.transform.parent;
+        ropeBone.gameObject.GetComponent<RopeSegment>().isPlayerAttached = true;
+        hj.connectedBody = ropeBone;
+        hj.enabled = true;
+        attached = true;
+        anim.SetBool("inRope", true);
+        attachedTo = ropeBone.gameObject.transform.parent;
     }
     void Detach()
     {
@@ -303,8 +315,39 @@ public class Player : MonoBehaviour
         attached = false;
         hj.enabled = false;
         hj.connectedBody = null;
+        anim.SetBool("inRope", false);
         rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         StartCoroutine("ChangeAttachedTo");
+    }
+
+    void Slide(int direction)
+    {
+        RopeSegment myConnection = hj.connectedBody.gameObject.GetComponent<RopeSegment>();
+        GameObject newSeg = null;
+        if(direction > 0)
+        {
+            if(myConnection.connectedAbove != null)
+            {
+                if(myConnection.connectedAbove.gameObject.GetComponent<RopeSegment>() != null)
+                {
+                    newSeg = myConnection.connectedAbove;
+                }
+            }
+        }
+        else
+        {
+            if(myConnection.connectedBelow != null)
+            {
+                newSeg = myConnection.connectedBelow;
+            }
+        }
+        if(newSeg != null)
+        {
+            transform.position = newSeg.transform.position;
+            myConnection.isPlayerAttached = false;
+            newSeg.GetComponent<RopeSegment>().isPlayerAttached = true;
+            hj.connectedBody = newSeg.GetComponent<Rigidbody2D>();
+        }
     }
 
     IEnumerator ChangeAttachedTo()
@@ -370,14 +413,16 @@ public class Player : MonoBehaviour
             if (other.gameObject.tag == "Rope")
             {
                 if (attachedTo != other.gameObject.transform.parent)
+                {
                     Attach(other.gameObject.GetComponent<Rigidbody2D>());
+                }
             }
         }
        
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.layer == 7)
+            if (other.gameObject.layer == 7)
         {
             LadderOut();
             this.gameObject.tag = "Player";
