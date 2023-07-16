@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
             h = Input.GetAxisRaw("Horizontal");
             rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
         }
-        if (isSlow) realMaxSpeed = maxSpeed / 3;
+        if (isSlow) realMaxSpeed = maxSpeed / 2;
         //if (isHill)
         //{
         //    if (h == 0) rigid.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
@@ -408,6 +408,10 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
+        if (other.gameObject.CompareTag("SandSwamp"))
+        {
+            isSlow = true;
+        }
         if (!attached && Input.GetKeyDown(KeyCode.X))
         {
             if (other.gameObject.tag == "Rope")

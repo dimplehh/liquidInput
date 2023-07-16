@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private float marginTop = 800;
     private float offset = 35;
     private Grid[,] _sandBoxGrids;
+    public bool gameOver = false;
     [SerializeField] private GameObject gridGroup;
     //------------------------------------------------------
     [SerializeField]
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         isPlay = true;
+        gameOver = false;
     }
     public void StopGame()
     {
@@ -114,6 +116,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator GameOver()
     {
         yield return new WaitForSecondsRealtime(3.0f);
+        gameOver = true;
         LoadingSceneController.Instance.LoadScene("GameScene");
     }
     public void OpenGameOver()

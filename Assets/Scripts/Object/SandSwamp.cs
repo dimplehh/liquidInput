@@ -9,7 +9,8 @@ public class SandSwamp : MonoBehaviour
     public bool isTriggerPlayer = false;
     private float downSpeed = 0.3f;
     private float initDownSpeed = 0.3f;
-    private bool isDown = false;
+    public bool isDown = false;
+    private bool oneTime = false;
 
     private void Start()
     {
@@ -19,20 +20,31 @@ public class SandSwamp : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("SaveZone"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             isTriggerPlayer = true;
-            Debug.Log("내려감");
+            downLoad.transform.position = initdownLoadPos;
+            //Debug.Log("내려감");
         }
+        //if (collision.gameObject.CompareTag("SaveZone"))
+        //{
+        //    isTriggerPlayer = true;
+        //    Debug.Log("내려감");
+        //}
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("SaveZone"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            isTriggerPlayer = false;
-            downLoad.transform.position = initdownLoadPos;
-            Debug.Log("원래대로 위치");
+                isTriggerPlayer = false;
+                //Debug.Log("원래대로 위치");
         }
+        //if (collision.gameObject.CompareTag("SaveZone"))
+        //{
+        //    isTriggerPlayer = false;
+        //    downLoad.transform.position = initdownLoadPos;
+        //    Debug.Log("원래대로 위치");
+        //}
     }
     private void Update()
     {
@@ -57,9 +69,9 @@ public class SandSwamp : MonoBehaviour
     }
     public void Down()
     {
-        if (isDown)
+        if (isDown && !GameManager.instance.gameOver)
         {
-            downLoad.transform.position = downLoad.transform.position + new Vector3(0, -0.001f, 0);
+            downLoad.transform.position = downLoad.transform.position + new Vector3(0, -0.005f, 0);
         }
     }
 
