@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
             h = Input.GetAxisRaw("Horizontal");
             rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
         }
-        if (isSlow) realMaxSpeed = maxSpeed / 2;
+        if (isSlow) realMaxSpeed = maxSpeed / 2.5f;
         //if (isHill)
         //{
         //    if (h == 0) rigid.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
     private void Run()
     {
         //쉬프트 눌렀을 때 달리기 아니면 걷기
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && !isSlow)
         {
             realMaxSpeed = 10f;
             anim.SetBool("IsRun", true);
@@ -384,6 +384,10 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.CompareTag("Platform") && isSlow)
+        {
+            isSlow = false;
+        }
         if (other.gameObject.layer == 7)//사다리에 닿았을 때
         {
             this.gameObject.tag = "inLadder";
@@ -397,11 +401,6 @@ public class Player : MonoBehaviour
         {
             this.gameObject.tag = "inStepupZone";
             sVec = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y, 0);
-        }
-
-        if (other.gameObject.CompareTag("SandSwamp"))
-        {
-            isSlow = true;
         }
         //if (other.gameObject.CompareTag("Hill"))
         //{
@@ -441,10 +440,6 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == 11)
         {
             this.gameObject.tag = "Player";
-        }
-        if (other.gameObject.CompareTag("SandSwamp"))
-        {
-            isSlow = false;
         }
         //if (other.gameObject.CompareTag("Hill"))
         //{
