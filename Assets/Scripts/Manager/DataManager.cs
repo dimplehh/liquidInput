@@ -27,8 +27,8 @@ public class DataManager : MonoBehaviour
         path = Application.persistentDataPath + "/";
     }
 
-    
-    public void SaveData(int index, GameObject pos, int stage, int curWater)
+    //슬롯 별 저장 / 불러오기
+    public void SlotSaveData(int index, GameObject pos, int stage, int curWater)
     {
         playerData.playerXPos = pos.transform.position.x;
         playerData.currentStage = stage;
@@ -38,13 +38,11 @@ public class DataManager : MonoBehaviour
         File.WriteAllText(path + index.ToString(), data);
         nowSlot = index;
     }
-    public void LoadData(int index)
+    public void SlotLoadData(int index)
     {
         string data = File.ReadAllText(path + index.ToString());
         playerData = JsonUtility.FromJson<PlayerData>(data);
     }
-
-
     //기본정보들 저장 / 불러오기
     public void DefaultSaveData()
     {

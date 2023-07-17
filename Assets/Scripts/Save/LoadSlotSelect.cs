@@ -11,16 +11,20 @@ public class LoadSlotSelect : MonoBehaviour
     //public Text newSaveName;
 
     private bool[] saveFile = new bool[4];
-    void Start()
+    private void Start()
     {
-        //슬롯별로 저장된 데이터가 존재하는지 판단
-        for (int i = 0; i <4; i++)
+        SlotSaveFileCheck();
+    }
+   
+    private void SlotSaveFileCheck()//슬롯별로 저장된 데이터가 존재하는지 판단
+    {
+        for (int i = 0; i < 4; i++)
         {
-            if(File.Exists(Managers.Data.path + $"{i}"))
+            if (File.Exists(Managers.Data.path + $"{i}"))
             {
                 saveFile[i] = true;
                 Managers.Data.nowSlot = i;
-                Managers.Data.LoadData(i);
+                Managers.Data.SlotLoadData(i);
                 slotTxt[i].text = "캐릭터 위치 : " + Managers.Data.playerData.playerXPos.ToString() +
                                 "\n 현재 스테이지 : " + Managers.Data.playerData.currentStage.ToString() + " Stage" +
                                 "\n 물방울 보유량 : " + Managers.Data.playerData.playerWaterReserves.ToString();
@@ -34,15 +38,54 @@ public class LoadSlotSelect : MonoBehaviour
     public void Slot(int num)
     {
         Managers.Data.nowSlot = num;
+        
         //1. 저장된 데이터가 있을 때
         if (saveFile[num])
         {
-            Creat();
+            if(!GameManager.instance) //타이틀화면에서
+                if (num != 0)
+                    Creat();
+
+            //인게임에서
+            if (GameManager.instance && GameManager.instance.isNonAutoSave) //세이브 존에서는 세이브만 되게 덮어씌워준다.
+            {
+                if (num != 0) //0번슬롯은 저장못함
+                {
+                    Save(num);
+                    GameManager.instance.isNonAutoSave = false; //저장시키고 false로 바꿔줘야 세이브존에서 저장후 그대로 메뉴에서 불러오기해도 적용안됨
+                    return;
+                }
+                
+            }
+            else if(GameManager.instance && !GameManager.instance.isNonAutoSave) //메뉴창에서는 로드되게
+                Creat();
         }
-        else
+        else //1. 저장된 데이터가 없을 때
         {
-            return;
+            if(!GameManager.instance) //타이틀화면에서
+                return;
+            else //인게임에서
+            {
+                if (GameManager.instance.isNonAutoSave)
+                {
+                    if (num != 0) //0번슬롯은 저장못함
+                    {
+                        Save(num);
+                        GameManager.instance.isNonAutoSave = false;
+                        return;
+                    }
+                }   
+            }
+            
         }
+        
+    }
+    public void Save(int slotIndex)
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        Managers.Data.SlotSaveData(slotIndex, player.gameObject, StageManager.instance.currentStageIndex, GameManager.instance.curWaterReserves);
+        Debug.Log(slotIndex + "수동 세이브");
+        SlotSaveFileCheck(); //다시 정보 체크
     }
     public void Creat()
     {
@@ -50,7 +93,7 @@ public class LoadSlotSelect : MonoBehaviour
     }
     public void GoGame()
     {
-        Managers.Data.LoadData(Managers.Data.nowSlot);
+        Managers.Data.SlotLoadData(Managers.Data.nowSlot);
         LoadingSceneController.Instance.LoadScene("GameScene");
     }
     public void NewGame() 

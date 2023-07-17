@@ -29,8 +29,8 @@ public class GameManager : MonoBehaviour
     public GameObject player;
 
     public bool isPlay = false;
+    public bool isNonAutoSave = false; //메뉴창에서는 로드만 되고 세이브존에서는 저장만되게
 
-    
     public void HomeButton()
     {
         LoadingSceneController.Instance.LoadScene("HomeScene");
@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         isPlay = true;
         gameOver = false;
+        isNonAutoSave = false;
     }
     public void StopGame()
     {

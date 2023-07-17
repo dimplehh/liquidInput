@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Zone : MonoBehaviour
 {
-    protected int index;
     protected bool isSave = false;
     protected bool isClear = false;
 
