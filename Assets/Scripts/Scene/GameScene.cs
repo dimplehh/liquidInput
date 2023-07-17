@@ -13,9 +13,10 @@ public class GameScene : BaseScene
     int stage;
     [SerializeField]
     public int savePoint;
-    void Start()
+    void Awake()
     {
-
+        stage = StageManager.instance.currentStageIndex; //시작시 저장되어있는 스테이지로 대입
+        Init();
     }
 
     protected override void Init()

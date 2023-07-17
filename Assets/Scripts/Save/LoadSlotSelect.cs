@@ -51,17 +51,17 @@ public class LoadSlotSelect : MonoBehaviour
     {
         creat.gameObject.SetActive(true);
     }
-    public void GoGame()
-    {
-        Managers.Data.LoadData(Managers.Data.nowSlot);
+    //public void GoGame()
+    //{
+    //    Managers.Data.LoadData(Managers.Data.nowSlot);
 
-        if(Managers.Data.nowSlot == 0)
-        {
-            Initialized();
-        }
-        LoadingSceneController.Instance.LoadScene("GameScene");
-    }
-    private void Initialized()
+    //    if(Managers.Data.nowSlot == 0)
+    //    {
+    //        Initialized();
+    //    }
+    //    LoadingSceneController.Instance.LoadScene("GameScene");
+    //}
+    private void NewInit()
     {
         Managers.Data.playerData.playerXPos = 0;
         Managers.Data.playerData.playerWaterReserves = 5;
@@ -69,8 +69,8 @@ public class LoadSlotSelect : MonoBehaviour
     }
     public void NewGame()
     {
-        Initialized();
-        Debug.Log("새 게임에 들어왔습니다.");
+        NewInit();
+        Debug.Log("자동 세이브 된 곳에서 생성");
         LoadingSceneController.Instance.LoadScene("GameScene");
     }
 }
