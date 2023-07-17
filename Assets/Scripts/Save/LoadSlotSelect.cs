@@ -21,12 +21,9 @@ public class LoadSlotSelect : MonoBehaviour
                 saveFile[i] = true;
                 Managers.Data.nowSlot = i;
                 Managers.Data.LoadData(i);
-                if (i == 0)
-                    slotTxt[i].text = "현재 스테이지 : " + Managers.Data.playerData.currentStage.ToString() + " Stage";
-                else
-                    slotTxt[i].text = "캐릭터 위치 : " + Managers.Data.playerData.playerXPos.ToString() + 
-                                    "\n 현재 스테이지 : " + Managers.Data.playerData.currentStage.ToString() + " Stage" +
-                                    "\n 물방울 보유량 : " + Managers.Data.playerData.playerWaterReserves.ToString();
+                slotTxt[i].text = "캐릭터 위치 : " + Managers.Data.playerData.playerXPos.ToString() +
+                                "\n 현재 스테이지 : " + Managers.Data.playerData.currentStage.ToString() + " Stage" +
+                                "\n 물방울 보유량 : " + Managers.Data.playerData.playerWaterReserves.ToString();
             }
             else
             {
@@ -51,26 +48,24 @@ public class LoadSlotSelect : MonoBehaviour
     {
         creat.gameObject.SetActive(true);
     }
-    //public void GoGame()
-    //{
-    //    Managers.Data.LoadData(Managers.Data.nowSlot);
-
-    //    if(Managers.Data.nowSlot == 0)
-    //    {
-    //        Initialized();
-    //    }
-    //    LoadingSceneController.Instance.LoadScene("GameScene");
-    //}
-    private void NewInit()
+    public void GoGame()
     {
-        Managers.Data.playerData.playerXPos = 0;
-        Managers.Data.playerData.playerWaterReserves = 5;
-        Managers.Data.playerData.currentStage = 1;
-    }
-    public void NewGame()
-    {
-        NewInit();
-        Debug.Log("자동 세이브 된 곳에서 생성");
+        Managers.Data.LoadData(Managers.Data.nowSlot);
         LoadingSceneController.Instance.LoadScene("GameScene");
+    }
+    public void NewGame() 
+    {
+        if (File.Exists(Managers.Data.path + $"{0}")) //0번째 슬롯에 데이터가 있으면 데이터로 가져오고 그게아니면 새로 시작한다.
+        {
+            GoGame();
+            Debug.Log("데이터가 있으니 데이터로 가져옴");
+        }
+        else
+        {
+            Managers.Data.DefaultLoadData(); //기본정보
+            LoadingSceneController.Instance.LoadScene("GameScene");
+            Debug.Log("데이터가 없으니 새로 시작");
+        }    
+        
     }
 }

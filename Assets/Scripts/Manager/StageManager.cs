@@ -6,7 +6,7 @@ public class StageManager : MonoBehaviour
 {
     public static StageManager instance;
 
-    private const string CURRENT_STAGE_KEY = "CURRENT_STAGE"; //현재 스테이지 저장 키
+    private const string LAST_STAGE_KEY = "LAST_STAGE"; //현재 스테이지 저장 키
     public int currentStageIndex; //현재 스테이지 번호
     public int lastStageIndex; //최종 스테이지 번호
     
@@ -25,17 +25,15 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.SetInt(CURRENT_STAGE_KEY, 1);
-        //lastStageIndex = PlayerPrefs.GetInt(CURRENT_STAGE_KEY);
+        //최종 스테이지 초기화 (1스테이지로 초기화 할거면 주석 풀고 실행하고 다시 주석 처리하면 됨)
+        PlayerPrefs.SetInt(LAST_STAGE_KEY, 1);
         
+        lastStageIndex = PlayerPrefs.GetInt(LAST_STAGE_KEY);
+        
+        //완전 기초정보 저장 
+        //Managers.Data.DefaultSaveData();
     }
 
-    
-   
-    void Update()
-    {
-        
-    }
     public bool LastStageCheck(int index)
     {
         if (lastStageIndex >= index)
@@ -44,13 +42,13 @@ public class StageManager : MonoBehaviour
         }
         return false;
     }
-    
-    //public void LastStageUp() //챕터 클리어 시 라스트 스테이지 번호를 저장 
-    //{
-    //    if (currentStageIndex >= lastStageIndex)
-    //    {
-    //        lastStageIndex = currentStageIndex;
-    //        PlayerPrefs.SetInt(CURRENT_STAGE_KEY, lastStageIndex);
-    //    }
-    //}
+
+    public void LastStageUp() //챕터 클리어 시 라스트 스테이지 번호를 저장 
+    {
+        if (currentStageIndex >= lastStageIndex)
+        {
+            lastStageIndex = currentStageIndex;
+            PlayerPrefs.SetInt(LAST_STAGE_KEY, lastStageIndex);
+        }
+    }
 }

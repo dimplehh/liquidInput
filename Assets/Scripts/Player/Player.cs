@@ -236,13 +236,13 @@ public class Player : MonoBehaviour
         {
             if(!isSlime && !isFlicker && anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
             {
-                GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(GameManager.instance.currentStage); //코드가 별로임... 너무 안이뻐..
+                GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(StageManager.instance.currentStageIndex); //코드가 별로임... 너무 안이뻐..
                 isSlime = true;
                 anim.SetBool("IsSlime", true);
             }
             else if (isSlime && isFlicker)
             {
-                GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(GameManager.instance.currentStage);
+                GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(StageManager.instance.currentStageIndex);
                 isFlicker = false;
                 curSlimeTime = 0;
             }

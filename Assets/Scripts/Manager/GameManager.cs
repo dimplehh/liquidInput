@@ -30,12 +30,10 @@ public class GameManager : MonoBehaviour
 
     public bool isPlay = false;
 
-    public int currentStage;
+    
     public void HomeButton()
     {
-        Managers.Data.SaveData(0, player.gameObject, currentStage+1, curWaterReserves = 5);
-        Debug.Log("0번째에 마지막 챕터 저장하였습니다.");
-        SceneManager.LoadScene("HomeScene");
+        LoadingSceneController.Instance.LoadScene("HomeScene");
     }
     public void PlayGame()
     {
@@ -92,9 +90,7 @@ public class GameManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = new Vector3(Managers.Data.playerData.playerXPos,0,0);
-        // curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
-        curWaterReserves = 5;
-        currentStage = 1; //나중에 스테이지 매니저 생성해서 관리하는게 편함
+        curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
     }
     private void LateUpdate()
     {

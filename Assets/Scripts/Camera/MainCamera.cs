@@ -16,7 +16,7 @@ public class MainCamera : MonoBehaviour
         offset = new Vector3(0, this.transform.position.y, this.transform.position.z);
     }
 
-    // Update is called once per frame
+    //start,end 스테이지 2되면 null 처리되서 start할때 불러와야할듯 
     void LateUpdate()
     {
         if (start.position.x < target.position.x && target.position.x < end.position.x)

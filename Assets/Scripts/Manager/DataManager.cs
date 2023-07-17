@@ -27,6 +27,7 @@ public class DataManager : MonoBehaviour
         path = Application.persistentDataPath + "/";
     }
 
+    
     public void SaveData(int index, GameObject pos, int stage, int curWater)
     {
         playerData.playerXPos = pos.transform.position.x;
@@ -39,7 +40,37 @@ public class DataManager : MonoBehaviour
     }
     public void LoadData(int index)
     {
-       string data = File.ReadAllText(path + index.ToString());
-       playerData = JsonUtility.FromJson<PlayerData>(data);
+        string data = File.ReadAllText(path + index.ToString());
+        playerData = JsonUtility.FromJson<PlayerData>(data);
+    }
+
+
+    //기본정보들 저장 / 불러오기
+    public void DefaultSaveData()
+    {
+        playerData.playerWaterReserves = 5; //물보유량
+        playerData.currentStage = 1; //스테이지
+        //저장할것들....추가하면 됨
+        string data = JsonUtility.ToJson(playerData);
+        File.WriteAllText(path + "DefaultPlayerData", data);
+    }
+    public void DefaultLoadData()
+    {
+        string defaultData = File.ReadAllText(path + "DefaultPlayerData");
+        playerData = JsonUtility.FromJson<PlayerData>(defaultData);
+    }
+
+    //챕터별 저장 / 불러오기
+    public void StageSaveData(int curWater, int stage) 
+    {
+        playerData.playerWaterReserves = curWater; //물보유량
+        //저장할것들....추가하면 됨
+        string stageData = JsonUtility.ToJson(playerData);
+        File.WriteAllText(path + "StagePlayerData" + stage.ToString(), stageData);
+    }
+    public void StageLoadData(int stage)
+    {
+        string stageData = File.ReadAllText(path + "StagePlayerData" + stage.ToString());
+        playerData = JsonUtility.FromJson<PlayerData>(stageData);
     }
 }
