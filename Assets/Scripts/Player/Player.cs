@@ -349,6 +349,7 @@ public class Player : MonoBehaviour
             myConnection.isPlayerAttached = false;
             newSeg.GetComponent<RopeSegment>().isPlayerAttached = true;
             hj.connectedBody = newSeg.GetComponent<Rigidbody2D>();
+            anim.SetTrigger("isRopeClimb");
         }
     }
 
