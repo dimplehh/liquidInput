@@ -17,23 +17,23 @@ public class MainCamera : MonoBehaviour
     }
 
     //start,end 스테이지 2되면 null 처리되서 start할때 불러와야할듯 
-    //void LateUpdate()
-    //{
-    //    if (start.position.x < target.position.x && target.position.x < end.position.x)
-    //    {
-    //        if (go.GetComponent<Player>().anim.GetBool("canStepup"))
-    //        {
-    //            if (transform.position.x < go.GetComponent<Player>().tempVec.x + offset.x && transform.position.y < go.GetComponent<Player>().tempVec.y + offset.y)
-    //                transform.position += new Vector3(1f * Time.deltaTime, 2f * Time.deltaTime, 0);
-    //        }
-    //        else
-    //        {
-    //            transform.position = target.position + offset;
-    //        }
-    //    }
-    //    else if (start.position.x >= target.position.x)
-    //        transform.position = new Vector3(start.position.x, target.position.y, target.position.z) + offset;
-    //    else if (target.position.x >= end.position.x)
-    //        transform.position = new Vector3(end.position.x, target.position.y, target.position.z) + offset;
-    //}
+    void LateUpdate()
+    {
+        if (start.position.x < target.position.x && target.position.x < end.position.x)
+        {
+            if (go.GetComponent<Player>().anim.GetBool("canStepup"))
+            {
+                if (transform.position.x < go.GetComponent<Player>().tempVec.x + offset.x && transform.position.y < go.GetComponent<Player>().tempVec.y + offset.y)
+                    transform.position += new Vector3(1f * Time.deltaTime, 2f * Time.deltaTime, 0);
+            }
+            else
+            {
+                transform.position = target.position + offset;
+            }
+        }
+        else if (start.position.x >= target.position.x)
+            transform.position = new Vector3(start.position.x, target.position.y, target.position.z) + offset;
+        else if (target.position.x >= end.position.x)
+            transform.position = new Vector3(end.position.x, target.position.y, target.position.z) + offset;
+    }
 }
