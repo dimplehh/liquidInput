@@ -121,7 +121,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButton("Horizontal") && !canGrab && !attached)
         {
-             if (anim.GetBool("inLadder") && this.tag =="inLadder")
+             if (anim.GetBool("inLadder") && (this.tag =="inLadder" || this.tag == "inSafetyZone"))
             {
                 spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == 1;
             }
@@ -307,6 +307,7 @@ public class Player : MonoBehaviour
         hj.enabled = true;
         attached = true;
         anim.SetBool("inRope", true);
+        hj.anchor = (spriteRenderer.flipX) ? new Vector2(-0.3f, 0.0f) : new Vector2(0.3f, 0.0f);
         attachedTo = ropeBone.gameObject.transform.parent;
     }
     void Detach()
@@ -317,6 +318,7 @@ public class Player : MonoBehaviour
         hj.connectedBody = null;
         anim.SetBool("inRope", false);
         rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+        hj.anchor = new Vector2(0, 0);
         StartCoroutine("ChangeAttachedTo");
     }
 
