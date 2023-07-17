@@ -7,9 +7,9 @@ public class PlayerData
 {
     public float playerXPos; //플레이어 x축 위치
     public float playerWaterReserves; //플레이어 물 보유량
-    public float mapXPos; //맵 x축 위치
     public int currentStage; //현재 스테이지 정보
     public int index; //저장 위치
+    public float goodGauge; //선행게이지
 }
 public class GameData
 {
