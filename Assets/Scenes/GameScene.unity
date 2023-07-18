@@ -128,11 +128,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 229069579, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
   m_PrefabInstance: {fileID: 1799666345}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &255379381 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 255379381, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
-  m_PrefabInstance: {fileID: 1799666345}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &323128086 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1359615958, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
@@ -703,11 +698,11 @@ PrefabInstance:
     - target: {fileID: 1583315255, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
       propertyPath: SaveAndLoadPanel
       value: 
-      objectReference: {fileID: 255379381}
+      objectReference: {fileID: 0}
     - target: {fileID: 1767160380, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
       propertyPath: SaveAndLoadPanel
       value: 
-      objectReference: {fileID: 255379381}
+      objectReference: {fileID: 0}
     - target: {fileID: 1775497699, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -891,7 +886,7 @@ PrefabInstance:
     - target: {fileID: 8469399076951098125, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
       propertyPath: SaveAndLoadPanel
       value: 
-      objectReference: {fileID: 255379381}
+      objectReference: {fileID: 0}
     - target: {fileID: 8562302870058807996, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1012,7 +1007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5100866402947384372, guid: e332b22b8b68b5a44a28981c3f79861f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5100866402947384372, guid: e332b22b8b68b5a44a28981c3f79861f, type: 3}
       propertyPath: m_LocalPosition.y
