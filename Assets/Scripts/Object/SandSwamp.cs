@@ -54,7 +54,7 @@ public class SandSwamp : MonoBehaviour
     {
         if (isDown && GameManager.instance.isPlay && downLoad.transform.position.y >= deadLoad.transform.position.y - 1)
         {
-            downLoad.transform.position = downLoad.transform.position + new Vector3(0, -0.002f, 0);
+            downLoad.transform.position = downLoad.transform.position + new Vector3(0, -0.005f, 0);
         }
     }
 

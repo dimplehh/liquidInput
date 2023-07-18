@@ -384,7 +384,8 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Platform") && isSlow)
+        Debug.Log(other.name + "(" + other.tag + ")");
+        if ((other.gameObject.CompareTag("Platform")) && isSlow)
         {
             isSlow = false;
         }
