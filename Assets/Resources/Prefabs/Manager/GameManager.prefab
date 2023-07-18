@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sandBoxGridPrefab: {fileID: 3767264360502089245, guid: 27103f8a497277a458eacf6b41218bd5, type: 3}
+  gameOver: 0
   gridGroup: {fileID: 0}
   gameOverPanel: {fileID: 0}
   curWaterReserves: 0
@@ -53,4 +54,5 @@ MonoBehaviour:
   curWaterReservesTxt: {fileID: 0}
   player: {fileID: 0}
   isPlay: 0
-  currentStage: 0
+  isNonAutoSave: 0
+  SaveAndLoadPanel: {fileID: 0}

@@ -30,7 +30,14 @@ public class GameManager : MonoBehaviour
 
     public bool isPlay = false;
     public bool isNonAutoSave = false; //메뉴창에서는 로드만 되고 세이브존에서는 저장만되게
+    
+    
+    public GameObject SaveAndLoadPanel; //불러오기창
 
+    public void IsNonAutoSave() 
+    {
+        isNonAutoSave = false;
+    }
     public void HomeButton()
     {
         LoadingSceneController.Instance.LoadScene("HomeScene");

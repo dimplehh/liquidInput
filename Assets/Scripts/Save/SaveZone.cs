@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SaveZone : Zone
 {
-    public GameObject SaveAndLoadPanel;
+    
     
     protected override void Start()
     {
@@ -26,7 +26,7 @@ public class SaveZone : Zone
         {
             if (Input.GetKey(KeyCode.X) && isSave)
             {
-                SaveAndLoadPanel.SetActive(true);
+                GameManager.instance.SaveAndLoadPanel.SetActive(true);
             }
         }
     }

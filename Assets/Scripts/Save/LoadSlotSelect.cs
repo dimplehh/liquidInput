@@ -52,7 +52,6 @@ public class LoadSlotSelect : MonoBehaviour
                 if (num != 0) //0번슬롯은 저장못함
                 {
                     Save(num);
-                    GameManager.instance.isNonAutoSave = false; //저장시키고 false로 바꿔줘야 세이브존에서 저장후 그대로 메뉴에서 불러오기해도 적용안됨
                     return;
                 }
                 
@@ -71,7 +70,6 @@ public class LoadSlotSelect : MonoBehaviour
                     if (num != 0) //0번슬롯은 저장못함
                     {
                         Save(num);
-                        GameManager.instance.isNonAutoSave = false;
                         return;
                     }
                 }   
