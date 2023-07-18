@@ -26,7 +26,7 @@ public class StageManager : MonoBehaviour
     private void Start()
     {
         //최종 스테이지 초기화 (1스테이지로 초기화 할거면 주석 풀고 실행하고 다시 주석 처리하면 됨)
-        PlayerPrefs.SetInt(LAST_STAGE_KEY, 1);
+        //PlayerPrefs.SetInt(LAST_STAGE_KEY, 1);
         
         lastStageIndex = PlayerPrefs.GetInt(LAST_STAGE_KEY);
         

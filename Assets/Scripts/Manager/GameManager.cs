@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
     {
         PlayGame();
         Initialized();
+        
 
         //CreateGrid(); 
     }
