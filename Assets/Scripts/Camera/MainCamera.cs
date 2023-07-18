@@ -19,7 +19,7 @@ public class MainCamera : MonoBehaviour
     //start,end 스테이지 2되면 null 처리되서 start할때 불러와야할듯 
     void LateUpdate()
     {
-        if (start.position.x < target.position.x && target.position.x < end.position.x)
+        if (start.position.x < target.position.x /* &&  target.position.x < end.position.x*/)
         {
             if (go.GetComponent<Player>().anim.GetBool("canStepup"))
             {
