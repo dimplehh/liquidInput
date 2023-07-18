@@ -18,17 +18,20 @@ public class ShallowWater : Water
     {
         if (collision.gameObject.CompareTag("SaveZone"))
         {
-            if ((Input.GetKeyDown(KeyCode.X)))
+            if (GameManager.instance.player.GetComponent<Player>().isSlime)
             {
-                currentWaterReserves--;
-                GameManager.instance.curWaterReserves++;
-
-            }
-            if (currentWaterReserves <= 0)
-            {
-                this.gameObject.SetActive(false);
+                StartCoroutine("AbsorbWater");
             }
         }
         
+    }
+    IEnumerator AbsorbWater()
+    {
+        this.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        GameManager.instance.curWaterReserves += 2;
+        currentWaterReserves--;
+        if (currentWaterReserves == 0)
+            this.gameObject.SetActive(false);
     }
 }
