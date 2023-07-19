@@ -25,8 +25,12 @@ public class DataManager : MonoBehaviour
     private void Awake()
     {
         path = Application.persistentDataPath + "/";
+        
     }
-
+    private void Start()
+    {
+        //DefaultSaveData(); //기본정보 저장
+    }
     //슬롯 별 저장 / 불러오기
     public void SlotSaveData(int index, GameObject pos, int stage, int curWater)
     {
@@ -48,6 +52,7 @@ public class DataManager : MonoBehaviour
     {
         playerData.playerWaterReserves = 5; //물보유량
         playerData.currentStage = 1; //스테이지
+        playerData.playerXPos = -13.0f;
         //저장할것들....추가하면 됨
         string data = JsonUtility.ToJson(playerData);
         File.WriteAllText(path + "DefaultPlayerData", data);
