@@ -16,7 +16,7 @@ public class LoadSlotSelect : MonoBehaviour
         SlotSaveFileCheck();
     }
    
-    private void SlotSaveFileCheck()//슬롯별로 저장된 데이터가 존재하는지 판단
+    public void SlotSaveFileCheck()//슬롯별로 저장된 데이터가 존재하는지 판단
     {
         for (int i = 0; i < 4; i++)
         {
@@ -43,8 +43,7 @@ public class LoadSlotSelect : MonoBehaviour
         if (saveFile[num])
         {
             if(!GameManager.instance) //타이틀화면에서
-                if (num != 0)
-                    Creat();
+                Creat();
 
             //인게임에서
             if (GameManager.instance && GameManager.instance.isNonAutoSave) //세이브 존에서는 세이브만 되게 덮어씌워준다.

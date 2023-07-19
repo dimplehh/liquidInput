@@ -17,9 +17,11 @@ public class SaveZone : Zone
         {
             AutoSave(other.gameObject);
             GameManager.instance.isNonAutoSave = true;
+            GameManager.instance.loadSlotSelect.SlotSaveFileCheck();
         }
         
     }
+
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("SaveZone")) //player 안에 자식오브젝트로 saveZone이라는 태그를 가진 충돌체 생성

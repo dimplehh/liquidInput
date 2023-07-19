@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     
     
     public GameObject SaveAndLoadPanel; //불러오기창
-
+    public LoadSlotSelect loadSlotSelect; //임시
     public void IsNonAutoSave() 
     {
         isNonAutoSave = false;
