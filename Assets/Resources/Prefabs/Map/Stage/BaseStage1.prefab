@@ -6195,6 +6195,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3862882619569607198, guid: 4c38ea6b4fb16b7478c1bad9eacf0424, type: 3}
+      propertyPath: m_Mass
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c38ea6b4fb16b7478c1bad9eacf0424, type: 3}
 --- !u!4 &1586932758542159606 stripped
@@ -6271,6 +6275,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 758208638707739703}
     m_Modifications:
+    - target: {fileID: 6301208516207558016, guid: 41bae3c25a9cc1e4090f780ffc735bee, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6301208516207558029, guid: 41bae3c25a9cc1e4090f780ffc735bee, type: 3}
       propertyPath: m_Name
       value: Box1
@@ -7219,6 +7227,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 758208638707739703}
     m_Modifications:
+    - target: {fileID: 1325210881537466478, guid: 021a0c16157a6b04683dddc141491939, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 76.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 1325210881537466478, guid: 021a0c16157a6b04683dddc141491939, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 7.6248703
+      objectReference: {fileID: 0}
     - target: {fileID: 7237145546709048357, guid: 021a0c16157a6b04683dddc141491939, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -7295,11 +7311,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1325210881537466478, guid: 18340a47ae1bf914cb955c87e83e2a18, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 153.52
+      value: 153.28
       objectReference: {fileID: 0}
     - target: {fileID: 1325210881537466478, guid: 18340a47ae1bf914cb955c87e83e2a18, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 12.74487
+      value: 1.8048708
       objectReference: {fileID: 0}
     - target: {fileID: 9158846754184422332, guid: 18340a47ae1bf914cb955c87e83e2a18, type: 3}
       propertyPath: m_Name

@@ -917,6 +917,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1586932758542159606, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2382149001157125952, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -938,6 +942,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3130871319350177193, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406174653871863173, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1016,6 +1024,30 @@ PrefabInstance:
     - target: {fileID: 8917091881238270905, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
       propertyPath: m_Offset.y
       value: 0.04257399
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185787229319804034, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: m_Mass
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185787229319804035, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8848667
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185787229319804035, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.04331112
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185787229319804045, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: pullSpeed
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185787229319804045, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: pushSpeed
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185787229319804047, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: m_TagString
+      value: Pushable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
