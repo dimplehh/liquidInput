@@ -250,6 +250,7 @@ public class Player : MonoBehaviour
 
         }
     }
+
     private void SlimeTimeCheck()
     {
         if (isSlime)
@@ -259,7 +260,7 @@ public class Player : MonoBehaviour
             {
                 curSlimeTime = 0;
                 this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.04f);
-                this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.81f, 2.37f);
+                this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.81f, 2.37f); //player collider 크기 수정
                 isSlime = false;
                 isFlicker = false;
                 anim.SetBool("IsSlime", false);
@@ -267,10 +268,18 @@ public class Player : MonoBehaviour
             
             if(curSlimeTime >= maxSlimeTime * 0.9) //인간으로 돌아가기 1초전
             {
-                Debug.Log("반짝임");
                 isFlicker = true;
+                Flickering(curSlimeTime - 9);
             }
         }
+    }
+
+    private void Flickering(float time)
+    {
+        if (time < 0.2f || 0.4f <= time && time < 0.6f || 0.8f <= time)
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
+        else
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
     }
 
     private void Die()
