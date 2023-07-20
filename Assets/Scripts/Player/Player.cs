@@ -236,6 +236,8 @@ public class Player : MonoBehaviour
             if(!isSlime && !isFlicker && anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
             {
                 GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(StageManager.instance.currentStageIndex); //코드가 별로임... 너무 안이뻐..
+                this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.75f);
+                this.GetComponent<CapsuleCollider2D>().size= new Vector2(0.81f, 0.94f);
                 isSlime = true;
                 anim.SetBool("IsSlime", true);
             }
@@ -256,6 +258,8 @@ public class Player : MonoBehaviour
             if (curSlimeTime >= maxSlimeTime)
             {
                 curSlimeTime = 0;
+                this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.04f);
+                this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.81f, 2.37f);
                 isSlime = false;
                 isFlicker = false;
                 anim.SetBool("IsSlime", false);

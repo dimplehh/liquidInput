@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class DangerZone : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
