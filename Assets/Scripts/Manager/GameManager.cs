@@ -98,10 +98,9 @@ public class GameManager : MonoBehaviour
     private void Initialized()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        //player.transform.position = new Vector3(Managers.Data.playerData.playerXPos,0,0);
-        player.transform.position = new Vector3(58, 1);
-        //curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
-        curWaterReserves = 5 ; //test¿ë
+        Debug.Log(Managers.Data.playerData.playerXPos);
+        player.transform.position = new Vector3(Managers.Data.playerData.playerXPos,0,0);
+        curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
     }
     private void LateUpdate()
     {
