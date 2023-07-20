@@ -2779,10 +2779,38 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1581862257}
+    - target: {fileID: 1924317550340529357, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924317550340529357, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924317550340529357, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924317550340529357, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: IsNonAutoSave
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924317550340529357, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924317550340529357, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1924317550842877842, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1581862257}
+    - target: {fileID: 3265494140166674410, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
+      propertyPath: m_Text
+      value: "\uC218\uB3D9 \uC138\uC774\uBE0C"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
 --- !u!114 &6604550218950087243 stripped

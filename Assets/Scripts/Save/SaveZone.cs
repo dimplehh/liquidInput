@@ -16,7 +16,6 @@ public class SaveZone : Zone
         if (other.gameObject.CompareTag("SaveZone"))
         {
             AutoSave(other.gameObject);
-            GameManager.instance.isNonAutoSave = true;
             GameManager.instance.loadSlotSelect.SlotSaveFileCheck();
         }
         
@@ -28,6 +27,7 @@ public class SaveZone : Zone
         {
             if (Input.GetKey(KeyCode.X) && isSave)
             {
+                GameManager.instance.isNonAutoSave = true;
                 GameManager.instance.SaveAndLoadPanel.SetActive(true);
             }
         }
