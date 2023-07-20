@@ -237,6 +237,7 @@ public class Player : MonoBehaviour
             {
                 GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(StageManager.instance.currentStageIndex); //코드가 별로임... 너무 안이뻐..
                 isSlime = true;
+                this.tag = "Slime";
                 anim.SetBool("IsSlime", true);
             }
             else if (isSlime && isFlicker)
@@ -256,6 +257,7 @@ public class Player : MonoBehaviour
             if (curSlimeTime >= maxSlimeTime)
             {
                 curSlimeTime = 0;
+                this.tag = "Player";
                 isSlime = false;
                 isFlicker = false;
                 anim.SetBool("IsSlime", false);
@@ -361,7 +363,7 @@ public class Player : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
         //바닥과 닿았는지 체크 후 점프 가능한 상태로 만들어줌
-        if (collision.gameObject.CompareTag("Platform") && !isSlime)
+        if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill")) && !isSlime)
         {
             isGround = true;
         }
@@ -385,7 +387,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform") && !isSlime)
+        if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill")) && !isSlime)
             isGround = false;
     }
 
@@ -436,7 +438,7 @@ public class Player : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D other)
     {
-            if (other.gameObject.layer == 7)
+        if (other.gameObject.layer == 7)
         {
             LadderOut();
             this.gameObject.tag = "Player";
@@ -452,6 +454,11 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Hill"))
         {
             isHill = false;
+        }
+        if (other.gameObject.CompareTag("SandSwamp"))
+        {
+            isSlow = false;
+            Debug.Log("늪 나왔다");
         }
     }
     void LadderOut()
