@@ -6,11 +6,11 @@ public class Obstacle : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Player player = collision.gameObject.GetComponent<Player>();
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "SaveZone")
         {
-            if(player != null && !player.isSlime)
+            if (!GameManager.instance.player.GetComponent<Player>().isSlime)
             {
+                GameManager.instance.player.GetComponent<Player>().anim.Play("Die");
                 GameManager.instance.curWaterReserves = 0;
             }
         }

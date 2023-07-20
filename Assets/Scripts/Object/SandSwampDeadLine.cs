@@ -11,18 +11,11 @@ public class SandSwampDeadLine : MonoBehaviour
         if (other.gameObject.CompareTag("SaveZone"))
         {
             Debug.Log("»ç¸Á");
-            GameManager.instance.player.GetComponent<Player>().anim.SetBool("isDie", true);
-            StartCoroutine("GameOver");
+            GameManager.instance.curWaterReserves = 0;
         }
         //if (other.gameObject.CompareTag("SwampDown"))
         //{
         //    downLoad.GetComponent<SandSwamp>().isDown = true;
         //}
-    }
-    IEnumerator GameOver()
-    {
-        yield return new WaitForSeconds(2.0f);
-        GameManager.instance.isPlay = false;
-        GameManager.instance.OpenGameOver();
     }
 }

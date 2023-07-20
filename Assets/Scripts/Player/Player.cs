@@ -95,6 +95,11 @@ public class Player : MonoBehaviour
             realMaxSpeed = 10f;
             anim.SetBool("IsRun", true);
         }
+        else if (Input.GetKey(KeyCode.LeftShift) && isHill)
+        {
+            realMaxSpeed = 7f;
+            anim.SetBool("IsRun", true);
+        }
         else
         {
             realMaxSpeed = maxSpeed;
@@ -286,9 +291,10 @@ public class Player : MonoBehaviour
     {
         if(GameManager.instance.curWaterReserves <= 0 && !isSlime) //현재 시작 물보유량이 0이어서 test용         //if (GameManager.instance.curWaterReserves <= 0)
         {
+            Debug.Log("이제 죽을거야");
+            anim.SetBool("isDie", true);
             GameManager.instance.OpenGameOver();
             GameManager.instance.isPlay = false;
-            anim.SetBool("isDie", true);
         }
     }
 
@@ -404,6 +410,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other.name +"(" +other.tag + ")");
         if ((other.gameObject.CompareTag("Platform")) && isSlow)
         {
             isSlow = false;

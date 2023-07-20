@@ -25,7 +25,6 @@ public class SandSwamp : MonoBehaviour
         {
             if (!GameManager.instance.player.GetComponent<Player>().isSlime)
             {
-                Debug.Log("»ç¶÷ÀÓ");
                 isTriggerPlayer = true;
             }
         }
