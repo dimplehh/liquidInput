@@ -20,9 +20,9 @@ public class PlayerPush : MonoBehaviour
         Physics2D.queriesStartInColliders = false;
         int right = (player.spriteRenderer.flipX) ? -1 : 1;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(right, 0) * transform.localScale.x, distance, boxMask);
-        if (hit.collider != null && hit.collider.gameObject.layer == 12 && Input.GetKey(KeyCode.X))
+        if (hit.collider != null && hit.collider.gameObject.layer == 12 && player.canGrab)
         {
-            player.canGrab = true;
+            //player.canGrab = true;
             box = hit.collider.gameObject;
             box.GetComponent<Rigidbody2D>().mass = 1;
             box.GetComponent<FixedJoint2D>().enabled = true;
@@ -46,11 +46,11 @@ public class PlayerPush : MonoBehaviour
                 player.spriteRenderer.flipX = true;
             }
         }
-        else if (box != null && Input.GetKeyUp(KeyCode.X))
+        else if (box != null && !player.canGrab)
         {
             box.GetComponent<Rigidbody2D>().mass = 100;
             box.GetComponent<FixedJoint2D>().enabled = false;
-            player.canGrab = false;
+            //player.canGrab = false;
         }
     }
 }

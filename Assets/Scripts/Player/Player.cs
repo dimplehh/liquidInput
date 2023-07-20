@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,14 +13,14 @@ public class Player : MonoBehaviour
     public Animator anim;
     public Vector3 tempVec;
 
-    [Header("»óÅÂ")]
+    [Header("ìƒíƒœ")]
     public bool isGround = false;
     public bool isSlime = false;
     public bool canGrab = false;
     public bool canStepup = false;
     public bool isSlow = false;
-    private bool isFlicker = false; //½½¶óÀÓ ÇüÅÂ¿¡¼­ 9ÃÊ°¡ µÇ¾úÀ» ¶§ ¹İÂ¦ÀÌ¸é¼­ À¯Àú¿¡°Ô ÀÎ°£¿¡°Ô µ¹¾Æ°£´Ù´Â Ç¥Çö
-    private bool isHill = false; //¾ğ´ö ¿À¸£±â 
+    private bool isFlicker = false; //ìŠ¬ë¼ì„ í˜•íƒœì—ì„œ 9ì´ˆê°€ ë˜ì—ˆì„ ë•Œ ë°˜ì§ì´ë©´ì„œ ìœ ì €ì—ê²Œ ì¸ê°„ì—ê²Œ ëŒì•„ê°„ë‹¤ëŠ” í‘œí˜„
+    private bool isHill = false; //ì–¸ë• ì˜¤ë¥´ê¸° 
     public Vector3 sVec;
     Vector3 ladderPosition;
     public bool pressX = true;
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     public bool attached = false;
     public Transform attachedTo;
 
-    //½½¶óÀÓ ½Ã°£ °è»ê
+    //ìŠ¬ë¼ì„ ì‹œê°„ ê³„ì‚°
     public const float maxSlimeTime = 10f;
     public float curSlimeTime;
     private void Awake()
@@ -44,23 +44,23 @@ public class Player : MonoBehaviour
     {
         if (!GameManager.instance.isPlay)
             return;
-        Turn(); //ÀÌ¹ÌÁö ÁÂ¿ìÀüÈ¯
-        Run(); //´Ş¸®±â 
-        Jump(); //Á¡ÇÁ
-        Grab();//Àâ±â
-        Climb();//»ç´Ù¸®¿À¸£±â
-        Stepup();//Àâ°í¿À¸£±â
-        Swing();//ÁÙ¹İµ¿
-        ChangeSlime(); //½½¶óÀÓ º¯½Å
-        SlimeTimeCheck(); //½½¶óÀÓ ½Ã°£ Ã¼Å©
-        Die();//°ÔÀÓ¿À¹ö Ã¼Å©
+        Turn(); //ì´ë¯¸ì§€ ì¢Œìš°ì „í™˜
+        Run(); //ë‹¬ë¦¬ê¸° 
+        Jump(); //ì í”„
+        Grab();//ì¡ê¸°
+        Climb();//ì‚¬ë‹¤ë¦¬ì˜¤ë¥´ê¸°
+        Stepup();//ì¡ê³ ì˜¤ë¥´ê¸°
+        Swing();//ì¤„ë°˜ë™
+        ChangeSlime(); //ìŠ¬ë¼ì„ ë³€ì‹ 
+        SlimeTimeCheck(); //ìŠ¬ë¼ì„ ì‹œê°„ ì²´í¬
+        Die();//ê²Œì„ì˜¤ë²„ ì²´í¬
     }
     private void FixedUpdate()
     {
         if (!GameManager.instance.isPlay)
             return;
-        Move(); //ÇÃ·¹ÀÌ¾î ÀÌµ¿
-                //JumpCheck(); //ÇÃ·¹ÀÌ¾î ¹Ù´Ú¿¡ ´ê¾ÒÀ» ¶§ Á¡ÇÁ °¡´ÉÇÑÁö Ã¼Å©
+        Move(); //í”Œë ˆì´ì–´ ì´ë™
+                //JumpCheck(); //í”Œë ˆì´ì–´ ë°”ë‹¥ì— ë‹¿ì•˜ì„ ë•Œ ì í”„ ê°€ëŠ¥í•œì§€ ì²´í¬
     }
     private void Move()
     {
@@ -75,13 +75,13 @@ public class Player : MonoBehaviour
             realMaxSpeed = maxSpeed / 1.5f;
         }
 
-        //ÇÃ·¹ÀÌ¾î ÀÌµ¿ ¼Óµµ Á¦¾î
+        //í”Œë ˆì´ì–´ ì´ë™ ì†ë„ ì œì–´
         if (rigid.velocity.x > realMaxSpeed)
             rigid.velocity = new Vector2(realMaxSpeed, rigid.velocity.y);
         else if (rigid.velocity.x < realMaxSpeed * (-1))
             rigid.velocity = new Vector2(realMaxSpeed * (-1), rigid.velocity.y);
 
-        //°È±â ¾Ö´Ï¸ŞÀÌ¼Ç
+        //ê±·ê¸° ì• ë‹ˆë©”ì´ì…˜
         if (Mathf.Abs(rigid.velocity.x) < 0.3)
             anim.SetBool("IsWalk", false);
         else if(!attached)
@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
     }
     private void Run()
     {
-        //½¬ÇÁÆ® ´­·¶À» ¶§ ´Ş¸®±â ¾Æ´Ï¸é °È±â
+        //ì‰¬í”„íŠ¸ ëˆŒë €ì„ ë•Œ ë‹¬ë¦¬ê¸° ì•„ë‹ˆë©´ ê±·ê¸°
         if (Input.GetKey(KeyCode.LeftShift) && !isSlow)
         {
             realMaxSpeed = 10f;
@@ -179,7 +179,7 @@ public class Player : MonoBehaviour
         anim.SetBool("canStepup", false);
     }
 
-    private void Climb()//»ç´Ù¸® ¿À¸£±â
+    private void Climb()//ì‚¬ë‹¤ë¦¬ ì˜¤ë¥´ê¸°
     {
         if (this.tag == "inLadder" && Input.GetKeyDown(KeyCode.X) && !anim.GetBool("inLadder"))
         {
@@ -229,13 +229,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void ChangeSlime() //½½¶óÀÓ ÇüÅÂÀÏ ¶§´Â ±ôºıÀÏ ¶§ Ã¼ÀÎÁö½½¶óÀÓ Å° ´©¸£¸é ½½¶óÀÓ ½Ã°£ 10ÃÊ Ãß°¡ ±ôºıÀÌÁö ¾ÊÀ» ¶§ ¸é¼­ ½½¶óÀÓ ÀÏ¶§´Â ºÒ°¡
+    private void ChangeSlime() //ìŠ¬ë¼ì„ í˜•íƒœì¼ ë•ŒëŠ” ê¹œë¹¡ì¼ ë•Œ ì²´ì¸ì§€ìŠ¬ë¼ì„ í‚¤ ëˆ„ë¥´ë©´ ìŠ¬ë¼ì„ ì‹œê°„ 10ì´ˆ ì¶”ê°€ ê¹œë¹¡ì´ì§€ ì•Šì„ ë•Œ ë©´ì„œ ìŠ¬ë¼ì„ ì¼ë•ŒëŠ” ë¶ˆê°€
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
             if(!isSlime && !isFlicker && anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
             {
-                GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(StageManager.instance.currentStageIndex); //ÄÚµå°¡ º°·ÎÀÓ... ³Ê¹« ¾ÈÀÌ»µ..
+                GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(StageManager.instance.currentStageIndex); //ì½”ë“œê°€ ë³„ë¡œì„... ë„ˆë¬´ ì•ˆì´ë»..
                 isSlime = true;
                 anim.SetBool("IsSlime", true);
             }
@@ -261,9 +261,9 @@ public class Player : MonoBehaviour
                 anim.SetBool("IsSlime", false);
             }
             
-            if(curSlimeTime >= maxSlimeTime * 0.9) //ÀÎ°£À¸·Î µ¹¾Æ°¡±â 1ÃÊÀü
+            if(curSlimeTime >= maxSlimeTime * 0.9) //ì¸ê°„ìœ¼ë¡œ ëŒì•„ê°€ê¸° 1ì´ˆì „
             {
-                Debug.Log("¹İÂ¦ÀÓ");
+                Debug.Log("ë°˜ì§ì„");
                 isFlicker = true;
             }
         }
@@ -271,7 +271,7 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        if(GameManager.instance.curWaterReserves <= 0 && !isSlime) //ÇöÀç ½ÃÀÛ ¹°º¸À¯·®ÀÌ 0ÀÌ¾î¼­ test¿ë         //if (GameManager.instance.curWaterReserves <= 0)
+        if(GameManager.instance.curWaterReserves <= 0 && !isSlime) //í˜„ì¬ ì‹œì‘ ë¬¼ë³´ìœ ëŸ‰ì´ 0ì´ì–´ì„œ testìš©         //if (GameManager.instance.curWaterReserves <= 0)
         {
             GameManager.instance.OpenGameOver();
             GameManager.instance.isPlay = false;
@@ -360,17 +360,25 @@ public class Player : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        //¹Ù´Ú°ú ´ê¾Ò´ÂÁö Ã¼Å© ÈÄ Á¡ÇÁ °¡´ÉÇÑ »óÅÂ·Î ¸¸µé¾îÁÜ
+        //ë°”ë‹¥ê³¼ ë‹¿ì•˜ëŠ”ì§€ ì²´í¬ í›„ ì í”„ ê°€ëŠ¥í•œ ìƒíƒœë¡œ ë§Œë“¤ì–´ì¤Œ
         if (collision.gameObject.CompareTag("Platform") && !isSlime)
         {
             isGround = true;
         }
-        //Object¸¦ ÀâÀ» ¼ö ÀÖ´Â »óÅÂÀÎÁö Ã¼Å©
-        if (collision.gameObject.tag == "Object")
+        //Objectë¥¼ ì¡ì„ ìˆ˜ ìˆëŠ” ìƒíƒœì¸ì§€ ì²´í¬
+        if (collision.gameObject.layer == 12)
         {
-            if (Input.GetKey(KeyCode.X) && !anim.GetBool("IsWalk"))
+            if (Input.GetKeyDown(KeyCode.X) && !anim.GetBool("IsWalk"))
             {
                 canGrab = true;
+            }
+            if (Input.GetKeyUp(KeyCode.X) && !anim.GetBool("IsWalk"))
+            {
+                canGrab = false;
+                realMaxSpeed = maxSpeed;
+                anim.SetBool("canGrab", false);
+                anim.SetBool("isPull", false);
+                anim.SetBool("isPush", false);
             }
         }
     }
@@ -387,7 +395,7 @@ public class Player : MonoBehaviour
         {
             isSlow = false;
         }
-        if (other.gameObject.layer == 7)//»ç´Ù¸®¿¡ ´ê¾ÒÀ» ¶§
+        if (other.gameObject.layer == 7)//ì‚¬ë‹¤ë¦¬ì— ë‹¿ì•˜ì„ ë•Œ
         {
             this.gameObject.tag = "inLadder";
             ladderPosition =other.gameObject.transform.position;
