@@ -21,7 +21,7 @@ public class SandSwamp : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))        //if (collision.gameObject.CompareTag("SaveZone"))
+        if (collision.gameObject.CompareTag("SaveZone"))        //if (collision.gameObject.CompareTag("SaveZone"))
         {
             if (!GameManager.instance.player.GetComponent<Player>().isSlime)
             {
@@ -36,12 +36,10 @@ public class SandSwamp : MonoBehaviour
         {
             if (!GameManager.instance.player.GetComponent<Player>().isSlime)
             {
-                Debug.Log("사람임");
                 isTriggerPlayer = true;
             }
             else
             {
-                Debug.Log("슬라임임");
                 isTriggerPlayer = false;
             }
         }

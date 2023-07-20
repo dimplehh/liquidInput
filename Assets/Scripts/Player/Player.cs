@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        if(isGround && !isSlime)
+        if(isGround && !isSlime && !isSlow)
         {
             if (Input.GetButtonDown("Jump"))
             {
