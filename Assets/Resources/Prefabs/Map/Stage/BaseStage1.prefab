@@ -5594,7 +5594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5668334375551391002, guid: 9cafbb7c7e6b05e4a8ad53fe1f64aa08, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5668334375551391003, guid: 9cafbb7c7e6b05e4a8ad53fe1f64aa08, type: 3}
       propertyPath: m_RootOrder
@@ -6183,6 +6183,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 758208638707739703}
     m_Modifications:
+    - target: {fileID: 526132663743036551, guid: 41bae3c25a9cc1e4090f780ffc735bee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6301208516207558016, guid: 41bae3c25a9cc1e4090f780ffc735bee, type: 3}
       propertyPath: m_Mass
       value: 3
@@ -6201,7 +6205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6301208516207558029, guid: 41bae3c25a9cc1e4090f780ffc735bee, type: 3}
       propertyPath: m_TagString
-      value: Pushable
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6301208516207558030, guid: 41bae3c25a9cc1e4090f780ffc735bee, type: 3}
       propertyPath: m_RootOrder
@@ -6889,6 +6893,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hill
       objectReference: {fileID: 0}
+    - target: {fileID: 9079815413710342131, guid: 4fe41ac8d985727428394f5035693a51, type: 3}
+      propertyPath: m_TagString
+      value: Hill
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fe41ac8d985727428394f5035693a51, type: 3}
 --- !u!4 &2555399685488337109 stripped
@@ -6949,6 +6957,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9079815413710342131, guid: 4fe41ac8d985727428394f5035693a51, type: 3}
       propertyPath: m_Name
+      value: Hill
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079815413710342131, guid: 4fe41ac8d985727428394f5035693a51, type: 3}
+      propertyPath: m_TagString
       value: Hill
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7097,9 +7109,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 758208638707739703}
     m_Modifications:
+    - target: {fileID: 7237145546709048357, guid: fd62aacefda8eac479eb919654e94b23, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9158846754184422332, guid: fd62aacefda8eac479eb919654e94b23, type: 3}
       propertyPath: m_Name
-      value: Ladder 1
+      value: Ladder
       objectReference: {fileID: 0}
     - target: {fileID: 9158846754184422335, guid: fd62aacefda8eac479eb919654e94b23, type: 3}
       propertyPath: m_RootOrder
@@ -7165,7 +7181,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1325210881537466478, guid: 021a0c16157a6b04683dddc141491939, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 7.6248703
+      value: 9.62487
+      objectReference: {fileID: 0}
+    - target: {fileID: 1325210881743527871, guid: 021a0c16157a6b04683dddc141491939, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619185447329014606, guid: 021a0c16157a6b04683dddc141491939, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522317715540645699, guid: 021a0c16157a6b04683dddc141491939, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7237145546709048357, guid: 021a0c16157a6b04683dddc141491939, type: 3}
       propertyPath: m_Enabled
@@ -7435,6 +7463,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9079815413710342131, guid: 4fe41ac8d985727428394f5035693a51, type: 3}
       propertyPath: m_Name
+      value: Hill
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079815413710342131, guid: 4fe41ac8d985727428394f5035693a51, type: 3}
+      propertyPath: m_TagString
       value: Hill
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -24,14 +24,14 @@ public class GameScene : BaseScene
     {
         base.Init();
         player = Managers.Game.Spawn("Player");
-        if(stage != 1 && GameObject.FindWithTag("Stage").name == "BaseStage1")
+        if (stage != 1 && GameObject.FindWithTag("Stage").name == "BaseStage1")
         {
             Managers.Resource.Destroy(GameObject.FindWithTag("Stage"));
             Managers.Resource.Instantiate("Map/Stage/BaseStage" + stage, s.transform);
         }
         if (GameObject.FindWithTag("Stage"))
         {
-            if(savePoint != 1)
+            if (savePoint != 1)
             {
                 GameObject.FindWithTag("Stage").transform.GetChild(0).gameObject.SetActive(false);
                 GameObject.FindWithTag("Stage").transform.GetChild(savePoint - 1).gameObject.SetActive(true);

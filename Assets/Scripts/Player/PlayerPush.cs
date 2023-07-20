@@ -19,11 +19,12 @@ public class PlayerPush : MonoBehaviour
     {
         Physics2D.queriesStartInColliders = false;
         int right = (player.spriteRenderer.flipX) ? -1 : 1;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(right, 0)* transform.localScale.x, distance, boxMask);
-        if (hit.collider != null && hit.collider.gameObject.tag == "Pushable" && Input.GetKey(KeyCode.X))
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(right, 0) * transform.localScale.x, distance, boxMask);
+        if (hit.collider != null && hit.collider.gameObject.layer == 12 && Input.GetKey(KeyCode.X))
         {
             player.canGrab = true;
-            box= hit.collider.gameObject;
+            box = hit.collider.gameObject;
+            box.GetComponent<Rigidbody2D>().mass = 1;
             box.GetComponent<FixedJoint2D>().enabled = true;
             box.GetComponent<FixedJoint2D>().connectedBody = this.GetComponent<Rigidbody2D>();
             if (player.h < 0 && this.gameObject.transform.position.x < box.transform.position.x)
@@ -45,8 +46,9 @@ public class PlayerPush : MonoBehaviour
                 player.spriteRenderer.flipX = true;
             }
         }
-        else if (hit.collider != null && hit.collider.gameObject.tag == "Pushable" && Input.GetKeyUp(KeyCode.X))
+        else if (box != null && Input.GetKeyUp(KeyCode.X))
         {
+            box.GetComponent<Rigidbody2D>().mass = 100;
             box.GetComponent<FixedJoint2D>().enabled = false;
             player.canGrab = false;
         }

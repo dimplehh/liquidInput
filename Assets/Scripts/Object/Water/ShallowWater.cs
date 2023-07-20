@@ -28,7 +28,7 @@ public class ShallowWater : Water
     IEnumerator AbsorbWater()
     {
         this.gameObject.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         GameManager.instance.curWaterReserves += 2;
         currentWaterReserves--;
         if (currentWaterReserves == 0)

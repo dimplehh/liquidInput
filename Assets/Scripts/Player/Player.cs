@@ -70,12 +70,11 @@ public class Player : MonoBehaviour
             rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
         }
         if (isSlow) realMaxSpeed = maxSpeed / 2.5f;
-        //if (isHill)
-        //{
-        //    if (h == 0) rigid.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-        //    else rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
-        //}
-        
+        else if (isHill)
+        {
+            realMaxSpeed = maxSpeed / 1.5f;
+        }
+
         //플레이어 이동 속도 제어
         if (rigid.velocity.x > realMaxSpeed)
             rigid.velocity = new Vector2(realMaxSpeed, rigid.velocity.y);
@@ -138,7 +137,7 @@ public class Player : MonoBehaviour
         {
             if (canGrab)
             {
-                realMaxSpeed = 1f;
+                realMaxSpeed = 1.5f;
                 anim.SetBool("canGrab", true);
             }
         }
@@ -384,7 +383,6 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.name + "(" + other.tag + ")");
         if ((other.gameObject.CompareTag("Platform")) && isSlow)
         {
             isSlow = false;
@@ -403,10 +401,10 @@ public class Player : MonoBehaviour
             this.gameObject.tag = "inStepupZone";
             sVec = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y, 0);
         }
-        //if (other.gameObject.CompareTag("Hill"))
-        //{
-        //    isHill = true;
-        //}
+        if (other.gameObject.CompareTag("Hill"))
+        {
+            isHill = true;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -417,6 +415,7 @@ public class Player : MonoBehaviour
         }
         if (!attached && Input.GetKeyDown(KeyCode.X))
         {
+            Debug.Log(other.gameObject);
             if (other.gameObject.tag == "Rope")
             {
                 if (attachedTo != other.gameObject.transform.parent)
@@ -442,10 +441,10 @@ public class Player : MonoBehaviour
         {
             this.gameObject.tag = "Player";
         }
-        //if (other.gameObject.CompareTag("Hill"))
-        //{
-        //    isHill = false;
-        //}
+        if (other.gameObject.CompareTag("Hill"))
+        {
+            isHill = false;
+        }
     }
     void LadderOut()
     {
