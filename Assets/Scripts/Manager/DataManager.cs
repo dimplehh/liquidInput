@@ -30,7 +30,7 @@ public class DataManager : MonoBehaviour
     }
     private void Start()
     {
-        DefaultSaveData(); //기본정보 저장
+        //DefaultSaveData(); //기본정보 저장
     }
     //슬롯 별 저장 / 불러오기
     public void SlotSaveData(int index, GameObject pos, int stage, int curWater)

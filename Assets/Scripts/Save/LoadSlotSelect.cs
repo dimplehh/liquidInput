@@ -103,8 +103,7 @@ public class LoadSlotSelect : MonoBehaviour
         }
         else
         {
-            //managers.data.defaultsavedata();
-            //managers.data.defaultloaddata(); //기본정보
+            Managers.Data.DefaultLoadData(); //기본정보
             LoadingSceneController.Instance.LoadScene("GameScene");
             Debug.Log("데이터가 없으니 새로 시작");
         }    

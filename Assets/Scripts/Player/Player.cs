@@ -293,7 +293,6 @@ public class Player : MonoBehaviour
         {
             Debug.Log("이제 죽을거야");
             anim.SetBool("isDie", true);
-            Managers.Data.nowSlot = 0;
             GameManager.instance.OpenGameOver();
             GameManager.instance.isPlay = false;
         }
