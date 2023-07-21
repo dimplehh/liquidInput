@@ -92,6 +92,7 @@ public class LoadSlotSelect : MonoBehaviour
     {
         Managers.Data.SlotLoadData(Managers.Data.nowSlot);
         LoadingSceneController.Instance.LoadScene("GameScene");
+
     }
     public void NewGame() 
     {
@@ -102,7 +103,8 @@ public class LoadSlotSelect : MonoBehaviour
         }
         else
         {
-            Managers.Data.DefaultLoadData(); //기본정보
+            //managers.data.defaultsavedata();
+            //managers.data.defaultloaddata(); //기본정보
             LoadingSceneController.Instance.LoadScene("GameScene");
             Debug.Log("데이터가 없으니 새로 시작");
         }    

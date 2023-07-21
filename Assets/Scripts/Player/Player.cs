@@ -293,6 +293,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("이제 죽을거야");
             anim.SetBool("isDie", true);
+            Managers.Data.nowSlot = 0;
             GameManager.instance.OpenGameOver();
             GameManager.instance.isPlay = false;
         }
@@ -410,7 +411,6 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.name +"(" +other.tag + ")");
         if ((other.gameObject.CompareTag("Platform")) && isSlow)
         {
             isSlow = false;
