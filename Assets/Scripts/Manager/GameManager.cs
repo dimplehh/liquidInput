@@ -137,6 +137,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(3.0f);
         gameOver = true;
+        Managers.Data.SlotLoadData(0);
         LoadingSceneController.Instance.LoadScene("GameScene");
     }
     public void OpenGameOver()
