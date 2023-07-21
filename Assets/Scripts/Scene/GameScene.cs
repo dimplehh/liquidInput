@@ -15,7 +15,7 @@ public class GameScene : BaseScene
     public int savePoint;
     void Awake()
     {
-        //stage = StageManager.instance.currentStageIndex; //시작시 저장되어있는 스테이지로 대입
+        stage = StageManager.instance.currentStageIndex; //시작시 저장되어있는 스테이지로 대입
         //stage = 1;//test용
         Init();
     }
@@ -23,6 +23,7 @@ public class GameScene : BaseScene
     protected override void Init()
     {
         base.Init();
+        Debug.Log("여기 옴");
         player = Managers.Game.Spawn("Player");
         if (stage != 1 && GameObject.FindWithTag("Stage").name == "BaseStage1")
         {
