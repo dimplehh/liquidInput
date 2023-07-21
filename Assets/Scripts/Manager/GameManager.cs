@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gridGroup;
     //------------------------------------------------------
     [SerializeField]
+    GameObject settingPanel;
+    [SerializeField]
     GameObject gameOverPanel;
     public static GameManager instance;
     //물 보유량
@@ -104,10 +106,22 @@ public class GameManager : MonoBehaviour
     }
     private void LateUpdate()
     {
+        pushZ();
         WaterReservesUI();
         if (curWaterReserves <= -2)
             StartCoroutine("OpenGameOver"); 
     }
+    private void pushZ()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            if(settingPanel.activeSelf == false)
+                settingPanel.SetActive(true);
+            else
+                settingPanel.SetActive(false);
+        }
+    }
+
     private void WaterReservesUI()
     {
         curWaterReservesTxt.text = curWaterReserves.ToString();
