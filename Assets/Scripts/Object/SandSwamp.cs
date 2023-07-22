@@ -21,7 +21,7 @@ public class SandSwamp : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("SaveZone"))        //if (collision.gameObject.CompareTag("SaveZone"))
+        if (collision.gameObject.CompareTag("SaveZone"))
         {
             if (!GameManager.instance.player.GetComponent<Player>().isSlime)
             {
@@ -32,7 +32,7 @@ public class SandSwamp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))        //if (collision.gameObject.CompareTag("SaveZone"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (!GameManager.instance.player.GetComponent<Player>().isSlime)
             {
@@ -44,7 +44,7 @@ public class SandSwamp : MonoBehaviour
             }
         }
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (isTriggerPlayer && GameManager.instance.player.GetComponent<Player>().isSlow) //플레이어가 들어왔을 때
         {

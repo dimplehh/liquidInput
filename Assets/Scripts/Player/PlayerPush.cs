@@ -29,19 +29,23 @@ public class PlayerPush : MonoBehaviour
             box.GetComponent<FixedJoint2D>().connectedBody = this.GetComponent<Rigidbody2D>();
             if (player.h < 0 && this.gameObject.transform.position.x < box.transform.position.x)
             {
+                player.anim.SetBool("isPush", false);
                 player.anim.SetBool("isPull", true);
                 player.spriteRenderer.flipX = false;
             }
             else if (player.h < 0 && this.gameObject.transform.position.x > box.transform.position.x)
             {
+                player.anim.SetBool("isPull", false);
                 player.anim.SetBool("isPush", true);
             }
             else if (player.h > 0 && this.gameObject.transform.position.x < box.transform.position.x)
             {
+                player.anim.SetBool("isPull", false);
                 player.anim.SetBool("isPush", true);
             }
             else if (player.h > 0 && this.gameObject.transform.position.x > box.transform.position.x)
             {
+                player.anim.SetBool("isPush", false);
                 player.anim.SetBool("isPull", true);
                 player.spriteRenderer.flipX = true;
             }
