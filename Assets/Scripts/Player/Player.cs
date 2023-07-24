@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     [Header("상태")]
     public bool isGround = false;
     public bool isSlime = false;
-    public bool canGrab = false;
     public bool canStepup = false;
     public bool isSlow = false;
     private bool isFlicker = false; //슬라임 형태에서 9초가 되었을 때 반짝이면서 유저에게 인간에게 돌아간다는 표현
@@ -47,7 +46,6 @@ public class Player : MonoBehaviour
         Turn(); //이미지 좌우전환
         Run(); //달리기 
         Jump(); //점프
-        Grab();//잡기
         Climb();//사다리오르기
         Stepup();//잡고오르기
         Swing();//줄반동
@@ -109,7 +107,7 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        if(isGround && !isSlime && !isSlow)
+        if(isGround && !isSlime && !isSlow && !anim.GetBool("canGrab"))
         {
             if (Input.GetButtonDown("Jump"))
             {
@@ -123,7 +121,7 @@ public class Player : MonoBehaviour
     }
     private void Turn()
     {
-        if (Input.GetButton("Horizontal") && !canGrab && !attached)
+        if (Input.GetButton("Horizontal") && !anim.GetBool("canGrab") && !attached)
         {
              if (anim.GetBool("inLadder") && (this.tag =="inLadder" || this.tag == "inSafetyZone"))
             {
@@ -133,26 +131,6 @@ public class Player : MonoBehaviour
             {
                 spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
             }
-        }
-    }
-
-    private void Grab()
-    {
-        if (Input.GetKey(KeyCode.X))
-        {
-            if (canGrab)
-            {
-                realMaxSpeed = 1.5f;
-                anim.SetBool("canGrab", true);
-            }
-        }
-        else if (Input.GetKeyUp(KeyCode.X))
-        {
-            canGrab = false;
-            realMaxSpeed = maxSpeed;
-            anim.SetBool("canGrab", false);
-            anim.SetBool("isPull", false);
-            anim.SetBool("isPush", false);
         }
     }
 
@@ -384,22 +362,6 @@ public class Player : MonoBehaviour
         {
             isGround = true;
         }
-        //Object를 잡을 수 있는 상태인지 체크
-        if (collision.gameObject.layer == 12)
-        {
-            if (Input.GetKeyDown(KeyCode.X) && !anim.GetBool("IsWalk"))
-            {
-                canGrab = true;
-            }
-            if (Input.GetKeyUp(KeyCode.X) && !anim.GetBool("IsWalk"))
-            {
-                canGrab = false;
-                realMaxSpeed = maxSpeed;
-                anim.SetBool("canGrab", false);
-                anim.SetBool("isPull", false);
-                anim.SetBool("isPush", false);
-            }
-        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -442,7 +404,6 @@ public class Player : MonoBehaviour
         }
         if (!attached && Input.GetKeyDown(KeyCode.X))
         {
-            Debug.Log(other.gameObject);
             if (other.gameObject.tag == "Rope")
             {
                 if (attachedTo != other.gameObject.transform.parent)
