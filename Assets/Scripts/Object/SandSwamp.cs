@@ -11,6 +11,7 @@ public class SandSwamp : MonoBehaviour
     private float downSpeed = 0.3f;
     private float initDownSpeed = 0.3f;
     public bool isDown = false;
+    float time = 0;
 
     private void Start()
     {
@@ -26,6 +27,18 @@ public class SandSwamp : MonoBehaviour
             if (!GameManager.instance.player.GetComponent<Player>().isSlime)
             {
                 isTriggerPlayer = true;
+            }
+        }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            if (GameManager.instance.player.GetComponent<Player>().isSlime)
+            {
+                time += Time.deltaTime;
+                if(time >= 1.0f)
+                {
+                    GameManager.instance.curWaterReserves -= 1;
+                    time = 0f;
+                }
             }
         }
     }
