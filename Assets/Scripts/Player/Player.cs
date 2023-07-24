@@ -62,7 +62,6 @@ public class Player : MonoBehaviour
     }
     private void Move()
     {
-        Debug.Log(rigid.velocity.x);
         if (!anim.GetBool("inLadder"))
         {
             h = Input.GetAxisRaw("Horizontal");
@@ -277,39 +276,34 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
                 Detach();
-            else if (Input.GetKeyDown(KeyCode.A))
-            {
-                rigid.AddRelativeForce(new Vector3(-1, 0, 0) * pushForce);
-            }
-            else if (Input.GetKeyDown(KeyCode.D))
-            {
-                rigid.AddRelativeForce(new Vector3(1, 0, 0) * pushForce);
-            }
-            else if (Input.GetKeyDown(KeyCode.W))
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
                 Slide(1);
-            else if (Input.GetKeyDown(KeyCode.S))
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
                 Slide(-1);
         }
     }
     public void Attach(Rigidbody2D ropeBone)
     {
+        rigid.constraints =RigidbodyConstraints2D.None;
+        hj.anchor = (spriteRenderer.flipX) ? new Vector2(-0.3f, 0.5f) : new Vector2(0.3f, 0.5f);
         ropeBone.gameObject.GetComponent<RopeSegment>().isPlayerAttached = true;
         hj.connectedBody = ropeBone;
         hj.enabled = true;
         attached = true;
         anim.SetBool("inRope", true);
-        hj.anchor = (spriteRenderer.flipX) ? new Vector2(-0.3f, 0.0f) : new Vector2(0.3f, 0.0f);
         attachedTo = ropeBone.gameObject.transform.parent;
     }
     void Detach()
     {
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
+        hj.anchor = new Vector2(0, 0);
         hj.connectedBody.gameObject.GetComponent<RopeSegment>().isPlayerAttached = false;
         attached = false;
         hj.enabled = false;
         hj.connectedBody = null;
         anim.SetBool("inRope", false);
         rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-        hj.anchor = new Vector2(0, 0);
         StartCoroutine("ChangeAttachedTo");
     }
 

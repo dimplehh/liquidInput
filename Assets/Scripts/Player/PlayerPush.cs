@@ -23,7 +23,7 @@ public class PlayerPush : MonoBehaviour
         if (hit.collider != null && hit.collider.gameObject.layer == 12 && Input.GetKey(KeyCode.X))
         {
             box = hit.collider.gameObject;
-            box.GetComponent<Rigidbody2D>().mass = 1;
+            box.GetComponent<Rigidbody2D>().mass = 2;
             box.GetComponent<FixedJoint2D>().enabled = true;
             box.GetComponent<FixedJoint2D>().connectedBody = this.GetComponent<Rigidbody2D>();
             player.anim.SetBool("canGrab", true); player.anim.SetBool("IsWalk", false);
