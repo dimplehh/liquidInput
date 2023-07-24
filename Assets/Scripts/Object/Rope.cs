@@ -17,14 +17,12 @@ public class Rope : MonoBehaviour
         for(int i = 0; i < numLinks; i++)
         {
             int index ;
-            if(i < 4)
-                index = i;
-            else if(numLinks - 5 <= i && i < numLinks - 1)
+            if(numLinks - 5 <= i && i < numLinks - 1)
                 index = prefabRopeSegs.Length - 2;
             else if (i == numLinks - 1)
                 index = prefabRopeSegs.Length - 1;
             else
-                index = 4;//index = Random.Range(4, prefabRopeSegs.Length - 1);
+                index = 0;//index = Random.Range(4, prefabRopeSegs.Length - 1);
             GameObject newSeg = Instantiate(prefabRopeSegs[index]);
             newSeg.transform.parent = transform;
             newSeg.transform.position = transform.position;
