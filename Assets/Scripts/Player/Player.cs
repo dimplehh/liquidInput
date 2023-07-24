@@ -62,16 +62,16 @@ public class Player : MonoBehaviour
     }
     private void Move()
     {
+        Debug.Log(rigid.velocity.x);
         if (!anim.GetBool("inLadder"))
         {
             h = Input.GetAxisRaw("Horizontal");
-            rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
+            if(isHill)
+                rigid.AddForce(Vector2.right * h * 0.9f, ForceMode2D.Impulse);
+            else
+                rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
         }
         if (isSlow) realMaxSpeed = maxSpeed / 2.5f;
-        else if (isHill)
-        {
-            realMaxSpeed = maxSpeed / 1.5f;
-        }
 
         //플레이어 이동 속도 제어
         if (rigid.velocity.x > realMaxSpeed)
@@ -91,11 +91,6 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && !isSlow)
         {
             realMaxSpeed = 10f;
-            anim.SetBool("IsRun", true);
-        }
-        else if (Input.GetKey(KeyCode.LeftShift) && isHill)
-        {
-            realMaxSpeed = 7f;
             anim.SetBool("IsRun", true);
         }
         else
