@@ -17,7 +17,8 @@ public class Poison : MonoBehaviour
             else
             {
                 GameManager.instance.player.GetComponent<Player>().anim.Play("Die");
-                GameManager.instance.curWaterReserves = 0;
+                GameManager.instance.OpenGameOver();
+                GameManager.instance.isPlay = false;
             }
         }
     }

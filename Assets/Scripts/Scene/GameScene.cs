@@ -15,8 +15,8 @@ public class GameScene : BaseScene
     public int savePoint;
     void Awake()
     {
-        stage = StageManager.instance.currentStageIndex; //시작시 저장되어있는 스테이지로 대입
-        //stage = 1;//test용
+        //stage = StageManager.instance.currentStageIndex; //시작시 저장되어있는 스테이지로 대입
+        stage = 1;//test용
         Init();
     }
 

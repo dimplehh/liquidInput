@@ -11,7 +11,8 @@ public class Obstacle : MonoBehaviour
             if (!GameManager.instance.player.GetComponent<Player>().isSlime)
             {
                 GameManager.instance.player.GetComponent<Player>().anim.Play("Die");
-                GameManager.instance.curWaterReserves = 0;
+                GameManager.instance.OpenGameOver();
+                GameManager.instance.isPlay = false;
             }
         }
     }

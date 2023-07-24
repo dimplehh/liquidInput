@@ -100,7 +100,6 @@ public class GameManager : MonoBehaviour
     private void Initialized()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        Debug.Log(Managers.Data.playerData.playerXPos);
         player.transform.position = new Vector3(Managers.Data.playerData.playerXPos, 0, 0);
         curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
     }
