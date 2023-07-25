@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerPush : MonoBehaviour
 {
-    public float distance = 0.35f;
+    public float distance = 0.2f;
     public LayerMask boxMask;
     GameObject box;
     Player player;

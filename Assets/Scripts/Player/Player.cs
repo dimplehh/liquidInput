@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public float pushForce;
     public bool attached = false;
     public Transform attachedTo;
+    public float playerHeight;
 
     //슬라임 시간 계산
     public const float maxSlimeTime = 10f;
@@ -353,6 +354,13 @@ public class Player : MonoBehaviour
         if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill")) && !isSlime)
         {
             isGround = true;
+            if(this.playerHeight > gameObject.transform.position.y + 5.0f)//추락사 (일단 5.0f)
+            {
+                if(!isSlime)anim.Play("Die");
+                GameManager.instance.OpenGameOver();
+                GameManager.instance.isPlay = false;
+            }
+            this.playerHeight = gameObject.transform.position.y;
         }
     }
 
