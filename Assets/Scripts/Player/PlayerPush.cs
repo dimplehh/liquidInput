@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerPush : MonoBehaviour
 {
-    public float distance = 0.2f;
+    public float distance = 0.001f; // 레이캐스트 길이 어떻게 더 줄이는거지..?
     public LayerMask boxMask;
     GameObject box;
     Player player;
@@ -20,7 +20,8 @@ public class PlayerPush : MonoBehaviour
         Physics2D.queriesStartInColliders = false;
         int right = (player.spriteRenderer.flipX) ? -1 : 1;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(right, 0) * transform.localScale.x, distance, boxMask);
-        if (hit.collider != null && hit.collider.gameObject.layer == 12 && Input.GetKey(KeyCode.X))
+        if (hit.collider != null && hit.collider.gameObject.layer == 12
+            && Mathf.Abs(hit.collider.gameObject.transform.position.x - this.gameObject.transform.position.x) <= 1.2f && Input.GetKey(KeyCode.X))
         {
             box = hit.collider.gameObject;
             box.GetComponent<Rigidbody2D>().mass = 2;
@@ -62,4 +63,9 @@ public class PlayerPush : MonoBehaviour
             player.anim.SetBool("isPull", false);
         }
     }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * transform.localScale.x * 0.05f);
+    //}
 }

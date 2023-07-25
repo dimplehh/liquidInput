@@ -127,6 +127,7 @@ MonoBehaviour:
   pushForce: 30
   attached: 0
   attachedTo: {fileID: 0}
+  playerHeight: 0
   curSlimeTime: 0
 --- !u!50 &3944498665559805125
 Rigidbody2D:
@@ -260,8 +261,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -1
-    m_UpperAngle: 1
+    m_LowerAngle: -0.05
+    m_UpperAngle: 0.05
 --- !u!70 &2778109496468394860
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -339,7 +340,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02390939, y: 0.05646062}
+  m_Offset: {x: 0.036771923, y: 0.05646062}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -350,5 +351,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2389723, y: 2.092113}
+  m_Size: {x: 0.91571766, y: 2.092113}
   m_EdgeRadius: 0

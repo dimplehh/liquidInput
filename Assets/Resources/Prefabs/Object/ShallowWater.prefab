@@ -375,6 +375,7 @@ MonoBehaviour:
   currentWaterReserves: 0
   maxWaterReserves: 0
   currentWaterReservesImage: {fileID: 3537382981956535810}
+  slider: {fileID: 0}
 --- !u!1 &3537382983845619109
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +415,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 7.619995, y: 0.5799866}
+  m_AnchoredPosition: {x: 7.619995, y: 0.57995605}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3537382983845619106
@@ -460,7 +461,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3537382983845619108
 MonoBehaviour:
   m_ObjectHideFlags: 0

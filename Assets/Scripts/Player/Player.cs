@@ -288,14 +288,15 @@ public class Player : MonoBehaviour
     }
     public void Attach(Rigidbody2D ropeBone)
     {
-        rigid.constraints =RigidbodyConstraints2D.None;
+        attached = true;
+        anim.SetBool("inRope", true);
+        anim.Play("RopeIdle");
         hj.anchor = (spriteRenderer.flipX) ? new Vector2(-0.3f, 0.5f) : new Vector2(0.3f, 0.5f);
         ropeBone.gameObject.GetComponent<RopeSegment>().isPlayerAttached = true;
         hj.connectedBody = ropeBone;
         hj.enabled = true;
-        attached = true;
-        anim.SetBool("inRope", true);
         attachedTo = ropeBone.gameObject.transform.parent;
+        rigid.constraints = RigidbodyConstraints2D.None;
     }
     void Detach()
     {
