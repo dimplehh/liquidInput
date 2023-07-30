@@ -24,7 +24,7 @@ public class GameScene : BaseScene
     {
         base.Init();
         Debug.Log("¿©±â ¿È");
-        player = Managers.Game.Spawn("Player");
+        //player = Managers.Game.Spawn("Player");
         if (stage != 1 && GameObject.FindWithTag("Stage").name == "BaseStage1")
         {
             Managers.Resource.Destroy(GameObject.FindWithTag("Stage"));
