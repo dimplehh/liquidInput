@@ -23,7 +23,7 @@ public class DangerZone : MonoBehaviour
 
     IEnumerator ShowObstacle()
     {
-        while(this.transform.position.y < 0)
+        while(this.transform.position.y < -0.3f)
         {
             this.transform.Translate(0, 0.1f, 0);
             yield return new WaitForSeconds(0.03f);
@@ -31,10 +31,10 @@ public class DangerZone : MonoBehaviour
     }
     IEnumerator HideObstacle()
     {
-        while (this.transform.position.y > -1.2f)
+        while (this.transform.position.y > -1.0f)
         {
             this.transform.Translate(0, -0.1f, 0);
-            yield return new WaitForSeconds(0.03f);
+            yield return new WaitForSeconds(0.01f);
         }
     }
 }

@@ -357,10 +357,10 @@ public class Player : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
         //바닥과 닿았는지 체크 후 점프 가능한 상태로 만들어줌
-        if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill")) && !isSlime)
+        if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill")) || collision.gameObject.layer == 8 && !isSlime)
         {
             isGround = true;
-            if(this.playerHeight > gameObject.transform.position.y + 5.0f)//추락사 (일단 5.0f) 차후 수정 필요,
+            if(this.playerHeight > gameObject.transform.position.y + 7.0f)//추락사 (일단 5.0f) 차후 수정 필요,
             {
                 if(!isSlime)anim.Play("Die");
                 GameManager.instance.OpenGameOver();
