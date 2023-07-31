@@ -38,7 +38,8 @@ public class LoadSlotSelect : MonoBehaviour
     public void Slot(int num)
     {
         Managers.Data.nowSlot = num;
-        
+
+        Debug.Log(num + "으로 이동");
         //1. 저장된 데이터가 있을 때
         if (saveFile[num])
         {

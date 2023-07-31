@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour
     public Text curWaterReservesTxt;
     public GameObject player;
 
+    //선행게이지
+    public float successGauge = 0;
+
     public bool isPlay = false;
     public bool isNonAutoSave = false; //메뉴창에서는 로드만 되고 세이브존에서는 저장만되게
     

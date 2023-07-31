@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Water : MonoBehaviour
 {
-    [SerializeField] protected int currentWaterReserves;
+    public int currentWaterReserves;
     [SerializeField] protected int maxWaterReserves;
     [SerializeField] protected Image currentWaterReservesImage;
 
