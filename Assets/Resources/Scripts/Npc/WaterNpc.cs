@@ -15,38 +15,36 @@ public class WaterNpc : Npc
 
     public override void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.GetComponentInChildren<DeepWater>().currentWaterReserves > 0 && Input.GetKeyDown(KeyCode.X))
+        if (other.gameObject.CompareTag("Water"))
         {
-            if (interactionCount <= 0)
-                return;
-
-            interactionCount--;
-            GameManager.instance.curWaterReserves++;
-
-
-            StartCoroutine(SuccessMessege());
-            Debug.Log("물을 먹었습니다.");
-
-            if (interactionCount == 0)
+            if (!anim.GetBool("IsSuccess"))
             {
-                if (GameManager.instance.player.GetComponent<Player>().transform.position.x > gameObject.transform.position.x)
-                    gameObject.GetComponent<SpriteRenderer>().flipX = true;
-                else
-                    gameObject.GetComponent<SpriteRenderer>().flipX = false;
-
-                anim.SetBool("IsSuccess", true);
-                GameManager.instance.successGauge += successGauge;
+                Debug.Log("나는 물과 닿아있다.");
+                DeepWater water = other.gameObject.GetComponent<DeepWater>();
+                CurWaterReserves(water); //물량 체크
             }
+            
+     
         }
     }
+    private void CurWaterReserves(DeepWater deepWater)
+    {
+        interactionCount = deepWater.currentWaterReserves-1;
+        if (interactionCount <= 0)
+        {
+            interactionCount = 0;
+            if (GameManager.instance.player.GetComponent<Player>().transform.position.x > gameObject.transform.position.x)
+                gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            else
+                gameObject.GetComponent<SpriteRenderer>().flipX = false;
 
+            anim.SetBool("IsSuccess", true);
+            GameManager.instance.successGauge += successGauge;
+        }
+    }
     public override IEnumerator SuccessMessege()
     {
-        messegeImage.SetActive(true);
-        messegeTxt.text = "물을  \n" + interactionCount + "번 만 흡수하면 날 살릴 수 있어";
-        yield return new WaitForSeconds(1);
-        //SoundManager.instance.SfxPlaySound(0, transform.position);
-        messegeImage.SetActive(false);
+        yield return null;
     }
     public override IEnumerator FailMessege() //필요시 사용) 나중에 퀘스트 이런거 있으면 성공 실패구분하기 위해 
     {
