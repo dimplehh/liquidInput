@@ -32,6 +32,10 @@ public class Npc : MonoBehaviour
     {
         
     }
+    public virtual void OnTriggerExit2D(Collider2D other)
+    {
+
+    }
     public virtual IEnumerator SuccessMessege()
     {
         yield return null;

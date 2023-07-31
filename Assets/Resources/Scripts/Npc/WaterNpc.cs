@@ -13,26 +13,10 @@ public class WaterNpc : Npc
         npcDistance = 15;
     }
 
-    public override void OnTriggerStay2D(Collider2D other)
+    public override void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Water"))
         {
-            if (!anim.GetBool("IsSuccess"))
-            {
-                Debug.Log("나는 물과 닿아있다.");
-                DeepWater water = other.gameObject.GetComponent<DeepWater>();
-                CurWaterReserves(water); //물량 체크
-            }
-            
-     
-        }
-    }
-    private void CurWaterReserves(DeepWater deepWater)
-    {
-        interactionCount = deepWater.currentWaterReserves-1;
-        if (interactionCount <= 0)
-        {
-            interactionCount = 0;
             if (GameManager.instance.player.GetComponent<Player>().transform.position.x > gameObject.transform.position.x)
                 gameObject.GetComponent<SpriteRenderer>().flipX = true;
             else
@@ -40,6 +24,7 @@ public class WaterNpc : Npc
 
             anim.SetBool("IsSuccess", true);
             GameManager.instance.successGauge += successGauge;
+
         }
     }
     public override IEnumerator SuccessMessege()
