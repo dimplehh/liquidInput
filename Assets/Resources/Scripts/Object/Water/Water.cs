@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Water : MonoBehaviour
 {
     public int currentWaterReserves;
-    [SerializeField] protected int maxWaterReserves;
+    public int maxWaterReserves;
     [SerializeField] protected Image currentWaterReservesImage;
 
     protected virtual void Start()
@@ -18,6 +18,7 @@ public class Water : MonoBehaviour
     }
     protected virtual void LateUpdate()
     {
-        currentWaterReservesImage.fillAmount = (float)currentWaterReserves / (float)maxWaterReserves;
+        currentWaterReservesImage.fillAmount = Mathf.Lerp(currentWaterReservesImage.fillAmount,(float)currentWaterReserves / (float)maxWaterReserves / 1 / 1, Time.deltaTime * 5f);
+       
     }
 }
