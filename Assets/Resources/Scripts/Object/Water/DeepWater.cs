@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DeepWater : Water
 {
-
     protected override void Init()
     {
         currentWaterReserves = 0;

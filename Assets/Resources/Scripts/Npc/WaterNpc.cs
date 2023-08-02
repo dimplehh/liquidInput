@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WaterNpc : Npc
 {
+    
     public override void Start()
     {
         interactionCount = 5; //깊은 물 횟수를 받아야하고
@@ -12,7 +13,6 @@ public class WaterNpc : Npc
         target = GameObject.FindWithTag("Player").gameObject.transform;
         npcDistance = 15;
     }
-
     public override void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Water"))
