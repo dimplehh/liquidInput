@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class DeepWater : Water
 {
+<<<<<<< HEAD
     [SerializeField] protected Image currentWaterReservesImage;
 
+=======
+>>>>>>> master
     protected override void Init()
     {
         currentWaterReserves = 0;
