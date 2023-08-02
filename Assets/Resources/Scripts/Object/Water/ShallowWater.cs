@@ -13,6 +13,7 @@ public class ShallowWater : Water
         currentWaterReserves = 0;
         maxWaterReserves = 5;
         currentWaterReserves = maxWaterReserves;
+        slider.value = 0;
     }
     protected override void Start()
     {
@@ -29,26 +30,16 @@ public class ShallowWater : Water
                     time += Time.deltaTime;
                     if (time >= 0.05f)
                     {
-                        GameManager.instance.curWaterReserves += 1;
-                        currentWaterReserves--;
-                        slider.value = currentWaterReserves;
-                        if (currentWaterReserves == 0)
-                            this.gameObject.SetActive(false);
-                        time = 0f;
+                        if (currentWaterReserves > 0)
+                        {
+                            GameManager.instance.curWaterReserves += 1;
+                            currentWaterReserves--;
+                            slider.value += 1;
+                            time = 0f;
+                        }
                     }
                 }
             }
-            //StartCoroutine("AbsorbWater");
             }
         }
-        
-    //IEnumerator AbsorbWater()
-    //{
-    //    this.gameObject.SetActive(true);
-    //    yield return new WaitForSeconds(1.5f);
-    //    GameManager.instance.curWaterReserves += 2;
-    //    currentWaterReserves--;
-    //    if (currentWaterReserves == 0)
-    //        this.gameObject.SetActive(false);
-    //}
 }
