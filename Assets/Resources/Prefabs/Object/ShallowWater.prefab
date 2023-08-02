@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3537382981956535809}
   - component: {fileID: 3537382981956535810}
   - component: {fileID: 3537382981956535811}
-  - component: {fileID: 3537382981956535808}
   m_Layer: 5
   m_Name: ShallowWaterImage
   m_TagString: Untagged
@@ -104,22 +103,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 98.38488, y: 98.57897}
   m_EdgeRadius: 0
---- !u!114 &3537382981956535808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3537382981956535814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3c4ef3f11bb3a4bb0765a1e79185e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWaterReserves: 0
-  maxWaterReserves: 0
-  currentWaterReservesImage: {fileID: 3537382981956535810}
-  slider: {fileID: 0}
 --- !u!1 &3537382983845619109
 GameObject:
   m_ObjectHideFlags: 0

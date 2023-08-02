@@ -6,7 +6,7 @@ public class Water : MonoBehaviour
 {
     public int currentWaterReserves;
     [SerializeField] protected int maxWaterReserves;
-    [SerializeField] protected Image currentWaterReservesImage;
+    //[SerializeField] protected Image currentWaterReservesImage;
 
     protected virtual void Start()
     {
@@ -16,8 +16,8 @@ public class Water : MonoBehaviour
     {
         
     }
-    protected virtual void LateUpdate()
-    {
-        currentWaterReservesImage.fillAmount = (float)currentWaterReserves / (float)maxWaterReserves;
-    }
+    //protected virtual void LateUpdate()
+    //{
+    //    currentWaterReservesImage.fillAmount = (float)currentWaterReserves / (float)maxWaterReserves;
+    //}
 }
