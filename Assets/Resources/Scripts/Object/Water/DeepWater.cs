@@ -19,17 +19,14 @@ public class DeepWater : Water
     {
         if (collision.gameObject.CompareTag("SaveZone"))
         {
-            if (!GameManager.instance.player.GetComponent<Player>().isSlime) //슬라임 형태가 아닐때 
-                GameManager.instance.curWaterReserves = 0; //사망
-            else 
+            if (GameManager.instance.player.GetComponent<Player>().isSlime)
             {
-                if ((Input.GetKeyDown(KeyCode.X)))
+                if ((Input.GetKey(KeyCode.C)))
                 {
                     currentWaterReserves--;
                     GameManager.instance.curWaterReserves++;
-
                 }
-                if(currentWaterReserves <= 0)
+                if (currentWaterReserves <= 0)
                 {
                     this.gameObject.SetActive(false);
                 }

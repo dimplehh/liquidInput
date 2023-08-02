@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public bool isSlow = false;
     private bool isFlicker = false; //슬라임 형태에서 9초가 되었을 때 반짝이면서 유저에게 인간에게 돌아간다는 표현
     private bool isHill = false; //언덕 오르기 
+    public bool inWater = false;
     public Vector3 sVec;
     Vector3 ladderPosition;
     public bool pressX = true;
@@ -72,7 +73,7 @@ public class Player : MonoBehaviour
             else
                 rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
         }
-        if (isSlow) realMaxSpeed = maxSpeed / 2.5f;
+        if (isSlow || inWater) realMaxSpeed = maxSpeed / 2.5f;
 
         //플레이어 이동 속도 제어
         if (rigid.velocity.x > realMaxSpeed)
@@ -89,7 +90,7 @@ public class Player : MonoBehaviour
     private void Run()
     {
         //쉬프트 눌렀을 때 달리기 아니면 걷기
-        if (Input.GetKey(KeyCode.LeftShift) && !isSlow)
+        if (Input.GetKey(KeyCode.LeftShift) && !(isSlow || inWater))
         {
             realMaxSpeed = 10f;
             anim.SetBool("IsRun", true);
@@ -112,6 +113,14 @@ public class Player : MonoBehaviour
                     anim.SetTrigger("DoSlimeJump");
                 else
                     anim.SetTrigger("DoJump");
+            }
+        }
+        if(inWater && isSlime)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                rigid.AddForce(Vector2.up * jumpPower / 1.5f, ForceMode2D.Impulse);
+                anim.SetTrigger("DoSlimeJump");
             }
         }
     }
@@ -266,8 +275,6 @@ public class Player : MonoBehaviour
     {
         if(GameManager.instance.curWaterReserves <= 0) //현재 시작 물보유량이 0이어서 test용         //if (GameManager.instance.curWaterReserves <= 0)
         {
-            //if (isSlime)
-            //    anim.Play("SlimeDie");
             if(!isSlime)
             {
                 Debug.Log("이제 죽을거야");
@@ -367,6 +374,10 @@ public class Player : MonoBehaviour
                 GameManager.instance.isPlay = false;
             }
         }
+        if(collision.gameObject.CompareTag("Water"))
+        {
+            inWater = true;
+        }
         if((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill")))
             this.playerHeight = gameObject.transform.position.y;
     }
@@ -382,6 +393,10 @@ public class Player : MonoBehaviour
         if ((other.gameObject.CompareTag("Platform")) && isSlow)
         {
             isSlow = false;
+        }
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            inWater = false;
         }
         if (other.gameObject.layer == 7)//사다리에 닿았을 때
         {
