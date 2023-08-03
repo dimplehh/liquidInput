@@ -8,9 +8,10 @@ public class LoadSlotSelect : MonoBehaviour
 {
     public GameObject creat; //ºñ¾îÀÖ´Â ½½·ÔÀ» ´­·¶À» ¶§ ¶ß´Â Ã¢
     public Text[] slotTxt;
-    //public Text newSaveName;
+    
 
     private bool[] saveFile = new bool[4];
+    
     private void Start()
     {
         SlotSaveFileCheck();
@@ -110,4 +111,6 @@ public class LoadSlotSelect : MonoBehaviour
         }    
         
     }
+
+    
 }

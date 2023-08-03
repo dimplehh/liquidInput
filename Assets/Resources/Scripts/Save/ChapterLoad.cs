@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChapterLoad : MonoBehaviour
 {
     [SerializeField] private GameObject[] lockImage; //챕터 잠금 이미지
-
+    
     private void LockImageCheck()
     {
 
@@ -36,6 +36,6 @@ public class ChapterLoad : MonoBehaviour
 
         LoadingSceneController.Instance.LoadScene("GameScene");       
     }
-
-    
+   
+   
 }
