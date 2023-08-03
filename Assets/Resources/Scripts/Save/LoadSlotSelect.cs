@@ -94,7 +94,6 @@ public class LoadSlotSelect : MonoBehaviour
     {
         Managers.Data.SlotLoadData(Managers.Data.nowSlot);
         LoadingSceneController.Instance.LoadScene("GameScene");
-
     }
     public void NewGame() 
     {

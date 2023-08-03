@@ -6,13 +6,9 @@ public class LoadKeyBoardClick : MonoBehaviour
 {
     [SerializeField] private int loadindex; //챕터는 1부터 시작이고 이거는 0부터 시작하는거 통일성있게 가야함
     [SerializeField] private LoadSlotSelect loadSlotSelect; //수동 불러오기
-    private void Awake()
+    private void OnEnable()
     {
         loadindex = 0;
-    }
-    private void Start()
-    {
-        loadindex = 1;
     }
     private void Update()
     {

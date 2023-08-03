@@ -6,11 +6,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
 {
     [SerializeField] private ChapterLoad chapterLoad; //√©≈Õ∫∞ ∫“∑Øø¿±‚
     [SerializeField] private int chapLoadindex = 1; //√©≈Õ∫∞ ¿Œµ¶Ω∫
-    private void Awake()
-    {
-        chapLoadindex = 1;
-    }
-    private void Start()
+    private void OnEnable()
     {
         chapLoadindex = 1;
     }
