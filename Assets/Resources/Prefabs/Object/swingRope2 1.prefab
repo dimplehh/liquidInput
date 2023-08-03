@@ -104,7 +104,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 2.66, y: 8}
+  m_ConnectedAnchor: {x: 2.66, y: 6.83}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -163,8 +163,8 @@ MonoBehaviour:
   prefabRopeSegs:
   - {fileID: 5037472389930521972, guid: 9aa5c799d452ed74fa5c43400bc7ea76, type: 3}
   - {fileID: 5100887560565186682, guid: e9b8a581debb30940b7c22819a6213b6, type: 3}
-  - {fileID: 6208464201021464086, guid: f922f276b3c67c94c9397708dcca2810, type: 3}
-  numLinks: 12
+  - {fileID: 5037472389930521972, guid: 9aa5c799d452ed74fa5c43400bc7ea76, type: 3}
+  numLinks: 25
 --- !u!1 &5470050794338522771
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +236,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1244511245
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -132066568, guid: f875cd60c891a7e4db4afd7397fd370f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -320,7 +320,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1244511245
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -1682531834, guid: f875cd60c891a7e4db4afd7397fd370f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -404,7 +404,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1244511245
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 234644034, guid: f875cd60c891a7e4db4afd7397fd370f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -488,7 +488,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1244511245
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -2077061893, guid: f875cd60c891a7e4db4afd7397fd370f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
