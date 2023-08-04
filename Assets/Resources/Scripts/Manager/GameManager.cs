@@ -19,13 +19,17 @@ public class GameManager : MonoBehaviour
     //------------------------------------------------------
     [SerializeField]
     public GameObject waterParticle;
+    float firstWater;
+    Water2DTool.Water2D_Tool waterTool;
+    [SerializeField]
+    GameObject waterSlider;
     [SerializeField]
     GameObject settingPanel;
     [SerializeField]
     GameObject gameOverPanel;
     public static GameManager instance;
     //물 보유량
-    public const int maxWaterReserves = 50;
+    public int maxWaterReserves = 50;
     public int curWaterReserves;
     public int oldCurWaterReserves;
     public Image curWaterReservesImage;
@@ -74,6 +78,12 @@ public class GameManager : MonoBehaviour
         PlayGame();
         Initialized();
         //CreateGrid(); 
+        setWaterSlider();
+    }
+    private void setWaterSlider()
+    {
+        waterTool = waterSlider.GetComponent<Water2DTool.Water2D_Tool>();
+        firstWater = waterTool.handlesPosition[1].y;
     }
     public void CreateGrid()
     {
@@ -107,6 +117,7 @@ public class GameManager : MonoBehaviour
         curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
         waterParticle.GetComponent<ParticleSystem>().Stop();
     }
+
     private void LateUpdate()
     {
         pushZ();
