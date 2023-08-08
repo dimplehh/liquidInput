@@ -6,18 +6,31 @@ using UnityEngine.UI;
 public class ShallowWater : Water
 {
     [SerializeField]
-    Slider slider;
+    GameObject insideWater;
     float time = 0f;
+    Color tmpColor;
     protected override void Init()
     {
         currentWaterReserves = 0;
         maxWaterReserves = 5;
         currentWaterReserves = maxWaterReserves;
-        slider.value = 0;
+       tmpColor = this.GetComponent<SpriteRenderer>().color;
     }
     protected override void Start()
     {
         Init();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        tmpColor.a = 0;
+        this.GetComponent<SpriteRenderer>().color = tmpColor;
+        insideWater.SetActive(true);
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        tmpColor.a = 100;
+        this.GetComponent<SpriteRenderer>().color = tmpColor;
+        insideWater.SetActive(false);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -34,7 +47,8 @@ public class ShallowWater : Water
                         {
                             GameManager.instance.curWaterReserves += 1;
                             currentWaterReserves--;
-                            slider.value += 1;
+                            this.transform.position -= new Vector3(0, 0.5f, 0);
+                            insideWater.transform.position -= new Vector3(0, 0.5f, 0);
                             time = 0f;
                         }
                     }

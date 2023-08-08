@@ -13,6 +13,7 @@ public class waterSlider : MonoBehaviour
         height = waterTool.handlesPosition[1].y;
         waterTool.handlesPosition[0] = new Vector2(0, height);
         gm = GameManager.instance;
+        waterTool.handlesPosition[0] = new Vector2(0, height + (float)gm.curWaterReserves / 50);
     }
     private void LateUpdate()
     {
@@ -21,6 +22,5 @@ public class waterSlider : MonoBehaviour
             waterTool.handlesPosition[0] = new Vector2(0, height + (float)gm.curWaterReserves / 50);
             gm.oldCurWaterReserves = gm.curWaterReserves;
         }
-        //waterTool.RecalculateMeshParameters();
     }
 }
