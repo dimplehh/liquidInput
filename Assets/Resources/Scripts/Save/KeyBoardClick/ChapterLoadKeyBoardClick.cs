@@ -21,8 +21,18 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
     private void Update()
     {
         LoadKeyBoardClick();
+        ExitButton();
     }
-
+    private void ExitButton()
+    {
+        if (gameObject.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
     private void LoadKeyBoardClick()
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -31,6 +41,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
             {
                 chapLoadindex = 4;
                 selectCheckImage.position = selectPos[3].position;
+                
             }
             else
             {
