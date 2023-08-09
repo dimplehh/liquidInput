@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class DeepWater : Water
 {
-    [SerializeField] protected Image currentWaterReservesImage;
+    //[SerializeField] protected Image currentWaterReservesImage;
+    float time = 0f;
     protected override void Init()
     {
         currentWaterReserves = 0;
@@ -16,11 +17,11 @@ public class DeepWater : Water
     {
         Init();
     }
-    protected virtual void LateUpdate()
-    {
-        currentWaterReservesImage.fillAmount = Mathf.Lerp(currentWaterReservesImage.fillAmount, (float)currentWaterReserves / (float)maxWaterReserves / 1 / 1, Time.deltaTime * 5f);
+    //protected virtual void LateUpdate()
+    //{
+    //    currentWaterReservesImage.fillAmount = Mathf.Lerp(currentWaterReservesImage.fillAmount, (float)currentWaterReserves / (float)maxWaterReserves / 1 / 1, Time.deltaTime * 5f);
 
-    }
+    //}
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -30,15 +31,23 @@ public class DeepWater : Water
                 GameManager.instance.curWaterReserves = 0; //»ç¸Á
             else 
             {
-                if ((Input.GetKeyDown(KeyCode.X)))
+                if ((Input.GetKeyDown(KeyCode.C)))
                 {
-                    currentWaterReserves--;
-                    GameManager.instance.curWaterReserves++;
-
-                }
-                if(currentWaterReserves <= 0)
-                {
-                    this.gameObject.SetActive(false);
+                    time += Time.deltaTime;
+                    if (time >= 0.05f)
+                    {
+                        if (currentWaterReserves > 0)
+                        {
+                            GameManager.instance.curWaterReserves += 1;
+                            currentWaterReserves--;
+                            this.transform.position -=  new Vector3(0, 0.5f, 0);
+                            time = 0f;
+                        }
+                        else
+                        {
+                            this.gameObject.SetActive(false);
+                        }
+                    }
                 }
             }
         }

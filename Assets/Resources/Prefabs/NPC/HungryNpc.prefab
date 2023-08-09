@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 8901463031572062798}
   - component: {fileID: 8901463031572062792}
   - component: {fileID: 866348034805689663}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: HungryNpc
   m_TagString: Npc
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -352697533
-  m_SortingLayer: 4
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 343e8b74fd4bfed43b8c0770d93aea53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -511,3 +511,9 @@ MonoBehaviour:
   messegeImage: {fileID: 1326313551665434128}
   messegeTxt: {fileID: 4266093307115923289}
   interactionCount: 0
+  target: {fileID: 0}
+  isRange: 0
+  npcDistance: 0
+  _distance: 0
+  soundTime: 0
+  initSoundTime: 2
