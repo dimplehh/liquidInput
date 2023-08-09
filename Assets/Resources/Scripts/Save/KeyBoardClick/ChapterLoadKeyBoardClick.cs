@@ -8,11 +8,15 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
     [SerializeField] private int chapLoadindex = 1; //챕터별 인덱스
     [SerializeField] private RectTransform selectCheckImage; //선택 확인 이미지
     [SerializeField] private RectTransform[] selectPos; //선택이미지 위치
-    
+
+    private void Start()
+    {
+        //selectCheckImage.position = selectPos[0].position;
+    }
     private void OnEnable()
     {
         chapLoadindex = 1;
-        selectCheckImage.position = selectPos[0].position;
+        //selectCheckImage.position = selectPos[0].position;
     }
     private void Update()
     {
@@ -21,7 +25,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
 
     private void LoadKeyBoardClick()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (chapLoadindex >= 4)
             {
@@ -35,7 +39,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
             }
   
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (chapLoadindex <= 1)
             {
