@@ -8,29 +8,15 @@ public class ShallowWater : Water
     [SerializeField]
     GameObject insideWater;
     float time = 0f;
-    Color tmpColor;
     protected override void Init()
     {
         currentWaterReserves = 0;
         maxWaterReserves = 5;
         currentWaterReserves = maxWaterReserves;
-       tmpColor = this.GetComponent<SpriteRenderer>().color;
     }
     protected override void Start()
     {
         Init();
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        tmpColor.a = 0;
-        this.GetComponent<SpriteRenderer>().color = tmpColor;
-        insideWater.SetActive(true);
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        tmpColor.a = 100;
-        this.GetComponent<SpriteRenderer>().color = tmpColor;
-        insideWater.SetActive(false);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -47,9 +33,14 @@ public class ShallowWater : Water
                         {
                             GameManager.instance.curWaterReserves += 1;
                             currentWaterReserves--;
-                            this.transform.position -= new Vector3(0, 0.5f, 0);
-                            insideWater.transform.position -= new Vector3(0, 0.5f, 0);
+                            this.transform.localScale = new Vector3(this.transform.localScale.x * 0.75f, this.transform.localScale.y * 0.75f, this.transform.localScale.z);
+                            insideWater.transform.localScale = new Vector3(insideWater.transform.localScale.x * 0.75f, insideWater.transform.localScale.y * 0.75f, insideWater.transform.localScale.z);
                             time = 0f;
+                        }
+                        else
+                        {
+                            this.gameObject.SetActive(false);
+                            insideWater.SetActive(false);
                         }
                     }
                 }
