@@ -19,7 +19,11 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
     private void OnEnable()
     {
         chapLoadindex = 1;
+    }
+    private void OnDisable()
+    {
         buttonGroup.position = initButtonGroup.position;
+        selectCheckImage.position = selectPos[0].position;
     }
     private void Update()
     {
