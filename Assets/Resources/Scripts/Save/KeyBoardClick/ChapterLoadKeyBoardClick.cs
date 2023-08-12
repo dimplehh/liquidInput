@@ -53,7 +53,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
             else
             {
                 chapLoadindex++;
-                buttonGroup.position = buttonGroup.position - new Vector3(300, 0, 0);
+                buttonGroup.position = buttonGroup.position - new Vector3(1100, 0, 0);
                 selectCheckImage.position = selectPos[chapLoadindex - 1].position;
                 
             }
@@ -69,7 +69,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
             else
             {
                 chapLoadindex--;
-                buttonGroup.position = buttonGroup.position + new Vector3(300, 0, 0);
+                buttonGroup.position = buttonGroup.position + new Vector3(1100, 0, 0);
                 selectCheckImage.position = selectPos[chapLoadindex - 1].position;
                 
             }
