@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class KeyboardSelect : MonoBehaviour
 {
     //이건 인게임에서는 다르게 적용해야할듯
-    [SerializeField] private GameObject[] selectButton; //선택 버튼 
+    [SerializeField] private GameObject[] selectButtonEvent; //선택 버튼별 오브젝트 
     //위에 제외 나머지는 공용으로 사용할 수 있음  
     [SerializeField] private int selectIndex = 0; //선택 번호
     [SerializeField] Text[] selectText; //선택 텍스트
@@ -24,6 +24,14 @@ public class KeyboardSelect : MonoBehaviour
     }
     private void SlotLoadKeyBoardClick()
     {
+        for(int i=1; i<4; i++) //게임시작 제외하고선 오브젝트가 활성화 되어있으면 그대로 리턴
+        {
+            if (selectButtonEvent[i].activeSelf)
+            {
+                return;
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             if (selectIndex >= 3)
@@ -68,11 +76,11 @@ public class KeyboardSelect : MonoBehaviour
     {
         if(selectIndex == 0)
         {
-            selectButton[0].GetComponentInParent<LoadSlotSelect>().NewGame();        
+            selectButtonEvent[0].GetComponentInParent<LoadSlotSelect>().NewGame();        
         }
         else
         {
-            selectButton[selectIndex].SetActive(true);
+            selectButtonEvent[selectIndex].SetActive(true);
         }
     }
 }
