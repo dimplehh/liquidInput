@@ -19,17 +19,6 @@ public class DeepWater : Water
     {
         Init();
     }
-    //protected virtual void LateUpdate()
-    //{
-    //    currentWaterReservesImage.fillAmount = Mathf.Lerp(currentWaterReservesImage.fillAmount, (float)currentWaterReserves / (float)maxWaterReserves / 1 / 1, Time.deltaTime * 5f);
-    //}
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (!GameManager.instance.player.GetComponent<Player>().isSlime) //슬라임 형태가 아닐때 
-    //    {
-    //        GameManager.instance.player.GetComponent<Rigidbody2D>().mass = 1.5f;
-    //    }
-    //}
     private void OnTriggerExit2D(Collider2D collision)
     {
         GameManager.instance.player.GetComponent<Rigidbody2D>().mass = 0.6f;
@@ -51,7 +40,7 @@ public class DeepWater : Water
             }
             else 
             {
-                if ((Input.GetKeyDown(KeyCode.C)))
+                if ((Input.GetKey(KeyCode.C)))
                 {
                     time += Time.deltaTime;
                     if (time >= 0.05f)
