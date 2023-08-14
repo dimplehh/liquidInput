@@ -7,6 +7,8 @@ public class DeepWater : Water
 {
     //[SerializeField] protected Image currentWaterReservesImage;
     float time = 0f;
+    [SerializeField]
+    GameObject deadZone;
     protected override void Init()
     {
         currentWaterReserves = 0;
@@ -42,7 +44,7 @@ public class DeepWater : Water
                 GameManager.instance.player.GetComponent<Rigidbody2D>().mass = 1.5f;
             }
             if (!GameManager.instance.player.GetComponent<Player>().isSlime
-                && currentWaterReserves >= 3 && collision.transform.position.y <= -2.6f) //남은 물이 3 이상인데 플레이어 위치가 이럴때
+                && currentWaterReserves >= 3 && collision.transform.position.y <= deadZone.transform.position.y) //남은 물이 3 이상인데 플레이어 위치가 이럴때
             {
                 GameManager.instance.player.GetComponent<Player>().anim.Play("Die");
                 GameManager.instance.curWaterReserves = 0;
