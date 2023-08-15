@@ -7,15 +7,15 @@ public class KeyboardSelect : MonoBehaviour
     //이건 인게임에서는 다르게 적용해야할듯
     [SerializeField] private GameObject[] selectButtonEvent; //선택 버튼별 오브젝트 
     //위에 제외 나머지는 공용으로 사용할 수 있음  
-    [SerializeField] private int selectIndex = 0; //선택 번호
-    [SerializeField] Text[] selectText; //선택 텍스트
+    public int selectIndex = 0; //선택 번호
+    public Text[] selectText; //선택 텍스트
     
 
     private void OnEnable()
     {
         selectIndex = 0;
         selectText[selectIndex].color = Color.white;
-        selectText[selectIndex].fontSize = 70;
+        selectText[selectIndex].fontSize = 60;
     }
     private void Update()
     {
@@ -44,7 +44,7 @@ public class KeyboardSelect : MonoBehaviour
                 selectText[selectIndex].fontSize = 50;
                 selectIndex++;
                 selectText[selectIndex].color = Color.white;
-                selectText[selectIndex].fontSize = 70;
+                selectText[selectIndex].fontSize = 60;
 
             }
         }
@@ -60,7 +60,7 @@ public class KeyboardSelect : MonoBehaviour
                 selectText[selectIndex].fontSize = 50;
                 selectIndex--;
                 selectText[selectIndex].color = Color.white;
-                selectText[selectIndex].fontSize = 70;
+                selectText[selectIndex].fontSize = 60;
             }
         }
     }
