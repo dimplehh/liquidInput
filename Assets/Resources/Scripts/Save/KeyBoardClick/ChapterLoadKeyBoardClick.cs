@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class ChapterLoadKeyBoardClick : MonoBehaviour
 {
     [SerializeField] private ChapterLoad chapterLoad; //√©≈Õ∫∞ ∫“∑Øø¿±‚
@@ -12,6 +12,8 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
     [Header("√©≈Õ ¿·±› »ÊπÈ ¿ÃπÃ¡ˆ")]
     [SerializeField] private GameObject rockImage;
 
+    [SerializeField] private Text chapterNameText;
+
     private void Start()
     {
         initButtonGroup.position = buttonGroup.position;
@@ -19,6 +21,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
     private void OnEnable()
     {
         chapLoadindex = 1;
+        chapterNameText.text = ChapterName(chapLoadindex);
     }
     private void OnDisable()
     {
@@ -51,6 +54,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
             else
             {
                 chapLoadindex++;
+                chapterNameText.text = ChapterName(chapLoadindex); //√©≈Õ ¿Ã∏ß ∞·¡§
                 buttonGroup.position = buttonGroup.position - new Vector3(1100, 0, 0);
                 RockImageCheck();
             }
@@ -65,6 +69,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
             else
             {
                 chapLoadindex--;
+                chapterNameText.text = ChapterName(chapLoadindex); //√©≈Õ ¿Ã∏ß ∞·¡§
                 buttonGroup.position = buttonGroup.position + new Vector3(1100, 0, 0);
                 //buttonGroup.position = Vector3.Lerp(buttonGroup.position, buttonGroup.position + new Vector3(1100, 0, 0), Time.deltaTime * 0.5f); 
                 RockImageCheck();
@@ -76,7 +81,26 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
             chapterLoad.ChapterLoadButton(chapLoadindex);
         }
     }
-
+    private string ChapterName(int chapLoadIndex)
+    {
+        string name = "";
+        switch (chapLoadIndex)
+        {
+            case 1:
+                name = "1√© - ººªÛ¿«ø‹∞˚";
+                break;
+            case 2:
+                name = "2√© - πˆ∑¡¡¯∏∂¿ª";
+                break;
+            case 3:
+                name = "3√© - ¡ˆ«œ º”";
+                break;
+            case 4:
+                name = "4√© - ø¿ø∞¿« ¡ﬂΩ…∫Œ(∞¯¿Â)";
+                break;
+        }
+        return name;
+    }
     private void RockImageCheck()
     {
         if (StageManager.instance.lastStageIndex < chapLoadindex)
