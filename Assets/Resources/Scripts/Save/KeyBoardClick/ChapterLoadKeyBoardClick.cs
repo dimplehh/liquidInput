@@ -78,7 +78,10 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            chapterLoad.ChapterLoadButton(chapLoadindex);
+            if (StageManager.instance.lastStageIndex >= chapLoadindex)
+            {
+                chapterLoad.ChapterLoadButton(chapLoadindex);
+            }
         }
     }
     private string ChapterName(int chapLoadIndex)

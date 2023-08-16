@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class MouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Text selectText; //현재 텍스트
-
     private void Start()
     {
         selectText = GetComponentInChildren<Text>();
