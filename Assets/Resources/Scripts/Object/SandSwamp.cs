@@ -34,10 +34,11 @@ public class SandSwamp : MonoBehaviour
             if (GameManager.instance.player.GetComponent<Player>().isSlime)
             {
                 time += Time.deltaTime;
-                if(time >= 1.0f)
+                if(time >= 2.0f)
                 {
                     GameManager.instance.waterParticle.GetComponent<ParticleSystem>().Play(); // 이거 말고 GameManager에 curWaterReverse 줄어들 때 함수 따로 만드는게 좋을듯
-                    GameManager.instance.curWaterReserves -= 1;
+                    if(GameManager.instance.curWaterReserves > 0)
+                        GameManager.instance.curWaterReserves -= 1;
                     time = 0f;
                 }
             }
