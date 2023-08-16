@@ -6,6 +6,7 @@ public class KeyboardSelect : MonoBehaviour
 {
     //이건 인게임에서는 다르게 적용해야할듯
     [SerializeField] private GameObject[] selectButtonEvent; //선택 버튼별 오브젝트 
+    [SerializeField] private GameObject? resumeButtonEvent; //인게임 제개 버튼 
     //위에 제외 나머지는 공용으로 사용할 수 있음  
     public int selectIndex = 0; //선택 번호
     public Text[] selectText; //선택 텍스트
@@ -69,9 +70,19 @@ public class KeyboardSelect : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SelectButtonEvent();
+            if (!GameManager.instance)
+            {
+                //인게임이 아닐때
+                SelectButtonEvent();
+            }  
+            else
+            {
+                //인게임 일때
+                IngameSelectButtonEvent();
+            }
         }
     }
+    //홈화면 이벤트
     private void SelectButtonEvent()
     {
         if(selectIndex == 0)
@@ -81,6 +92,22 @@ public class KeyboardSelect : MonoBehaviour
         else
         {
             selectButtonEvent[selectIndex].SetActive(true);
+        }
+    }
+    //인게임 설정 이벤트
+    private void IngameSelectButtonEvent()
+    {
+        if (selectIndex == 0)
+        {
+            resumeButtonEvent.SetActive(false);
+            GameManager.instance.PlayGame();
+        }
+        else if (selectIndex == 1 || selectIndex == 2)
+        {
+            selectButtonEvent[selectIndex].SetActive(true);
+        }else if (selectIndex == 3)
+        {
+            GameManager.instance.HomeButton();
         }
     }
 }

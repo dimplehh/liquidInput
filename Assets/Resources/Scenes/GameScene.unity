@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2187,6 +2187,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1566314444575992745, guid: d8304d0ff1bbda1429b8d358630caea9, type: 3}
   m_PrefabInstance: {fileID: 1540634304}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1313588111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 214013897269630178, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+  m_PrefabInstance: {fileID: 1799666345}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1314614196 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8398312332897634663, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
@@ -3139,7 +3144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 49352124, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -266
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 49352125, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3147,7 +3152,7 @@ PrefabInstance:
       objectReference: {fileID: 1566613666}
     - target: {fileID: 380959846, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 105
+      value: 146
       objectReference: {fileID: 0}
     - target: {fileID: 628323172, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_IsActive
@@ -3171,7 +3176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1409542588, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -158
       objectReference: {fileID: 0}
     - target: {fileID: 1581862255, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_IsActive
@@ -3195,7 +3200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1926499873, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -158
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 229318500728243652, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_FillAmount
@@ -3289,6 +3294,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 878992757792852416, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: resumeButtonEvent
+      value: 
+      objectReference: {fileID: 716080488}
+    - target: {fileID: 878992757792852416, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: selectButtonEvent.Array.data[0]
+      value: 
+      objectReference: {fileID: 1313588111}
+    - target: {fileID: 878992757792852416, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: selectButtonEvent.Array.data[1]
+      value: 
+      objectReference: {fileID: 1799666346}
+    - target: {fileID: 878992757792852416, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: selectButtonEvent.Array.data[2]
+      value: 
+      objectReference: {fileID: 1313588111}
+    - target: {fileID: 878992757792852416, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: selectButtonEvent.Array.data[3]
+      value: 
+      objectReference: {fileID: 1313588111}
     - target: {fileID: 1879563097155211416, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3309,6 +3334,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1566613666}
+    - target: {fileID: 8493898807115742357, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493898807115742357, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493898807115742357, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493898807115742357, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
 --- !u!1 &1799666346 stripped

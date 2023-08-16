@@ -55,6 +55,17 @@ public class GameManager : MonoBehaviour
     {
         LoadingSceneController.Instance.LoadScene("HomeScene");
     }
+    public void SettingButton()
+    {
+        if (!settingPanel.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Time.timeScale = 0;
+                settingPanel.SetActive(true);
+            }
+        }
+    }
     public void PlayGame()
     {
         Time.timeScale = 1;
@@ -127,7 +138,9 @@ public class GameManager : MonoBehaviour
         pushZ();
         WaterReservesUI();
         if (curWaterReserves <= -2)
-            StartCoroutine("OpenGameOver"); 
+            StartCoroutine("OpenGameOver");
+        //esc키 눌렀을 때 설정 활성화
+        SettingButton();
     }
     private void pushZ()
     {
