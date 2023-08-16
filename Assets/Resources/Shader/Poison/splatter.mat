@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: splash
-  m_Shader: {fileID: 4800000, guid: a6d55a801cdf40b429416777f7d4f0f7, type: 3}
+  m_Name: splatter
+  m_Shader: {fileID: 10721, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -25,7 +25,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d6a770a24e30f6c4a8e211a9b76a7e1a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 326d3d3e5ed10144bb8f9a8bfd317051, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -38,10 +38,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 4
-    - _Density: 2
     - _EnableExternalAlpha: 0
-    - _Scroll: 1.5
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
