@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 1924317548955342940}
   - component: {fileID: 1924317548955342941}
   - component: {fileID: 1924317548955342914}
+  - component: {fileID: 1297249303234804511}
   m_Layer: 5
   m_Name: AutoLoadButton
   m_TagString: Untagged
@@ -266,8 +267,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -100}
-  m_SizeDelta: {x: 400, y: 200}
+  m_AnchoredPosition: {x: 50, y: -125}
+  m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1924317548955342940
 CanvasRenderer:
@@ -363,6 +364,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1297249303234804511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924317548955342912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7833dd9ee24b2f46bc8990bb224c76f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectText: {fileID: 0}
+  maxFontSize: 40
+  minFontSize: 30
 --- !u!1 &1924317548962569185
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,6 +763,7 @@ GameObject:
   - component: {fileID: 1924317549673302484}
   - component: {fileID: 1924317549673302485}
   - component: {fileID: 1924317549673302490}
+  - component: {fileID: 6857136367431527538}
   m_Layer: 5
   m_Name: Load1Button
   m_TagString: Untagged
@@ -772,8 +789,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -300}
-  m_SizeDelta: {x: 400, y: 200}
+  m_AnchoredPosition: {x: 50, y: -375}
+  m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1924317549673302484
 CanvasRenderer:
@@ -869,6 +886,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6857136367431527538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924317549673302488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7833dd9ee24b2f46bc8990bb224c76f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectText: {fileID: 0}
+  maxFontSize: 40
+  minFontSize: 30
 --- !u!1 &1924317549975882085
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,6 +913,7 @@ GameObject:
   - component: {fileID: 1924317549975882081}
   - component: {fileID: 1924317549975882086}
   - component: {fileID: 1924317549975882087}
+  - component: {fileID: 4179591724518872841}
   m_Layer: 5
   m_Name: Load3Button
   m_TagString: Untagged
@@ -906,8 +939,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -700}
-  m_SizeDelta: {x: 400, y: 200}
+  m_AnchoredPosition: {x: 50, y: -875}
+  m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1924317549975882081
 CanvasRenderer:
@@ -1003,6 +1036,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4179591724518872841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924317549975882085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7833dd9ee24b2f46bc8990bb224c76f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectText: {fileID: 0}
+  maxFontSize: 40
+  minFontSize: 30
 --- !u!1 &1924317550287347217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,6 +1063,7 @@ GameObject:
   - component: {fileID: 1924317550287347693}
   - component: {fileID: 1924317550287347218}
   - component: {fileID: 1924317550287347219}
+  - component: {fileID: 1816383005027246210}
   m_Layer: 5
   m_Name: Load2Button
   m_TagString: Untagged
@@ -1040,8 +1089,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -500}
-  m_SizeDelta: {x: 400, y: 200}
+  m_AnchoredPosition: {x: 50, y: -625}
+  m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1924317550287347693
 CanvasRenderer:
@@ -1137,6 +1186,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1816383005027246210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924317550287347217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7833dd9ee24b2f46bc8990bb224c76f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectText: {fileID: 0}
+  maxFontSize: 40
+  minFontSize: 30
 --- !u!1 &1924317550340529395
 GameObject:
   m_ObjectHideFlags: 0

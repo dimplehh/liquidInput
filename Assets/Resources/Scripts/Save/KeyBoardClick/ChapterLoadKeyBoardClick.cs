@@ -31,6 +31,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
     {
         LoadKeyBoardClick();
         ExitButton();
+        buttonGroup.position = Vector3.Lerp(buttonGroup.position, initButtonGroup.position - (new Vector3(1100, 0, 0) * (chapLoadindex-1)), Time.deltaTime * 1f);
     }
     private void ExitButton()
     {
@@ -55,7 +56,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
             {
                 chapLoadindex++;
                 chapterNameText.text = ChapterName(chapLoadindex); //챕터 이름 결정
-                buttonGroup.position = buttonGroup.position - new Vector3(1100, 0, 0);
+                //buttonGroup.position = buttonGroup.position - new Vector3(1100, 0, 0);
                 RockImageCheck();
             }
   
@@ -70,7 +71,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
             {
                 chapLoadindex--;
                 chapterNameText.text = ChapterName(chapLoadindex); //챕터 이름 결정
-                buttonGroup.position = buttonGroup.position + new Vector3(1100, 0, 0);
+                //buttonGroup.position = buttonGroup.position + new Vector3(1100, 0, 0);
                 //buttonGroup.position = Vector3.Lerp(buttonGroup.position, buttonGroup.position + new Vector3(1100, 0, 0), Time.deltaTime * 0.5f); 
                 RockImageCheck();
             }

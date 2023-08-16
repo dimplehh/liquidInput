@@ -147,6 +147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7833dd9ee24b2f46bc8990bb224c76f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectText: {fileID: 0}
+  maxFontSize: 60
+  minFontSize: 50
 --- !u!1 &2891544001588411706
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,6 +578,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7833dd9ee24b2f46bc8990bb224c76f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectText: {fileID: 0}
+  maxFontSize: 60
+  minFontSize: 50
 --- !u!1 &2891544002754926429
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,6 +728,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7833dd9ee24b2f46bc8990bb224c76f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectText: {fileID: 0}
+  maxFontSize: 60
+  minFontSize: 50
 --- !u!1 &2891544003186681179
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,6 +958,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7833dd9ee24b2f46bc8990bb224c76f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectText: {fileID: 0}
+  maxFontSize: 60
+  minFontSize: 50
 --- !u!1 &2891544003491095435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,6 +1046,7 @@ MonoBehaviour:
   - {fileID: 2891544001640270137}
   - {fileID: 2891544003055849746}
   - {fileID: 2289239215741432968}
+  resumeButtonEvent: {fileID: 0}
   selectIndex: 0
   selectText:
   - {fileID: 2891544001758115840}
