@@ -4,17 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
+using System;
 public class LoadSlotSelect : MonoBehaviour
 {
     public GameObject creat; //비어있는 슬롯을 눌렀을 때 뜨는 창
     public Text[] slotTxt;
-    
-
+   
     private bool[] saveFile = new bool[4];
     
     private void Start()
     {
         SlotSaveFileCheck();
+        
     }
    
     public void SlotSaveFileCheck()//슬롯별로 저장된 데이터가 존재하는지 판단
@@ -26,15 +27,38 @@ public class LoadSlotSelect : MonoBehaviour
                 saveFile[i] = true;
                 Managers.Data.nowSlot = i;
                 Managers.Data.SlotLoadData(i);
-                slotTxt[i].text = "캐릭터 위치 : " + Managers.Data.playerData.playerXPos.ToString() +
-                                "\n 현재 스테이지 : " + Managers.Data.playerData.currentStage.ToString() + " Stage" +
-                                "\n 물방울 보유량 : " + Managers.Data.playerData.playerWaterReserves.ToString();
+                slotTxt[i].text = //"캐릭터 위치 : " + Managers.Data.playerData.playerXPos.ToString() +
+                                StageName(Managers.Data.playerData.currentStage) +
+                                "\n저장 날짜 : " + Managers.Data.playerData.saveDate +
+                                "\n플레이 타임 : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") +
+                                "\n물방울-" + Managers.Data.playerData.playerWaterReserves.ToString();
             }
             else
             {
                 slotTxt[i].text = "비어있음";
             }
         }
+    }
+    //스테이지 이름
+    public string StageName(int currentStage)
+    {
+        string currentName = "";
+        switch (currentStage)
+        {
+            case 1:
+                currentName = "세상의 외곽";
+                break;
+            case 2:
+                currentName = "버려진 마을";
+                break;
+            case 3:
+                currentName = "지하 속";
+                break;
+            case 4:
+                currentName = "오염의 중심부(공장)";
+                break;
+        }
+        return currentName;
     }
     public void Slot(int num)
     {
@@ -82,7 +106,7 @@ public class LoadSlotSelect : MonoBehaviour
     public void Save(int slotIndex)
     {
         GameObject player = GameObject.FindWithTag("Player");
-        Managers.Data.SlotSaveData(slotIndex, player.gameObject, StageManager.instance.currentStageIndex, GameManager.instance.curWaterReserves);
+        Managers.Data.SlotSaveData(slotIndex, player.gameObject, StageManager.instance.currentStageIndex, GameManager.instance.curWaterReserves, GameManager.instance.playTime);
         Debug.Log(slotIndex + "수동 세이브");
         SlotSaveFileCheck(); //다시 정보 체크
     }

@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
 
     //선행게이지
     public float successGauge = 0;
+    //플레이 타임
+    public float playTime = 0;
 
     public bool isPlay = false;
     public bool isNonAutoSave = false; //메뉴창에서는 로드만 되고 세이브존에서는 저장만되게
@@ -120,6 +122,8 @@ public class GameManager : MonoBehaviour
 
     private void LateUpdate()
     {
+        //플레이 타임 증가
+        playTime += Time.deltaTime; 
         pushZ();
         WaterReservesUI();
         if (curWaterReserves <= -2)

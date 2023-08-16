@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-
+using System;
 public class PlayerData
 {
     //초기값 설정//
@@ -11,10 +11,11 @@ public class PlayerData
     public int currentStage = 1;  //현재 스테이지 정보
     public int index; //저장 위치
     public float goodGauge; //선행게이지
+    public float playTime = 0; //플레이 시간
+    public string saveDate = ""; //저장날짜
 }
 public class GameData
 {
-   
     //진행사항 퍼센트
 }
 public class DataManager : MonoBehaviour
@@ -33,12 +34,15 @@ public class DataManager : MonoBehaviour
         //DefaultSaveData(); //기본정보 저장
     }
     //슬롯 별 저장 / 불러오기
-    public void SlotSaveData(int index, GameObject pos, int stage, int curWater)
+    public void SlotSaveData(int index, GameObject pos, int stage, int curWater, float playTime)
     {
         playerData.playerXPos = pos.transform.position.x;
         playerData.currentStage = stage;
         playerData.playerWaterReserves = curWater;
         playerData.index = index;
+        playerData.playTime = playTime;
+        playerData.saveDate = DateTime.Now.ToString("yyyy MM dd"); 
+
         string data = JsonUtility.ToJson(playerData);
         File.WriteAllText(path + index.ToString(), data);
         nowSlot = index;
@@ -53,7 +57,9 @@ public class DataManager : MonoBehaviour
     {
         playerData.playerWaterReserves = 5; //물보유량
         playerData.currentStage = 1; //스테이지
-        playerData.playerXPos = -13.0f;
+        playerData.playerXPos = -13.0f; //첫 시작 위치
+        playerData.playTime = 0; //플레이 타임
+        playerData.saveDate = "";
         //저장할것들....추가하면 됨
         string data = JsonUtility.ToJson(playerData);
         File.WriteAllText(path + "DefaultPlayerData", data);
