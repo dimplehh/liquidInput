@@ -1951,7 +1951,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.049175978, y: -0.011724651}
@@ -2592,7 +2592,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7494610033602549198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.75, y: -9.18, z: 0}
+  m_LocalPosition: {x: -11.29, y: -9.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3832,6 +3832,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5218253573155003223}
     m_Modifications:
+    - target: {fileID: 1932736414147471217, guid: b36809f082ae2cc43bce27c860bb71a1, type: 3}
+      propertyPath: lengthInSec
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030130671109560637, guid: b36809f082ae2cc43bce27c860bb71a1, type: 3}
+      propertyPath: lengthInSec
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185506689339216240, guid: b36809f082ae2cc43bce27c860bb71a1, type: 3}
+      propertyPath: lengthInSec
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853227613669520904, guid: b36809f082ae2cc43bce27c860bb71a1, type: 3}
+      propertyPath: lengthInSec
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902257324159055250, guid: b36809f082ae2cc43bce27c860bb71a1, type: 3}
+      propertyPath: lengthInSec
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7112523064073956120, guid: b36809f082ae2cc43bce27c860bb71a1, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -3876,9 +3896,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7218660098147741079, guid: b36809f082ae2cc43bce27c860bb71a1, type: 3}
+      propertyPath: lengthInSec
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7675152970428688761, guid: b36809f082ae2cc43bce27c860bb71a1, type: 3}
       propertyPath: m_Name
       value: Container (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602296884957529852, guid: b36809f082ae2cc43bce27c860bb71a1, type: 3}
+      propertyPath: lengthInSec
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b36809f082ae2cc43bce27c860bb71a1, type: 3}
