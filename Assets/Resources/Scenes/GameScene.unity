@@ -2141,42 +2141,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &1233879412 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1253335319425997938, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
-  m_PrefabInstance: {fileID: 758208638322569544}
-  m_PrefabAsset: {fileID: 0}
---- !u!60 &1233879415
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233879412}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 10}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.7539444, y: -0.48737812}
-      - {x: -1.0290823, y: -1.1008081}
-      - {x: -0.7958006, y: -2.5749364}
-      - {x: 0.90380096, y: -2.5725193}
-      - {x: 1.0888993, y: -0.9284458}
-      - {x: 0.8470602, y: -0.47414875}
 --- !u!4 &1248729944 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 758208637145934352, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
@@ -4711,7 +4675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 837787711034587149, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.6
+      value: 4.61
       objectReference: {fileID: 0}
     - target: {fileID: 837787711034587149, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
       propertyPath: m_LocalPosition.y
