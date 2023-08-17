@@ -301,7 +301,7 @@ public class Player : MonoBehaviour
         hj.enabled = true;
         attachedTo = ropeBone.gameObject.transform.parent;
         rigid.constraints = RigidbodyConstraints2D.None;
-        //transform.rotation = Quaternion.Euler(0, 0, 0);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
     void Detach()
     {
