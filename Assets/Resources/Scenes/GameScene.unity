@@ -799,8 +799,8 @@ RectTransform:
   m_LocalScale: {x: 101.17835, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2064245689}
-  m_RootOrder: 1
+  m_Father: {fileID: 1248729944}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2439,7 +2439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2121710740787969469, guid: d8304d0ff1bbda1429b8d358630caea9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2201211091960386666, guid: d8304d0ff1bbda1429b8d358630caea9, type: 3}
       propertyPath: m_RootOrder
@@ -3799,11 +3799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &2064245689 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6420810626357524376, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
-  m_PrefabInstance: {fileID: 758208638322569544}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2079191631 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5100866402947384369, guid: e332b22b8b68b5a44a28981c3f79861f, type: 3}
