@@ -3386,12 +3386,20 @@ PrefabInstance:
       value: 0.123
       objectReference: {fileID: 0}
     - target: {fileID: 2494674280893163130, guid: c3bf89f51ffc3b04fa92d2b5eed553fb, type: 3}
+      propertyPath: m_UseLimits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2494674280893163130, guid: c3bf89f51ffc3b04fa92d2b5eed553fb, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 82.73586
       objectReference: {fileID: 0}
     - target: {fileID: 2494674280893163130, guid: c3bf89f51ffc3b04fa92d2b5eed553fb, type: 3}
       propertyPath: m_ConnectedAnchor.y
       value: 5.321871
+      objectReference: {fileID: 0}
+    - target: {fileID: 2494674280893163130, guid: c3bf89f51ffc3b04fa92d2b5eed553fb, type: 3}
+      propertyPath: m_AngleLimits.m_UpperAngle
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 2494674280893163133, guid: c3bf89f51ffc3b04fa92d2b5eed553fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3401,6 +3409,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 2494674281090996648, guid: c3bf89f51ffc3b04fa92d2b5eed553fb, type: 3}
+      propertyPath: prefabRopeSegs.Array.data[2]
+      value: 
+      objectReference: {fileID: 5100887560565186682, guid: e9b8a581debb30940b7c22819a6213b6, type: 3}
     - target: {fileID: 2494674281090996650, guid: c3bf89f51ffc3b04fa92d2b5eed553fb, type: 3}
       propertyPath: m_Name
       value: swingRope2 1

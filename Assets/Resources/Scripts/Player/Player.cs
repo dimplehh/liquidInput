@@ -301,7 +301,7 @@ public class Player : MonoBehaviour
         hj.enabled = true;
         attachedTo = ropeBone.gameObject.transform.parent;
         rigid.constraints = RigidbodyConstraints2D.None;
-        transform.rotation = Quaternion.Euler(0, 0, 0);
+        //transform.rotation = Quaternion.Euler(0, 0, 0);
     }
     void Detach()
     {
@@ -340,7 +340,7 @@ public class Player : MonoBehaviour
         }
         if(newSeg != null)
         {
-            transform.position = newSeg.transform.position;
+            //transform.position = newSeg.transform.position;
             myConnection.isPlayerAttached = false;
             newSeg.GetComponent<RopeSegment>().isPlayerAttached = true;
             hj.connectedBody = newSeg.GetComponent<Rigidbody2D>();
