@@ -28,11 +28,15 @@ public class Player : MonoBehaviour
     public bool attached = false;
     public Transform attachedTo;
     public float playerHeight;
-    public bool isParticleActive = false;
-
+    //public bool isParticleActive = false; 
+    public bool isSandPs = true; //
     //슬라임 시간 계산
     public const float maxSlimeTime = 10f;
     public float curSlimeTime;
+    //모래바람 파티클 생성시간
+    public const float maxSandPsTime = 0.5f;
+    public float curSandPsTime;
+
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -54,6 +58,7 @@ public class Player : MonoBehaviour
         ChangeSlime(); //슬라임 변신
         SlimeTimeCheck(); //슬라임 시간 체크
         Die();//게임오버 체크
+        SandPsTime(); //모래바람 파티클 생성시간
     }
     private void FixedUpdate()
     {
@@ -61,6 +66,18 @@ public class Player : MonoBehaviour
             return;
         Move(); //플레이어 이동
                 //JumpCheck(); //플레이어 바닥에 닿았을 때 점프 가능한지 체크
+    }
+    private void SandPsTime() //모래바람 파티클 생성시간
+    {
+        if (!isSandPs)
+        {
+            curSandPsTime += Time.deltaTime;
+            if(curSandPsTime >= maxSandPsTime)
+            {
+                curSandPsTime = 0;
+                isSandPs = true;
+            }
+        }
     }
     private void Move()
     {
@@ -85,6 +102,13 @@ public class Player : MonoBehaviour
             anim.SetBool("IsWalk", false);
         else if(!attached)
             anim.SetBool("IsWalk", true);
+
+
+        if(rigid.velocity != Vector2.zero && isGround && isSandPs)
+        {
+            isSandPs = false;
+            GameManager.instance.effectsPool.Get(0, this.transform);
+        }
     }
     private void Run()
     {
@@ -360,6 +384,7 @@ public class Player : MonoBehaviour
         if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill")) || collision.gameObject.layer == 8 && !isSlime)
         {
             isGround = true;
+            
             if(this.playerHeight > gameObject.transform.position.y + 7.0f)//추락사 (일단 5.0f) 차후 수정 필요,
             {
                 if(!isSlime)anim.Play("Die");
@@ -370,8 +395,16 @@ public class Player : MonoBehaviour
         if((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill")))
             this.playerHeight = gameObject.transform.position.y;
     }
-
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            Debug.Log("착지 이펙트 생성");
+            GameManager.instance.effectsPool.Get(1, this.transform );
+        }
+    }
+     
+private void OnCollisionExit2D(Collision2D collision)
     {
         if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill")) && !isSlime)
             isGround = false;

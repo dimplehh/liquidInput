@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2226,6 +2226,74 @@ PolygonCollider2D:
       - {x: 2.4975755, y: 0.3230574}
       - {x: 3.2505875, y: 0.24615192}
       - {x: 3.2978811, y: 1.1352406}
+--- !u!1001 &1413164615
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 168489405884456283, guid: 67864c940ed720e4e95c8f7438913358, type: 3}
+      propertyPath: m_Name
+      value: EffectsPool
+      objectReference: {fileID: 0}
+    - target: {fileID: 168489405884456285, guid: 67864c940ed720e4e95c8f7438913358, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 168489405884456285, guid: 67864c940ed720e4e95c8f7438913358, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 96.46711
+      objectReference: {fileID: 0}
+    - target: {fileID: 168489405884456285, guid: 67864c940ed720e4e95c8f7438913358, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.72507197
+      objectReference: {fileID: 0}
+    - target: {fileID: 168489405884456285, guid: 67864c940ed720e4e95c8f7438913358, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.472181
+      objectReference: {fileID: 0}
+    - target: {fileID: 168489405884456285, guid: 67864c940ed720e4e95c8f7438913358, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 168489405884456285, guid: 67864c940ed720e4e95c8f7438913358, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 168489405884456285, guid: 67864c940ed720e4e95c8f7438913358, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 168489405884456285, guid: 67864c940ed720e4e95c8f7438913358, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 168489405884456285, guid: 67864c940ed720e4e95c8f7438913358, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 168489405884456285, guid: 67864c940ed720e4e95c8f7438913358, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 168489405884456285, guid: 67864c940ed720e4e95c8f7438913358, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 67864c940ed720e4e95c8f7438913358, type: 3}
+--- !u!114 &1413164616 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 168489405884456284, guid: 67864c940ed720e4e95c8f7438913358, type: 3}
+  m_PrefabInstance: {fileID: 1413164615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0791b65405275041b86776e971b58fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1430235182
 GameObject:
   m_ObjectHideFlags: 0
@@ -2875,6 +2943,10 @@ PrefabInstance:
       propertyPath: gridGroup
       value: 
       objectReference: {fileID: 229069579}
+    - target: {fileID: 8154362454662616442, guid: 4af70035d6e39f540ab8e9f2d560eef9, type: 3}
+      propertyPath: effectsPool
+      value: 
+      objectReference: {fileID: 1413164616}
     - target: {fileID: 8154362454662616442, guid: 4af70035d6e39f540ab8e9f2d560eef9, type: 3}
       propertyPath: waterSlider
       value: 
