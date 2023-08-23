@@ -11,7 +11,7 @@ public interface ColorSetterInterface
 public class LightColorController : MonoBehaviour
 {
     [SerializeField] [Range(0,1)] float time;
-
+    [SerializeField] GameObject environMap;
     private ColorSetterInterface[] setters;
     private float currentTime = 0;
 
@@ -26,7 +26,7 @@ public class LightColorController : MonoBehaviour
 
     private void OnEnable()
     {
-        time = 0;
+        time = environMap.transform.position.x / 200;
         GetSetters();
         UpdateSetters();
     }
@@ -37,8 +37,14 @@ public class LightColorController : MonoBehaviour
         UpdateSetters();
     }
 
-    private void Update()
+    private void LateUpdate() //부하 심할까...?
     {
+        if (environMap.transform.position.x < 0)
+            time = 0;
+        else if (environMap.transform.position.x > 200)
+            time = 1;
+        else if(0 <= environMap.transform.position.x && environMap.transform.position.x <= 200)
+            time = environMap.transform.position.x / 200;
         if (currentTime != time)
             UpdateSetters();
     }
