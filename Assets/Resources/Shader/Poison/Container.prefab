@@ -4897,7 +4897,7 @@ Transform:
   m_GameObject: {fileID: 586920694687781977}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -6.330002, y: 3.79, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7112523064073956120}
@@ -6251,19 +6251,19 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.390566, b: 0.75435805, a: 0}
-        key1: {r: 1, g: 0.069811285, b: 0.7352539, a: 1}
-        key2: {r: 1, g: 0.24905658, b: 0.9148416, a: 1}
-        key3: {r: 0.9339623, g: 0.17093267, b: 0.84599936, a: 0}
-        key4: {r: 1, g: 1, b: 1, a: 0}
+        key0: {r: 0.8301887, g: 0.58269846, b: 0.72959596, a: 0}
+        key1: {r: 0.9433962, g: 0.42185828, b: 0.7937568, a: 0.53333336}
+        key2: {r: 0.8113208, g: 0.39341405, b: 0.7631849, a: 0.67058825}
+        key3: {r: 1, g: 0.24905658, b: 0.9148416, a: 0}
+        key4: {r: 1, g: 0.24905658, b: 0.9148416, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 9445
         ctime1: 22745
         ctime2: 48573
-        ctime3: 48573
-        ctime4: 65535
+        ctime3: 49537
+        ctime4: 52235
         ctime5: 0
         ctime6: 0
         ctime7: 0
@@ -6280,17 +6280,17 @@ ParticleSystem:
         m_NumAlphaKeys: 4
       minGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.15471691, b: 0.70515984, a: 0}
-        key1: {r: 1, g: 0.30566037, b: 0.691176, a: 1}
-        key2: {r: 1, g: 0.51320755, b: 0.85161936, a: 1}
-        key3: {r: 0.80144083, g: 0.09711638, b: 0.8301887, a: 0}
+        key0: {r: 0.9716981, g: 0.48034883, b: 0.80109066, a: 0}
+        key1: {r: 0.9433962, g: 0.42185828, b: 0.71598136, a: 0.32941177}
+        key2: {r: 1, g: 0.30566037, b: 0.691176, a: 0.5019608}
+        key3: {r: 1, g: 0.51320755, b: 0.85161936, a: 0}
         key4: {r: 1, g: 1, b: 1, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 9445
-        ctime1: 22359
-        ctime2: 48573
+        ctime1: 21203
+        ctime2: 22359
         ctime3: 48573
         ctime4: 65535
         ctime5: 0
@@ -6305,7 +6305,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 3
+        m_NumColorKeys: 4
         m_NumAlphaKeys: 4
   UVModule:
     serializedVersion: 2
@@ -34111,7 +34111,7 @@ Transform:
   m_GameObject: {fileID: 9212985697322221708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.330002, y: 3.79, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7112523064073956120}
@@ -35465,9 +35465,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.7998454, g: 0.32830188, b: 0.8207547, a: 0}
-        key1: {r: 0.88208544, g: 0.39643997, b: 0.9056604, a: 0.5176471}
-        key2: {r: 0.80144083, g: 0.09711638, b: 0.8301887, a: 0.7411765}
+        key0: {r: 0.9289427, g: 0.58205765, b: 0.9433962, a: 0}
+        key1: {r: 0.89083326, g: 0.58440727, b: 0.9056604, a: 0.5176471}
+        key2: {r: 0.85230166, g: 0.50274116, b: 0.8679245, a: 0.7411765}
         key3: {r: 0.80144083, g: 0.09711638, b: 0.8301887, a: 0}
         key4: {r: 1, g: 1, b: 1, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -35494,9 +35494,9 @@ ParticleSystem:
         m_NumAlphaKeys: 4
       minGradient:
         serializedVersion: 2
-        key0: {r: 0.7998454, g: 0.32830188, b: 0.8207547, a: 0}
-        key1: {r: 0.88208544, g: 0.39643997, b: 0.9056604, a: 0.5686275}
-        key2: {r: 0.80144083, g: 0.09711638, b: 0.8301887, a: 0.5176471}
+        key0: {r: 0.89725316, g: 0.69547886, b: 0.9056604, a: 0}
+        key1: {r: 0.89083326, g: 0.58440727, b: 0.9056604, a: 0.5686275}
+        key2: {r: 0.884241, g: 0.40498397, b: 0.9056604, a: 0.5176471}
         key3: {r: 0.80144083, g: 0.09711638, b: 0.8301887, a: 0}
         key4: {r: 1, g: 1, b: 1, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
