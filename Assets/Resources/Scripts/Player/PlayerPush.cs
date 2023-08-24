@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerPush : MonoBehaviour
 {
-    public float distance = 0.001f; // 레이캐스트 길이 어떻게 더 줄이는거지..?
+    public float distance = 0.1f; // 레이캐스트 길이 어떻게 더 줄이는거지..?
     public LayerMask boxMask;
     GameObject box;
     Player player;
@@ -19,14 +19,17 @@ public class PlayerPush : MonoBehaviour
     {
         Physics2D.queriesStartInColliders = false;
         int right = (player.spriteRenderer.flipX) ? -1 : 1;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(right, 0) * transform.localScale.x, distance, boxMask);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.5f), new Vector2(right, 0) * transform.localScale.x, distance, boxMask);
         if (hit.collider != null && hit.collider.gameObject.layer == 12
             && Mathf.Abs(hit.collider.gameObject.transform.position.x - this.gameObject.transform.position.x) <= 1.2f && Input.GetKey(KeyCode.X))
         {
             box = hit.collider.gameObject;
-            box.GetComponent<Rigidbody2D>().mass = 2;
-            box.GetComponent<FixedJoint2D>().enabled = true;
-            box.GetComponent<FixedJoint2D>().connectedBody = this.GetComponent<Rigidbody2D>();
+            if(box != null)
+            {
+                box.GetComponent<Rigidbody2D>().mass = 2;
+                box.GetComponent<FixedJoint2D>().enabled = true;
+                box.GetComponent<FixedJoint2D>().connectedBody = this.GetComponent<Rigidbody2D>();
+            }
             player.anim.SetBool("canGrab", true); player.anim.SetBool("IsWalk", false);
             if(player.anim.GetBool("canGrab") && box != null)
             {
@@ -56,16 +59,19 @@ public class PlayerPush : MonoBehaviour
         }
         else if (box != null && Input.GetKeyUp(KeyCode.X))
         {
-            box.GetComponent<Rigidbody2D>().mass = 100;
-            box.GetComponent<FixedJoint2D>().enabled = false;
+            if(box != null)
+            {
+                box.GetComponent<Rigidbody2D>().mass = 100;
+                box.GetComponent<FixedJoint2D>().enabled = false;
+            }
             player.anim.SetBool("canGrab", false);
             player.anim.SetBool("isPush", false);
             player.anim.SetBool("isPull", false);
         }
     }
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * transform.localScale.x * 0.05f);
-    //}
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(new Vector2(transform.position.x, transform.position.y - 0.5f), new Vector2(transform.position.x, transform.position.y - 0.5f) + Vector2.right * transform.localScale.x * 0.1f);
+    }
 }
