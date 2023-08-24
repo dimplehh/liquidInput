@@ -85,6 +85,13 @@ public class KeyboardSelect : MonoBehaviour
     //홈화면 이벤트
     private void SelectButtonEvent()
     {
+        for(int i=1; i<selectButtonEvent.Length; i++) //판넬이 하나라도 열려있으면 리턴
+        {
+            if (selectButtonEvent[i].activeSelf)
+            {
+                return;
+            }
+        }
         if(selectIndex == 0)
         {
             selectButtonEvent[0].GetComponentInParent<LoadSlotSelect>().NewGame();        
