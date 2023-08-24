@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
             anim.SetBool("IsWalk", true);
 
 
-        if(rigid.velocity != Vector2.zero && isGround && isSandPs)
+        if (rigid.velocity != Vector2.zero && isGround && isSandPs)
         {
             isSandPs = false;
             GameManager.instance.effectsPool.Get(0, this.transform);

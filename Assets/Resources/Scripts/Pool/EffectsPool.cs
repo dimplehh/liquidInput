@@ -40,7 +40,7 @@ public class EffectsPool : MonoBehaviour
 
         select.transform.position = pos.position + new Vector3(0, -1f, 0); ; //  //생성 위치 변경
         
-        StartCoroutine(HitPsSetFalse(select, 1)); //시간 경과 후 비활성화
+        StartCoroutine(HitPsSetFalse(select, 2)); //시간 경과 후 비활성화
 
         return select;
     }
