@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: -2208984865573406086}
   - component: {fileID: 2778109496468394860}
   - component: {fileID: -7368038462692155855}
+  - component: {fileID: 5158337319218479847}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -128,8 +129,9 @@ MonoBehaviour:
   attached: 0
   attachedTo: {fileID: 0}
   playerHeight: 0
-  isParticleActive: 0
+  isSandPs: 1
   curSlimeTime: 0
+  curSandPsTime: 0
 --- !u!50 &3944498665559805125
 Rigidbody2D:
   serializedVersion: 4
@@ -190,7 +192,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -352697533
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 535941605, guid: 4333198a03b2f4545a7be376216bc3e4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -296,6 +298,36 @@ MonoBehaviour:
   boxMask:
     serializedVersion: 2
     m_Bits: 7607
+--- !u!114 &5158337319218479847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3944498665559805135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 518fd5c6895d35a7fb95285e4343faea95f4f9da0dbc2d4a51d7e8ef
+  m_ShapePath:
+  - {x: -0.30651093, y: -1.0890176, z: 0}
+  - {x: -0.30651093, y: 1.1409309, z: 0}
+  - {x: 0.35287476, y: 1.0945747, z: 0}
+  - {x: 0, y: -1.0890179, z: 0}
+  m_ShapePathHash: 1404329549
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -12238
+  m_LocalBounds:
+    m_Center: {x: 0.023181915, y: 0.025956511, z: 0}
+    m_Extent: {x: 0.32969284, y: 1.1149744, z: 0}
 --- !u!1 &4821976611783506837
 GameObject:
   m_ObjectHideFlags: 0
