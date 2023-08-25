@@ -441,6 +441,7 @@ private void OnCollisionExit2D(Collision2D collision)
         if (other.gameObject.CompareTag("SandSwamp"))
         {
             isSlow = true;
+            
         }
         if (!attached && Input.GetKeyDown(KeyCode.X))
         {

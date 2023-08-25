@@ -6,6 +6,9 @@ public class SandSwamp : MonoBehaviour
 {
     [SerializeField] private GameObject downLoad;
     [SerializeField] private GameObject deadLoad;
+    [SerializeField] private ParticleSystem sandPs;
+    [SerializeField] private GameObject sandPsGo;
+    [SerializeField] private GameObject sandSwampPos;
     public Vector3 initdownLoadPos;
     public bool isTriggerPlayer = false;
     private float downSpeed = 0.3f;
@@ -52,6 +55,7 @@ public class SandSwamp : MonoBehaviour
             if (!GameManager.instance.player.GetComponent<Player>().isSlime)
             {
                 isTriggerPlayer = true;
+                 
             }
             else
             {
@@ -65,10 +69,14 @@ public class SandSwamp : MonoBehaviour
         {
             DownTime(); 
             Down();
+            sandPs.Play();
+            sandPsGo.transform.position = new Vector3(GameManager.instance.player.GetComponent<Player>().transform.position.x, sandSwampPos.transform.position.y, 0);
+
         }
         else if(!GameManager.instance.player.GetComponent<Player>().isSlow)
         {
             downLoad.transform.position = initdownLoadPos;
+            sandPs.Stop();
         }
     }
 

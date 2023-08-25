@@ -37,8 +37,16 @@ public class EffectsPool : MonoBehaviour
         select.GetComponent<ParticleSystem>().Play();
         select.transform.parent = transform; //생성 위치 부모
 
-
-        select.transform.position = pos.position + new Vector3(0, -1f, 0); ; //  //생성 위치 변경
+        //생성 위치 변경
+        switch (index)
+        {
+            case 0:
+            case 1:
+                select.transform.position = pos.position + new Vector3(0, -1f, 0); 
+                break;
+        }
+        
+        
         
         StartCoroutine(HitPsSetFalse(select, 2)); //시간 경과 후 비활성화
 

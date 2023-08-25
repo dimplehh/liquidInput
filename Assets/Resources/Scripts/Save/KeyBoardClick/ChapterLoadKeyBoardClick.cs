@@ -31,7 +31,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
     {
         LoadKeyBoardClick();
         ExitButton();
-        buttonGroup.position = Vector3.Lerp(buttonGroup.position, initButtonGroup.position - (new Vector3(1100, 0, 0) * (chapLoadindex-1)), Time.deltaTime * 1f);
+        buttonGroup.position = Vector3.Lerp(buttonGroup.position, initButtonGroup.position - (new Vector3(1100, 0, 0) * (chapLoadindex-1)), Time.deltaTime * 3f);
     }
     private void ExitButton()
     {
@@ -43,6 +43,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
             }
         }
     }
+   
     private void LoadKeyBoardClick()
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -57,7 +58,8 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
                 chapLoadindex++;
                 chapterNameText.text = ChapterName(chapLoadindex); //챕터 이름 결정
                 //buttonGroup.position = buttonGroup.position - new Vector3(1100, 0, 0);
-                RockImageCheck();
+                //RockImageCheck();
+                StartCoroutine(WaitRockImage());
             }
   
         }
@@ -73,7 +75,8 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
                 chapterNameText.text = ChapterName(chapLoadindex); //챕터 이름 결정
                 //buttonGroup.position = buttonGroup.position + new Vector3(1100, 0, 0);
                 //buttonGroup.position = Vector3.Lerp(buttonGroup.position, buttonGroup.position + new Vector3(1100, 0, 0), Time.deltaTime * 0.5f); 
-                RockImageCheck();
+                //RockImageCheck();
+                StartCoroutine(WaitRockImage());
             }
         }
 
@@ -115,5 +118,10 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
         {
             rockImage.SetActive(false);
         }
+    }
+    private IEnumerator WaitRockImage()
+    {
+        yield return new WaitForSeconds(2.1f);
+        RockImageCheck();
     }
 }
