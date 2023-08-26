@@ -10,7 +10,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
     [SerializeField] private RectTransform buttonGroup;
     [SerializeField] private RectTransform initButtonGroup; //초기화 위치
     [Header("챕터 잠금 흑백 이미지")]
-    [SerializeField] private GameObject rockImage;
+    [SerializeField] private GameObject[] rockImage;
 
     [SerializeField] private Text chapterNameText;
 
@@ -57,9 +57,9 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
             {
                 chapLoadindex++;
                 chapterNameText.text = ChapterName(chapLoadindex); //챕터 이름 결정
-                //buttonGroup.position = buttonGroup.position - new Vector3(1100, 0, 0);
-                //RockImageCheck();
-                StartCoroutine(WaitRockImage());
+               
+                RockImageCheck();
+                
             }
   
         }
@@ -73,10 +73,9 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
             {
                 chapLoadindex--;
                 chapterNameText.text = ChapterName(chapLoadindex); //챕터 이름 결정
-                //buttonGroup.position = buttonGroup.position + new Vector3(1100, 0, 0);
-                //buttonGroup.position = Vector3.Lerp(buttonGroup.position, buttonGroup.position + new Vector3(1100, 0, 0), Time.deltaTime * 0.5f); 
-                //RockImageCheck();
-                StartCoroutine(WaitRockImage());
+                
+                RockImageCheck();
+               
             }
         }
 
@@ -110,18 +109,19 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
     }
     private void RockImageCheck()
     {
+        for(int i=0; i<rockImage.Length; i++)
+        {
+            rockImage[i].SetActive(true);
+        }
+
         if (StageManager.instance.lastStageIndex < chapLoadindex)
         {
-            rockImage.SetActive(true);
+            rockImage[chapLoadindex-1].SetActive(true);
         }
         else
         {
-            rockImage.SetActive(false);
+            rockImage[chapLoadindex - 1].SetActive(false);
         }
     }
-    private IEnumerator WaitRockImage()
-    {
-        yield return new WaitForSeconds(2.1f);
-        RockImageCheck();
-    }
+
 }
