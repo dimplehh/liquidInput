@@ -123,6 +123,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &71439731 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 25632549676868529, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+  m_PrefabInstance: {fileID: 2891544003147358800}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &358921966 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3321729724994159552, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+  m_PrefabInstance: {fileID: 2891544003147358800}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &387341954
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +493,17 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &1727244118 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1434453401255608704, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+  m_PrefabInstance: {fileID: 2891544003147358800}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1785093501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -836,6 +869,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8790157199001400640, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+      propertyPath: selectText.Array.data[0]
+      value: 
+      objectReference: {fileID: 71439731}
+    - target: {fileID: 8790157199001400640, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+      propertyPath: selectText.Array.data[1]
+      value: 
+      objectReference: {fileID: 1727244118}
+    - target: {fileID: 8790157199001400640, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+      propertyPath: selectText.Array.data[2]
+      value: 
+      objectReference: {fileID: 358921966}
     - target: {fileID: 8829949624304677810, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

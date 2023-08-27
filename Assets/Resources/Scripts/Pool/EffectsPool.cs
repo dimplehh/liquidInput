@@ -42,6 +42,7 @@ public class EffectsPool : MonoBehaviour
         {
             case 0:
             case 1:
+            case 2:
                 select.transform.position = pos.position + new Vector3(0, -1f, 0); 
                 break;
         }

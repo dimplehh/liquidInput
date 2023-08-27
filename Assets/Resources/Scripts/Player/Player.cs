@@ -106,8 +106,17 @@ public class Player : MonoBehaviour
 
         if (rigid.velocity != Vector2.zero && isGround && isSandPs)
         {
-            isSandPs = false;
-            GameManager.instance.effectsPool.Get(0, this.transform);
+            if (!isHill) //언덕에 올라가지 않았을 때
+            {
+                isSandPs = false;
+                GameManager.instance.effectsPool.Get(0, this.transform);
+            }
+            else
+            {
+                isSandPs = false;
+                GameManager.instance.effectsPool.Get(2, this.transform);
+            }
+            
         }
     }
     private void Run()
@@ -433,6 +442,7 @@ private void OnCollisionExit2D(Collision2D collision)
         if (other.gameObject.CompareTag("Hill"))
         {
             isHill = true;
+
         }
     }
 
