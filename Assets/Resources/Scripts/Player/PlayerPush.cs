@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerPush : MonoBehaviour
 {
-    public float distance = 3f;
+    float distance = 10f;
     public LayerMask boxMask;
     GameObject box;
     Player player;
@@ -12,6 +12,26 @@ public class PlayerPush : MonoBehaviour
     void Start()
     {
         player = this.gameObject.GetComponent<Player>();
+    }
+
+    private void FixedUpdate()
+    {
+        int right = (player.spriteRenderer.flipX) ? -1 : 1;
+        RaycastHit2D[] hits = Physics2D.RaycastAll(new Vector2(transform.position.x, transform.position.y - 0.5f), new Vector2(right, 0) * transform.localScale.x, distance, boxMask); //0, 2, 4
+        if(Input.GetKey(KeyCode.X))
+        {
+            for (int i = 2; i < hits.Length; i += 2)
+            {
+                hits[i].collider.gameObject.GetComponent<Rigidbody2D>().mass = 2;
+            }
+        }
+        else if(Input.GetKeyUp(KeyCode.X))
+        {
+            for (int i = 2; i < hits.Length; i += 2)
+            {
+                hits[i].collider.gameObject.GetComponent<Rigidbody2D>().mass = 100;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -72,6 +92,6 @@ public class PlayerPush : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(new Vector2(transform.position.x, transform.position.y - 0.3f), new Vector2(transform.position.x, transform.position.y - 0.3f) + Vector2.right * transform.localScale.x * 3f);
+        Gizmos.DrawLine(new Vector2(transform.position.x, transform.position.y - 0.5f), new Vector2(transform.position.x, transform.position.y - 0.5f) + Vector2.right * transform.localScale.x * 10f);
     }
 }
