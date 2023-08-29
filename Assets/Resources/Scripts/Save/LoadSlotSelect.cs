@@ -31,7 +31,7 @@ public class LoadSlotSelect : MonoBehaviour
                                 StageName(Managers.Data.playerData.currentStage) +
                                 "\n저장 날짜 : " + Managers.Data.playerData.saveDate +
                                 "\n플레이 타임 : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") +
-                                "\n물방울-" + Managers.Data.playerData.playerWaterReserves.ToString();
+                                "\n물방울 : " + Managers.Data.playerData.playerWaterReserves.ToString();
             }
             else
             {
