@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class LoadKeyBoardClick : MonoBehaviour
 {
-    [SerializeField] private int loadindex; //챕터는 1부터 시작이고 이거는 0부터 시작하는거 통일성있게 가야함
+    public int loadindex; //챕터는 1부터 시작이고 이거는 0부터 시작하는거 통일성있게 가야함
     [SerializeField] private LoadSlotSelect? loadSlotSelect; //수동 불러오기
     [SerializeField] private RectTransform?[] selectPos; //선택이미지 위치
     public Text[] selectText; //선택 텍스트
@@ -67,12 +67,12 @@ public class LoadKeyBoardClick : MonoBehaviour
             loadSlotSelect.Slot(loadindex);
         }
     }
-    private void SelectTextColorWhite()
+    public void SelectTextColorWhite()
     {
         selectText[loadindex].color = Color.white;
         selectText[loadindex].fontSize = 40;
     }
-    private void SelectTextColorBlack()
+    public void SelectTextColorBlack()
     {
         selectText[loadindex].color = Color.black;
         selectText[loadindex].fontSize = 30;
