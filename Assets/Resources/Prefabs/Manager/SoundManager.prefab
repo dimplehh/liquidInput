@@ -304,7 +304,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmAudioSource: {fileID: 7851511520411101391}
   sfxAudioSource: {fileID: 7851511518797479487}
-  bgmSoundList: []
+  bgmSoundList:
+  - name: TitleBGM
+    clip: {fileID: 8300000, guid: 38d6dbee49912e24e985acde2401bf31, type: 3}
   sfxSoundList:
-  - name: TestSound
+  - name: 0TestSound
     clip: {fileID: 8300000, guid: 59ff9c82479e47b4f92fcd241e09a1b4, type: 3}
+  - name: 1PlayerDie
+    clip: {fileID: 8300000, guid: af500c43e8e1c98418b0f43415d1a440, type: 3}
+  - name: 2UIButtonMove
+    clip: {fileID: 8300000, guid: 69e83082f8ba2b64f82a1050590dc035, type: 3}
+  - name: 3UIButtonClick
+    clip: {fileID: 8300000, guid: 9480b2f8067398c4aadf5eb29f87cb5c, type: 3}
+  - name: 4PlayerChangeSlime
+    clip: {fileID: 8300000, guid: 18881265a49952e409869eacf1c9f410, type: 3}
+  - name: 5WaterAbsorb
+    clip: {fileID: 8300000, guid: a91c9fe1c1f51d34d9f9a38cc3ded96b, type: 3}
+  - name: 6AutoSave
+    clip: {fileID: 8300000, guid: 9c1bf1029e14f8744a0ef1d8b00a878f, type: 3}

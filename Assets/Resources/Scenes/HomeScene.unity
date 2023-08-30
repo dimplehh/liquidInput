@@ -592,6 +592,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 363705900264935493, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 363705900264935493, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 363705900264935493, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 363705900264935493, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1434453401255608705, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1434453401255608705, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1434453401255608705, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1434453401255608705, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2804006668365814222, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -744,6 +776,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6327012663167459725, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439484402315336218, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7122458205593571861, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829949624304677810, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
 --- !u!114 &2917139968311872337 stripped
@@ -872,10 +920,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7851511518797479487, guid: 3610580a5840dfe41a178924408f8838, type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7851511520517246560, guid: 3610580a5840dfe41a178924408f8838, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -925,44 +969,24 @@ PrefabInstance:
       value: SoundManager
       objectReference: {fileID: 0}
     - target: {fileID: 7851511520517246563, guid: 3610580a5840dfe41a178924408f8838, type: 3}
-      propertyPath: bgmSoundList.Array.size
-      value: 1
+      propertyPath: sfxSoundList.Array.data[0].name
+      value: 0TestSound
       objectReference: {fileID: 0}
-    - target: {fileID: 7851511520517246563, guid: 3610580a5840dfe41a178924408f8838, type: 3}
-      propertyPath: sfxSoundList.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7851511520517246563, guid: 3610580a5840dfe41a178924408f8838, type: 3}
-      propertyPath: bgmSoundList.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 38d6dbee49912e24e985acde2401bf31, type: 3}
-    - target: {fileID: 7851511520517246563, guid: 3610580a5840dfe41a178924408f8838, type: 3}
-      propertyPath: bgmSoundList.Array.data[0].name
-      value: TitleBGM
-      objectReference: {fileID: 0}
-    - target: {fileID: 7851511520517246563, guid: 3610580a5840dfe41a178924408f8838, type: 3}
-      propertyPath: sfxSoundList.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: a1d47b6be76c95842a00d5a068326550, type: 3}
     - target: {fileID: 7851511520517246563, guid: 3610580a5840dfe41a178924408f8838, type: 3}
       propertyPath: sfxSoundList.Array.data[1].name
-      value: PlayerDie
+      value: 1PlayerDie
       objectReference: {fileID: 0}
-    - target: {fileID: 7851511520517246563, guid: 3610580a5840dfe41a178924408f8838, type: 3}
-      propertyPath: sfxSoundList.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: b3d4170e9ed047f4ca0e0acb9f9a865d, type: 3}
     - target: {fileID: 7851511520517246563, guid: 3610580a5840dfe41a178924408f8838, type: 3}
       propertyPath: sfxSoundList.Array.data[2].name
-      value: UIButtonMove
+      value: 2UIButtonMove
       objectReference: {fileID: 0}
     - target: {fileID: 7851511520517246563, guid: 3610580a5840dfe41a178924408f8838, type: 3}
-      propertyPath: sfxSoundList.Array.data[3].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9480b2f8067398c4aadf5eb29f87cb5c, type: 3}
-    - target: {fileID: 7851511520517246563, guid: 3610580a5840dfe41a178924408f8838, type: 3}
       propertyPath: sfxSoundList.Array.data[3].name
-      value: UIButtonClick
+      value: 3UIButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 7851511520517246563, guid: 3610580a5840dfe41a178924408f8838, type: 3}
+      propertyPath: sfxSoundList.Array.data[4].name
+      value: 4PlayerChangeSlime
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3610580a5840dfe41a178924408f8838, type: 3}

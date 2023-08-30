@@ -118,7 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWaterReserves: 0
   maxWaterReserves: 5
-  currentWaterReservesImage: {fileID: 7136065873700536831}
+  deadZone: {fileID: 0}
 --- !u!1 &7136065875458879146
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &7136065875458879145
 MonoBehaviour:
   m_ObjectHideFlags: 0

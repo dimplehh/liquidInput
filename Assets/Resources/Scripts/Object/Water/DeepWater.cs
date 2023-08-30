@@ -47,6 +47,7 @@ public class DeepWater : Water
                     {
                         if (currentWaterReserves > 0)
                         {
+                            SoundManager.instance.SfxPlaySound(5, transform.position);
                             GameManager.instance.curWaterReserves += 1;
                             currentWaterReserves--;
                             this.transform.position -=  new Vector3(0, 0.5f, 0);

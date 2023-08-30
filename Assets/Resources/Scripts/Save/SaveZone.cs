@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class SaveZone : Zone
 {
-    
-    
+    public Animator anim;
+
+    public void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
     protected override void Start()
     {
         isSave = true;
+        anim.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("SaveZone"))
         {
+            anim.enabled = true;
+            SoundManager.instance.SfxPlaySound(6, transform.position);
             AutoSave(other.gameObject);
             GameManager.instance.loadSlotSelect.SlotSaveFileCheck();
         }

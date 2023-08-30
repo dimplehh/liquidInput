@@ -247,6 +247,7 @@ public class Player : MonoBehaviour
         {
             if (!isSlime && !isFlicker && anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
             {
+                SoundManager.instance.SfxPlaySound(4, transform.position);
                 isSlime = true;
                 anim.SetBool("IsSlime", true);
                 GameManager.instance.waterParticle.GetComponent<ParticleSystem>().Play(); // 이거 말고 GameManager에 curWaterReverse 줄어들 때 함수 따로 만드는게 좋을듯
@@ -305,6 +306,7 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("이제 죽을거야");
                 anim.Play("ThirstyDie");
+                
                 GameManager.instance.OpenGameOver();
                 GameManager.instance.isPlay = false;
             }
