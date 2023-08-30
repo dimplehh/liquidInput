@@ -743,6 +743,7 @@ Transform:
   m_Children:
   - {fileID: 758208637338841506}
   - {fileID: 758208637122391507}
+  - {fileID: 1583315252}
   m_Father: {fileID: 758208637145934352}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1189,7 +1190,6 @@ Transform:
   m_Children:
   - {fileID: 758208639017296452}
   - {fileID: 758208637503301901}
-  - {fileID: 1583315252}
   - {fileID: 8469399076951098126}
   - {fileID: 1702281190}
   m_Father: {fileID: 758208637145934352}
@@ -3826,7 +3826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 243780295936446463, guid: eabe500adb5f8094bb5f9716280bc684, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 243780295936446463, guid: eabe500adb5f8094bb5f9716280bc684, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5142,7 +5142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5761346245333926420, guid: eb57a566215ee544aaa8f0b8a212bd91, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5761346245333926420, guid: eb57a566215ee544aaa8f0b8a212bd91, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5526,7 +5526,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 758208639188911991}
+    m_TransformParent: {fileID: 758208638176053208}
     m_Modifications:
     - target: {fileID: 5761346245333926419, guid: eb57a566215ee544aaa8f0b8a212bd91, type: 3}
       propertyPath: m_Name
@@ -5538,7 +5538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5761346245333926420, guid: eb57a566215ee544aaa8f0b8a212bd91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5761346245333926420, guid: eb57a566215ee544aaa8f0b8a212bd91, type: 3}
       propertyPath: m_LocalPosition.y
