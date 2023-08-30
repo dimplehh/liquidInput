@@ -33,6 +33,7 @@ public class SoundVolumePanel : MonoBehaviour
                 SelectTextColorBlack();
                 index++;
                 SelectTextColorWhite();
+                SoundManager.instance.SfxPlaySound(2, transform.position);
             }
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -47,6 +48,7 @@ public class SoundVolumePanel : MonoBehaviour
                 SelectTextColorBlack();
                 index--;
                 SelectTextColorWhite();
+                SoundManager.instance.SfxPlaySound(2, transform.position);
             }
         }
 
@@ -54,6 +56,7 @@ public class SoundVolumePanel : MonoBehaviour
         {
             if(index == 0)
             {
+                SoundManager.instance.SfxPlaySound(3, transform.position);
                 keySettingPanel.SetActive(true);
             }
         }

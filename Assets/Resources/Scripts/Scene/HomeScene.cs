@@ -9,6 +9,7 @@ public class HomeScene : MonoBehaviour
     private void Start()
     {
         SetVolume();
+        SoundManager.instance.BgmPlaySound(0);
     }
 
     public void SetVolume()

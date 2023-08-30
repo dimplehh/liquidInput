@@ -41,6 +41,7 @@ public class KeyboardSelect : MonoBehaviour
             }
             else
             {
+                SoundManager.instance.SfxPlaySound(2, transform.position);
                 selectText[selectIndex].color = Color.black;
                 selectText[selectIndex].fontSize = 50;
                 selectIndex++;
@@ -57,6 +58,7 @@ public class KeyboardSelect : MonoBehaviour
             }
             else
             {
+                SoundManager.instance.SfxPlaySound(2, transform.position);
                 selectText[selectIndex].color = Color.black;
                 selectText[selectIndex].fontSize = 50;
                 selectIndex--;
@@ -74,11 +76,13 @@ public class KeyboardSelect : MonoBehaviour
             {
                 //인게임이 아닐때
                 SelectButtonEvent();
+                SoundManager.instance.SfxPlaySound(3, transform.position);
             }  
             else
             {
                 //인게임 일때
                 IngameSelectButtonEvent();
+                SoundManager.instance.SfxPlaySound(3, transform.position);
             }
         }
     }

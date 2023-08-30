@@ -24,6 +24,7 @@ public class LoadKeyBoardClick : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                SoundManager.instance.SfxPlaySound(2, transform.position);
                 gameObject.SetActive(false);
                 for (int i = 0; i < selectText.Length; i++)
                 {
@@ -45,6 +46,7 @@ public class LoadKeyBoardClick : MonoBehaviour
                 SelectTextColorBlack();
                 loadindex++;
                 SelectTextColorWhite();
+                SoundManager.instance.SfxPlaySound(2, transform.position);
             }
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -59,11 +61,13 @@ public class LoadKeyBoardClick : MonoBehaviour
                 SelectTextColorBlack();
                 loadindex--;
                 SelectTextColorWhite();
+                SoundManager.instance.SfxPlaySound(2, transform.position);
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            SoundManager.instance.SfxPlaySound(3, transform.position);
             loadSlotSelect.Slot(loadindex);
         }
     }

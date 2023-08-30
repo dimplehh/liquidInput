@@ -40,6 +40,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 gameObject.SetActive(false);
+                SoundManager.instance.SfxPlaySound(2, transform.position);
             }
         }
     }
@@ -57,7 +58,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
             {
                 chapLoadindex++;
                 chapterNameText.text = ChapterName(chapLoadindex); //챕터 이름 결정
-               
+                SoundManager.instance.SfxPlaySound(2, transform.position);
                 RockImageCheck();
                 
             }
@@ -73,7 +74,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
             {
                 chapLoadindex--;
                 chapterNameText.text = ChapterName(chapLoadindex); //챕터 이름 결정
-                
+                SoundManager.instance.SfxPlaySound(2, transform.position);
                 RockImageCheck();
                
             }
@@ -83,6 +84,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
         {
             if (StageManager.instance.lastStageIndex >= chapLoadindex)
             {
+                SoundManager.instance.SfxPlaySound(3, transform.position);
                 chapterLoad.ChapterLoadButton(chapLoadindex);
             }
         }

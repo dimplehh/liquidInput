@@ -21,7 +21,7 @@ public class MouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         selectText.fontSize = maxFontSize;
         selectText.color = Color.white;
-
+        SoundManager.instance.SfxPlaySound(2, transform.position);
         if (keyboardSelect)
         {
             keyboardSelect.selectText[keyboardSelect.selectIndex].color = Color.black;
