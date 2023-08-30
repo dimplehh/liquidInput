@@ -10,8 +10,9 @@ public class MouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] private int minFontSize;
     public int mouseIndex; //마우스 인덱스
 
-    public KeyboardSelect? keyboardSelect; //키보드 셀렉트
-    public LoadKeyBoardClick? loadKeyBoardClick; //로드키보드 클릭
+    public KeyboardSelect? keyboardSelect; 
+    public LoadKeyBoardClick? loadKeyBoardClick; 
+    public SoundVolumePanel? soundVolumePanel; 
     private void Start()
     {
         selectText = GetComponentInChildren<Text>();
@@ -35,7 +36,12 @@ public class MouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             loadKeyBoardClick.loadindex = mouseIndex;
             loadKeyBoardClick.SelectTextColorWhite();
         }
-        
+        else if (soundVolumePanel)
+        {
+            soundVolumePanel.SelectTextColorBlack();
+            soundVolumePanel.index = mouseIndex;
+            soundVolumePanel.SelectTextColorWhite();
+        }
 
     }
     public void OnPointerExit(PointerEventData eventData)
@@ -52,6 +58,10 @@ public class MouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             //loadKeyBoardClick.SelectTextColorBlack();
             loadKeyBoardClick.SelectTextColorWhite();
+        }
+        else if (soundVolumePanel)
+        {
+            soundVolumePanel.SelectTextColorWhite();
         }
     }
 }
