@@ -323,9 +323,9 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
                 Detach();
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            else if (Input.GetKey(KeyCode.UpArrow))
                 Slide(1);
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            else if (Input.GetKey(KeyCode.DownArrow))
                 Slide(-1);
         }
     }
@@ -463,7 +463,7 @@ private void OnCollisionExit2D(Collision2D collision)
             isSlow = true;
             
         }
-        if (!attached && Input.GetKeyDown(KeyCode.X))
+        if (!attached && !isSlime && Input.GetKeyDown(KeyCode.X))
         {
             if (other.gameObject.tag == "Rope")
             {
