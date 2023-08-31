@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Playables; //컷신
 public class GameManager : MonoBehaviour
 {
     [Header("Grid")]
@@ -50,6 +51,9 @@ public class GameManager : MonoBehaviour
 
     //이펙트 풀
     public EffectsPool effectsPool;
+
+    //컷신
+    public PlayableDirector playableDirector;
     public void IsNonAutoSave() 
     {
         isNonAutoSave = false;
@@ -92,11 +96,18 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SoundManager.instance.BgmPlaySound(1);
-        PlayGame();
+        StartCoroutine(CutScene()); //컷신이후 플레이게임 //이거 데이터 없을 때만 이렇게 되야함
         Initialized();
         //CreateGrid(); 
         setWaterSlider();
     }
+    private IEnumerator CutScene()
+    {
+        playableDirector.Play();
+        yield return new WaitForSeconds(4f);
+        PlayGame();
+    }
+    
     private void setWaterSlider()
     {
         waterTool = waterSlider.GetComponent<Water2DTool.Water2D_Tool>();
