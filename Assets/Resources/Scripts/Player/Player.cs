@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public bool isSlow = false;
     private bool isFlicker = false; //슬라임 형태에서 9초가 되었을 때 반짝이면서 유저에게 인간에게 돌아간다는 표현
     private bool isHill = false; //언덕 오르기 
+    private bool isWater = false; 
     public Vector3 sVec;
     Vector3 ladderPosition;
     public bool pressX = true;
@@ -108,7 +109,7 @@ public class Player : MonoBehaviour
 
         if (rigid.velocity != Vector2.zero && isGround && isSandPs)
         {
-            SoundManager.instance.SfxPlaySound(7, transform.position); //이따가 함수 만들어서 구분지어서 sand,water,mud 나오게 할듯
+            SoundSelect();
             if (!isHill) //언덕에 올라가지 않았을 때
             {
                 isSandPs = false;
@@ -122,6 +123,18 @@ public class Player : MonoBehaviour
             }
             
         }
+    }
+    private void SoundSelect()
+    {
+        if (!isWater)
+        {
+            SoundManager.instance.SfxPlaySound(7, transform.position); //모레 이동 사운드
+        }
+        else
+        {
+            SoundManager.instance.SfxPlaySound(10, transform.position); //물 이동 사운드
+        }
+        
     }
     private void Run()
     {
@@ -399,7 +412,8 @@ public class Player : MonoBehaviour
         if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill")) || collision.gameObject.layer == 8 && !isSlime)
         {
             isGround = true;
-            if(!collision.gameObject.CompareTag("Hill"))
+            
+            if (!collision.gameObject.CompareTag("Hill"))
                 shadow.SetActive(true);
             if (this.playerHeight > gameObject.transform.position.y + 7.0f)//추락사 (일단 5.0f) 차후 수정 필요,
             {
@@ -413,9 +427,10 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform"))
+        if (collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill"))
         {
             Debug.Log("착지 이펙트 생성");
+            SoundManager.instance.SfxPlaySound(8, transform.position);
             GameManager.instance.effectsPool.Get(1, this.transform );
         }
     }
@@ -453,6 +468,11 @@ private void OnCollisionExit2D(Collision2D collision)
         {
             isHill = true;
 
+        }
+        if (other.CompareTag("Water"))
+        {
+            isWater = true;
+            SoundManager.instance.SfxPlaySound(9, transform.position); //물 진입 사운드
         }
     }
 
@@ -498,6 +518,10 @@ private void OnCollisionExit2D(Collision2D collision)
         {
             isSlow = false;
             Debug.Log("늪 나왔다");
+        }
+        if (other.CompareTag("Water"))
+        {
+            isWater = false;
         }
     }
     void LadderOut()
