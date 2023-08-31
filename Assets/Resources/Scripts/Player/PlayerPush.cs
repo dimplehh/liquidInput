@@ -75,6 +75,11 @@ public class PlayerPush : MonoBehaviour
                     player.anim.SetBool("isPull", true);
                     player.spriteRenderer.flipX = true;
                 }
+                else if(player.h == 0)
+                {
+                    player.anim.SetBool("isPush", false);
+                    player.anim.SetBool("isPull", false);
+                }
             }
         }
         else if (box != null && Input.GetKeyUp(KeyCode.X))
