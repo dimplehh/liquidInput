@@ -106,10 +106,12 @@ public class Player : MonoBehaviour
 
         if (rigid.velocity != Vector2.zero && isGround && isSandPs)
         {
+            SoundManager.instance.SfxPlaySound(7, transform.position); //이따가 함수 만들어서 구분지어서 sand,water,mud 나오게 할듯
             if (!isHill) //언덕에 올라가지 않았을 때
             {
                 isSandPs = false;
                 GameManager.instance.effectsPool.Get(0, this.transform);
+                
             }
             else
             {
