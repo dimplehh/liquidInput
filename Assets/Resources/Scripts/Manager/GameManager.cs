@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        SoundManager.instance.BgmPlaySound(1);
         PlayGame();
         Initialized();
         //CreateGrid(); 
