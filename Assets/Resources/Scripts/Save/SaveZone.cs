@@ -24,6 +24,8 @@ public class SaveZone : Zone
             SoundManager.instance.SfxPlaySound(6, transform.position);
             AutoSave(other.gameObject);
             GameManager.instance.loadSlotSelect.SlotSaveFileCheck();
+
+            
         }
         
     }
@@ -32,7 +34,7 @@ public class SaveZone : Zone
     {
         if (other.gameObject.CompareTag("SaveZone")) //player 안에 자식오브젝트로 saveZone이라는 태그를 가진 충돌체 생성
         {
-            if (Input.GetKey(KeyCode.X) && isSave)
+            if (Input.GetKeyDown(KeyCode.X) && isSave)
             {
                 GameManager.instance.isNonAutoSave = true;
                 GameManager.instance.SaveAndLoadPanel.SetActive(true);
