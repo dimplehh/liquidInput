@@ -41,7 +41,7 @@ public class PlayerPush : MonoBehaviour
         int right = (player.spriteRenderer.flipX) ? -1 : 1;
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.3f), new Vector2(right, 0) * transform.localScale.x, distance, boxMask);
         if (hit.collider != null && hit.collider.gameObject.layer == 12
-            && Mathf.Abs(hit.collider.gameObject.transform.position.x - this.gameObject.transform.position.x) <= 4f && Input.GetKey(KeyCode.X))
+            && Mathf.Abs(hit.collider.gameObject.transform.position.x - this.gameObject.transform.position.x) <= 1.7f && Input.GetKey(KeyCode.X))
         {
             box = hit.collider.gameObject;
             if(box != null)

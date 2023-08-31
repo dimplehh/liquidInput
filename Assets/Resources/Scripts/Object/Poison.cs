@@ -6,7 +6,7 @@ public class Poison : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "SaveZone")
         {
             if (GameManager.instance.player.GetComponent<Player>().isSlime)
             {
