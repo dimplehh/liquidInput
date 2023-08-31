@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Animator anim;
     public Vector3 tempVec;
+    [SerializeField]
+    GameObject shadow;
 
     [Header("상태")]
     public bool isGround = false;
@@ -397,8 +399,9 @@ public class Player : MonoBehaviour
         if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill")) || collision.gameObject.layer == 8 && !isSlime)
         {
             isGround = true;
-            
-            if(this.playerHeight > gameObject.transform.position.y + 7.0f)//추락사 (일단 5.0f) 차후 수정 필요,
+            if(!collision.gameObject.CompareTag("Hill"))
+                shadow.SetActive(true);
+            if (this.playerHeight > gameObject.transform.position.y + 7.0f)//추락사 (일단 5.0f) 차후 수정 필요,
             {
                 if(!isSlime)anim.Play("Die");
                 GameManager.instance.OpenGameOver();
@@ -420,7 +423,10 @@ public class Player : MonoBehaviour
 private void OnCollisionExit2D(Collision2D collision)
     {
         if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill")) && !isSlime)
+        {
             isGround = false;
+            shadow.SetActive(false);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
