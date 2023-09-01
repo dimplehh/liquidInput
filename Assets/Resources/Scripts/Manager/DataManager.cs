@@ -7,12 +7,15 @@ public class PlayerData
 {
     //초기값 설정//
     public float playerXPos = 0.0f; //플레이어 x축 위치
+    public float playerYPos = 0.0f; //플레이어 y축 위치
     public float playerWaterReserves = 5; //플레이어 물 보유량
     public int currentStage = 1;  //현재 스테이지 정보
     public int index; //저장 위치
     public float goodGauge; //선행게이지
     public float playTime = 0; //플레이 시간
     public string saveDate = ""; //저장날짜
+
+    public bool isFirst = true; //새로시작하면 컷신 나오게
 }
 public class GameData
 {
@@ -29,18 +32,16 @@ public class DataManager : MonoBehaviour
         path = Application.persistentDataPath + "/";
         
     }
-    private void Start()
-    {
-        //DefaultSaveData(); //기본정보 저장
-    }
     //슬롯 별 저장 / 불러오기
     public void SlotSaveData(int index, GameObject pos, int stage, int curWater, float playTime)
     {
         playerData.playerXPos = pos.transform.position.x;
+        playerData.playerYPos = pos.transform.position.y;
         playerData.currentStage = stage;
         playerData.playerWaterReserves = curWater;
         playerData.index = index;
         playerData.playTime = playTime;
+        playerData.isFirst = false;
         playerData.saveDate = DateTime.Now.ToString("yyyy MM dd"); 
 
         string data = JsonUtility.ToJson(playerData);
@@ -57,9 +58,11 @@ public class DataManager : MonoBehaviour
     {
         playerData.playerWaterReserves = 5; //물보유량
         playerData.currentStage = 1; //스테이지
-        playerData.playerXPos = -13.0f; //첫 시작 위치
+        playerData.playerXPos = -20f; //첫 시작 위치
+        playerData.playerYPos = 0f; //첫 시작 위치
         playerData.playTime = 0; //플레이 타임
         playerData.saveDate = "";
+        playerData.isFirst = true;
         //저장할것들....추가하면 됨
         string data = JsonUtility.ToJson(playerData);
         File.WriteAllText(path + "DefaultPlayerData", data);

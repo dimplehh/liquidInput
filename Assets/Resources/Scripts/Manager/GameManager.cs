@@ -96,7 +96,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SoundManager.instance.BgmPlaySound(1);
-        StartCoroutine(CutScene()); //컷신이후 플레이게임 //이거 데이터 없을 때만 이렇게 되야함
+        if(Managers.Data.playerData.isFirst == true)
+        {
+            StartCoroutine(CutScene()); //컷신이후 플레이게임
+        }
+        
         Initialized();
         //CreateGrid(); 
         setWaterSlider();
@@ -104,7 +108,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator CutScene()
     {
         playableDirector.Play();
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5.5f);
         PlayGame();
     }
     
@@ -141,7 +145,7 @@ public class GameManager : MonoBehaviour
     private void Initialized()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        player.transform.position = new Vector3(Managers.Data.playerData.playerXPos, 0, 0);
+        player.transform.position = new Vector3(Managers.Data.playerData.playerXPos, Managers.Data.playerData.playerYPos, 0);
         curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
         waterParticle.GetComponent<ParticleSystem>().Stop();
     }

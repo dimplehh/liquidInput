@@ -17,6 +17,7 @@ public class Managers : MonoBehaviour
     void Start()
     {
         init();
+        //Data.DefaultSaveData(); //기본정보 저장
     }
     static void init()
     {
