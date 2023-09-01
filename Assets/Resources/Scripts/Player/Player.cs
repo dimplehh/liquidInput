@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
             else
                 rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
         }
-        if (isSlow) realMaxSpeed = maxSpeed / 2.5f;
+        if (isSlow) realMaxSpeed = maxSpeed / 3f;
 
         //플레이어 이동 속도 제어
         if (rigid.velocity.x > realMaxSpeed)
