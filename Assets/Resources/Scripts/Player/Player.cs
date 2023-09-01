@@ -428,7 +428,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.layer == 15)
         {
-            isWater = true;
+            //isWater = true;
             SoundManager.instance.SfxPlaySound(9, transform.position);
         }
         else if (collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill"))
