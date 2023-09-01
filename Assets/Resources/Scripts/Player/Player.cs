@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
             else
                 rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
         }
-        if (isSlow) realMaxSpeed = maxSpeed / 3f;
+        if (isSlow) realMaxSpeed = maxSpeed / 2.5f;
 
         //플레이어 이동 속도 제어
         if (rigid.velocity.x > realMaxSpeed)
@@ -265,8 +265,8 @@ public class Player : MonoBehaviour
             if (!isSlime && !isFlicker && anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
             {
                 SoundManager.instance.SfxPlaySound(4, transform.position);
-                isSlime = true;
                 anim.SetBool("IsSlime", true);
+                isSlime = true;
                 GameManager.instance.waterParticle.GetComponent<ParticleSystem>().Play(); // 이거 말고 GameManager에 curWaterReverse 줄어들 때 함수 따로 만드는게 좋을듯
                 GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(StageManager.instance.currentStageIndex); //코드가 별로임... 너무 안이뻐..
                 this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.75f);

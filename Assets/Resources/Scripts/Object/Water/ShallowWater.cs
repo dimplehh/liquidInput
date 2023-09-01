@@ -22,7 +22,7 @@ public class ShallowWater : Water
     {
         if (collision.gameObject.CompareTag("SaveZone"))
         {
-            if (GameManager.instance.player.GetComponent<Player>().isSlime)
+            if (GameManager.instance.player.GetComponent<Player>().anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeIdle")) //추후 코드 길이 줄이기..
             {
                 if(Input.GetKey(KeyCode.C))
                 {

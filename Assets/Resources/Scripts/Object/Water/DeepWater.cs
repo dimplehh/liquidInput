@@ -28,11 +28,11 @@ public class DeepWater : Water
     {
         if (collision.gameObject.CompareTag("SaveZone"))
         {
-            if (!GameManager.instance.player.GetComponent<Player>().isSlime) //슬라임 형태가 아닐때 
+            if (!GameManager.instance.player.GetComponent<Player>().anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeIdle")) //슬라임 형태가 아닐때 
             {
                 GameManager.instance.player.GetComponent<Rigidbody2D>().mass = 1.5f;
             }
-            if (!GameManager.instance.player.GetComponent<Player>().isSlime
+            if (!GameManager.instance.player.GetComponent<Player>().anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeIdle")
                 && currentWaterReserves >= 3 && collision.transform.position.y <= deadZone.transform.position.y) //남은 물이 3 이상인데 플레이어 위치가 이럴때
             {
                 GameManager.instance.player.GetComponent<Player>().anim.Play("Die");
