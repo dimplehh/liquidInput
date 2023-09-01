@@ -113,13 +113,12 @@ public class Player : MonoBehaviour
             if (!isHill) //언덕에 올라가지 않았을 때
             {
                 isSandPs = false;
-                GameManager.instance.effectsPool.Get(0, this.transform);
-                
+                if(!isWater)GameManager.instance.effectsPool.Get(0, this.transform);
             }
             else
             {
                 isSandPs = false;
-                GameManager.instance.effectsPool.Get(2, this.transform);
+                if(!isWater)GameManager.instance.effectsPool.Get(2, this.transform);
             }
             
         }
@@ -413,7 +412,7 @@ public class Player : MonoBehaviour
         {
             isGround = true;
             
-            if (!collision.gameObject.CompareTag("Hill"))
+            if (!collision.gameObject.CompareTag("Hill") && !isWater)
                 shadow.SetActive(true);
             if (this.playerHeight > gameObject.transform.position.y + 7.0f)//추락사 (일단 5.0f) 차후 수정 필요,
             {
@@ -431,7 +430,8 @@ public class Player : MonoBehaviour
         {
             Debug.Log("착지 이펙트 생성");
             SoundManager.instance.SfxPlaySound(8, transform.position);
-            GameManager.instance.effectsPool.Get(1, this.transform );
+            if(!isWater)
+                GameManager.instance.effectsPool.Get(1, this.transform );
         }
     }
      
