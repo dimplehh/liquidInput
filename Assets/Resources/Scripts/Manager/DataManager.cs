@@ -38,7 +38,15 @@ public class DataManager : MonoBehaviour
         playerData.playerXPos = pos.transform.position.x;
         playerData.playerYPos = pos.transform.position.y;
         playerData.currentStage = stage;
-        playerData.playerWaterReserves = curWater;
+        if (curWater <= 0) //저장된 물 갯수가 0보다 작으면 1으로 초기화
+        {
+            playerData.playerWaterReserves = 1;
+        }
+        else
+        {
+            playerData.playerWaterReserves = curWater;
+        }
+        
         playerData.index = index;
         playerData.playTime = playTime;
         playerData.isFirst = false;
