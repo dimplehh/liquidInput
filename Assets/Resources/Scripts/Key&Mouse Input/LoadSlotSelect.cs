@@ -27,15 +27,37 @@ public class LoadSlotSelect : MonoBehaviour
                 saveFile[i] = true;
                 Managers.Data.nowSlot = i;
                 Managers.Data.SlotLoadData(i);
-                slotTxt[i].text = //"캐릭터 위치 : " + Managers.Data.playerData.playerXPos.ToString() +
+
+                if(i == 0)
+                {
+                    slotTxt[i].text = 
+                                "<자동> \n" + 
                                 StageName(Managers.Data.playerData.currentStage) +
                                 "\n저장 날짜 : " + Managers.Data.playerData.saveDate +
                                 "\n플레이 타임 : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") +
                                 "\n물방울 : " + Managers.Data.playerData.playerWaterReserves.ToString();
+                }
+                else
+                {
+                    slotTxt[i].text = 
+                                StageName(Managers.Data.playerData.currentStage) +
+                                "\n저장 날짜 : " + Managers.Data.playerData.saveDate +
+                                "\n플레이 타임 : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") +
+                                "\n물방울 : " + Managers.Data.playerData.playerWaterReserves.ToString();
+                }
             }
             else
             {
-                slotTxt[i].text = "비어있음";
+                if(i == 0)
+                {
+                    slotTxt[i].text = "<자동>" +
+                        "\n비어있음";
+                }
+                else
+                {
+                    slotTxt[i].text = "비어있음";
+                }
+                
             }
         }
     }
