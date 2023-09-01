@@ -426,12 +426,16 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill"))
+        if(collision.gameObject.layer == 15)
+        {
+            isWater = true;
+            SoundManager.instance.SfxPlaySound(9, transform.position);
+        }
+        else if (collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill"))
         {
             Debug.Log("착지 이펙트 생성");
+            GameManager.instance.effectsPool.Get(1, this.transform);
             SoundManager.instance.SfxPlaySound(8, transform.position);
-            if(!isWater)
-                GameManager.instance.effectsPool.Get(1, this.transform );
         }
     }
      
@@ -446,6 +450,7 @@ private void OnCollisionExit2D(Collision2D collision)
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other.name);
         if ((other.gameObject.CompareTag("Platform")) && isSlow)
         {
             isSlow = false;
@@ -472,7 +477,7 @@ private void OnCollisionExit2D(Collision2D collision)
         if (other.CompareTag("Water"))
         {
             isWater = true;
-            SoundManager.instance.SfxPlaySound(9, transform.position); //물 진입 사운드
+            //SoundManager.instance.SfxPlaySound(9, transform.position); //물 진입 사운드
         }
     }
 
