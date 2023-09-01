@@ -100,6 +100,10 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(CutScene()); //컷신이후 플레이게임
         }
+        else
+        {
+            PlayGame();
+        }
         
         Initialized();
         //CreateGrid(); 
