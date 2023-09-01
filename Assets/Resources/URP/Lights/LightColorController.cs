@@ -36,18 +36,6 @@ public class LightColorController : MonoBehaviour
         UpdateSetters();
     }
 
-    //private void LateUpdate()
-    //{
-    //    if (environMap.transform.position.x < 0)
-    //        time = 0;
-    //    else if (environMap.transform.position.x > 200)
-    //        time = 1;
-    //    else if(0 <= environMap.transform.position.x && environMap.transform.position.x <= 200)
-    //        time = environMap.transform.position.x / 200;
-    //    if (currentTime != time)
-    //        UpdateSetters();
-    //}
-
     public void UpdateSetters()
     {
         currentTime = time;
