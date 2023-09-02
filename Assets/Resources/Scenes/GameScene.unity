@@ -8682,6 +8682,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 941793369243682213, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: m_Depth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 941793369243682213, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: ff90d4ca42fdcf54ba4770dccbdbc2f2, type: 2}
+    - target: {fileID: 941793369243682213, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 941793369243682215, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: m_RenderShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 941793369243682215, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: m_RendererIndex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1036937047064442727, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
       propertyPath: m_Size.y
       value: 0.3513403
@@ -8742,6 +8762,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.28636977
       objectReference: {fileID: 0}
+    - target: {fileID: 4078163349645019521, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2a1960e4f5ef68344b38eeaab715f72d, type: 2}
     - target: {fileID: 4685840593390625165, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
       propertyPath: m_Size.x
       value: 3.1083832
