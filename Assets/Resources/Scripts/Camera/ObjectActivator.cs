@@ -26,9 +26,9 @@ public class ObjectActivator : MonoBehaviour
         {
             while (lightColorController.time < time)
             {
-                lightColorController.time += 0.01f;
+                lightColorController.time += 0.005f;
                 lightColorController.UpdateSetters();
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForSeconds(0.005f);
             }
         }
     }
