@@ -57,7 +57,6 @@ public class Player : MonoBehaviour
         Jump(); //점프
         Climb();//사다리오르기
         Stepup();//잡고오르기
-        Swing();//줄반동
         ChangeSlime(); //슬라임 변신
         SlimeTimeCheck(); //슬라임 시간 체크
         Die();//게임오버 체크
@@ -68,6 +67,7 @@ public class Player : MonoBehaviour
         if (!GameManager.instance.isPlay)
             return;
         Move(); //플레이어 이동
+        Swing();//줄반동
                 //JumpCheck(); //플레이어 바닥에 닿았을 때 점프 가능한지 체크
     }
     private void SandPsTime() //모래바람 파티클 생성시간
@@ -370,13 +370,18 @@ public class Player : MonoBehaviour
 
     void Slide(int direction)
     {
+        StartCoroutine("RealSlide", direction);
+    }
+
+    IEnumerator RealSlide(int direction)
+    {
         RopeSegment myConnection = hj.connectedBody.gameObject.GetComponent<RopeSegment>();
         GameObject newSeg = null;
-        if(direction > 0)
+        if (direction > 0)
         {
-            if(myConnection.connectedAbove != null)
+            if (myConnection.connectedAbove != null)
             {
-                if(myConnection.connectedAbove.gameObject.GetComponent<RopeSegment>() != null)
+                if (myConnection.connectedAbove.gameObject.GetComponent<RopeSegment>() != null)
                 {
                     newSeg = myConnection.connectedAbove;
                 }
@@ -384,14 +389,14 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if(myConnection.connectedBelow != null)
+            if (myConnection.connectedBelow != null)
             {
                 newSeg = myConnection.connectedBelow;
             }
         }
-        if(newSeg != null)
+        if (newSeg != null)
         {
-            //transform.position = newSeg.transform.position;
+            yield return new WaitForEndOfFrame();
             myConnection.isPlayerAttached = false;
             newSeg.GetComponent<RopeSegment>().isPlayerAttached = true;
             hj.connectedBody = newSeg.GetComponent<Rigidbody2D>();
