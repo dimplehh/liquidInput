@@ -40,7 +40,7 @@ public class DeepWater : Water
             }
             else if(GameManager.instance.player.GetComponent<Player>().isSlime)
             {
-                if ((Input.GetKey(KeyCode.C)))
+                if ((Input.GetKey(KeyCode.X)))
                 {
                     time += Time.deltaTime;
                     if (time >= 0.05f)

@@ -267,13 +267,14 @@ public class Player : MonoBehaviour
         {
             if (!isSlime && !isFlicker && anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
             {
+                SoundManager.instance.SfxPlaySound(4, transform.position);
                 anim.SetBool("IsSlime", true);
                 GameManager.instance.waterParticle.GetComponent<ParticleSystem>().Play();
                 GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(StageManager.instance.currentStageIndex); //코드가 별로임... 너무 안이뻐..
                 this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.75f);
                 this.GetComponent<CapsuleCollider2D>().size= new Vector2(0.81f, 0.94f);
             }
-            else if(isSlime && anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeIdle") && !isWater)//사람으로 다시 돌아오기
+            else if(isSlime && anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeIdle"))//사람으로 다시 돌아오기
             {
                 SoundManager.instance.SfxPlaySound(4, transform.position);
                 anim.SetBool("IsSlime", false);
