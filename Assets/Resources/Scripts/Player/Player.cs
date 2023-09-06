@@ -129,7 +129,7 @@ public class Player : MonoBehaviour
         {
             SoundManager.instance.SfxPlaySound(7, transform.position); //모레 이동 사운드
         }
-        else
+        else if(Input.GetAxisRaw("Horizontal") != 0)
         {
             SoundManager.instance.SfxPlaySound(10, transform.position); //물 이동 사운드
         }
@@ -259,17 +259,26 @@ public class Player : MonoBehaviour
 
     private void ChangeSlime() //슬라임 형태일 때는 깜빡일 때 체인지슬라임 키 누르면 슬라임 시간 10초 추가 깜빡이지 않을 때 면서 슬라임 일때는 불가
     {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeIdle") || anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeWalk") || anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeRun"))
+            isSlime = true;
+        else
+            isSlime = false;
         if (Input.GetKeyDown(KeyCode.C))
         {
             if (!isSlime && !isFlicker && anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
             {
-                SoundManager.instance.SfxPlaySound(4, transform.position);
                 anim.SetBool("IsSlime", true);
-                isSlime = true;
-                GameManager.instance.waterParticle.GetComponent<ParticleSystem>().Play(); // 이거 말고 GameManager에 curWaterReverse 줄어들 때 함수 따로 만드는게 좋을듯
+                GameManager.instance.waterParticle.GetComponent<ParticleSystem>().Play();
                 GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(StageManager.instance.currentStageIndex); //코드가 별로임... 너무 안이뻐..
                 this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.75f);
                 this.GetComponent<CapsuleCollider2D>().size= new Vector2(0.81f, 0.94f);
+            }
+            else if(isSlime && anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeIdle") && !isWater)//사람으로 다시 돌아오기
+            {
+                SoundManager.instance.SfxPlaySound(4, transform.position);
+                anim.SetBool("IsSlime", false);
+                this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.04f);
+                this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.81f, 2.37f); //player collider 크기 수정
             }
             else if (isSlime && isFlicker)
             {
@@ -431,12 +440,7 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 15)
-        {
-            //isWater = true;
-            SoundManager.instance.SfxPlaySound(9, transform.position);
-        }
-        else if (collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill"))
+        if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill")) && !isWater)
         {
             Debug.Log("착지 이펙트 생성");
             GameManager.instance.effectsPool.Get(1, this.transform);
@@ -478,10 +482,10 @@ private void OnCollisionExit2D(Collision2D collision)
             isHill = true;
 
         }
-        if (other.CompareTag("Water"))
+        if (other.CompareTag("Water") || other.gameObject.layer == 15)
         {
             isWater = true;
-            //SoundManager.instance.SfxPlaySound(9, transform.position); //물 진입 사운드
+            SoundManager.instance.SfxPlaySound(9, transform.position);
         }
     }
 
@@ -528,7 +532,7 @@ private void OnCollisionExit2D(Collision2D collision)
             isSlow = false;
             Debug.Log("늪 나왔다");
         }
-        if (other.CompareTag("Water"))
+        if (other.CompareTag("Water") || other.gameObject.layer == 15)//ShallowWater
         {
             isWater = false;
         }

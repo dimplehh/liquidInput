@@ -6,7 +6,7 @@ using System;
 public class PlayerData
 {
     //초기값 설정//
-    public float playerXPos = 0.0f; //플레이어 x축 위치
+    public float playerXPos = -10.0f; //플레이어 x축 위치
     public float playerYPos = 0.0f; //플레이어 y축 위치
     public float playerWaterReserves = 5; //플레이어 물 보유량
     public int currentStage = 1;  //현재 스테이지 정보

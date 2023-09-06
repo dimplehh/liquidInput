@@ -28,21 +28,17 @@ public class DeepWater : Water
     {
         if (collision.gameObject.CompareTag("SaveZone"))
         {
-            if (!(GameManager.instance.player.GetComponent<Player>().anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeIdle")
-                || GameManager.instance.player.GetComponent<Player>().anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeWalk")
-                || GameManager.instance.player.GetComponent<Player>().anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeRun"))) //슬라임 형태가 아닐때 
+            if (!GameManager.instance.player.GetComponent<Player>().isSlime) //슬라임 형태가 아닐때 
             {
-                GameManager.instance.player.GetComponent<Rigidbody2D>().mass = 1.5f;
+                GameManager.instance.player.GetComponent<Rigidbody2D>().mass = 1.5f; //가라앉음
             }
-            if (!(GameManager.instance.player.GetComponent<Player>().anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeIdle")
-                || GameManager.instance.player.GetComponent<Player>().anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeWalk")
-                || GameManager.instance.player.GetComponent<Player>().anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeRun"))
+            if (!GameManager.instance.player.GetComponent<Player>().isSlime
                 && currentWaterReserves >= 3 && collision.transform.position.y <= deadZone.transform.position.y) //남은 물이 3 이상인데 플레이어 위치가 이럴때
             {
                 GameManager.instance.player.GetComponent<Player>().anim.Play("Die");
                 GameManager.instance.curWaterReserves = 0;
             }
-            else 
+            else if(GameManager.instance.player.GetComponent<Player>().isSlime)
             {
                 if ((Input.GetKey(KeyCode.C)))
                 {
