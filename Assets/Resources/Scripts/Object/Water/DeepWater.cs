@@ -12,7 +12,7 @@ public class DeepWater : Water
     protected override void Init()
     {
         currentWaterReserves = 0;
-        maxWaterReserves = 5;
+        maxWaterReserves = 10;
         currentWaterReserves = maxWaterReserves;
     }
     protected override void Start()

@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Water : MonoBehaviour
 {
-    public int currentWaterReserves;
-    public int maxWaterReserves;
+    protected int currentWaterReserves;
+    protected int maxWaterReserves;
     //[SerializeField] protected Image currentWaterReservesImage;
 
     protected virtual void Start()
