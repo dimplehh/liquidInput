@@ -15,7 +15,7 @@ public class SandSwamp : MonoBehaviour
     private float initDownSpeed = 0.3f;
     public bool isDown = false;
     float time = 0;
-    bool boxExist = false;
+    public bool boxExist = false;
     private void Start()
     {
         //ù ��ġ ����
