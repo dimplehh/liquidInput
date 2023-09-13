@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public GameObject waterParticle;
     float firstWater;
-    Water2DTool.Water2D_Tool waterTool;
     [SerializeField]
     GameObject waterSlider;
     [SerializeField]
@@ -118,8 +117,8 @@ public class GameManager : MonoBehaviour
     
     private void setWaterSlider()
     {
-        waterTool = waterSlider.GetComponent<Water2DTool.Water2D_Tool>();
-        firstWater = waterTool.handlesPosition[1].y;
+        firstWater = curWaterReservesImage.rectTransform.localPosition.y;
+        curWaterReservesImage.rectTransform.localPosition = new Vector2(0, firstWater + 75 * curWaterReserves / maxWaterReserves);
     }
     public void CreateGrid()
     {
@@ -182,7 +181,7 @@ public class GameManager : MonoBehaviour
 
         if(oldCurWaterReserves != curWaterReserves)
         {
-            curWaterReservesImage.fillAmount = (float)curWaterReserves / maxWaterReserves;
+            curWaterReservesImage.rectTransform.localPosition = new Vector2(0, firstWater + 75 * curWaterReserves / maxWaterReserves);
             oldCurWaterReserves = curWaterReserves;
         }
     }
