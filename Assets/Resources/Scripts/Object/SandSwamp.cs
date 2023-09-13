@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,11 +15,11 @@ public class SandSwamp : MonoBehaviour
     private float initDownSpeed = 0.3f;
     public bool isDown = false;
     float time = 0;
-
+    bool boxExist = false;
     private void Start()
     {
-        //Ã¹ À§Ä¡ ÀúÀå
-        initdownLoadPos = downLoad.transform.position; 
+        //Ã¹ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+        initdownLoadPos = downLoad.transform.position;
         initDownSpeed = downSpeed;
     }
 
@@ -37,15 +37,21 @@ public class SandSwamp : MonoBehaviour
             if (GameManager.instance.player.GetComponent<Player>().isSlime)
             {
                 time += Time.deltaTime;
-                if(time >= 2.0f)
+                if (time >= 2.0f)
                 {
-                    GameManager.instance.waterParticle.GetComponent<ParticleSystem>().Play(); // ÀÌ°Å ¸»°í GameManager¿¡ curWaterReverse ÁÙ¾îµé ¶§ ÇÔ¼ö µû·Î ¸¸µå´Â°Ô ÁÁÀ»µí
-                    if(GameManager.instance.curWaterReserves > 0)
+                    GameManager.instance.waterParticle.GetComponent<ParticleSystem>().Play(); // ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ GameManagerï¿½ï¿½ curWaterReverse ï¿½Ù¾ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                    if (GameManager.instance.curWaterReserves > 0)
                         GameManager.instance.curWaterReserves -= 1;
                     time = 0f;
                 }
             }
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 12)
+            boxExist = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,7 +61,7 @@ public class SandSwamp : MonoBehaviour
             if (!GameManager.instance.player.GetComponent<Player>().isSlime)
             {
                 isTriggerPlayer = true;
-                 
+
             }
             else
             {
@@ -65,18 +71,21 @@ public class SandSwamp : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (isTriggerPlayer && GameManager.instance.player.GetComponent<Player>().isSlow) //ÇÃ·¹ÀÌ¾î°¡ µé¾î¿ÔÀ» ¶§
+        if(isTriggerPlayer && GameManager.instance.player.GetComponent<Player>().isSlow || boxExist)
         {
-            DownTime(); 
+            DownTime();
             Down();
+        }
+        if(GameManager.instance.player.GetComponent<Player>().isSlow)
+        {
             sandPs.Play();
             sandPsGo.transform.position = new Vector3(GameManager.instance.player.GetComponent<Player>().transform.position.x, sandSwampPos.transform.position.y, 0);
-
         }
-        else if(!GameManager.instance.player.GetComponent<Player>().isSlow)
+        else
         {
-            downLoad.transform.position = initdownLoadPos;
             sandPs.Stop();
+            if (!boxExist)
+                downLoad.transform.position = initdownLoadPos;
         }
     }
 
@@ -85,7 +94,7 @@ public class SandSwamp : MonoBehaviour
         if (!isDown)
         {
             downSpeed -= Time.deltaTime;
-            if(downSpeed < 0)
+            if (downSpeed < 0)
             {
                 downSpeed = initDownSpeed;
                 isDown = true;
