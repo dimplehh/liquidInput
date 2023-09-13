@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public int oldCurWaterReserves;
     public Image curWaterReservesImage;
     public Text curWaterReservesTxt;
+    int waterFull;
     public GameObject player;
 
     //선행게이지
@@ -118,7 +119,8 @@ public class GameManager : MonoBehaviour
     private void setWaterSlider()
     {
         firstWater = curWaterReservesImage.rectTransform.localPosition.y;
-        curWaterReservesImage.rectTransform.localPosition = new Vector2(0, firstWater + 75 * curWaterReserves / maxWaterReserves);
+        waterFull = 400;
+        curWaterReservesImage.rectTransform.localPosition = new Vector2(0, firstWater + waterFull * curWaterReserves / maxWaterReserves);
     }
     public void CreateGrid()
     {
@@ -181,7 +183,7 @@ public class GameManager : MonoBehaviour
 
         if(oldCurWaterReserves != curWaterReserves)
         {
-            curWaterReservesImage.rectTransform.localPosition = new Vector2(0, firstWater + 75 * curWaterReserves / maxWaterReserves);
+            curWaterReservesImage.rectTransform.localPosition = new Vector2(0, firstWater + waterFull * curWaterReserves / maxWaterReserves);
             oldCurWaterReserves = curWaterReserves;
         }
     }
