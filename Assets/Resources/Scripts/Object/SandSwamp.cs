@@ -71,11 +71,12 @@ public class SandSwamp : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(isTriggerPlayer && GameManager.instance.player.GetComponent<Player>().isSlow || boxExist)
+        if(isTriggerPlayer && GameManager.instance.player.GetComponent<Player>().isSlow)
         {
             DownTime();
             Down();
         }
+
         if(GameManager.instance.player.GetComponent<Player>().isSlow)
         {
             sandPs.Play();
