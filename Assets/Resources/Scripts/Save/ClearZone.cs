@@ -19,8 +19,7 @@ public class ClearZone : Zone
             //1스테이지의 정보를 2스테이지에 담아준다. 시작할때 2스테이지의 정보가 저장되게
             Managers.Data.StageSaveData(GameManager.instance.curWaterReserves, StageManager.instance.currentStageIndex); //현재 물보유량과 스테이지 인덱스 저장
             Managers.Data.StageLoadData(StageManager.instance.currentStageIndex); //저장과 동시에 불러와야해 
-           
-            LoadingSceneController.Instance.LoadScene("GameScene");
+            LoadingSceneController.Instance.LoadScene("GameScene"+ (StageManager.instance.currentStageIndex - 1).ToString());//해당하는 스테이지 씬으로 이동
             
         }
 
