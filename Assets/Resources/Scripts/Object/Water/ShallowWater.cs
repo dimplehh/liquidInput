@@ -27,14 +27,15 @@ public class ShallowWater : Water
                 if(Input.GetKey(KeyCode.X))
                 {
                     time += Time.deltaTime;
-                    if (time >= 0.05f)
+                    if (time >= 0.1f)
                     {
                         if (currentWaterReserves > 0)
                         {
+                            SoundManager.instance.SfxPlaySound(5, transform.position);
                             GameManager.instance.curWaterReserves += 1;
                             currentWaterReserves--;
-                            this.transform.localScale = new Vector3(this.transform.localScale.x * 0.75f, this.transform.localScale.y * 0.75f, this.transform.localScale.z);
-                            insideWater.transform.localScale = new Vector3(insideWater.transform.localScale.x * 0.75f, insideWater.transform.localScale.y * 0.75f, insideWater.transform.localScale.z);
+                            this.transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale * 0.75f, 1.3f);
+                            insideWater.transform.localScale = Vector3.Lerp(insideWater.transform.localScale, insideWater.transform.localScale * 0.75f, 1.3f);
                             time = 0f;
                         }
                         else
