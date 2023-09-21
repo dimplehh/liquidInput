@@ -349,6 +349,8 @@ public class Player : MonoBehaviour
                 Slide(1);
             else if (Input.GetKey(KeyCode.DownArrow))
                 Slide(-1);
+            if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+                SoundManager.instance.SfxPlaySound(2, transform.position);
         }
     }
     public void Attach(Rigidbody2D ropeBone)
