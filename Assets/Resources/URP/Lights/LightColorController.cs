@@ -25,7 +25,6 @@ public class LightColorController : MonoBehaviour
 
     private void OnEnable()
     {
-        //time = environMap.transform.position.x / 200;
         GetSetters();
         UpdateSetters();
     }
