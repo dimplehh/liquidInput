@@ -72,6 +72,14 @@ public class GameManager : MonoBehaviour
                 settingPanel.SetActive(true);
             }
         }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Time.timeScale = 1;
+                settingPanel.SetActive(false);
+            }
+        }
     }
     public void PlayGame()
     {
