@@ -1525,7 +1525,6 @@ GameObject:
   m_Component:
   - component: {fileID: 403865546}
   - component: {fileID: 403865548}
-  - component: {fileID: 403865547}
   m_Layer: 0
   m_Name: "\uB3D9\uBB3C \uBF08"
   m_TagString: Untagged
@@ -1548,35 +1547,6 @@ Transform:
   m_Father: {fileID: 1271264757}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &403865547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 403865545}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_ComponentVersion: 1
-  m_HasRenderer: 1
-  m_UseRendererSilhouette: 1
-  m_CastsShadows: 1
-  m_SelfShadows: 0
-  m_ApplyToSortingLayers: 00000000c338f090ab2c6df351d7e8ef518fd5c60dbc2d4a95f4f9da4343faea895d35a7
-  m_ShapePath:
-  - {x: -0.3866912, y: -2.9045346, z: 0}
-  - {x: 0.3129436, y: -2.827321, z: 0}
-  - {x: -0.23899825, y: -2.5547407, z: 0}
-  m_ShapePathHash: 1990517457
-  m_Mesh: {fileID: 197648434}
-  m_InstanceId: 210538
-  m_LocalBounds:
-    m_Center: {x: -0.036873817, y: -2.7296376, z: 0}
-    m_Extent: {x: 0.3498174, y: 0.17489696, z: 0}
 --- !u!212 &403865548
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9325,7 +9295,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912221392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.7, y: 4.835, z: -10}
+  m_LocalPosition: {x: -15, y: 4.135, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9775,13 +9745,13 @@ MonoBehaviour:
   m_ScreenY: 0.75
   m_CameraDistance: 10
   m_DeadZoneWidth: 0.2
-  m_DeadZoneHeight: 0
+  m_DeadZoneHeight: 0.1
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
+  m_SoftZoneHeight: 1.14
   m_BiasX: 0
-  m_BiasY: -0.000000074505806
+  m_BiasY: -0.000000052284776
   m_CenterOnActivate: 1
   m_GroupFramingMode: 2
   m_AdjustmentMode: 0
@@ -10958,6 +10928,10 @@ PrefabInstance:
     - target: {fileID: 7798644966800993701, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[11].y
       value: -0.00719361
+      objectReference: {fileID: 0}
+    - target: {fileID: 7866005035618335299, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7899407579814942467, guid: 6e2a25349df109b4c82a51a7fc19ccd7, type: 3}
       propertyPath: m_Layer
