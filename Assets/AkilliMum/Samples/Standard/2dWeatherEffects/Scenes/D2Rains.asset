@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
+  m_Name: D2Rains
+  m_EditorClassIdentifier: 
+  settings:
+  - {fileID: 114730113372327240}
+--- !u!114 &114730113372327240
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6abd2df823b1342af8a5b5e599801586, type: 3}
+  m_Name: D2RainsPE
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  CameraSpeedMultiplier:
+    overrideState: 1
+    value: 0.2
+  Color:
+    overrideState: 1
+    value: {r: 1, g: 1, b: 1, a: 1}
+  ParticleMultiplier:
+    overrideState: 1
+    value: 7.7
+  Tail:
+    overrideState: 1
+    value: 0.03
+  Speed:
+    overrideState: 1
+    value: 6
+  Direction:
+    overrideState: 1
+    value: 7.42
+  Luminance:
+    overrideState: 1
+    value: 3
+  Zoom:
+    overrideState: 1
+    value: 20.7
+  DarkMode:
+    overrideState: 1
+    value: 0
+  LuminanceAdder:
+    overrideState: 1
+    value: 0.002
