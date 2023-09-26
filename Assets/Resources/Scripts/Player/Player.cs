@@ -530,7 +530,7 @@ private void OnCollisionExit2D(Collision2D collision)
         {
             isHill = false;
         }
-        if (other.gameObject.CompareTag("SandSwamp"))
+        if (other.gameObject.CompareTag("SandSwamp") && isGround)
         {
             isSlow = false;
             Debug.Log("늪 나왔다");

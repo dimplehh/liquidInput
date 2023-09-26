@@ -40,7 +40,18 @@ public class PlayerPush : MonoBehaviour
         Physics2D.queriesStartInColliders = false;
         int right = (player.spriteRenderer.flipX) ? -1 : 1;
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.3f), new Vector2(right, 0) * transform.localScale.x, distance, boxMask);
-        if (hit.collider != null && hit.collider.gameObject.layer == 12
+        if (player.isSlow || box != null && Input.GetKeyUp(KeyCode.X))
+        {
+            if (box != null)
+            {
+                box.GetComponent<Rigidbody2D>().mass = 100;
+                box.GetComponent<FixedJoint2D>().enabled = false;
+            }
+            player.anim.SetBool("canGrab", false);
+            player.anim.SetBool("isPush", false);
+            player.anim.SetBool("isPull", false);
+        }
+        else if (hit.collider != null && hit.collider.gameObject.layer == 12
             && Mathf.Abs(hit.collider.gameObject.transform.position.x - this.gameObject.transform.position.x) <= 1.7f && Input.GetKey(KeyCode.X))
         {
             box = hit.collider.gameObject;
@@ -81,17 +92,6 @@ public class PlayerPush : MonoBehaviour
                     player.anim.SetBool("isPull", false);
                 }
             }
-        }
-        else if (box != null && Input.GetKeyUp(KeyCode.X))
-        {
-            if(box != null)
-            {
-                box.GetComponent<Rigidbody2D>().mass = 100;
-                box.GetComponent<FixedJoint2D>().enabled = false;
-            }
-            player.anim.SetBool("canGrab", false);
-            player.anim.SetBool("isPush", false);
-            player.anim.SetBool("isPull", false);
         }
     }
     private void OnDrawGizmos()
