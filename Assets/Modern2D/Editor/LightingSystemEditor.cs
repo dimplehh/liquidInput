@@ -38,7 +38,7 @@ namespace Modern2D
             GUILayout.Space(5); system._shadowReflectiveness.value = EditorGUILayout.Slider("Shadow Reflectiveness", system._shadowReflectiveness.value, 0, 1);
             GUILayout.Space(5); system._shadowAlpha.value = EditorGUILayout.Slider("Shadow Alpha", system._shadowAlpha.value, 0, 1);
             GUILayout.Space(5); system._shadowLength.value = EditorGUILayout.Slider("Shadow Length", system._shadowLength.value, 0, 5);
-            GUILayout.Space(5); system._shadowNarrowing.value = EditorGUILayout.Slider("Shadow Narrowing", system._shadowNarrowing.value, 0, 1);
+            GUILayout.Space(5); system._shadowNarrowing.value = EditorGUILayout.Slider("Shadow Narrowing", system._shadowNarrowing.value, 0, 5);
             GUILayout.Space(5); system._shadowFalloff.value = EditorGUILayout.Slider("Shadow Falloff", system._shadowFalloff.value, 0, 15);
             GUILayout.Space(5); system._shadowAngle.value = EditorGUILayout.Slider("Shadow Angle", system._shadowAngle.value, 0, 90);
             GUILayout.Space(5); system.ShadowsLayerName = EditorGUILayout.TextField("default shadow sorting layer", system.ShadowsLayerName);
