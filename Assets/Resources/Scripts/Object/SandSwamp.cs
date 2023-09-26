@@ -18,28 +18,20 @@ public class SandSwamp : MonoBehaviour
     public bool boxExist = false;
     private void Start()
     {
-        //ù ��ġ ����
         initdownLoadPos = downLoad.transform.position;
         initDownSpeed = downSpeed;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("SaveZone"))
-        {
-            if (!GameManager.instance.player.GetComponent<Player>().isSlime)
-            {
-                isTriggerPlayer = true;
-            }
-        }
-        else if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (GameManager.instance.player.GetComponent<Player>().isSlime)
             {
                 time += Time.deltaTime;
                 if (time >= 2.0f)
                 {
-                    GameManager.instance.waterParticle.GetComponent<ParticleSystem>().Play(); // �̰� ���� GameManager�� curWaterReverse �پ�� �� �Լ� ���� ����°� ������
+                    GameManager.instance.waterParticle.GetComponent<ParticleSystem>().Play();
                     if (GameManager.instance.curWaterReserves > 0)
                         GameManager.instance.curWaterReserves -= 1;
                     time = 0f;
@@ -48,25 +40,14 @@ public class SandSwamp : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == 12)
-            boxExist = true;
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             if (!GameManager.instance.player.GetComponent<Player>().isSlime)
-            {
                 isTriggerPlayer = true;
-
-            }
             else
-            {
                 isTriggerPlayer = false;
-            }
         }
     }
     private void FixedUpdate()
@@ -85,8 +66,7 @@ public class SandSwamp : MonoBehaviour
         else
         {
             sandPs.Stop();
-            if (!boxExist)
-                downLoad.transform.position = initdownLoadPos;
+            downLoad.transform.position = initdownLoadPos;
         }
     }
 
