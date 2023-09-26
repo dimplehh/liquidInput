@@ -5,7 +5,6 @@ using UnityEngine;
 public class TriggerSound : MonoBehaviour
 {
     [SerializeField] protected int soundIndex;
-    float time = 0f;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("SaveZone"))

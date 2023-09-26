@@ -6,7 +6,7 @@ public class SoundVolumePanel : MonoBehaviour
 {
     public int index;
     public GameObject keySettingPanel;
-
+    [SerializeField] Slider BGMSlider, SFXSlider;
     public int maxFontSize;
     public int minFontSize;
     public Text[] selectText; //선택 텍스트
@@ -14,6 +14,12 @@ public class SoundVolumePanel : MonoBehaviour
     {
         index = 0;
         SelectTextColorWhite();
+    }
+
+    private void Start()
+    {
+        BGMSlider.value = SoundManager.instance.GetComponentsInChildren<AudioSource>()[0].volume;
+        SFXSlider.value = SoundManager.instance.GetComponentsInChildren<AudioSource>()[1].volume;
     }
 
     private void Update()
