@@ -9,18 +9,6 @@ public class BGMStruct
     public string name;
     public AudioClip clip;
 }
-[Serializable]
-public class BGM2Struct
-{
-    public string name;
-    public AudioClip clip;
-}
-[Serializable]
-public class SFXStruct
-{
-    public string name;
-    public AudioClip clip;
-}
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
@@ -28,9 +16,11 @@ public class SoundManager : MonoBehaviour
     public AudioSource bgmAudioSource;
     public AudioSource bgm2AudioSource;
     public AudioSource sfxAudioSource;
+    public AudioSource sfxAudioSource2;
     public List<BGMStruct> bgmSoundList;
-    public List<BGM2Struct> bgm2SoundList;
-    public List<SFXStruct> sfxSoundList;
+    public List<BGMStruct> bgm2SoundList;
+    public List<BGMStruct> sfxSoundList;
+    public List<BGMStruct> sfxSoundList2;
     void Awake()
     {
         if (instance == null)
@@ -68,4 +58,10 @@ public class SoundManager : MonoBehaviour
         sfxAudioSource.PlayOneShot(sfxAudioSource.clip, volume);
     }
 
+    public void SfxPlaySound2(int index, Vector3 pos, float volume = 1f)
+    {
+        transform.position = pos;
+        sfxAudioSource2.clip = sfxSoundList2[index].clip;
+        sfxAudioSource2.PlayOneShot(sfxAudioSource2.clip, volume);
+    }
 }
