@@ -56,7 +56,6 @@ public class MouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         }
         else if (loadKeyBoardClick)
         {
-            //loadKeyBoardClick.SelectTextColorBlack();
             loadKeyBoardClick.SelectTextColorWhite();
         }
         else if (soundVolumePanel)
