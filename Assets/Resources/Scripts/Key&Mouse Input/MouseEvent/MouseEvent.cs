@@ -33,9 +33,9 @@ public class MouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         }
         else if (loadKeyBoardClick)
         {
-            loadKeyBoardClick.SelectTextColorBlack();
+            loadKeyBoardClick.SelectTextColorBase();
             loadKeyBoardClick.loadindex = mouseIndex;
-            loadKeyBoardClick.SelectTextColorWhite();
+            loadKeyBoardClick.SelectTextColorChanged();
         }
         else if (soundVolumePanel)
         {
@@ -57,7 +57,7 @@ public class MouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         }
         else if (loadKeyBoardClick)
         {
-            loadKeyBoardClick.SelectTextColorWhite();
+            loadKeyBoardClick.SelectTextColorChanged();
         }
         else if (soundVolumePanel)
         {

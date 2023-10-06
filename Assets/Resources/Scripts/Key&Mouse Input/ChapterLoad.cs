@@ -34,7 +34,10 @@ public class ChapterLoad : MonoBehaviour
         else
             Managers.Data.StageLoadData(index); //다음 챕터로 넘어오기전 마지막 데이터 불러오기
 
-        LoadingSceneController.Instance.LoadScene("GameScene");       
+        if(index == 1)
+            LoadingSceneController.Instance.LoadScene("GameScene");
+        else
+            LoadingSceneController.Instance.LoadScene("GameScene" + (index - 1));
     }
    
    

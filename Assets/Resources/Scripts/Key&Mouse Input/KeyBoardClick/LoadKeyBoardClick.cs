@@ -8,10 +8,11 @@ public class LoadKeyBoardClick : MonoBehaviour
     [SerializeField] private LoadSlotSelect? loadSlotSelect; //수동 불러오기
     [SerializeField] private RectTransform?[] selectPos; //선택이미지 위치
     public Text[] selectText; //선택 텍스트
+    [SerializeField] private Color baseColor, changedColor;
     private void OnEnable()
     {
         loadindex = 0;
-        SelectTextColorWhite();
+        SelectTextColorChanged();
     }
     private void Update()
     {
@@ -28,7 +29,7 @@ public class LoadKeyBoardClick : MonoBehaviour
                 gameObject.SetActive(false);
                 for (int i = 0; i < selectText.Length; i++)
                 {
-                    selectText[i].color = Color.black;
+                    selectText[i].color = baseColor;
                 }
             }
         }
@@ -43,9 +44,9 @@ public class LoadKeyBoardClick : MonoBehaviour
             }
             else
             {
-                SelectTextColorBlack();
+                SelectTextColorBase();
                 loadindex++;
-                SelectTextColorWhite();
+                SelectTextColorChanged();
                 SoundManager.instance.SfxPlaySound(2, transform.position);
             }
         }
@@ -58,9 +59,9 @@ public class LoadKeyBoardClick : MonoBehaviour
             }
             else
             {
-                SelectTextColorBlack();
+                SelectTextColorBase();
                 loadindex--;
-                SelectTextColorWhite();
+                SelectTextColorChanged();
                 SoundManager.instance.SfxPlaySound(2, transform.position);
             }
         }
@@ -71,14 +72,14 @@ public class LoadKeyBoardClick : MonoBehaviour
             loadSlotSelect.Slot(loadindex);
         }
     }
-    public void SelectTextColorWhite()
+    public void SelectTextColorChanged()
     {
-        selectText[loadindex].color = Color.white;
+        selectText[loadindex].color = changedColor;
         selectText[loadindex].fontSize = 40;
     }
-    public void SelectTextColorBlack()
+    public void SelectTextColorBase()
     {
-        selectText[loadindex].color = Color.black;
+        selectText[loadindex].color = baseColor;
         selectText[loadindex].fontSize = 30;
     }
 }

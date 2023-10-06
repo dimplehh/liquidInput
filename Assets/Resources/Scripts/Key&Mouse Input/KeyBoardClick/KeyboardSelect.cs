@@ -10,12 +10,12 @@ public class KeyboardSelect : MonoBehaviour
     //위에 제외 나머지는 공용으로 사용할 수 있음  
     public int selectIndex = 0; //선택 번호
     public Text[] selectText; //선택 텍스트
-    
+    [SerializeField] private Color baseColor, changedColor;
 
     private void OnEnable()
     {
         selectIndex = 0;
-        selectText[selectIndex].color = Color.white;
+        selectText[selectIndex].color = changedColor;
         selectText[selectIndex].fontSize = 60;
     }
     private void Update()
@@ -42,10 +42,10 @@ public class KeyboardSelect : MonoBehaviour
             else
             {
                 SoundManager.instance.SfxPlaySound(2, transform.position);
-                selectText[selectIndex].color = Color.black;
+                selectText[selectIndex].color = baseColor;
                 selectText[selectIndex].fontSize = 50;
                 selectIndex++;
-                selectText[selectIndex].color = Color.white;
+                selectText[selectIndex].color = changedColor;
                 selectText[selectIndex].fontSize = 60;
 
             }
@@ -59,10 +59,10 @@ public class KeyboardSelect : MonoBehaviour
             else
             {
                 SoundManager.instance.SfxPlaySound(2, transform.position);
-                selectText[selectIndex].color = Color.black;
+                selectText[selectIndex].color = baseColor;
                 selectText[selectIndex].fontSize = 50;
                 selectIndex--;
-                selectText[selectIndex].color = Color.white;
+                selectText[selectIndex].color = changedColor;
                 selectText[selectIndex].fontSize = 60;
             }
         }
