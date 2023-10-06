@@ -10,7 +10,7 @@ public class PlantMonster : MonoBehaviour
     private float baseX;
     private float playerPositionX;
     private float curCheckPlayerTime = 0f;
-    private float maxCheckPlayerTime = 8f;
+    private float maxCheckPlayerTime = 10f;
     private void Start()
     {
         baseX = hitPoint.transform.position.x;
@@ -38,7 +38,7 @@ public class PlantMonster : MonoBehaviour
                 hitPoint.transform.position = new Vector3(playerPositionX, 0, 0);
                 curCheckPlayerTime = 0;
             }
-            else if ( maxCheckPlayerTime * 2 / 4 <= curCheckPlayerTime && curCheckPlayerTime <=  maxCheckPlayerTime * 3/4)
+            else if ( maxCheckPlayerTime * 2 / 5 <= curCheckPlayerTime && curCheckPlayerTime <=  maxCheckPlayerTime * 3 / 5 )
             {
                  hitPoint.transform.position = new Vector3(baseX, changedY, 0);
             }

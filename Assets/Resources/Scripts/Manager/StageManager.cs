@@ -27,7 +27,7 @@ public class StageManager : MonoBehaviour
         //PlayerPrefs.SetInt(LAST_STAGE_KEY, 1);
         //Debug.Log("초기화");
         lastStageIndex = PlayerPrefs.GetInt(LAST_STAGE_KEY);
-
+        Debug.Log(lastStageIndex);
         //완전 기초정보 저장 
         //Managers.Data.DefaultSaveData();
     }

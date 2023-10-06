@@ -13,12 +13,18 @@ public class StoneHillTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        playerInTrigger = true;
+        if (collision.gameObject.tag == "Player")
+        {
+            playerInTrigger = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        playerInTrigger = false;
+        if (collision.gameObject.tag == "Player")
+        {
+            playerInTrigger = false;
+        }
     }
 
     private void Update()

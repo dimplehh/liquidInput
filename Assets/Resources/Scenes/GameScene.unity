@@ -123,6 +123,103 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &146005365
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1232045958745481044, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429560517800284935, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429560517800284935, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 105.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429560517800284935, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429560517800284935, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429560517800284935, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429560517800284935, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429560517800284935, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429560517800284935, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429560517800284935, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429560517800284935, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429560517800284935, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429560518411271153, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_Size.x
+      value: 0.4506938
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429560518411271153, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_Size.y
+      value: 0.79057753
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429560518411271153, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.013383448
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429560518411271153, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.01660055
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429560518411271157, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429560518411271167, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_Name
+      value: WaterNpc
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429560518411271167, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5212866239145596841, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498133539314483320, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158673657567435203, guid: 2156b7841769a5047bc89317e042b651, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2156b7841769a5047bc89317e042b651, type: 3}
 --- !u!1 &146154248
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,8 +873,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activatorTag: Player
   deactivateOnExit: 0
+  objectTurnOff: 0
   objects:
   - {fileID: 1912221392}
+  turnOffObj: {fileID: 0}
   lightColorController: {fileID: 3374805839087232203}
   time: 0.65
 --- !u!61 &256754137
@@ -5352,8 +5451,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activatorTag: Player
   deactivateOnExit: 0
+  objectTurnOff: 0
   objects:
   - {fileID: 1912221392}
+  turnOffObj: {fileID: 0}
   lightColorController: {fileID: 3374805839087232203}
   time: 0
 --- !u!61 &1430235185
@@ -9827,8 +9928,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activatorTag: Player
   deactivateOnExit: 0
+  objectTurnOff: 0
   objects:
   - {fileID: 1912221392}
+  turnOffObj: {fileID: 0}
   lightColorController: {fileID: 3374805839087232203}
   time: 0.25
 --- !u!61 &1887842913
@@ -10943,8 +11046,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activatorTag: Player
   deactivateOnExit: 0
+  objectTurnOff: 0
   objects:
   - {fileID: 1912221392}
+  turnOffObj: {fileID: 0}
   lightColorController: {fileID: 3374805839087232203}
   time: 0.5
 --- !u!61 &2144737938
@@ -12174,7 +12279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5100866402947384371, guid: e332b22b8b68b5a44a28981c3f79861f, type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 6487959
+      value: 6488023
       objectReference: {fileID: 0}
     - target: {fileID: 5100866402947384372, guid: e332b22b8b68b5a44a28981c3f79861f, type: 3}
       propertyPath: m_RootOrder
