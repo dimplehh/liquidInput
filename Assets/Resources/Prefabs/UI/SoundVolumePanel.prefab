@@ -68,7 +68,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8816c16e40d425749b6dd97470272849, type: 3}
+    m_Font: {fileID: 12800000, guid: 4f7dc0ca726feee4091044f39be9584f, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uCEE8\uD2B8\uB864 \uC14B\uD305"
+  m_Text: CONTROL
 --- !u!114 &1146976017347432591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,8 +96,8 @@ MonoBehaviour:
   selectText: {fileID: 293456561}
   maxFontSize: 50
   minFontSize: 40
-  baseColor: {r: 0, g: 0, b: 0, a: 0}
-  changedColor: {r: 0, g: 0, b: 0, a: 0}
+  baseColor: {r: 1, g: 0.9843137, b: 0.92156863, a: 1}
+  changedColor: {r: 1, g: 0.9019608, b: 0.69803923, a: 1}
   mouseIndex: 0
   keyboardSelect: {fileID: 0}
   loadKeyBoardClick: {fileID: 0}
@@ -139,7 +139,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -342, y: 216}
+  m_AnchoredPosition: {x: -342, y: 190}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1008281085
@@ -418,6 +418,8 @@ MonoBehaviour:
   - {fileID: 293456561}
   - {fileID: 1419517270150981760}
   - {fileID: 3333287417685912256}
+  baseColor: {r: 1, g: 0.9843137, b: 0.92156863, a: 1}
+  changedColor: {r: 1, g: 0.9019608, b: 0.69803923, a: 1}
 --- !u!1 &1419517270150981790
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +489,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8816c16e40d425749b6dd97470272849, type: 3}
+    m_Font: {fileID: 12800000, guid: 4f7dc0ca726feee4091044f39be9584f, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -499,7 +501,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uBC30\uACBD \uC0AC\uC6B4\uB4DC"
+  m_Text: BGM
 --- !u!114 &2077178614915596834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,8 +517,8 @@ MonoBehaviour:
   selectText: {fileID: 1419517270150981760}
   maxFontSize: 50
   minFontSize: 40
-  baseColor: {r: 0, g: 0, b: 0, a: 0}
-  changedColor: {r: 0, g: 0, b: 0, a: 0}
+  baseColor: {r: 1, g: 0.9843137, b: 0.92156863, a: 1}
+  changedColor: {r: 1, g: 0.9019608, b: 0.69803923, a: 1}
   mouseIndex: 1
   keyboardSelect: {fileID: 0}
   loadKeyBoardClick: {fileID: 0}
@@ -664,7 +666,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8816c16e40d425749b6dd97470272849, type: 3}
+    m_Font: {fileID: 12800000, guid: 4f7dc0ca726feee4091044f39be9584f, type: 3}
     m_FontSize: 50
     m_FontStyle: 1
     m_BestFit: 0
@@ -820,7 +822,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8816c16e40d425749b6dd97470272849, type: 3}
+    m_Font: {fileID: 12800000, guid: 4f7dc0ca726feee4091044f39be9584f, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -832,7 +834,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD6A8\uACFC\uC74C"
+  m_Text: SFX
 --- !u!114 &1300180278315280706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,8 +850,8 @@ MonoBehaviour:
   selectText: {fileID: 3333287417685912256}
   maxFontSize: 50
   minFontSize: 40
-  baseColor: {r: 0, g: 0, b: 0, a: 0}
-  changedColor: {r: 0, g: 0, b: 0, a: 0}
+  baseColor: {r: 1, g: 0.9843137, b: 0.92156863, a: 1}
+  changedColor: {r: 1, g: 0.9019608, b: 0.69803923, a: 1}
   mouseIndex: 2
   keyboardSelect: {fileID: 0}
   loadKeyBoardClick: {fileID: 0}

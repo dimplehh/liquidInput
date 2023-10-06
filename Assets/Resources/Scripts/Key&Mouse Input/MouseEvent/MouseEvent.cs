@@ -39,9 +39,9 @@ public class MouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         }
         else if (soundVolumePanel)
         {
-            soundVolumePanel.SelectTextColorBlack();
+            soundVolumePanel.SelectTextColorBase();
             soundVolumePanel.index = mouseIndex;
-            soundVolumePanel.SelectTextColorWhite();
+            soundVolumePanel.SelectTextColorChanged();
         }
 
     }
@@ -61,7 +61,7 @@ public class MouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         }
         else if (soundVolumePanel)
         {
-            soundVolumePanel.SelectTextColorWhite();
+            soundVolumePanel.SelectTextColorChanged();
         }
     }
 }

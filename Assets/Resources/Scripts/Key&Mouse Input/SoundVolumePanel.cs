@@ -10,10 +10,11 @@ public class SoundVolumePanel : MonoBehaviour
     public int maxFontSize;
     public int minFontSize;
     public Text[] selectText; //선택 텍스트
+    [SerializeField] private Color baseColor, changedColor;
     private void OnEnable()
     {
         index = 0;
-        SelectTextColorWhite();
+        SelectTextColorChanged();
     }
 
     private void Start()
@@ -36,9 +37,9 @@ public class SoundVolumePanel : MonoBehaviour
             }
             else
             {
-                SelectTextColorBlack();
+                SelectTextColorBase();
                 index++;
-                SelectTextColorWhite();
+                SelectTextColorChanged();
                 SoundManager.instance.SfxPlaySound(2, transform.position);
             }
         }
@@ -51,9 +52,9 @@ public class SoundVolumePanel : MonoBehaviour
             }
             else
             {
-                SelectTextColorBlack();
+                SelectTextColorBase();
                 index--;
-                SelectTextColorWhite();
+                SelectTextColorChanged();
                 SoundManager.instance.SfxPlaySound(2, transform.position);
             }
         }
@@ -68,14 +69,14 @@ public class SoundVolumePanel : MonoBehaviour
         }
     }
 
-    public void SelectTextColorWhite()
+    public void SelectTextColorChanged()
     {
-        selectText[index].color = Color.white;
+        selectText[index].color = changedColor;
         selectText[index].fontSize = maxFontSize;
     }
-    public void SelectTextColorBlack()
+    public void SelectTextColorBase()
     {
-        selectText[index].color = Color.black;
+        selectText[index].color = baseColor;
         selectText[index].fontSize = minFontSize;
     }
 }
