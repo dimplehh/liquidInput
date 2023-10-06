@@ -6,7 +6,9 @@ public class ObjectActivator : MonoBehaviour
 {
     [SerializeField] string activatorTag = null;
     [SerializeField] bool deactivateOnExit = false;
+    [SerializeField] bool objectTurnOff = false;
     [SerializeField] GameObject[] objects = null;
+    [SerializeField] GameObject turnOffObj = null;
     [SerializeField] LightColorController lightColorController;
     [SerializeField] float time;
 
@@ -16,6 +18,8 @@ public class ObjectActivator : MonoBehaviour
         {
             foreach (var obj in objects)
                 obj.SetActive(true);
+            if (objectTurnOff == true && turnOffObj != null)
+                turnOffObj.SetActive(false);
             StartCoroutine("UpdateColor");
         }
     }
