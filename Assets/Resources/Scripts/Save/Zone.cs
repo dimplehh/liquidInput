@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Zone : MonoBehaviour
 {
-    protected bool isSave = false;
+    public bool isSave = false;
     protected bool isClear = false;
 
     protected virtual void Start()

@@ -1,38 +1,61 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
+public class SaveZoneData
+{
+    public int id;
+    public bool isSave;
+}
+
+[Serializable]
 public class SaveZone : Zone
 {
+    public int id;
     public Animator anim;
+    public Sprite saveSprite;
+    public SpriteRenderer saveRenderer;
+    public SpriteRenderer saveOtherRenderer;
 
     public void Awake()
     {
         anim = GetComponent<Animator>();
-    }
-    protected override void Start()
-    {
-        isSave = true;
+        isSave = false;
         anim.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("SaveZone"))
+        if (other.gameObject.CompareTag("SaveZone") && !isSave)
         {
+
+            isSave = true;
             anim.enabled = true;
+            anim.SetBool("Active",true);
             SoundManager.instance.SfxPlaySound(6, transform.position);
+            StageManager.instance.UpdateSave(this);
             AutoSave(other.gameObject);
             GameManager.instance.loadSlotSelect.SlotSaveFileCheck();
-
-            
         }
-        
     }
+
+    public void DeSave()
+    {
+        isSave = false;
+        anim.SetBool("Active",false);
+    }
+    public void Save()
+    {
+        saveRenderer.sprite = saveSprite;
+        saveOtherRenderer.sprite = saveSprite;
+    }
+    
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("SaveZone")) //player ¾È¿¡ ÀÚ½Ä¿ÀºêÁ§Æ®·Î saveZoneÀÌ¶ó´Â ÅÂ±×¸¦ °¡Áø Ãæµ¹Ã¼ »ı¼º
+        if (other.gameObject.CompareTag("SaveZone")) //player ì•ˆì— ìì‹ì˜¤ë¸Œì íŠ¸ë¡œ saveZoneì´ë¼ëŠ” íƒœê·¸ë¥¼ ê°€ì§„ ì¶©ëŒì²´ ìƒì„±
         {
             if (Input.GetKeyDown(KeyCode.X) && isSave)
             {
@@ -44,16 +67,15 @@ public class SaveZone : Zone
     public void AutoSave(GameObject other)
     {
         Managers.Data.SlotSaveData(0, other, StageManager.instance.currentStageIndex ,GameManager.instance.curWaterReserves, GameManager.instance.playTime);
-        Debug.Log(0 + "ÀÚµ¿ ¼¼ÀÌºê");
+        Debug.Log(0 + "ìë™ ì„¸ì´ë¸Œ");
     }
     
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("SaveZone"))
         {
-            isSave = true;
             GameManager.instance.isNonAutoSave = false; 
-            Debug.Log("player°¡ SaveZone¿¡¼­ ³ª°¬½À´Ï´Ù.");
+            Debug.Log("playerê°€ SaveZoneì—ì„œ ë‚˜ê°”ìŠµë‹ˆë‹¤.");
         }
     }
 }

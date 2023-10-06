@@ -18,6 +18,25 @@ public class ShallowWater : Water
     {
         Init();
     }
+    
+    public override void UpdateWater()
+    {
+        if (currentWaterReserves > 0)
+        {
+            var count = maxWaterReserves - currentWaterReserves;
+            for (int i = 0; i < count; i++)
+            {
+                this.transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale * 0.75f, 1.3f);
+                insideWater.transform.localScale = Vector3.Lerp(insideWater.transform.localScale, insideWater.transform.localScale * 0.75f, 1.3f);
+            }
+        }
+        else
+        {
+            this.gameObject.SetActive(false);
+            insideWater.SetActive(false);
+        }
+    }
+    
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("SaveZone"))

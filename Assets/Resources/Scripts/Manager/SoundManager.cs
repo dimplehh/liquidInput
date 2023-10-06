@@ -61,7 +61,7 @@ public class SoundManager : MonoBehaviour
         bgm2AudioSource.Stop();
     }
 
-    public void SfxPlaySound(int index, Vector3 pos, float volume = 1f) //spatial blend °¡ 1ÀÌ °¡±î¿öÁú ¼ö·Ï 3d »ç¿îµå·Î º¯ÇÔ
+    public void SfxPlaySound(int index, Vector3 pos, float volume = 1f) //spatial blend ê°€ 1ì´ ê°€ê¹Œì›Œì§ˆ ìˆ˜ë¡ 3d ì‚¬ìš´ë“œë¡œ ë³€í•¨
     {
         transform.position = pos;
         sfxAudioSource.clip = sfxSoundList[index].clip;

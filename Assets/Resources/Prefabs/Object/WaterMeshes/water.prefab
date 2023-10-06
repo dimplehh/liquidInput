@@ -208,8 +208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3c4ef3f11bb3a4bb0765a1e79185e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWaterReserves: 0
-  maxWaterReserves: 0
   insideWater: {fileID: 4990897085119022292}
 --- !u!1 &3215720651857762282
 GameObject:
@@ -716,7 +714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8749394447756869447, guid: 29960e846a47bc64982c7ebbc662143c, type: 3}
       propertyPath: curentWaterArea
-      value: 9.372693
+      value: 13.82999
       objectReference: {fileID: 0}
     - target: {fileID: 8749394447756869447, guid: 29960e846a47bc64982c7ebbc662143c, type: 3}
       propertyPath: frontMeshVertsCount

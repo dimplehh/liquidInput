@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,31 +18,48 @@ public class DeepWater : Water
     }
     protected override void Start()
     {
+    }
+
+    private void Awake()
+    {
         Init();
     }
+    
+    public override void UpdateWater()
+    {
+        if (currentWaterReserves > 0)
+        {
+            transform.position -= new Vector3(0, 0.5f * (maxWaterReserves - currentWaterReserves) , 0);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
-        GameManager.instance.player.GetComponent<Rigidbody2D>().mass = 0.6f;//´Ù½Ã ÇÃ·¹ÀÌ¾î Áú·® ¿ø·¡´ë·Î µÇµ¹¸²
+        GameManager.instance.player.GetComponent<Rigidbody2D>().mass = 0.6f;//ë‹¤ì‹œ í”Œë ˆì´ì–´ ì§ˆëŸ‰ ì›ë˜ëŒ€ë¡œ ë˜ëŒë¦¼
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("SaveZone"))
         {
-            if (currentWaterReserves <= 0)//³²¾ÆÀÖ´Â ¹°ÀÌ 0º¸´Ù ÀÛÀ» ¶§
-                gameObject.SetActive(false);//±íÀº¹° ºñÈ°¼ºÈ­
+            if (currentWaterReserves <= 0)//ë‚¨ì•„ìˆëŠ” ë¬¼ì´ 0ë³´ë‹¤ ì‘ì„ ë•Œ
+                gameObject.SetActive(false);//ê¹Šì€ë¬¼ ë¹„í™œì„±í™”
 
-            if (!GameManager.instance.player.GetComponent<Player>().isSlime //½½¶óÀÓÀÌ ¾Æ´Ï¸é¼­
-                && currentWaterReserves >= 3 && collision.transform.position.y <= deadZone.transform.position.y) //³²Àº ¹°ÀÌ 3 ÀÌ»óÀÎµ¥ ÇÃ·¹ÀÌ¾î À§Ä¡°¡ ÀÌ·²¶§
+            if (!GameManager.instance.player.GetComponent<Player>().isSlime //ìŠ¬ë¼ì„ì´ ì•„ë‹ˆë©´ì„œ
+                && currentWaterReserves >= 3 && collision.transform.position.y <= deadZone.transform.position.y) //ë‚¨ì€ ë¬¼ì´ 3 ì´ìƒì¸ë° í”Œë ˆì´ì–´ ìœ„ì¹˜ê°€ ì´ëŸ´ë•Œ
             {
-                GameManager.instance.player.GetComponent<Player>().anim.Play("Die");//Á×À½
+                GameManager.instance.player.GetComponent<Player>().anim.Play("Die");//ì£½ìŒ
                 GameManager.instance.curWaterReserves = 0;
             }
-            if (!GameManager.instance.player.GetComponent<Player>().isSlime) //»ç¶÷ ÇüÅÂÀÏ ¶§
-                GameManager.instance.player.GetComponent<Rigidbody2D>().mass = 1.5f; //°¡¶ó¾ÉÀ½
-            else//½½¶óÀÓ ÇüÅÂÀÏ ¶§
+            if (!GameManager.instance.player.GetComponent<Player>().isSlime) //ì‚¬ëŒ í˜•íƒœì¼ ë•Œ
+                GameManager.instance.player.GetComponent<Rigidbody2D>().mass = 1.5f; //ê°€ë¼ì•‰ìŒ
+            else//ìŠ¬ë¼ì„ í˜•íƒœì¼ ë•Œ
             {
-                if ((Input.GetKey(KeyCode.X)))//¹° Èí¼öÇÏ¸é
+                if ((Input.GetKey(KeyCode.X)))//ë¬¼ í¡ìˆ˜í•˜ë©´
                 {
                     time += Time.deltaTime;
                     if (time >= 0.05f)

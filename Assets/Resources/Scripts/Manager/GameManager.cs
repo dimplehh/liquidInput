@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.Playables; //ÄÆ½Å
+using UnityEngine.Playables; //ï¿½Æ½ï¿½
 public class GameManager : MonoBehaviour
 {
     [Header("Grid")]
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject gameOverPanel;
     public static GameManager instance;
-    //¹° º¸À¯·®
+    //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public int maxWaterReserves = 50;
     public int curWaterReserves;
     public int oldCurWaterReserves;
@@ -37,22 +37,22 @@ public class GameManager : MonoBehaviour
     int waterFull;
     public GameObject player;
 
-    //¼±Çà°ÔÀÌÁö
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public float successGauge = 0;
-    //ÇÃ·¹ÀÌ Å¸ÀÓ
+    //ï¿½Ã·ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
     public float playTime = 0;
 
     public bool isPlay = false;
-    public bool isNonAutoSave = false; //¸Þ´ºÃ¢¿¡¼­´Â ·Îµå¸¸ µÇ°í ¼¼ÀÌºêÁ¸¿¡¼­´Â ÀúÀå¸¸µÇ°Ô
+    public bool isNonAutoSave = false; //ï¿½Þ´ï¿½Ã¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµå¸¸ ï¿½Ç°ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½å¸¸ï¿½Ç°ï¿½
     
     
-    public GameObject SaveAndLoadPanel; //ºÒ·¯¿À±âÃ¢
-    public LoadSlotSelect loadSlotSelect; //ÀÓ½Ã
+    public GameObject SaveAndLoadPanel; //ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½Ã¢
+    public LoadSlotSelect loadSlotSelect; //ï¿½Ó½ï¿½
 
-    //ÀÌÆåÆ® Ç®
+    //ï¿½ï¿½ï¿½ï¿½Æ® Ç®
     public EffectsPool effectsPool;
 
-    //ÄÆ½Å
+    //ï¿½Æ½ï¿½
     public PlayableDirector playableDirector;
     public void IsNonAutoSave() 
     {
@@ -106,16 +106,18 @@ public class GameManager : MonoBehaviour
         SoundManager.instance.BgmPlaySound(1);
         if(Managers.Data.playerData.isFirst == true)
         {
-            StartCoroutine(CutScene()); //ÄÆ½ÅÀÌÈÄ ÇÃ·¹ÀÌ°ÔÀÓ
+            StartCoroutine(CutScene()); //ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì°ï¿½ï¿½ï¿½
         }
         else
         {
             PlayGame();
         }
         
+        StageManager.instance.FindStageObjects();
         Initialized();
         //CreateGrid(); 
         setWaterSlider();
+
     }
     private IEnumerator CutScene()
     {
@@ -159,19 +161,21 @@ public class GameManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = new Vector3(Managers.Data.playerData.playerXPos, Managers.Data.playerData.playerYPos, 0);
+        StageManager.instance.UpdateStageData();
         curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
         waterParticle.GetComponent<ParticleSystem>().Stop();
+        
     }
 
     private void LateUpdate()
     {
-        //ÇÃ·¹ÀÌ Å¸ÀÓ Áõ°¡
+        //ï¿½Ã·ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         playTime += Time.deltaTime; 
         pushZ();
         WaterReservesUI();
         if (curWaterReserves <= -2)
             StartCoroutine("OpenGameOver");
-        //escÅ° ´­·¶À» ¶§ ¼³Á¤ È°¼ºÈ­
+        //escÅ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­
         SettingButton();
     }
     private void pushZ()
@@ -230,7 +234,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         return waterConsume;
-    } //½ºÅ×ÀÌÁöÀÇ µû¸¥ ¹°¹æ¿ï ¼Ò¸ð·®
+    } //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½
     public GameObject Spawn(string path, Transform parent = null)
     {
         GameObject go = Managers.Resource.Instantiate(path, parent);

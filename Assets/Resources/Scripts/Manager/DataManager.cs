@@ -3,42 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+using Newtonsoft.Json;
+
 public class PlayerData
 {
-    //ÃÊ±â°ª ¼³Á¤//
-    public float playerXPos = -10.0f; //ÇÃ·¹ÀÌ¾î xÃà À§Ä¡
-    public float playerYPos = 0.0f; //ÇÃ·¹ÀÌ¾î yÃà À§Ä¡
-    public float playerWaterReserves = 5; //ÇÃ·¹ÀÌ¾î ¹° º¸À¯·®
-    public int currentStage = 1;  //ÇöÀç ½ºÅ×ÀÌÁö Á¤º¸
-    public int index; //ÀúÀå À§Ä¡
-    public float goodGauge; //¼±Çà°ÔÀÌÁö
-    public float playTime = 0; //ÇÃ·¹ÀÌ ½Ã°£
-    public string saveDate = ""; //ÀúÀå³¯Â¥
+    //ì´ˆê¸°ê°’ ì„¤ì •//
+    public float playerXPos = -10.0f; //í”Œë ˆì´ì–´ xì¶• ìœ„ì¹˜
+    public float playerYPos = 0.0f; //í”Œë ˆì´ì–´ yì¶• ìœ„ì¹˜
+    public float playerWaterReserves = 5; //í”Œë ˆì´ì–´ ë¬¼ ë³´ìœ ëŸ‰
+    public int currentStage = 1;  //í˜„ì¬ ìŠ¤í…Œì´ì§€ ì •ë³´
+    public int index; //ì €ì¥ ìœ„ì¹˜
+    public float goodGauge; //ì„ í–‰ê²Œì´ì§€
+    public float playTime = 0; //í”Œë ˆì´ ì‹œê°„
+    public string saveDate = ""; //ì €ì¥ë‚ ì§œ
 
-    public bool isFirst = true; //»õ·Î½ÃÀÛÇÏ¸é ÄÆ½Å ³ª¿À°Ô
+    public bool isFirst = true; //ìƒˆë¡œì‹œì‘í•˜ë©´ ì»·ì‹  ë‚˜ì˜¤ê²Œ
 }
+
+[Serializable]
+public class StageData
+{
+    //ìŠ¤í…Œì´ì§€ ì˜¤ë¸Œì íŠ¸ë“¤
+    public List<WaterData> waterData = new List<WaterData>();
+    public List<NpcData> npcData = new List<NpcData>();
+    public List<SaveZoneData> saveZoneData = new List<SaveZoneData>();
+}
+
+
 public class GameData
 {
-    //ÁøÇà»çÇ× ÆÛ¼¾Æ®
+    //ì§„í–‰ì‚¬í•­ í¼ì„¼íŠ¸
 }
 public class DataManager : MonoBehaviour
 {
     public PlayerData playerData = new PlayerData();
+    public StageData stageData = new StageData();
     //MapData mapData = new MapData();
     public string path;
-    public int nowSlot; //ÇöÀç ½½·Ô ¹øÈ£
+    public int nowSlot; //í˜„ì¬ ìŠ¬ë¡¯ ë²ˆí˜¸
     private void Awake()
     {
         path = Application.persistentDataPath + "/";
         
     }
-    //½½·Ô º° ÀúÀå / ºÒ·¯¿À±â
+    //ìŠ¬ë¡¯ ë³„ ì €ì¥ / ë¶ˆëŸ¬ì˜¤ê¸°
     public void SlotSaveData(int index, GameObject pos, int stage, int curWater, float playTime)
     {
+        #region PLAYERDATA
         playerData.playerXPos = pos.transform.position.x;
         playerData.playerYPos = pos.transform.position.y;
         playerData.currentStage = stage;
-        if (curWater <= 0) //ÀúÀåµÈ ¹° °¹¼ö°¡ 0º¸´Ù ÀÛÀ¸¸é 1À¸·Î ÃÊ±âÈ­
+        if (curWater <= 0) //ì €ì¥ëœ ë¬¼ ê°¯ìˆ˜ê°€ 0ë³´ë‹¤ ì‘ìœ¼ë©´ 1ìœ¼ë¡œ ì´ˆê¸°í™”
         {
             playerData.playerWaterReserves = 1;
         }
@@ -50,28 +65,39 @@ public class DataManager : MonoBehaviour
         playerData.index = index;
         playerData.playTime = playTime;
         playerData.isFirst = false;
-        playerData.saveDate = DateTime.Now.ToString("yyyy MM dd"); 
+        playerData.saveDate = DateTime.Now.ToString("yyyy MM dd");
+        #endregion
+
+        #region STAGEDATA
+        stageData = StageManager.instance.GetStageData();
+        #endregion
 
         string data = JsonUtility.ToJson(playerData);
+        string stageDataForm = JsonConvert.SerializeObject(stageData);
+
         File.WriteAllText(path + index.ToString(), data);
+        File.WriteAllText(path + "StageData" +index.ToString(), stageDataForm);
         nowSlot = index;
     }
     public void SlotLoadData(int index)
     {
         string data = File.ReadAllText(path + index.ToString());
+        string stageDataForm = File.ReadAllText(path + "StageData" + index.ToString());
+
+        stageData = JsonConvert.DeserializeObject<StageData>(stageDataForm);
         playerData = JsonUtility.FromJson<PlayerData>(data);
     }
-    //±âº»Á¤º¸µé ÀúÀå / ºÒ·¯¿À±â
+    //ê¸°ë³¸ì •ë³´ë“¤ ì €ì¥ / ë¶ˆëŸ¬ì˜¤ê¸°
     public void DefaultSaveData()
     {
-        playerData.playerWaterReserves = 5; //¹°º¸À¯·®
-        playerData.currentStage = 1; //½ºÅ×ÀÌÁö
-        playerData.playerXPos = -20f; //Ã¹ ½ÃÀÛ À§Ä¡
-        playerData.playerYPos = 0f; //Ã¹ ½ÃÀÛ À§Ä¡
-        playerData.playTime = 0; //ÇÃ·¹ÀÌ Å¸ÀÓ
+        playerData.playerWaterReserves = 5; //ë¬¼ë³´ìœ ëŸ‰
+        playerData.currentStage = 1; //ìŠ¤í…Œì´ì§€
+        playerData.playerXPos = -20f; //ì²« ì‹œì‘ ìœ„ì¹˜
+        playerData.playerYPos = 0f; //ì²« ì‹œì‘ ìœ„ì¹˜
+        playerData.playTime = 0; //í”Œë ˆì´ íƒ€ì„
         playerData.saveDate = "";
         playerData.isFirst = true;
-        //ÀúÀåÇÒ°Íµé....Ãß°¡ÇÏ¸é µÊ
+        //ì €ì¥í• ê²ƒë“¤....ì¶”ê°€í•˜ë©´ ë¨
         string data = JsonUtility.ToJson(playerData);
         File.WriteAllText(path + "DefaultPlayerData", data);
     }
@@ -81,17 +107,17 @@ public class DataManager : MonoBehaviour
         playerData = JsonUtility.FromJson<PlayerData>(defaultData);
     }
 
-    //Ã©ÅÍº° ÀúÀå / ºÒ·¯¿À±â
+    //ì±•í„°ë³„ ì €ì¥ / ë¶ˆëŸ¬ì˜¤ê¸°
     public void StageSaveData(int curWater, int stage) 
     {
-        playerData.playerWaterReserves = curWater; //¹°º¸À¯·®
-        //ÀúÀåÇÒ°Íµé....Ãß°¡ÇÏ¸é µÊ
-        string stageData = JsonUtility.ToJson(playerData);
-        File.WriteAllText(path + "StagePlayerData" + stage.ToString(), stageData);
+        playerData.playerWaterReserves = curWater; //ë¬¼ë³´ìœ ëŸ‰
+        //ì €ì¥í• ê²ƒë“¤....ì¶”ê°€í•˜ë©´ ë¨
+        string playerDataForm = JsonUtility.ToJson(playerData);
+        File.WriteAllText(path + "PlayerData" + stage.ToString(), playerDataForm);
     }
     public void StageLoadData(int stage)
     {
-        string stageData = File.ReadAllText(path + "StagePlayerData" + stage.ToString());
-        playerData = JsonUtility.FromJson<PlayerData>(stageData);
+        string playerDataForm = File.ReadAllText(path + "PlayerData" + stage.ToString());
+        playerData = JsonUtility.FromJson<PlayerData>(playerDataForm);
     }
 }

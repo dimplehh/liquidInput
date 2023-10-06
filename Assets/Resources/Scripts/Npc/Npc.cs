@@ -1,24 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 
+[Serializable]
+public class NpcData
+{
+    public int id;
+    public bool interaction;
+}
+
+[Serializable]
 public class Npc : MonoBehaviour
 {
+    public int id;
     protected Animator anim;
     public GameObject messegeImage;
     public Text messegeTxt;
     [SerializeField] protected int interactionCount;
-    [SerializeField] protected Transform target; //ÇÃ·¹ÀÌ¾î
-    [SerializeField] protected bool isRange = false; //»ç¿îµå °Å¸®°¡´ÉÇÑÁö Ã¼Å©
-    [SerializeField] protected float npcDistance; //°¢ npc °Å¸®
-    [SerializeField] protected float _distance; //ÇÃ·¹ÀÌ¾î¿Í npc »çÀÌ °Å¸®
-    //»ç¿îµå ½Ã°£
+    [SerializeField] protected Transform target; //í”Œë ˆì´ì–´
+    [SerializeField] protected bool isRange = false; //ì‚¬ìš´ë“œ ê±°ë¦¬ê°€ëŠ¥í•œì§€ ì²´í¬
+    [SerializeField] protected float npcDistance; //ê° npc ê±°ë¦¬
+    [SerializeField] protected float _distance; //í”Œë ˆì´ì–´ì™€ npc ì‚¬ì´ ê±°ë¦¬
+    //ì‚¬ìš´ë“œ ì‹œê°„
     [SerializeField] protected float soundTime;
     [SerializeField] protected float initSoundTime = 2;
 
-    //¼º°ø °ÔÀÌÁö 
+    //ì„±ê³µ ê²Œì´ì§€ 
     protected float successGauge;
     public virtual void Awake()
     {
@@ -47,11 +57,11 @@ public class Npc : MonoBehaviour
 
     public virtual void Update()
     {
-        DistanceCheak(); //°Å¸®Ã¼Å©
-        //ÇØ´ç °Å¸®¾È¿¡ ¾øÀ¸¸é ¸®ÅÏ
+        DistanceCheak(); //ê±°ë¦¬ì²´í¬
+        //í•´ë‹¹ ê±°ë¦¬ì•ˆì— ì—†ìœ¼ë©´ ë¦¬í„´
         if (!isRange)
             return;
-        if (!anim.GetBool("IsSuccess")) //¼º°øÇÏÁö ¾Ê¾ÒÀ¸¸é °è¼Ó È£ÃâÇÑ´Ù.
+        if (!anim.GetBool("IsSuccess")) //ì„±ê³µí•˜ì§€ ì•Šì•˜ìœ¼ë©´ ê³„ì† í˜¸ì¶œí•œë‹¤.
         {
             if (soundTime > 0)
             {
@@ -74,9 +84,9 @@ public class Npc : MonoBehaviour
         thisPos.y = 0;
         targetPos.y = 0;
 
-        _distance = Vector2.Distance(thisPos, targetPos); // ³ªÁß¿¡ ÇÃ·¹ÀÌ¾î¿Í npc °Å¸®ÃøÁ¤ 
+        _distance = Vector2.Distance(thisPos, targetPos); // ë‚˜ì¤‘ì— í”Œë ˆì´ì–´ì™€ npc ê±°ë¦¬ì¸¡ì • 
 
-        if (_distance < npcDistance) // ¸¸¾à ÇÃ·¹ÀÌ¾î°¡ npc »ç¿îµå »ç°Å¸® ³»·Î µé¾î¿Ô´Ù¸é,
+        if (_distance < npcDistance) // ë§Œì•½ í”Œë ˆì´ì–´ê°€ npc ì‚¬ìš´ë“œ ì‚¬ê±°ë¦¬ ë‚´ë¡œ ë“¤ì–´ì™”ë‹¤ë©´,
         {
             return isRange = true;
         }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ChapterLoad : MonoBehaviour
 {
-    [SerializeField] private GameObject[] lockImage; //Ã©ÅÍ Àá±İ ÀÌ¹ÌÁö
+    [SerializeField] private GameObject[] lockImage; //ì±•í„° ì ê¸ˆ ì´ë¯¸ì§€
 
     private void LockImageCheck()
     {
@@ -29,10 +29,10 @@ public class ChapterLoad : MonoBehaviour
         if(index <= 1)
         {
             Managers.Data.DefaultLoadData();
-            Debug.Log("1 Ã©ÅÍ´Ï±î ±âº»Á¤º¸ ºÒ·¯¿Ã°Ô");
+            Debug.Log("1 ì±•í„°ë‹ˆê¹Œ ê¸°ë³¸ì •ë³´ ë¶ˆëŸ¬ì˜¬ê²Œ");
         }
         else
-            Managers.Data.StageLoadData(index); //´ÙÀ½ Ã©ÅÍ·Î ³Ñ¾î¿À±âÀü ¸¶Áö¸· µ¥ÀÌÅÍ ºÒ·¯¿À±â
+            Managers.Data.StageLoadData(index); //ë‹¤ìŒ ì±•í„°ë¡œ ë„˜ì–´ì˜¤ê¸°ì „ ë§ˆì§€ë§‰ ë°ì´í„° ë¶ˆëŸ¬ì˜¤ê¸°
 
         LoadingSceneController.Instance.LoadScene("GameScene");       
     }

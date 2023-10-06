@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class HomeScene : MonoBehaviour
 {
-    public Slider[] volumeSlider; //º¼·ı Á¶Àı ½½¶óÀÌ´õ
+    public Slider[] volumeSlider; //ë³¼ë¥¨ ì¡°ì ˆ ìŠ¬ë¼ì´ë”
     [SerializeField] private GameObject[] backgroundImage;
     private void Start()
     {

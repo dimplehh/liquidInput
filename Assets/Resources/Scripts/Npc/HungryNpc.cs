@@ -31,7 +31,7 @@ public class HungryNpc : Npc
             
             
             StartCoroutine(SuccessMessege());
-            Debug.Log("npc¿¡°Ô ¹°À» ÁÖ¾ú½À´Ï´Ù.");
+            Debug.Log("npcì—ê²Œ ë¬¼ì„ ì£¼ì—ˆìŠµë‹ˆë‹¤.");
 
             if (interactionCount == 0)
             {
@@ -44,14 +44,14 @@ public class HungryNpc : Npc
     public override IEnumerator SuccessMessege()
     {
         messegeImage.SetActive(true);
-        messegeTxt.text = "¹° ¸ÀÀÖ´Ù.";
+        messegeTxt.text = "ë¬¼ ë§›ìˆë‹¤.";
         yield return new WaitForSeconds(1);
-        messegeTxt.text = "³­ ÀÌÁ¦ »óÈ£ÀÛ¿ëÀ» \n" + interactionCount + "¹ø ÇÒ ¼ö ÀÖ¾î";
+        messegeTxt.text = "ë‚œ ì´ì œ ìƒí˜¸ì‘ìš©ì„ \n" + interactionCount + "ë²ˆ í•  ìˆ˜ ìˆì–´";
         yield return new WaitForSeconds(1);
         //SoundManager.instance.SfxPlaySound(0, transform.position);
         messegeImage.SetActive(false);
     }
-    public override IEnumerator FailMessege() //ÇÊ¿ä½Ã »ç¿ë) ³ªÁß¿¡ Äù½ºÆ® ÀÌ·±°Å ÀÖÀ¸¸é ¼º°ø ½ÇÆĞ±¸ºĞÇÏ±â À§ÇØ 
+    public override IEnumerator FailMessege() //í•„ìš”ì‹œ ì‚¬ìš©) ë‚˜ì¤‘ì— í€˜ìŠ¤íŠ¸ ì´ëŸ°ê±° ìˆìœ¼ë©´ ì„±ê³µ ì‹¤íŒ¨êµ¬ë¶„í•˜ê¸° ìœ„í•´ 
     {
         yield return null;
     }

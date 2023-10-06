@@ -12,14 +12,14 @@ public class ClearZone : Zone
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("SaveZone")) //SaveZoneÀº ÇÃ·¹ÀÌ¾î°¡ °®°íÀÖ´Â°ÍÀÎµ¥ Çò°¥·Á¼­ ³ªÁß¿¡ ¼öÁ¤ÇÊ¿ä
+        if (other.gameObject.CompareTag("SaveZone")) //SaveZoneì€ í”Œë ˆì´ì–´ê°€ ê°–ê³ ìˆëŠ”ê²ƒì¸ë° í—·ê°ˆë ¤ì„œ ë‚˜ì¤‘ì— ìˆ˜ì •í•„ìš”
         {
-            StageManager.instance.currentStageIndex++; //ÇöÀç½ºÅ×ÀÌÁö ¿Ã·ÁÁÖ°í
-            StageManager.instance.LastStageUp(); //½ºÅ×ÀÌÁö Ã¼Å© ÈÄ ÃÖÁ¾ ½ºÅ×ÀÌÁö ÀúÀå
-            //1½ºÅ×ÀÌÁöÀÇ Á¤º¸¸¦ 2½ºÅ×ÀÌÁö¿¡ ´ã¾ÆÁØ´Ù. ½ÃÀÛÇÒ¶§ 2½ºÅ×ÀÌÁöÀÇ Á¤º¸°¡ ÀúÀåµÇ°Ô
-            Managers.Data.StageSaveData(GameManager.instance.curWaterReserves, StageManager.instance.currentStageIndex); //ÇöÀç ¹°º¸À¯·®°ú ½ºÅ×ÀÌÁö ÀÎµ¦½º ÀúÀå
-            Managers.Data.StageLoadData(StageManager.instance.currentStageIndex); //ÀúÀå°ú µ¿½Ã¿¡ ºÒ·¯¿Í¾ßÇØ 
-            LoadingSceneController.Instance.LoadScene("GameScene"+ (StageManager.instance.currentStageIndex - 1).ToString());//ÇØ´çÇÏ´Â ½ºÅ×ÀÌÁö ¾ÀÀ¸·Î ÀÌµ¿
+            StageManager.instance.currentStageIndex++; //í˜„ì¬ìŠ¤í…Œì´ì§€ ì˜¬ë ¤ì£¼ê³ 
+            StageManager.instance.LastStageUp(); //ìŠ¤í…Œì´ì§€ ì²´í¬ í›„ ìµœì¢… ìŠ¤í…Œì´ì§€ ì €ì¥
+            //1ìŠ¤í…Œì´ì§€ì˜ ì •ë³´ë¥¼ 2ìŠ¤í…Œì´ì§€ì— ë‹´ì•„ì¤€ë‹¤. ì‹œì‘í• ë•Œ 2ìŠ¤í…Œì´ì§€ì˜ ì •ë³´ê°€ ì €ì¥ë˜ê²Œ
+            Managers.Data.StageSaveData(GameManager.instance.curWaterReserves, StageManager.instance.currentStageIndex); //í˜„ì¬ ë¬¼ë³´ìœ ëŸ‰ê³¼ ìŠ¤í…Œì´ì§€ ì¸ë±ìŠ¤ ì €ì¥
+            Managers.Data.StageLoadData(StageManager.instance.currentStageIndex); //ì €ì¥ê³¼ ë™ì‹œì— ë¶ˆëŸ¬ì™€ì•¼í•´ 
+            LoadingSceneController.Instance.LoadScene("GameScene"+ (StageManager.instance.currentStageIndex - 1).ToString());//í•´ë‹¹í•˜ëŠ” ìŠ¤í…Œì´ì§€ ì”¬ìœ¼ë¡œ ì´ë™
             
         }
 

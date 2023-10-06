@@ -11,6 +11,14 @@ public class StageManager : MonoBehaviour
     public int currentStageIndex; //현재 스테이지 번호
     public int lastStageIndex; //최종 스테이지 번호
     
+    //스테이지 오브젝트들
+    [SerializeField]
+    private Water[] waterList;
+    [SerializeField]
+    private Npc[] npcList;
+    [SerializeField]
+    private SaveZone[] saveZoneList;
+    
     private void Awake()
     {
         if (instance == null)
@@ -22,7 +30,7 @@ public class StageManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(this);
-
+        
         //최종 스테이지 초기화 (1스테이지로 초기화 할거면 주석 풀고 실행하고 다시 주석 처리하면 됨)
         //PlayerPrefs.SetInt(LAST_STAGE_KEY, 1);
         //Debug.Log("초기화");
@@ -32,8 +40,86 @@ public class StageManager : MonoBehaviour
         //Managers.Data.DefaultSaveData();
     }
 
-    private void Start()
+    public void FindStageObjects()
     {
+        waterList = FindObjectsOfType<Water>();
+        npcList = FindObjectsOfType<Npc>();
+        saveZoneList = FindObjectsOfType<SaveZone>();
+    }
+
+    public StageData GetStageData()
+    {
+        StageData stageData = new StageData();
+        Debug.Log(stageData);
+        foreach (var data in waterList)
+        {
+            WaterData waterData = new WaterData {id = data.id, waterReserves = data.currentWaterReserves};
+            stageData.waterData.Add(waterData);
+        }
+        
+        foreach (var data in npcList)
+        {
+            NpcData npcData = new NpcData {id = data.id, interaction = false};
+            stageData.npcData.Add(npcData);
+        }
+        
+        foreach (var data in saveZoneList)
+        {
+            SaveZoneData saveZoneData = new SaveZoneData {id = data.id, isSave = data.isSave};
+            stageData.saveZoneData.Add(saveZoneData);
+        }
+        
+        return stageData;
+    }
+
+    public void UpdateStageData()
+    {
+        var waterData= Managers.Data.stageData.waterData;
+        var npcData = Managers.Data.stageData.npcData;
+        var saveZoneData = Managers.Data.stageData.saveZoneData;
+        
+        for (int i = 0; i < waterData.Count; i++)
+        {
+            if (waterList[i].id == waterData[i].id)
+            {
+                waterList[i].currentWaterReserves = waterData[i].waterReserves;
+                waterList[i].UpdateWater();
+            }
+        }
+        
+        for (int i = 0; i < npcData.Count; i++)
+        {
+            if (npcList[i].id == npcData[i].id)
+            {
+            }
+        }
+        
+        for (int i = 0; i < saveZoneData.Count; i++)
+        {
+            if (saveZoneList[i].id == saveZoneData[i].id)
+            {
+                var isSave = saveZoneData[i].isSave;
+                saveZoneList[i].isSave = isSave;
+                if (isSave)
+                {
+                    saveZoneList[i].anim.enabled = false;
+                    saveZoneList[i].anim.SetBool("Active",isSave);
+                    saveZoneList[i].Save(); 
+                    
+                }
+            }
+        }
+    }
+
+    public void UpdateSave(SaveZone saveZone)
+    {
+        foreach (var data in saveZoneList)
+        {
+            if (data != saveZone)
+            {
+                data.DeSave();
+            }
+        }
     }
 
     public bool LastStageCheck(int index)

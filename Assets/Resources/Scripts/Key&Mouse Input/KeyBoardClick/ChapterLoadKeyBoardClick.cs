@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ChapterLoadKeyBoardClick : MonoBehaviour
 {
-    [SerializeField] private ChapterLoad chapterLoad; //Ã©ÅÍº° ºÒ·¯¿À±â
-    [SerializeField] private int chapLoadindex = 1; //Ã©ÅÍº° ÀÎµ¦½º
-    [Header("Å°º¸µå ÀÌµ¿ À§Ä¡")]
+    [SerializeField] private ChapterLoad chapterLoad; //ì±•í„°ë³„ ë¶ˆëŸ¬ì˜¤ê¸°
+    [SerializeField] private int chapLoadindex = 1; //ì±•í„°ë³„ ì¸ë±ìŠ¤
+    [Header("í‚¤ë³´ë“œ ì´ë™ ìœ„ì¹˜")]
     [SerializeField] private RectTransform buttonGroup;
-    [SerializeField] private RectTransform initButtonGroup; //ÃÊ±âÈ­ À§Ä¡
-    [Header("Ã©ÅÍ Àá±İ Èæ¹é ÀÌ¹ÌÁö")]
+    [SerializeField] private RectTransform initButtonGroup; //ì´ˆê¸°í™” ìœ„ì¹˜
+    [Header("ì±•í„° ì ê¸ˆ í‘ë°± ì´ë¯¸ì§€")]
     [SerializeField] private GameObject[] rockImage;
 
     [SerializeField] private Text chapterNameText;
@@ -57,7 +57,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
             else
             {
                 chapLoadindex++;
-                chapterNameText.text = ChapterName(chapLoadindex); //Ã©ÅÍ ÀÌ¸§ °áÁ¤
+                chapterNameText.text = ChapterName(chapLoadindex); //ì±•í„° ì´ë¦„ ê²°ì •
                 SoundManager.instance.SfxPlaySound(2, transform.position);
                 RockImageCheck();
                 
@@ -73,7 +73,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
             else
             {
                 chapLoadindex--;
-                chapterNameText.text = ChapterName(chapLoadindex); //Ã©ÅÍ ÀÌ¸§ °áÁ¤
+                chapterNameText.text = ChapterName(chapLoadindex); //ì±•í„° ì´ë¦„ ê²°ì •
                 SoundManager.instance.SfxPlaySound(2, transform.position);
                 RockImageCheck();
                
@@ -95,16 +95,16 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
         switch (chapLoadIndex)
         {
             case 1:
-                name = "1Ã© - ¼¼»óÀÇ¿Ü°û";
+                name = "1ì±• - ì„¸ìƒì˜ì™¸ê³½";
                 break;
             case 2:
-                name = "2Ã© - ¹ö·ÁÁø¸¶À»";
+                name = "2ì±• - ë²„ë ¤ì§„ë§ˆì„";
                 break;
             case 3:
-                name = "3Ã© - ÁöÇÏ ¼Ó";
+                name = "3ì±• - ì§€í•˜ ì†";
                 break;
             case 4:
-                name = "4Ã© - ¿À¿°ÀÇ Áß½ÉºÎ(°øÀå)";
+                name = "4ì±• - ì˜¤ì—¼ì˜ ì¤‘ì‹¬ë¶€(ê³µì¥)";
                 break;
         }
         return name;

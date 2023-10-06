@@ -7,7 +7,7 @@ using System.IO;
 using System;
 public class LoadSlotSelect : MonoBehaviour
 {
-    public GameObject creat; //ºñ¾îÀÖ´Â ½½·ÔÀ» ´­·¶À» ¶§ ¶ß´Â Ã¢
+    public GameObject creat; //ë¹„ì–´ìˆëŠ” ìŠ¬ë¡¯ì„ ëˆŒë €ì„ ë•Œ ëœ¨ëŠ” ì°½
     public Text[] slotTxt;
    
     private bool[] saveFile = new bool[4];
@@ -18,7 +18,7 @@ public class LoadSlotSelect : MonoBehaviour
         
     }
    
-    public void SlotSaveFileCheck()//½½·Ôº°·Î ÀúÀåµÈ µ¥ÀÌÅÍ°¡ Á¸ÀçÇÏ´ÂÁö ÆÇ´Ü
+    public void SlotSaveFileCheck()//ìŠ¬ë¡¯ë³„ë¡œ ì €ì¥ëœ ë°ì´í„°ê°€ ì¡´ì¬í•˜ëŠ”ì§€ íŒë‹¨
     {
         for (int i = 0; i < 4; i++)
         {
@@ -31,53 +31,53 @@ public class LoadSlotSelect : MonoBehaviour
                 if(i == 0)
                 {
                     slotTxt[i].text = 
-                                "<ÀÚµ¿> \n" + 
+                                "<ìë™> \n" + 
                                 StageName(Managers.Data.playerData.currentStage) +
-                                "\nÀúÀå ³¯Â¥ : " + Managers.Data.playerData.saveDate +
-                                "\nÇÃ·¹ÀÌ Å¸ÀÓ : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") +
-                                "\n¹°¹æ¿ï : " + Managers.Data.playerData.playerWaterReserves.ToString();
+                                "\nì €ì¥ ë‚ ì§œ : " + Managers.Data.playerData.saveDate +
+                                "\ní”Œë ˆì´ íƒ€ì„ : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") +
+                                "\në¬¼ë°©ìš¸ : " + Managers.Data.playerData.playerWaterReserves.ToString();
                 }
                 else
                 {
                     slotTxt[i].text = 
                                 StageName(Managers.Data.playerData.currentStage) +
-                                "\nÀúÀå ³¯Â¥ : " + Managers.Data.playerData.saveDate +
-                                "\nÇÃ·¹ÀÌ Å¸ÀÓ : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") +
-                                "\n¹°¹æ¿ï : " + Managers.Data.playerData.playerWaterReserves.ToString();
+                                "\nì €ì¥ ë‚ ì§œ : " + Managers.Data.playerData.saveDate +
+                                "\ní”Œë ˆì´ íƒ€ì„ : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") +
+                                "\në¬¼ë°©ìš¸ : " + Managers.Data.playerData.playerWaterReserves.ToString();
                 }
             }
             else
             {
                 if(i == 0)
                 {
-                    slotTxt[i].text = "<ÀÚµ¿>" +
-                        "\nºñ¾îÀÖÀ½";
+                    slotTxt[i].text = "<ìë™>" +
+                        "\në¹„ì–´ìˆìŒ";
                 }
                 else
                 {
-                    slotTxt[i].text = "ºñ¾îÀÖÀ½";
+                    slotTxt[i].text = "ë¹„ì–´ìˆìŒ";
                 }
                 
             }
         }
     }
-    //½ºÅ×ÀÌÁö ÀÌ¸§
+    //ìŠ¤í…Œì´ì§€ ì´ë¦„
     public string StageName(int currentStage)
     {
         string currentName = "";
         switch (currentStage)
         {
             case 1:
-                currentName = "¼¼»óÀÇ ¿Ü°û";
+                currentName = "ì„¸ìƒì˜ ì™¸ê³½";
                 break;
             case 2:
-                currentName = "¹ö·ÁÁø ¸¶À»";
+                currentName = "ë²„ë ¤ì§„ ë§ˆì„";
                 break;
             case 3:
-                currentName = "ÁöÇÏ ¼Ó";
+                currentName = "ì§€í•˜ ì†";
                 break;
             case 4:
-                currentName = "¿À¿°ÀÇ Áß½ÉºÎ(°øÀå)";
+                currentName = "ì˜¤ì—¼ì˜ ì¤‘ì‹¬ë¶€(ê³µì¥)";
                 break;
         }
         return currentName;
@@ -86,35 +86,35 @@ public class LoadSlotSelect : MonoBehaviour
     {
         Managers.Data.nowSlot = num;
 
-        Debug.Log(num + "À¸·Î ÀÌµ¿");
-        //1. ÀúÀåµÈ µ¥ÀÌÅÍ°¡ ÀÖÀ» ¶§
+        Debug.Log(num + "ìœ¼ë¡œ ì´ë™");
+        //1. ì €ì¥ëœ ë°ì´í„°ê°€ ìˆì„ ë•Œ
         if (saveFile[num])
         {
-            if(!GameManager.instance) //Å¸ÀÌÆ²È­¸é¿¡¼­
+            if(!GameManager.instance) //íƒ€ì´í‹€í™”ë©´ì—ì„œ
                 Creat();
 
-            //ÀÎ°ÔÀÓ¿¡¼­
-            if (GameManager.instance && GameManager.instance.isNonAutoSave) //¼¼ÀÌºê Á¸¿¡¼­´Â ¼¼ÀÌºê¸¸ µÇ°Ô µ¤¾î¾º¿öÁØ´Ù.
+            //ì¸ê²Œì„ì—ì„œ
+            if (GameManager.instance && GameManager.instance.isNonAutoSave) //ì„¸ì´ë¸Œ ì¡´ì—ì„œëŠ” ì„¸ì´ë¸Œë§Œ ë˜ê²Œ ë®ì–´ì”Œì›Œì¤€ë‹¤.
             {
-                if (num != 0) //0¹ø½½·ÔÀº ÀúÀå¸øÇÔ
+                if (num != 0) //0ë²ˆìŠ¬ë¡¯ì€ ì €ì¥ëª»í•¨
                 {
                     Save(num);
                     return;
                 }
                 
             }
-            else if(GameManager.instance && !GameManager.instance.isNonAutoSave) //¸Ş´ºÃ¢¿¡¼­´Â ·ÎµåµÇ°Ô
+            else if(GameManager.instance && !GameManager.instance.isNonAutoSave) //ë©”ë‰´ì°½ì—ì„œëŠ” ë¡œë“œë˜ê²Œ
                 Creat();
         }
-        else //1. ÀúÀåµÈ µ¥ÀÌÅÍ°¡ ¾øÀ» ¶§
+        else //1. ì €ì¥ëœ ë°ì´í„°ê°€ ì—†ì„ ë•Œ
         {
-            if(!GameManager.instance) //Å¸ÀÌÆ²È­¸é¿¡¼­
+            if(!GameManager.instance) //íƒ€ì´í‹€í™”ë©´ì—ì„œ
                 return;
-            else //ÀÎ°ÔÀÓ¿¡¼­
+            else //ì¸ê²Œì„ì—ì„œ
             {
                 if (GameManager.instance.isNonAutoSave)
                 {
-                    if (num != 0) //0¹ø½½·ÔÀº ÀúÀå¸øÇÔ
+                    if (num != 0) //0ë²ˆìŠ¬ë¡¯ì€ ì €ì¥ëª»í•¨
                     {
                         Save(num);
                         return;
@@ -129,8 +129,8 @@ public class LoadSlotSelect : MonoBehaviour
     {
         GameObject player = GameObject.FindWithTag("Player");
         Managers.Data.SlotSaveData(slotIndex, player.gameObject, StageManager.instance.currentStageIndex, GameManager.instance.curWaterReserves, GameManager.instance.playTime);
-        Debug.Log(slotIndex + "¼öµ¿ ¼¼ÀÌºê");
-        SlotSaveFileCheck(); //´Ù½Ã Á¤º¸ Ã¼Å©
+        Debug.Log(slotIndex + "ìˆ˜ë™ ì„¸ì´ë¸Œ");
+        SlotSaveFileCheck(); //ë‹¤ì‹œ ì •ë³´ ì²´í¬
     }
     public void Creat()
     {
@@ -143,16 +143,16 @@ public class LoadSlotSelect : MonoBehaviour
     }
     public void NewGame() 
     {
-        if (File.Exists(Managers.Data.path + $"{0}")) //0¹øÂ° ½½·Ô¿¡ µ¥ÀÌÅÍ°¡ ÀÖÀ¸¸é µ¥ÀÌÅÍ·Î °¡Á®¿À°í ±×°Ô¾Æ´Ï¸é »õ·Î ½ÃÀÛÇÑ´Ù.
+        if (File.Exists(Managers.Data.path + $"{0}")) //0ë²ˆì§¸ ìŠ¬ë¡¯ì— ë°ì´í„°ê°€ ìˆìœ¼ë©´ ë°ì´í„°ë¡œ ê°€ì ¸ì˜¤ê³  ê·¸ê²Œì•„ë‹ˆë©´ ìƒˆë¡œ ì‹œì‘í•œë‹¤.
         {
             GoGame();
-            Debug.Log("µ¥ÀÌÅÍ°¡ ÀÖÀ¸´Ï µ¥ÀÌÅÍ·Î °¡Á®¿È");
+            Debug.Log("ë°ì´í„°ê°€ ìˆìœ¼ë‹ˆ ë°ì´í„°ë¡œ ê°€ì ¸ì˜´");
         }
         else
         {
-            Managers.Data.DefaultLoadData(); //±âº»Á¤º¸
+            Managers.Data.DefaultLoadData(); //ê¸°ë³¸ì •ë³´
             LoadingSceneController.Instance.LoadScene("GameScene");
-            Debug.Log("µ¥ÀÌÅÍ°¡ ¾øÀ¸´Ï »õ·Î ½ÃÀÛ");
+            Debug.Log("ë°ì´í„°ê°€ ì—†ìœ¼ë‹ˆ ìƒˆë¡œ ì‹œì‘");
         }    
         
     }
