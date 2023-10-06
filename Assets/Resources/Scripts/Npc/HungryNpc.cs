@@ -15,7 +15,6 @@ public class HungryNpc : Npc
 
     public override void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log(other.name);
         if (other.gameObject.CompareTag("SaveZone") && Input.GetKeyDown(KeyCode.X))
         {
             if (GameManager.instance.player.GetComponent<Player>().transform.position.x > gameObject.transform.position.x)
