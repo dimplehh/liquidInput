@@ -25,6 +25,7 @@ public class StoneHillTrigger : MonoBehaviour
             return;
         else
         {
+            stone.SetActive(true);
             time -= Time.deltaTime;
             if(time <= 0)
             {
