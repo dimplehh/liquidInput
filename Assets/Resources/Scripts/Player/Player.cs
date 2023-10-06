@@ -437,7 +437,7 @@ public class Player : MonoBehaviour
             
             if (!collision.gameObject.CompareTag("Hill") && !isWater)
                 shadow.SetActive(true);
-            if (this.playerHeight > gameObject.transform.position.y + 10.0f)//추락사 (일단 5.0f) 차후 수정 필요,
+            if (this.playerHeight > gameObject.transform.position.y + 15.0f)//추락사  차후 수정 필요,
             {
                 Debug.Log("추락사");
                 if(!isSlime)anim.Play("Die");
