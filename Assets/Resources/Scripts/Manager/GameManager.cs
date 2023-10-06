@@ -202,6 +202,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator GameOver()
     {
+        SoundManager.instance.SfxPlaySound2(2, transform.position);
         SoundManager.instance.SfxPlaySound(1, transform.position);
         yield return new WaitForSecondsRealtime(3.0f);
         gameOver = true;

@@ -31,15 +31,16 @@ public class Player : MonoBehaviour
     public bool attached = false;
     public Transform attachedTo;
     public float playerHeight;
-    //public bool isParticleActive = false; 
-    public bool isSandPs = true; //
+    public bool isSandPs = true;
+    public bool isIdleSound = true;
     //슬라임 시간 계산
     public const float maxSlimeTime = 10f;
     public float curSlimeTime;
     //모래바람 파티클 생성시간
     public const float maxSandPsTime = 0.5f;
     public float curSandPsTime;
-
+    int maxWalkSoundCnt = 3;
+    int curWalkSoundCnt = 0;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -60,7 +61,7 @@ public class Player : MonoBehaviour
         ChangeSlime(); //슬라임 변신
         SlimeTimeCheck(); //슬라임 시간 체크
         Die();//게임오버 체크
-        SandPsTime(); //모래바람 파티클 생성시간
+        SandPs(); //모래바람 파티클 생성시간
     }
     private void FixedUpdate()
     {
@@ -68,9 +69,9 @@ public class Player : MonoBehaviour
             return;
         Move(); //플레이어 이동
         Swing();//줄반동
-                //JumpCheck(); //플레이어 바닥에 닿았을 때 점프 가능한지 체크
     }
-    private void SandPsTime() //모래바람 파티클 생성시간
+
+    private void SandPs()
     {
         if (!isSandPs)
         {
@@ -102,10 +103,14 @@ public class Player : MonoBehaviour
 
         //걷기 애니메이션
         if (Mathf.Abs(rigid.velocity.x) < 0.3)
+        {
+            curWalkSoundCnt = 0;
             anim.SetBool("IsWalk", false);
+        }
         else if(!attached)
+        {
             anim.SetBool("IsWalk", true);
-
+        }
 
         if (rigid.velocity != Vector2.zero && isGround && isSandPs)
         {
@@ -127,13 +132,17 @@ public class Player : MonoBehaviour
     {
         if (!isWater)
         {
-            SoundManager.instance.SfxPlaySound(7, transform.position); //모레 이동 사운드
+            SoundManager.instance.SfxPlaySound(7, transform.position); //모래 이동 사운드
         }
         else if(Input.GetAxisRaw("Horizontal") != 0)
         {
             SoundManager.instance.SfxPlaySound(10, transform.position); //물 이동 사운드
         }
-        
+        if (curWalkSoundCnt++ == maxWalkSoundCnt)
+        {
+            SoundManager.instance.SfxPlaySound2(3, transform.position);//숨소리
+            curWalkSoundCnt = 0;
+        }
     }
     private void Run()
     {
@@ -157,6 +166,7 @@ public class Player : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+                SoundManager.instance.SfxPlaySound2(1, transform.position);
                 if (isSlime)
                     anim.SetTrigger("DoSlimeJump");
                 else
@@ -326,13 +336,9 @@ public class Player : MonoBehaviour
     {
         if(GameManager.instance.curWaterReserves <= 0) //현재 시작 물보유량이 0이어서 test용         //if (GameManager.instance.curWaterReserves <= 0)
         {
-            //if (isSlime)
-            //    anim.Play("SlimeDie");
             if(!isSlime)
             {
-                Debug.Log("이제 죽을거야");
                 anim.Play("ThirstyDie");
-                
                 GameManager.instance.OpenGameOver();
                 GameManager.instance.isPlay = false;
             }
@@ -431,8 +437,9 @@ public class Player : MonoBehaviour
             
             if (!collision.gameObject.CompareTag("Hill") && !isWater)
                 shadow.SetActive(true);
-            if (this.playerHeight > gameObject.transform.position.y + 7.0f)//추락사 (일단 5.0f) 차후 수정 필요,
+            if (this.playerHeight > gameObject.transform.position.y + 15.0f)//추락사  차후 수정 필요,
             {
+                Debug.Log("추락사");
                 if(!isSlime)anim.Play("Die");
                 GameManager.instance.OpenGameOver();
                 GameManager.instance.isPlay = false;
@@ -447,7 +454,6 @@ public class Player : MonoBehaviour
         {
             Debug.Log("착지 이펙트 생성");
             GameManager.instance.effectsPool.Get(1, this.transform);
-            SoundManager.instance.SfxPlaySound(8, transform.position);
         }
     }
      

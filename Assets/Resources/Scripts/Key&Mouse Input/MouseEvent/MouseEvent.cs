@@ -8,6 +8,7 @@ public class MouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public Text selectText; //현재 텍스트
     [SerializeField] private int maxFontSize;
     [SerializeField] private int minFontSize;
+    [SerializeField] private Color baseColor, changedColor;
     public int mouseIndex; //마우스 인덱스
 
     public KeyboardSelect? keyboardSelect; 
@@ -20,48 +21,47 @@ public class MouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerEnter(PointerEventData eventData)
     {
         selectText.fontSize = maxFontSize;
-        selectText.color = Color.white;
+        selectText.color = changedColor;
         SoundManager.instance.SfxPlaySound(2, transform.position);
         if (keyboardSelect)
         {
-            keyboardSelect.selectText[keyboardSelect.selectIndex].color = Color.black;
+            keyboardSelect.selectText[keyboardSelect.selectIndex].color = baseColor;
             keyboardSelect.selectText[keyboardSelect.selectIndex].fontSize = minFontSize;
             keyboardSelect.selectIndex = mouseIndex;
-            keyboardSelect.selectText[keyboardSelect.selectIndex].color = Color.white;
+            keyboardSelect.selectText[keyboardSelect.selectIndex].color = changedColor;
             keyboardSelect.selectText[keyboardSelect.selectIndex].fontSize = maxFontSize;
         }
         else if (loadKeyBoardClick)
         {
-            loadKeyBoardClick.SelectTextColorBlack();
+            loadKeyBoardClick.SelectTextColorBase();
             loadKeyBoardClick.loadindex = mouseIndex;
-            loadKeyBoardClick.SelectTextColorWhite();
+            loadKeyBoardClick.SelectTextColorChanged();
         }
         else if (soundVolumePanel)
         {
-            soundVolumePanel.SelectTextColorBlack();
+            soundVolumePanel.SelectTextColorBase();
             soundVolumePanel.index = mouseIndex;
-            soundVolumePanel.SelectTextColorWhite();
+            soundVolumePanel.SelectTextColorChanged();
         }
 
     }
     public void OnPointerExit(PointerEventData eventData)
     {
         selectText.fontSize = minFontSize;
-        selectText.color = Color.black;
+        selectText.color = baseColor;
 
         if (keyboardSelect)
         {
-            keyboardSelect.selectText[keyboardSelect.selectIndex].color = Color.white;
+            keyboardSelect.selectText[keyboardSelect.selectIndex].color = changedColor;
             keyboardSelect.selectText[keyboardSelect.selectIndex].fontSize = maxFontSize;
         }
         else if (loadKeyBoardClick)
         {
-            //loadKeyBoardClick.SelectTextColorBlack();
-            loadKeyBoardClick.SelectTextColorWhite();
+            loadKeyBoardClick.SelectTextColorChanged();
         }
         else if (soundVolumePanel)
         {
-            soundVolumePanel.SelectTextColorWhite();
+            soundVolumePanel.SelectTextColorChanged();
         }
     }
 }
