@@ -267,31 +267,43 @@ public class Player : MonoBehaviour
         }
     }
 
+    IEnumerator PlayerToSlimeAnimator()
+    {
+        GameManager.instance.waterParticle.GetComponent<ParticleSystem>().Play();
+        SoundManager.instance.SfxPlaySound(4, transform.position);
+        anim.Play("PlayerToSlime");
+        anim.SetBool("IsSlime", true);
+        isSlime = true;
+        GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(StageManager.instance.currentStageIndex);
+        this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.75f);
+        this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.81f, 0.94f);
+        yield return new WaitForSeconds(1.0f);
+    }
+
+    IEnumerator SlimeToPlayerAnimator()
+    {
+        SoundManager.instance.SfxPlaySound(4, transform.position);
+        anim.Play("SlimeToPlayer");
+        anim.SetBool("IsSlime", false);
+        isSlime = false;
+        this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.04f);
+        this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.81f, 2.37f); //player collider 크기 수정
+        yield return new WaitForSeconds(1.0f);
+    }
+
     private void ChangeSlime() //슬라임 형태일 때는 깜빡일 때 체인지슬라임 키 누르면 슬라임 시간 10초 추가 깜빡이지 않을 때 면서 슬라임 일때는 불가
     {
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeIdle") || anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeWalk") || anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeRun"))
-            isSlime = true;
-        else
-            isSlime = false;
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if (!isSlime && !isFlicker && anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+            if (!isSlime && !isFlicker)//슬라임으로 변신
             {
-                SoundManager.instance.SfxPlaySound(4, transform.position);
-                anim.SetBool("IsSlime", true);
-                GameManager.instance.waterParticle.GetComponent<ParticleSystem>().Play();
-                GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(StageManager.instance.currentStageIndex); //코드가 별로임... 너무 안이뻐..
-                this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.75f);
-                this.GetComponent<CapsuleCollider2D>().size= new Vector2(0.81f, 0.94f);
+                StartCoroutine("PlayerToSlimeAnimator");
             }
-            else if(isSlime && anim.GetCurrentAnimatorStateInfo(0).IsName("SlimeIdle"))//사람으로 다시 돌아오기
+            else if(isSlime && !isFlicker)//사람으로 다시 돌아오기
             {
-                SoundManager.instance.SfxPlaySound(4, transform.position);
-                anim.SetBool("IsSlime", false);
-                this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.04f);
-                this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.81f, 2.37f); //player collider 크기 수정
+                StartCoroutine("SlimeToPlayerAnimator");
             }
-            else if (isSlime && isFlicker)
+            else if (isSlime && isFlicker)//지속시간 늘리기
             {
                 GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(StageManager.instance.currentStageIndex);
                 isFlicker = false;
