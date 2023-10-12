@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     public int oldCurWaterReserves;
     public Image curWaterReservesImage;
     public Text curWaterReservesTxt;
-    int waterFull;
+    int waterFull = 800;
     public GameObject player;
 
     //���������
@@ -129,7 +129,6 @@ public class GameManager : MonoBehaviour
     private void setWaterSlider()
     {
         firstWater = curWaterReservesImage.rectTransform.localPosition.y;
-        waterFull = 400;
         curWaterReservesImage.rectTransform.localPosition = new Vector2(0, firstWater + waterFull * curWaterReserves / maxWaterReserves);
     }
     public void CreateGrid()
