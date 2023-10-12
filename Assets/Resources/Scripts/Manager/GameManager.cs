@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     //------------------------------------------------------
     [SerializeField]
     public GameObject waterParticle;
-    float firstWater;
+    float firstWater = -950;
     [SerializeField]
     GameObject waterSlider;
     [SerializeField]
@@ -128,7 +128,6 @@ public class GameManager : MonoBehaviour
     
     private void setWaterSlider()
     {
-        firstWater = curWaterReservesImage.rectTransform.localPosition.y;
         curWaterReservesImage.rectTransform.localPosition = new Vector2(0, firstWater + waterFull * curWaterReserves / maxWaterReserves);
     }
     public void CreateGrid()
