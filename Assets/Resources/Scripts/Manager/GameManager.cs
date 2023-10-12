@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     public int oldCurWaterReserves;
     public Image curWaterReservesImage;
     public Text curWaterReservesTxt;
-    int waterFull = 800;
+    int waterFull = 1050;
     public GameObject player;
 
     //���������
