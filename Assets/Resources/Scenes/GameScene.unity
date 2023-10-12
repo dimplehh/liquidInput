@@ -6073,7 +6073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2121710740787969469, guid: d8304d0ff1bbda1429b8d358630caea9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2201211091960386666, guid: d8304d0ff1bbda1429b8d358630caea9, type: 3}
       propertyPath: m_RootOrder
@@ -9016,6 +9016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2182f28331d9df4aa396f6c9bb388e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSave: 0
 --- !u!61 &1767843019
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9251,12 +9252,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 229318500728243651, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -410
+      value: -953
       objectReference: {fileID: 0}
     - target: {fileID: 229318500728243652, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: dd78c0a4a0e298c4d91cd5f1be9a78af, type: 3}
+      objectReference: {fileID: 21300000, guid: f03b845ae88f43b47b82cdab0d1668a8, type: 3}
     - target: {fileID: 229318500728243652, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_Color.a
       value: 0.4117647

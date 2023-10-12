@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 using System.IO;
 using System;
@@ -9,13 +10,15 @@ public class LoadSlotSelect : MonoBehaviour
 {
     public GameObject creat; //비어있는 슬롯을 눌렀을 때 뜨는 창
     public Text[] slotTxt;
-   
+    [SerializeField] GameObject videoPanel;
+    [SerializeField] GameObject buttonCanvas;
+
     private bool[] saveFile = new bool[4];
     
     private void Start()
     {
         SlotSaveFileCheck();
-        
+        CheckVideoEnd();
     }
    
     public void SlotSaveFileCheck()//슬롯별로 저장된 데이터가 존재하는지 판단
@@ -61,6 +64,13 @@ public class LoadSlotSelect : MonoBehaviour
             }
         }
     }
+
+    private void CheckVideoEnd()
+    {
+        if(videoPanel != null)
+            videoPanel.GetComponent<VideoPlayer>().loopPointReached += CheckOver;
+    }
+
     //스테이지 이름
     public string StageName(int currentStage)
     {
@@ -151,11 +161,16 @@ public class LoadSlotSelect : MonoBehaviour
         else
         {
             Managers.Data.DefaultLoadData(); //기본정보
-            LoadingSceneController.Instance.LoadScene("GameScene");
-            Debug.Log("데이터가 없으니 새로 시작");
-        }    
-        
+            videoPanel.SetActive(true);
+            buttonCanvas.SetActive(false);
+            SoundManager.instance.BgmStopSound();
+            videoPanel.GetComponent<VideoPlayer>().Play();
+        }
     }
 
-    
+    void CheckOver(UnityEngine.Video.VideoPlayer vp) //이벤트핸들러
+    {
+        LoadingSceneController.Instance.LoadScene("GameScene");
+        Debug.Log("데이터가 없으니 새로 시작");
+    }
 }

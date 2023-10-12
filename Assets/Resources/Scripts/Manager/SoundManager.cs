@@ -39,12 +39,21 @@ public class SoundManager : MonoBehaviour
         bgmAudioSource.clip = bgmSoundList[index].clip;
         bgmAudioSource.Play();
     }
+    public void BgmPlaySound(AudioClip clip)
+    {
+        bgmAudioSource.clip = clip;
+        bgmAudioSource.Play();
+    }
 
     public void Bgm2PlaySound(int index, Vector3 pos, float volume = 1f)
     {
         transform.position = pos;
         bgm2AudioSource.clip = bgm2SoundList[index].clip;
         bgm2AudioSource.Play();
+    }
+    public void BgmStopSound()
+    {
+        bgmAudioSource.Stop();
     }
     public void Bgm2StopSound(int index)
     {
