@@ -1880,6 +1880,8 @@ AnimationClip:
       value: {fileID: 0}
     - time: 10.3
       value: {fileID: 0}
+    - time: 10.316667
+      value: {fileID: 0}
     attribute: m_FocusTarget
     path: 
     classID: 114
@@ -1891,7 +1893,16 @@ AnimationClip:
       value: {fileID: 0}
     - time: 10.3
       value: {fileID: 0}
+    - time: 10.316667
+      value: {fileID: 0}
     attribute: m_Follow
+    path: 
+    classID: 114
+    script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  - curve:
+    - time: 10.316667
+      value: {fileID: 0}
+    attribute: m_LookAt
     path: 
     classID: 114
     script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
@@ -1923,7 +1934,17 @@ AnimationClip:
       typeID: 114
       customType: 0
       isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 0
+      attribute: 23384355
+      script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+      typeID: 114
+      customType: 0
+      isPPtrCurve: 1
     pptrCurveMapping:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
@@ -1935,7 +1956,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 10.316667
+    m_StopTime: 10.333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
