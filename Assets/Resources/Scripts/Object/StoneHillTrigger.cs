@@ -15,6 +15,8 @@ public class StoneHillTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            if(playerInTrigger == false)
+                this.GetComponent<BoxCollider2D>().size = new Vector2(40f, this.GetComponent<BoxCollider2D>().size.y);
             playerInTrigger = true;
         }
     }

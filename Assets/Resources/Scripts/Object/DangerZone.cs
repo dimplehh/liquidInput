@@ -23,17 +23,17 @@ public class DangerZone : MonoBehaviour
 
     IEnumerator ShowObstacle()
     {
-        while(this.transform.position.y < -1f)
+        while(this.transform.GetChild(0).transform.position.y < -1f)
         {
-            this.transform.Translate(0, 0.1f, 0);
+            this.transform.GetChild(0).transform.Translate(0, 0.1f, 0);
             yield return new WaitForSeconds(0.01f);
         }
     }
     IEnumerator HideObstacle()
     {
-        while (this.transform.position.y > -2.5f)
+        while (this.transform.GetChild(0).position.y > -5f)
         {
-            this.transform.Translate(0, -0.1f, 0);
+            this.transform.GetChild(0).transform.Translate(0, -0.1f, 0);
             yield return new WaitForSeconds(0.01f);
         }
     }
