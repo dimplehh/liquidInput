@@ -23,9 +23,8 @@ public class TutorialTrigger : MonoBehaviour
         square = tutorialBox.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         keyText = tutorialBox.transform.GetChild(1).GetChild(0).GetComponent<Text>();
         normalText = tutorialBox.transform.GetChild(1).GetChild(1).GetComponent<Text>();
-        realHumanKey = (KeyCode)Enum.Parse(typeof(KeyCode), humanKey);
-        realSlimeKey = (KeyCode)Enum.Parse(typeof(KeyCode), slimeKey);
-        Debug.Log(realHumanKey);
+        if(humanKey != "")realHumanKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), humanKey);
+        if(slimeKey != "")realSlimeKey = (KeyCode)Enum.Parse(typeof(KeyCode), slimeKey);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

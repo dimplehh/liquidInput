@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.Playables; //�ƽ�
+using UnityEngine.Playables;
 public class GameManager : MonoBehaviour
 {
     [Header("Grid")]
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject gameOverPanel;
     public static GameManager instance;
-    //�� ������
+
     public int maxWaterReserves = 50;
     public int curWaterReserves;
     public int oldCurWaterReserves;
@@ -37,22 +37,20 @@ public class GameManager : MonoBehaviour
     int waterFull = 1050;
     public GameObject player;
 
-    //���������
+
     public float successGauge = 0;
-    //�÷��� Ÿ��
+
     public float playTime = 0;
 
     public bool isPlay = false;
-    public bool isNonAutoSave = false; //�޴�â������ �ε常 �ǰ� ���̺��������� ���常�ǰ�
+    public bool isNonAutoSave = false;
     
     
-    public GameObject SaveAndLoadPanel; //�ҷ�����â
-    public LoadSlotSelect loadSlotSelect; //�ӽ�
+    public GameObject SaveAndLoadPanel;
+    public LoadSlotSelect loadSlotSelect;
 
-    //����Ʈ Ǯ
     public EffectsPool effectsPool;
 
-    //�ƽ�
     public PlayableDirector playableDirector;
     public void IsNonAutoSave() 
     {
@@ -167,13 +165,19 @@ public class GameManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        //�÷��� Ÿ�� ����
         playTime += Time.deltaTime; 
         pushZ();
         WaterReservesUI();
         if (curWaterReserves <= -2)
             StartCoroutine("OpenGameOver");
-        //escŰ ������ �� ���� Ȱ��ȭ
+        else if (0 <= curWaterReserves && curWaterReserves <= 5)
+        {
+            if (player.GetComponent<SpriteRenderer>().color.a != 0.5f + (float)(curWaterReserves / 10.0f))
+            {
+                Debug.Log(curWaterReserves + "," +( 0.5f + (float)curWaterReserves / 10.0f));
+                player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, (0.5f + (float)curWaterReserves / 10.0f));
+            }
+        }
         SettingButton();
     }
     private void pushZ()
@@ -233,7 +237,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         return waterConsume;
-    } //���������� ���� ����� �Ҹ�
+    }
     public GameObject Spawn(string path, Transform parent = null)
     {
         GameObject go = Managers.Resource.Instantiate(path, parent);
