@@ -14,13 +14,9 @@ public class SoundVolumePanel : MonoBehaviour
     private void OnEnable()
     {
         index = 0;
-        SelectTextColorChanged();
-    }
-
-    private void Start()
-    {
         BGMSlider.value = SoundManager.instance.GetComponentsInChildren<AudioSource>()[0].volume;
         SFXSlider.value = SoundManager.instance.GetComponentsInChildren<AudioSource>()[1].volume;
+        SelectTextColorChanged();
     }
 
     private void Update()
