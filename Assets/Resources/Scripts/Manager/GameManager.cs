@@ -173,11 +173,11 @@ public class GameManager : MonoBehaviour
         else if (0 <= curWaterReserves && curWaterReserves <= 5)
         {
             if (player.GetComponent<SpriteRenderer>().color.a != 0.5f + (float)(curWaterReserves / 10.0f))
-            {
-                Debug.Log(curWaterReserves + "," +( 0.5f + (float)curWaterReserves / 10.0f));
                 player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, (0.5f + (float)curWaterReserves / 10.0f));
-            }
         }
+       else if (curWaterReserves > 5)
+            if(player.transform.GetChild(3).transform.GetComponent<SpriteRenderer>().color.a != (float)curWaterReserves / 50f)
+                player.transform.GetChild(3).transform.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, (float)curWaterReserves / 50f);
         SettingButton();
     }
     private void pushZ()

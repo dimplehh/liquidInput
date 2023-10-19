@@ -276,6 +276,7 @@ public class Player : MonoBehaviour
         isSlime = true;
         GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(StageManager.instance.currentStageIndex);
         this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.75f);
+        this.transform.GetChild(3).transform.localPosition = new Vector2(0, -0.8f);
         this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.81f, 0.94f);
         yield return new WaitForSeconds(1.0f);
     }
@@ -287,6 +288,7 @@ public class Player : MonoBehaviour
         anim.SetBool("IsSlime", false);
         isSlime = false;
         this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.04f);
+        this.transform.GetChild(3).transform.localPosition = new Vector2(0, 0);
         this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.81f, 2.37f); //player collider 크기 수정
         yield return new WaitForSeconds(1.0f);
     }
