@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: New Table 1 Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: New Table 1
+  m_TableCollectionNameGuidString: 60ccb6e9f277f7c4c895f0f6a8d82041
+  m_Entries:
+  - m_Id: 8348433182720
+    m_Key: Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12409492533248
+    m_Key: HomeScene/HomeButtonCanvas/ButtonGroup/SettingButton/Text (Legacy)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12409622556672
+    m_Key: HomeScene/HomeButtonCanvas/ButtonGroup/LoadChapterButton/Text (Legacy)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12409647722496
+    m_Key: HomeScene/HomeButtonCanvas/ButtonGroup/LoadGameButton/Text (Legacy)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12409660305408
+    m_Key: HomeScene/HomeButtonCanvas/ButtonGroup/NewGameButton/Text (Legacy)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13192015441920
+    m_Key: HomeScene/HomeUICanvas/HelpSelectImage/HelpSelectText
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items:
+    - rid: 5165437040421765277
+    - rid: 5165437040421765305
+  m_KeyGenerator:
+    rid: 5165437040421765247
+  references:
+    version: 2
+    RefIds:
+    - rid: 5165437040421765247
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1698635652118
+    - rid: 5165437040421765277
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 8348433182720
+          m_TableCodes:
+          - en
+          - ko
+        m_TypeString: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+    - rid: 5165437040421765305
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 12409492533248
+          m_TableCodes:
+          - en
+          - ko
+        - m_KeyId: 12409622556672
+          m_TableCodes:
+          - en
+          - ko
+        - m_KeyId: 12409647722496
+          m_TableCodes:
+          - en
+          - ko
+        - m_KeyId: 12409660305408
+          m_TableCodes:
+          - en
+          - ko
+        - m_KeyId: 13192015441920
+          m_TableCodes:
+          - en
+          - ko
+        m_TypeString: UnityEngine.Font, UnityEngine.TextRenderingModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
