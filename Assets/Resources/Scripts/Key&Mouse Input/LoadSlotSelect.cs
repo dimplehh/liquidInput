@@ -6,17 +6,20 @@ using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 using System.IO;
 using System;
+using UnityEngine.Localization.Settings;
 public class LoadSlotSelect : MonoBehaviour
 {
     public GameObject creat; //비어있는 슬롯을 눌렀을 때 뜨는 창
     public Text[] slotTxt;
     [SerializeField] GameObject videoPanel;
     [SerializeField] GameObject buttonCanvas;
+    string lang = "ko";
 
     private bool[] saveFile = new bool[4];
     
-    private void Start()
+    private void OnEnable()
     {
+        lang = (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[0]) ? "en" : "ko";
         SlotSaveFileCheck();
         CheckVideoEnd();
     }
@@ -33,32 +36,30 @@ public class LoadSlotSelect : MonoBehaviour
 
                 if(i == 0)
                 {
-                    slotTxt[i].text = 
-                                "<자동> \n" + 
-                                StageName(Managers.Data.playerData.currentStage) +
-                                "\n저장 날짜 : " + Managers.Data.playerData.saveDate +
-                                "\n플레이 타임 : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") +
-                                "\n물방울 : " + Managers.Data.playerData.playerWaterReserves.ToString();
+                    slotTxt[i].text = (lang == "ko") ?
+                                "<자동> \n" + StageName(Managers.Data.playerData.currentStage) + "\n저장 날짜 : " + Managers.Data.playerData.saveDate 
+                                +  "\n플레이 타임 : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") + "\n물방울 : " + Managers.Data.playerData.playerWaterReserves.ToString()
+                                : "<Auto> \n" + StageName(Managers.Data.playerData.currentStage) + "\nSave Date : " + Managers.Data.playerData.saveDate
+                                + "\nPlay Time : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") + "\nWater Reverse : " + Managers.Data.playerData.playerWaterReserves.ToString();
                 }
                 else
                 {
-                    slotTxt[i].text = 
-                                StageName(Managers.Data.playerData.currentStage) +
-                                "\n저장 날짜 : " + Managers.Data.playerData.saveDate +
-                                "\n플레이 타임 : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") +
-                                "\n물방울 : " + Managers.Data.playerData.playerWaterReserves.ToString();
+                    slotTxt[i].text = (lang == "ko") ?
+                                StageName(Managers.Data.playerData.currentStage) +  "\n저장 날짜 : " + Managers.Data.playerData.saveDate +
+                                "\n플레이 타임 : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") +  "\n물방울 : " + Managers.Data.playerData.playerWaterReserves.ToString()
+                                : StageName(Managers.Data.playerData.currentStage) + "\nSave Date : " + Managers.Data.playerData.saveDate +
+                                "\nPlay Time : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") + "\nWater Reverse : " + Managers.Data.playerData.playerWaterReserves.ToString();
                 }
             }
             else
             {
                 if(i == 0)
                 {
-                    slotTxt[i].text = "<자동>" +
-                        "\n비어있음";
+                    slotTxt[i].text = (lang == "ko") ? "<자동>" + "\n비어있음" : "<Auto>" + "\nEmpty";
                 }
                 else
                 {
-                    slotTxt[i].text = "비어있음";
+                    slotTxt[i].text = (lang == "ko") ? "비어있음" : "Empty";
                 }
                 
             }
@@ -78,16 +79,16 @@ public class LoadSlotSelect : MonoBehaviour
         switch (currentStage)
         {
             case 1:
-                currentName = "세상의 외곽";
+                currentName = (lang == "ko") ? "세상의외곽" : "The Edge of the World";
                 break;
             case 2:
-                currentName = "버려진 마을";
+                currentName = (lang == "ko") ? "버려진 마을" : "Abandoned Village";
                 break;
             case 3:
-                currentName = "지하 속";
+                currentName = (lang == "ko") ? "지하 속" : "Underground";
                 break;
             case 4:
-                currentName = "오염의 중심부(공장)";
+                currentName = (lang == "ko") ? "오염의 중심부(공장)" : "The heart of Pollution (Factory)";
                 break;
         }
         return currentName;

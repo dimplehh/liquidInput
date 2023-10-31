@@ -93,7 +93,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
     {
         string name = "";
         string lang = "ko";
-        if (LocalizationSettings.SelectedLocale.GetInstanceID() == 42396) lang = "en";
+        if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[0]) lang = "en";
         switch (chapLoadIndex)
         {
             case 1:

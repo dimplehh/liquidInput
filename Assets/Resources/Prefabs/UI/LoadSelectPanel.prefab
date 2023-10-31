@@ -302,6 +302,8 @@ MonoBehaviour:
   selectText: {fileID: 0}
   maxFontSize: 40
   minFontSize: 30
+  baseColor: {r: 0, g: 0, b: 0, a: 0}
+  changedColor: {r: 0, g: 0, b: 0, a: 0}
   mouseIndex: 0
   keyboardSelect: {fileID: 0}
   loadKeyBoardClick: {fileID: 315434383}
@@ -451,8 +453,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8816c16e40d425749b6dd97470272849, type: 3}
-    m_FontSize: 30
+    m_Font: {fileID: 12800000, guid: 4f7dc0ca726feee4091044f39be9584f, type: 3}
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -474,6 +476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1924317549267772807}
   - component: {fileID: 315434383}
+  - component: {fileID: 775352541872129094}
   m_Layer: 5
   m_Name: LoadSelectPanel
   m_TagString: Untagged
@@ -533,6 +536,28 @@ MonoBehaviour:
   - {fileID: 1924317549511753666}
   - {fileID: 1924317550748868676}
   - {fileID: 1924317550448007870}
+  baseColor: {r: 0, g: 0, b: 0, a: 0}
+  changedColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &775352541872129094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924317549267772804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26db51a96f5ead94ab613896ef4b8642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creat: {fileID: 0}
+  slotTxt:
+  - {fileID: 1924317549155960252}
+  - {fileID: 1924317549511753666}
+  - {fileID: 1924317550748868676}
+  - {fileID: 1924317550448007870}
+  videoPanel: {fileID: 0}
+  buttonCanvas: {fileID: 0}
 --- !u!1 &1924317549309587332
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,8 +692,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8816c16e40d425749b6dd97470272849, type: 3}
-    m_FontSize: 30
+    m_Font: {fileID: 12800000, guid: 4f7dc0ca726feee4091044f39be9584f, type: 3}
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -830,6 +855,8 @@ MonoBehaviour:
   selectText: {fileID: 0}
   maxFontSize: 40
   minFontSize: 30
+  baseColor: {r: 0, g: 0, b: 0, a: 0}
+  changedColor: {r: 0, g: 0, b: 0, a: 0}
   mouseIndex: 1
   keyboardSelect: {fileID: 0}
   loadKeyBoardClick: {fileID: 315434383}
@@ -984,6 +1011,8 @@ MonoBehaviour:
   selectText: {fileID: 0}
   maxFontSize: 40
   minFontSize: 30
+  baseColor: {r: 0, g: 0, b: 0, a: 0}
+  changedColor: {r: 0, g: 0, b: 0, a: 0}
   mouseIndex: 3
   keyboardSelect: {fileID: 0}
   loadKeyBoardClick: {fileID: 315434383}
@@ -1138,6 +1167,8 @@ MonoBehaviour:
   selectText: {fileID: 0}
   maxFontSize: 40
   minFontSize: 30
+  baseColor: {r: 0, g: 0, b: 0, a: 0}
+  changedColor: {r: 0, g: 0, b: 0, a: 0}
   mouseIndex: 2
   keyboardSelect: {fileID: 0}
   loadKeyBoardClick: {fileID: 315434383}
@@ -1422,8 +1453,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8816c16e40d425749b6dd97470272849, type: 3}
-    m_FontSize: 30
+    m_Font: {fileID: 12800000, guid: 4f7dc0ca726feee4091044f39be9584f, type: 3}
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -1502,8 +1533,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8816c16e40d425749b6dd97470272849, type: 3}
-    m_FontSize: 30
+    m_Font: {fileID: 12800000, guid: 4f7dc0ca726feee4091044f39be9584f, type: 3}
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
