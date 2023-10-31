@@ -21,7 +21,6 @@ public class ChangeLanguage : MonoBehaviour
 
         yield return LocalizationSettings.InitializationOperation;
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
-
         isChanging = false;
     }
 }

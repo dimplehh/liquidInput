@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization.Settings;
 public class ChapterLoadKeyBoardClick : MonoBehaviour
 {
     [SerializeField] private ChapterLoad chapterLoad; //챕터별 불러오기
@@ -13,7 +14,6 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
     [SerializeField] private GameObject[] rockImage;
 
     [SerializeField] private Text chapterNameText;
-
     private void Start()
     {
         initButtonGroup.position = buttonGroup.position;
@@ -92,19 +92,21 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
     private string ChapterName(int chapLoadIndex)
     {
         string name = "";
+        string lang = "ko";
+        if (LocalizationSettings.SelectedLocale.GetInstanceID() == 42396) lang = "en";
         switch (chapLoadIndex)
         {
             case 1:
-                name = "1챕 - 세상의외곽";
+                name = (lang == "ko" ) ? "1챕 - 세상의외곽" : "Ch1 - The Edge of the World";
                 break;
             case 2:
-                name = "2챕 - 버려진마을";
+                name = (lang == "ko") ? "2챕 - 버려진마을" : "Ch2 - Abandoned Village" ;
                 break;
             case 3:
-                name = "3챕 - 지하 속";
+                name = (lang == "ko") ? "3챕 - 지하 속" : "Ch3 - Underground";
                 break;
             case 4:
-                name = "4챕 - 오염의 중심부(공장)";
+                name = (lang == "ko") ? "4챕 - 오염의 중심부(공장)" : "The heart of Pollution (Factory)";
                 break;
         }
         return name;
