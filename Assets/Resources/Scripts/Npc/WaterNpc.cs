@@ -24,7 +24,7 @@ public class WaterNpc : Npc
 
             anim.SetBool("IsSuccess", true);
             GameManager.instance.successGauge += successGauge;
-
+            GameManager.instance.effectsPool.Get(3, this.transform);
         }
     }
     public override IEnumerator SuccessMessege()

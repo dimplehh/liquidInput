@@ -2077,7 +2077,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7135451861286671902, guid: 3610580a5840dfe41a178924408f8838, type: 3}
       propertyPath: m_Volume
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7851511520517246560, guid: 3610580a5840dfe41a178924408f8838, type: 3}
       propertyPath: m_RootOrder
@@ -2233,7 +2233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9001034227150166007, guid: 3610580a5840dfe41a178924408f8838, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9001034227150166007, guid: 3610580a5840dfe41a178924408f8838, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].inSlope
@@ -7091,7 +7091,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 168489405884456284, guid: 67864c940ed720e4e95c8f7438913358, type: 3}
       propertyPath: prefabs.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 168489405884456284, guid: 67864c940ed720e4e95c8f7438913358, type: 3}
       propertyPath: prefabs.Array.data[0]
@@ -7101,6 +7101,10 @@ PrefabInstance:
       propertyPath: prefabs.Array.data[2]
       value: 
       objectReference: {fileID: 2230368859049912827, guid: 07871abdb168b5840a3dd76aa3cc1776, type: 3}
+    - target: {fileID: 168489405884456284, guid: 67864c940ed720e4e95c8f7438913358, type: 3}
+      propertyPath: prefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 1721654550866712, guid: 862b6199ff5959344bca258d11f70083, type: 3}
     - target: {fileID: 168489405884456285, guid: 67864c940ed720e4e95c8f7438913358, type: 3}
       propertyPath: m_RootOrder
       value: 11

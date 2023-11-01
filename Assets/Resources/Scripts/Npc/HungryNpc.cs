@@ -36,6 +36,7 @@ public class HungryNpc : Npc
             {
                 anim.SetBool("IsSuccess", true);
                 GameManager.instance.successGauge += successGauge;
+                GameManager.instance.effectsPool.Get(3, this.transform);
             }
         }
     }

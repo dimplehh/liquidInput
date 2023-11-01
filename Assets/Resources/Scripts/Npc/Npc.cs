@@ -69,7 +69,9 @@ public class Npc : MonoBehaviour
                 if (soundTime <= 0)
                 {
                     soundTime = initSoundTime;
-                    SoundManager.instance.SfxPlaySound(0, transform.position);
+                    if(this.gameObject.layer == 6) //waterNPC
+                        SoundManager.instance.SfxPlaySound(9, transform.position);
+                    else SoundManager.instance.SfxPlaySound(0, transform.position);
                 }
             }
         }
