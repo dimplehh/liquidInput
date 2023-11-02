@@ -158,6 +158,7 @@ public class GameManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = new Vector3(Managers.Data.playerData.playerXPos, Managers.Data.playerData.playerYPos, 0);
+        Debug.Log(Managers.Data.playerData.playerXPos);
         StageManager.instance.UpdateStageData();
         curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
         waterParticle.GetComponent<ParticleSystem>().Stop();
