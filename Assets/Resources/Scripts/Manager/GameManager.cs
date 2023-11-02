@@ -157,12 +157,18 @@ public class GameManager : MonoBehaviour
     private void Initialized()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        player.transform.position = new Vector3(Managers.Data.playerData.playerXPos, Managers.Data.playerData.playerYPos, 0);
-        Debug.Log(Managers.Data.playerData.playerXPos);
+        if(Managers.Data.playerData.currentStage == StageManager.instance.currentStageIndex)
+        {
+            player.transform.position = new Vector3(Managers.Data.playerData.playerXPos, Managers.Data.playerData.playerYPos, 0);
+            curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
+        }
+        else //홈씬말고 게임씬에서 플레이 시작하는 경우 - 모두 기본 값, 기본 위치로 시작
+        {
+            player.transform.position = new Vector3(-20.0f, 0, 0);
+            curWaterReserves = 5;
+        }
         StageManager.instance.UpdateStageData();
-        curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
         waterParticle.GetComponent<ParticleSystem>().Stop();
-        
     }
 
     private void LateUpdate()
@@ -211,7 +217,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(3.0f);
         gameOver = true;
         Managers.Data.SlotLoadData(0);
-        LoadingSceneController.Instance.LoadScene("GameScene");
+        LoadingSceneController.Instance.LoadScene("GameScene0");
     }
     public void OpenGameOver()
     {

@@ -8030,6 +8030,10 @@ PrefabInstance:
       propertyPath: boxMask.m_Bits
       value: 4096
       objectReference: {fileID: 0}
+    - target: {fileID: 3024379311234204991, guid: 3c0349c3df2bba14d898cc3266be87bb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3944498665559805125, guid: 3c0349c3df2bba14d898cc3266be87bb, type: 3}
       propertyPath: m_Mass
       value: 0.6
@@ -15338,7 +15342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5348255735167013521, guid: 4f71003553d91c24dbf6dd21b52a02c7, type: 3}
       propertyPath: m_InitialState
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5348255735167013521, guid: 4f71003553d91c24dbf6dd21b52a02c7, type: 3}
       propertyPath: m_SceneBindings.Array.size

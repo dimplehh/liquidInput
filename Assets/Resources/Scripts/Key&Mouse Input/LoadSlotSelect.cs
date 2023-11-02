@@ -171,7 +171,7 @@ public class LoadSlotSelect : MonoBehaviour
 
     void CheckOver(UnityEngine.Video.VideoPlayer vp) //이벤트핸들러
     {
-        LoadingSceneController.Instance.LoadScene("GameScene");
+        LoadingSceneController.Instance.LoadScene("GameScene0");
         Debug.Log("데이터가 없으니 새로 시작");
     }
 }
