@@ -27,9 +27,9 @@ public class SoundVolumePanel : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if (index >= 2)
+            if (index >= 3)
             {
-                index = 2;
+                index = 3;
             }
             else
             {
