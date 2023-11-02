@@ -150,7 +150,7 @@ public class LoadSlotSelect : MonoBehaviour
     public void GoGame()
     {
         Managers.Data.SlotLoadData(Managers.Data.nowSlot);
-        LoadingSceneController.Instance.LoadScene("GameScene");
+        LoadingSceneController.Instance.LoadScene("GameScene" + (Managers.Data.playerData.currentStage - 1).ToString());
     }
     public void NewGame() 
     {
