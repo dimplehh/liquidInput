@@ -104,7 +104,8 @@ public class GameManager : MonoBehaviour
         SoundManager.instance.BgmPlaySound(1);
         if(Managers.Data.playerData.isFirst == true)
         {
-            StartCoroutine(CutScene()); //�ƽ����� �÷��̰���
+            Debug.Log("처음임");
+            StartCoroutine(CutScene());
         }
         else
         {
