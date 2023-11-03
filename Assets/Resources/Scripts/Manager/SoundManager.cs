@@ -55,7 +55,7 @@ public class SoundManager : MonoBehaviour
     {
         bgmAudioSource.Stop();
     }
-    public void Bgm2StopSound(int index)
+    public void Bgm2StopSound()
     {
         bgm2AudioSource.Stop();
     }

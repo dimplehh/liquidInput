@@ -15,8 +15,11 @@ public class StoneHillTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if(playerInTrigger == false)
+            SoundManager.instance.Bgm2PlaySound(2, this.gameObject.transform.position);
+            if (playerInTrigger == false)
+            {
                 this.GetComponent<BoxCollider2D>().size = new Vector2(40f, this.GetComponent<BoxCollider2D>().size.y);
+            }
             playerInTrigger = true;
         }
     }

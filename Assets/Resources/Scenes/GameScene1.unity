@@ -1052,7 +1052,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 4086219314863084706, guid: e8999f0213edf024ca7f2bea3faaa67f, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e8999f0213edf024ca7f2bea3faaa67f, type: 3}
 --- !u!4 &147653133 stripped
 Transform:
@@ -1934,8 +1934,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4086219314863084706, guid: e8999f0213edf024ca7f2bea3faaa67f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8999f0213edf024ca7f2bea3faaa67f, type: 3}
 --- !u!4 &209981718 stripped
 Transform:
@@ -3948,9 +3947,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7851511520517246563, guid: 3610580a5840dfe41a178924408f8838, type: 3}
+      propertyPath: bgm2SoundList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7851511520517246563, guid: 3610580a5840dfe41a178924408f8838, type: 3}
       propertyPath: sfxSoundList.Array.data[5].clip
       value: 
       objectReference: {fileID: 8300000, guid: de4c2973425c35d45beae1aee619abf5, type: 3}
+    - target: {fileID: 7851511520517246563, guid: 3610580a5840dfe41a178924408f8838, type: 3}
+      propertyPath: bgm2SoundList.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: da1ac222afd704b479fcb3e50dc4f13d, type: 3}
+    - target: {fileID: 7851511520517246563, guid: 3610580a5840dfe41a178924408f8838, type: 3}
+      propertyPath: bgm2SoundList.Array.data[2].name
+      value: RockRollingBGM
+      objectReference: {fileID: 0}
     - target: {fileID: 9001034227150166007, guid: 3610580a5840dfe41a178924408f8838, type: 3}
       propertyPath: m_Volume
       value: 0.35
@@ -4049,7 +4060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9001034227150166007, guid: 3610580a5840dfe41a178924408f8838, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9001034227150166007, guid: 3610580a5840dfe41a178924408f8838, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].inSlope
@@ -6541,7 +6552,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 4086219314863084706, guid: e8999f0213edf024ca7f2bea3faaa67f, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e8999f0213edf024ca7f2bea3faaa67f, type: 3}
 --- !u!4 &619483443 stripped
 Transform:
@@ -11394,7 +11405,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 4086219314863084706, guid: e8999f0213edf024ca7f2bea3faaa67f, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e8999f0213edf024ca7f2bea3faaa67f, type: 3}
 --- !u!4 &1089659972 stripped
 Transform:
@@ -15572,7 +15583,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 4086219314863084706, guid: e8999f0213edf024ca7f2bea3faaa67f, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e8999f0213edf024ca7f2bea3faaa67f, type: 3}
 --- !u!4 &1450337516 stripped
 Transform:

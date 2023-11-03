@@ -16,7 +16,7 @@ public class TriggerSound : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("SaveZone"))
         {
-            SoundManager.instance.Bgm2StopSound(soundIndex);
+            SoundManager.instance.Bgm2StopSound();
         }
     }
 }
