@@ -15,16 +15,5 @@ public class RollingStone : MonoBehaviour
                 GameManager.instance.isPlay = false;
             }
         }
-        if (this.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude <= 0.2f)
-        {
-            SoundManager.instance.Bgm2StopSound();
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (this.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude <= 0.2f)
-        {
-            SoundManager.instance.Bgm2StopSound();
-        }
     }
 }
