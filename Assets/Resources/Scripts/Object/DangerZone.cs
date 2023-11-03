@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DangerZone : MonoBehaviour
 {
-
+    [SerializeField] float originY;
+    [SerializeField] float changedY;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -23,7 +24,7 @@ public class DangerZone : MonoBehaviour
 
     IEnumerator ShowObstacle()
     {
-        while(this.transform.GetChild(0).transform.position.y < -1f)
+        while(this.transform.GetChild(0).transform.position.y < changedY)
         {
             this.transform.GetChild(0).transform.Translate(0, 0.1f, 0);
             yield return new WaitForSeconds(0.01f);
@@ -31,7 +32,7 @@ public class DangerZone : MonoBehaviour
     }
     IEnumerator HideObstacle()
     {
-        while (this.transform.GetChild(0).position.y > -5f)
+        while (this.transform.GetChild(0).position.y > originY)
         {
             this.transform.GetChild(0).transform.Translate(0, -0.1f, 0);
             yield return new WaitForSeconds(0.01f);
