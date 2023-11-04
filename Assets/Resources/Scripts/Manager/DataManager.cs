@@ -53,6 +53,7 @@ public class DataManager : MonoBehaviour
         playerData.playerXPos = pos.transform.position.x;
         playerData.playerYPos = pos.transform.position.y;
         playerData.currentStage = stage;
+        playerData.goodGauge = GameManager.instance.successGauge;
         if (curWater <= 0) //저장된 물 갯수가 0보다 작으면 1으로 초기화
         {
             playerData.playerWaterReserves = 1;
@@ -111,6 +112,8 @@ public class DataManager : MonoBehaviour
     public void StageSaveData(int curWater, int stage) 
     {
         playerData.playerWaterReserves = curWater; //물보유량
+        playerData.goodGauge = GameManager.instance.successGauge;
+        Debug.Log(playerData.goodGauge);
         //저장할것들....추가하면 됨
         string playerDataForm = JsonUtility.ToJson(playerData);
         File.WriteAllText(path + "PlayerData" + stage.ToString(), playerDataForm);
