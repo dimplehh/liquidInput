@@ -39,7 +39,10 @@ public class DeepWater : Water
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        GameManager.instance.player.GetComponent<Rigidbody2D>().mass = 0.6f;//다시 플레이어 질량 원래대로 되돌림
+        if(collision.CompareTag("Player"))
+        {
+            GameManager.instance.player.GetComponent<Rigidbody2D>().mass = 0.6f;//다시 플레이어 질량 원래대로 되돌림
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
