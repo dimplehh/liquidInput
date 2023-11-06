@@ -6,11 +6,11 @@ public class HungryNpc : Npc
 {
     public override void Start()
     {
-        interactionCount = 2;
+        interactionCount = 1;
         successGauge = 1;
         soundTime = initSoundTime;
         target = GameObject.FindWithTag("Player").gameObject.transform;
-        npcDistance = 5;
+        npcDistance = 7;
     }
 
     public override void OnTriggerStay2D(Collider2D other)
