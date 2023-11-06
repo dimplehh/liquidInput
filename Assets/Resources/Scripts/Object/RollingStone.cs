@@ -8,7 +8,7 @@ public class RollingStone : MonoBehaviour
     {
         if (collision.gameObject.tag == "SaveZone")
         {
-            if(this.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude >= 2)
+            if(this.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude >= 3)
             {
                 GameManager.instance.player.GetComponent<Player>().anim.Play("Die");
                 GameManager.instance.OpenGameOver();

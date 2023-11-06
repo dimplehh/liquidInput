@@ -6,6 +6,7 @@ public class SeeSaw : MonoBehaviour
 {
     public Transform stoneSpawnPoint;
     public GameObject stone;
+    [SerializeField] GameObject board;
 
     private bool isTriggered = false;
 
@@ -23,6 +24,7 @@ public class SeeSaw : MonoBehaviour
         while (isTriggered)
         {
             stone.transform.localPosition = stoneSpawnPoint.localPosition;
+            board.transform.localRotation = new Quaternion(0, 0, 0, 0);
             SoundManager.instance.Bgm2PlaySoundOneTime(2, this.gameObject.transform.position);
             stone.SetActive(true);
             yield return new WaitForSeconds(20f);
