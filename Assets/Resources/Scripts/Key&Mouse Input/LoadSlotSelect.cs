@@ -28,28 +28,48 @@ public class LoadSlotSelect : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            if (File.Exists(Managers.Data.path + $"{i}"))
+            if (File.Exists(Managers.Data.path + "PlayerData" + i))
             {
                 saveFile[i] = true;
                 Managers.Data.nowSlot = i;
-                Managers.Data.SlotLoadData(i);
+                // Managers.Data.SlotLoadData(i);
+                var currentSlotData = Managers.Data.GetSlotPlayerData(i);
 
+                var aa = currentSlotData.currentStage + currentSlotData.saveDate + currentSlotData.playTime + currentSlotData.playerWaterReserves;
+                
                 if(i == 0)
                 {
                     slotTxt[i].text = (lang == "ko") ?
-                                "<자동> \n" + StageName(Managers.Data.playerData.currentStage) + "\n저장 날짜 : " + Managers.Data.playerData.saveDate 
-                                +  "\n플레이 타임 : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") + "\n물방울 : " + Managers.Data.playerData.playerWaterReserves.ToString()
-                                : "<Auto> \n" + StageName(Managers.Data.playerData.currentStage) + "\nSave Date : " + Managers.Data.playerData.saveDate
-                                + "\nPlay Time : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") + "\nWater Reverse : " + Managers.Data.playerData.playerWaterReserves.ToString();
+                        "<자동> \n" + StageName(currentSlotData.currentStage) + "\n저장 날짜 : " + currentSlotData.saveDate
+                        +  "\n플레이 타임 : " + TimeSpan.FromSeconds(currentSlotData.playTime).ToString(@"mm\:ss") + "\n물방울 : " + currentSlotData.playerWaterReserves
+                        : "<Auto> \n" + StageName(currentSlotData.currentStage) + "\nSave Date : " + currentSlotData.saveDate
+                          + "\nPlay Time : " + TimeSpan.FromSeconds(currentSlotData.playTime).ToString(@"mm\:ss") + "\nWater Reverse : " + currentSlotData.playerWaterReserves;
                 }
                 else
                 {
                     slotTxt[i].text = (lang == "ko") ?
-                                StageName(Managers.Data.playerData.currentStage) +  "\n저장 날짜 : " + Managers.Data.playerData.saveDate +
-                                "\n플레이 타임 : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") +  "\n물방울 : " + Managers.Data.playerData.playerWaterReserves.ToString()
-                                : StageName(Managers.Data.playerData.currentStage) + "\nSave Date : " + Managers.Data.playerData.saveDate +
-                                "\nPlay Time : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") + "\nWater Reverse : " + Managers.Data.playerData.playerWaterReserves.ToString();
+                        StageName(currentSlotData.currentStage) +  "\n저장 날짜 : " + currentSlotData.saveDate +
+                        "\n플레이 타임 : " + TimeSpan.FromSeconds(currentSlotData.playTime).ToString(@"mm\:ss") +  "\n물방울 : " + currentSlotData.playerWaterReserves
+                        : StageName(currentSlotData.currentStage) + "\nSave Date : " + currentSlotData.saveDate +
+                          "\nPlay Time : " + TimeSpan.FromSeconds(currentSlotData.playTime).ToString(@"mm\:ss") + "\nWater Reverse : " + currentSlotData.playerWaterReserves;
                 }
+                
+                // if(i == 0)
+                // {
+                //     slotTxt[i].text = (lang == "ko") ?
+                //                 "<자동> \n" + StageName(Managers.Data.playerData.currentStage) + "\n저장 날짜 : " + Managers.Data.playerData.saveDate 
+                //                 +  "\n플레이 타임 : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") + "\n물방울 : " + Managers.Data.playerData.playerWaterReserves.ToString()
+                //                 : "<Auto> \n" + StageName(Managers.Data.playerData.currentStage) + "\nSave Date : " + Managers.Data.playerData.saveDate
+                //                 + "\nPlay Time : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") + "\nWater Reverse : " + Managers.Data.playerData.playerWaterReserves.ToString();
+                // }
+                // else
+                // {
+                //     slotTxt[i].text = (lang == "ko") ?
+                //                 StageName(Managers.Data.playerData.currentStage) +  "\n저장 날짜 : " + Managers.Data.playerData.saveDate +
+                //                 "\n플레이 타임 : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") +  "\n물방울 : " + Managers.Data.playerData.playerWaterReserves.ToString()
+                //                 : StageName(Managers.Data.playerData.currentStage) + "\nSave Date : " + Managers.Data.playerData.saveDate +
+                //                 "\nPlay Time : " + TimeSpan.FromSeconds(Managers.Data.playerData.playTime).ToString(@"mm\:ss") + "\nWater Reverse : " + Managers.Data.playerData.playerWaterReserves.ToString();
+                // }
             }
             else
             {
@@ -150,14 +170,35 @@ public class LoadSlotSelect : MonoBehaviour
     public void GoGame()
     {
         Managers.Data.SlotLoadData(Managers.Data.nowSlot);
-        LoadingSceneController.Instance.LoadScene("GameScene" + (Managers.Data.playerData.currentStage - 1).ToString());
+        // LoadingSceneController.Instance.LoadScene("GameScene" + (Managers.Data.playerData.currentStage - 1).ToString());
+        LoadingSceneController.Instance.LoadScene("GameScene" + (Managers.Data.stageData.stageChapter - 1).ToString());
     }
     public void NewGame() 
     {
-        if (File.Exists(Managers.Data.path + $"{0}")) //0번째 슬롯에 데이터가 있으면 데이터로 가져오고 그게아니면 새로 시작한다.
+        // if (File.Exists(Managers.Data.path + $"{0}")) //0번째 슬롯에 데이터가 있으면 데이터로 가져오고 그게아니면 새로 시작한다.
+        // {
+        //     GoGame();
+        //     Debug.Log("데이터가 있으니 데이터로 가져옴");
+        // }
+        // else
+        // {
+        //     Managers.Data.DefaultLoadData(); //기본정보
+        //     videoPanel.SetActive(true);
+        //     buttonCanvas.SetActive(false);
+        //     SoundManager.instance.BgmStopSound();
+        //     videoPanel.GetComponent<VideoPlayer>().Play();
+        // }
+        
+        if (File.Exists(Managers.Data.path + "PlayerData0")) //0번째 슬롯에 데이터가 있으면 0번 슬롯을 데이터를 삭제하고 시작한다.
         {
-            GoGame();
-            Debug.Log("데이터가 있으니 데이터로 가져옴");
+            File.Delete(Managers.Data.path + "PlayerData" + 0);
+            File.Delete(Managers.Data.path + "StageData" + 0);
+            
+            Managers.Data.DefaultLoadData(); //기본정보
+            videoPanel.SetActive(true);
+            buttonCanvas.SetActive(false);
+            SoundManager.instance.BgmStopSound();
+            videoPanel.GetComponent<VideoPlayer>().Play();
         }
         else
         {

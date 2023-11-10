@@ -19,9 +19,9 @@ public class Npc : MonoBehaviour
     protected Animator anim;
     public GameObject messegeImage;
     public Text messegeTxt;
+    public bool isInteraction;
     [SerializeField] protected int interactionCount;
     [SerializeField] protected Transform target; //플레이어
-    [SerializeField] protected bool isRange = false; //사운드 거리가능한지 체크
     [SerializeField] protected float npcDistance; //각 npc 거리
     [SerializeField] protected float _distance; //플레이어와 npc 사이 거리
     //사운드 시간
@@ -55,11 +55,20 @@ public class Npc : MonoBehaviour
         yield return null;
     }
 
+    public void UpdateNpcData()
+    {
+        if (!isInteraction)
+        {
+            interactionCount = 0;
+            successGauge = 0;
+            anim.SetBool("IsSuccess", true);
+        }
+    }
+
     public virtual void Update()
     {
-        DistanceCheak(); //거리체크
         //해당 거리안에 없으면 리턴
-        if (!isRange)
+        if (DistanceCheak())
             return;
         if (!anim.GetBool("IsSuccess")) //성공하지 않았으면 계속 호출한다.
         {
@@ -80,6 +89,11 @@ public class Npc : MonoBehaviour
 
     public bool DistanceCheak()
     {
+        if (!isInteraction)
+        {
+            return true;
+        }
+        
         Vector2 thisPos = transform.position;
         Vector2 targetPos = target.position;
 
@@ -90,11 +104,11 @@ public class Npc : MonoBehaviour
 
         if (_distance < npcDistance) // 만약 플레이어가 npc 사운드 사거리 내로 들어왔다면,
         {
-            return isRange = true;
+            return false;
         }
         else
         {
-            return isRange = false;
+            return true;
         }
     }
 }

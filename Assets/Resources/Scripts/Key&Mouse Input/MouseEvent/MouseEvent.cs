@@ -5,11 +5,11 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public class MouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public Text selectText; //«ˆ¿Á ≈ÿΩ∫∆Æ
+    public Text selectText; //ÌòÑÏû¨ ÌÖçÏä§Ìä∏
     [SerializeField] private int maxFontSize;
     [SerializeField] private int minFontSize;
     [SerializeField] private Color baseColor, changedColor;
-    public int mouseIndex; //∏∂øÏΩ∫ ¿Œµ¶Ω∫
+    public int mouseIndex; //ÎßàÏö∞Ïä§ Ïù∏Îç±Ïä§
 
     public KeyboardSelect? keyboardSelect; 
     public LoadKeyBoardClick? loadKeyBoardClick; 
@@ -22,6 +22,7 @@ public class MouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         selectText.fontSize = maxFontSize;
         selectText.color = changedColor;
+        
         SoundManager.instance.SfxPlaySound(2, transform.position);
         if (keyboardSelect)
         {
@@ -49,7 +50,7 @@ public class MouseEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         selectText.fontSize = minFontSize;
         selectText.color = baseColor;
-
+        
         if (keyboardSelect)
         {
             keyboardSelect.selectText[keyboardSelect.selectIndex].color = changedColor;

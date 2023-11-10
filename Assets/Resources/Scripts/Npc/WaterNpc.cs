@@ -5,17 +5,19 @@ using UnityEngine;
 public class WaterNpc : Npc
 {
     
-    public override void Start()
+    public override void Awake()
     {
-        interactionCount = 5; //±íÀº ¹° È½¼ö¸¦ ¹Ş¾Æ¾ßÇÏ°í
+        base.Awake();
+        interactionCount = 5; //ê¹Šì€ ë¬¼ íšŸìˆ˜ë¥¼ ë°›ì•„ì•¼í•˜ê³ 
         successGauge = 1; 
         soundTime = initSoundTime;
         target = GameObject.FindWithTag("Player").gameObject.transform;
         npcDistance = 15;
+        isInteraction = true;
     }
     public override void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Water"))
+        if (other.gameObject.CompareTag("Water") && isInteraction)
         {
             if (GameManager.instance.player.GetComponent<Player>().transform.position.x > gameObject.transform.position.x)
                 gameObject.GetComponent<SpriteRenderer>().flipX = true;
@@ -25,13 +27,14 @@ public class WaterNpc : Npc
             anim.SetBool("IsSuccess", true);
             GameManager.instance.successGauge += successGauge;
             GameManager.instance.effectsPool.Get(3, this.transform);
+            isInteraction = false;
         }
     }
     public override IEnumerator SuccessMessege()
     {
         yield return null;
     }
-    public override IEnumerator FailMessege() //ÇÊ¿ä½Ã »ç¿ë) ³ªÁß¿¡ Äù½ºÆ® ÀÌ·±°Å ÀÖÀ¸¸é ¼º°ø ½ÇÆĞ±¸ºĞÇÏ±â À§ÇØ 
+    public override IEnumerator FailMessege() //í•„ìš”ì‹œ ì‚¬ìš©) ë‚˜ì¤‘ì— í€˜ìŠ¤íŠ¸ ì´ëŸ°ê±° ìˆìœ¼ë©´ ì„±ê³µ ì‹¤íŒ¨êµ¬ë¶„í•˜ê¸° ìœ„í•´ 
     {
         yield return null;
     }

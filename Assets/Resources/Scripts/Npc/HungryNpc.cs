@@ -4,18 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 public class HungryNpc : Npc
 {
-    public override void Start()
+    public override void Awake()
     {
+        base.Awake();
         interactionCount = 1;
         successGauge = 1;
         soundTime = initSoundTime;
         target = GameObject.FindWithTag("Player").gameObject.transform;
         npcDistance = 7;
+        isInteraction = true;
     }
 
     public override void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("SaveZone") && Input.GetKeyDown(KeyCode.X))
+        if (other.gameObject.CompareTag("SaveZone") && Input.GetKeyDown(KeyCode.X) && isInteraction)
         {
             if (GameManager.instance.player.GetComponent<Player>().transform.position.x > gameObject.transform.position.x)
                 gameObject.GetComponent<SpriteRenderer>().flipX = true;
@@ -37,6 +39,7 @@ public class HungryNpc : Npc
                 anim.SetBool("IsSuccess", true);
                 GameManager.instance.successGauge += successGauge;
                 GameManager.instance.effectsPool.Get(3, this.transform);
+                isInteraction = false;
             }
         }
     }

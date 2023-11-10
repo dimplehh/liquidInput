@@ -15,15 +15,15 @@ public class GameScene : BaseScene
     public int savePoint;
     void Awake()
     {
-        //stage = StageManager.instance.currentStageIndex; //½ÃÀÛ½Ã ÀúÀåµÇ¾îÀÖ´Â ½ºÅ×ÀÌÁö·Î ´ëÀÔ
-        stage = 1;//test¿ë
+        //stage = StageManager.instance.currentStageIndex; //ì‹œì‘ì‹œ ì €ì¥ë˜ì–´ìˆëŠ” ìŠ¤í…Œì´ì§€ë¡œ ëŒ€ì…
+        stage = 1;//testìš©
         Init();
     }
 
     protected override void Init()
     {
         base.Init();
-        Debug.Log("¿©±â ¿È");
+        Debug.Log("ì—¬ê¸° ì˜´");
         //player = Managers.Game.Spawn("Player");
         if (stage != 1 && GameObject.FindWithTag("Stage").name == "BaseStage1")
         {

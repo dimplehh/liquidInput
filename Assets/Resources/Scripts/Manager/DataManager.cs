@@ -24,6 +24,7 @@ public class PlayerData
 public class StageData
 {
     //스테이지 오브젝트들
+    public int stageChapter;
     public List<WaterData> waterData = new List<WaterData>();
     public List<NpcData> npcData = new List<NpcData>();
     public List<SaveZoneData> saveZoneData = new List<SaveZoneData>();
@@ -41,6 +42,9 @@ public class DataManager : MonoBehaviour
     //MapData mapData = new MapData();
     public string path;
     public int nowSlot; //현재 슬롯 번호
+    
+    public bool isClear = false;
+    
     private void Awake()
     {
         path = Application.persistentDataPath + "/";
@@ -70,24 +74,55 @@ public class DataManager : MonoBehaviour
         #endregion
 
         #region STAGEDATA
-        stageData = StageManager.instance.GetStageData();
+        stageData = StageManager.instance.GetStageData(stage);
         #endregion
 
         string data = JsonUtility.ToJson(playerData);
         string stageDataForm = JsonConvert.SerializeObject(stageData);
 
-        File.WriteAllText(path + index.ToString(), data);
+        // File.WriteAllText(path + index.ToString(), data);
+        File.WriteAllText(path + "PlayerData" + index.ToString(), data);
         File.WriteAllText(path + "StageData" +index.ToString(), stageDataForm);
         nowSlot = index;
     }
     public void SlotLoadData(int index)
     {
-        string data = File.ReadAllText(path + index.ToString());
+        Debug.Log(index);
+        // string data = File.ReadAllText(path + index.ToString());
+        string data = File.ReadAllText(path + "PlayerData" + index.ToString());
         string stageDataForm = File.ReadAllText(path + "StageData" + index.ToString());
 
         stageData = JsonConvert.DeserializeObject<StageData>(stageDataForm);
         playerData = JsonUtility.FromJson<PlayerData>(data);
+
+        if (StageManager.instance)
+        {
+            StageManager.instance.currentStageIndex = stageData.stageChapter;
+        }
     }
+
+    public PlayerData GetSlotPlayerData(int i)
+    {
+        if (!File.Exists(Managers.Data.path + "PlayerData" + i))
+        {
+            return null;
+        }
+        string data = File.ReadAllText(path + "PlayerData" + i);
+        var slotPlayerData = JsonUtility.FromJson<PlayerData>(data);
+        return slotPlayerData;
+    }
+    
+    public StageData GetSlotStageData(int i)
+    {
+        if (!File.Exists(Managers.Data.path + "StageData" + i))
+        {
+            return null;
+        }
+        string data = File.ReadAllText(path + "StageData" + i);
+        var slotStageData = JsonUtility.FromJson<StageData>(data);
+        return slotStageData;
+    }
+    
     //기본정보들 저장 / 불러오기
     public void DefaultSaveData()
     {
@@ -109,18 +144,32 @@ public class DataManager : MonoBehaviour
     }
 
     //챕터별 저장 / 불러오기
-    public void StageSaveData(int curWater, int stage) 
+    public void StageClearSaveData(int curWater, int stage)
     {
         playerData.playerWaterReserves = curWater; //물보유량
         playerData.goodGauge = GameManager.instance.successGauge;
-        Debug.Log(playerData.goodGauge);
+
+        //스테이지 클리어 후 초기화 시켜서 저장해야 할 것들
+        playerData.playerXPos = -20f; //첫 시작 위치
+        playerData.playerYPos = 0f; //첫 시작 위치
+
+        stageData.stageChapter = stage;
+        
         //저장할것들....추가하면 됨
         string playerDataForm = JsonUtility.ToJson(playerData);
-        File.WriteAllText(path + "PlayerData" + stage.ToString(), playerDataForm);
+        File.WriteAllText(path + "PlayerData0", playerDataForm);
     }
     public void StageLoadData(int stage)
     {
-        string playerDataForm = File.ReadAllText(path + "PlayerData" + stage.ToString());
+        string playerDataForm = File.ReadAllText(path + "PlayerData0");
         playerData = JsonUtility.FromJson<PlayerData>(playerDataForm);
+    }
+
+    //챕터 이동후에만 작동
+    public void ClearStageData(int chapter)
+    {
+        stageData = StageManager.instance.GetStageData(chapter);
+        string stageDataForm = JsonConvert.SerializeObject(stageData);
+        File.WriteAllText(path + "StageData" +0, stageDataForm);
     }
 }

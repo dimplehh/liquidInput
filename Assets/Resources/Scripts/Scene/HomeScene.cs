@@ -23,6 +23,15 @@ public class HomeScene : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
             backgroundImage[i].SetActive(false);
-        backgroundImage[StageManager.instance.lastStageIndex - 1].SetActive(true);
+        var stageData = Managers.Data.GetSlotStageData(0);
+        
+        if (stageData == null)
+        {
+            backgroundImage[0].SetActive(true);
+        }
+        else
+        {
+            backgroundImage[stageData.stageChapter-1].SetActive(true);
+        }
     }
 }

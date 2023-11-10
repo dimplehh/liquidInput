@@ -47,10 +47,11 @@ public class StageManager : MonoBehaviour
         saveZoneList = FindObjectsOfType<SaveZone>();
     }
 
-    public StageData GetStageData()
+    public StageData GetStageData(int stageChapter)
     {
         StageData stageData = new StageData();
-        Debug.Log(stageData);
+
+        stageData.stageChapter = stageChapter;
         foreach (var data in waterList)
         {
             WaterData waterData = new WaterData {id = data.id, waterReserves = data.currentWaterReserves};
@@ -59,7 +60,7 @@ public class StageManager : MonoBehaviour
         
         foreach (var data in npcList)
         {
-            NpcData npcData = new NpcData {id = data.id, interaction = false};
+            NpcData npcData = new NpcData {id = data.id, interaction = data.isInteraction};
             stageData.npcData.Add(npcData);
         }
         
@@ -91,6 +92,8 @@ public class StageManager : MonoBehaviour
         {
             if (npcList[i].id == npcData[i].id)
             {
+                npcList[i].isInteraction = npcData[i].interaction;
+                npcList[i].UpdateNpcData();
             }
         }
         
@@ -144,7 +147,8 @@ public class StageManager : MonoBehaviour
     {
         for(int i=0; i<4; i++)
         {
-            File.Delete(Managers.Data.path + i.ToString());
+            File.Delete(Managers.Data.path + "PlayerData" + i.ToString());
+            File.Delete(Managers.Data.path + "StageData" +i.ToString());
         }
     }
 }

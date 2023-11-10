@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        
         SoundManager.instance.BgmPlaySound(1);
         if(Managers.Data.playerData.isFirst == true)
         {
@@ -157,7 +158,8 @@ public class GameManager : MonoBehaviour
     private void Initialized()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        if(Managers.Data.playerData.currentStage == StageManager.instance.currentStageIndex)
+        Debug.Log("데이터에 저장된 스테이지 챕터 "+Managers.Data.stageData.stageChapter +" 현재 스테이지 챕터 "+StageManager.instance.currentStageIndex);
+        if(Managers.Data.stageData.stageChapter == StageManager.instance.currentStageIndex)
         {
             player.transform.position = new Vector3(Managers.Data.playerData.playerXPos, Managers.Data.playerData.playerYPos, 0);
             curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
@@ -168,6 +170,12 @@ public class GameManager : MonoBehaviour
             curWaterReserves = 5;
         }
         StageManager.instance.UpdateStageData();
+        //스테이지 클리어시에만 작동
+        if (Managers.Data.isClear)
+        {
+            Managers.Data.isClear = false;
+            Managers.Data.ClearStageData(Managers.Data.stageData.stageChapter);
+        }
         waterParticle.GetComponent<ParticleSystem>().Stop();
     }
 
@@ -217,7 +225,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(3.0f);
         gameOver = true;
         Managers.Data.SlotLoadData(0);
-        LoadingSceneController.Instance.LoadScene("GameScene0");
+        // LoadingSceneController.Instance.LoadScene("GameScene0");
+        LoadingSceneController.Instance.LoadScene("GameScene" + (Managers.Data.stageData.stageChapter - 1).ToString());
     }
     public void OpenGameOver()
     {
