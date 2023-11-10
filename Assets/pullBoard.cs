@@ -7,7 +7,7 @@ public class pullBoard : MonoBehaviour
     public Transform targetTransform;
     public float startRotation = 135f;
     public float endRotation = 45f;
-    public float rotationDuration = 3.0f;
+    public float rotationDuration;
     bool oneTime = false;
     private void OnTriggerStay2D(Collider2D collision)
     {
