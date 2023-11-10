@@ -31,6 +31,7 @@ public class HomeScene : MonoBehaviour
         }
         else
         {
+            Debug.Log(stageData.stageChapter);
             backgroundImage[stageData.stageChapter-1].SetActive(true);
         }
     }
