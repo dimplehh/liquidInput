@@ -7,12 +7,13 @@ public class DownFloor : MonoBehaviour
     private bool isCollided = false;
     float duration = 3f;
     float speed = 10f;
+    [SerializeField] float time;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
         {
             isCollided = true;
-            Invoke("MoveObjectDown", 2f);
+            Invoke("MoveObjectDown", time);
         }
     }
     private void MoveObjectDown()

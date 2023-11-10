@@ -55,6 +55,7 @@ public class SoundManager : MonoBehaviour
     {
         transform.position = pos;
         bgm2AudioSource.clip = bgm2SoundList[index].clip;
+        bgm2AudioSource.volume = volume;
         bgm2AudioSource.PlayOneShot(bgm2AudioSource.clip);
     }
     public void BgmStopSound()
