@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7709533145454672955}
   - component: {fileID: 5108920320534178745}
   m_Layer: 5
-  m_Name: LoadChapterButton
+  m_Name: ContinueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ RectTransform:
   m_Children:
   - {fileID: 9117306009678449485}
   m_Father: {fileID: 2891544003491095436}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -123,17 +123,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2891544003055849746}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2891544001588411711}
+        m_TargetAssemblyTypeName: LoadSlotSelect, Assembly-CSharp
+        m_MethodName: GoGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &5108920320534178745
 MonoBehaviour:
@@ -150,6 +150,8 @@ MonoBehaviour:
   selectText: {fileID: 0}
   maxFontSize: 70
   minFontSize: 60
+  baseColor: {r: 0, g: 0, b: 0, a: 0}
+  changedColor: {r: 0, g: 0, b: 0, a: 0}
   mouseIndex: 2
   keyboardSelect: {fileID: 1776001567}
   loadKeyBoardClick: {fileID: 0}
@@ -275,6 +277,8 @@ MonoBehaviour:
   - {fileID: 2891544002421281663}
   - {fileID: 2891544003388787961}
   - {fileID: 2891544002552215043}
+  videoPanel: {fileID: 0}
+  buttonCanvas: {fileID: 0}
 --- !u!1 &2891544001758115870
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,7 +473,7 @@ RectTransform:
   m_Children:
   - {fileID: 2891544003186681180}
   m_Father: {fileID: 2891544003491095436}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -585,6 +589,8 @@ MonoBehaviour:
   selectText: {fileID: 0}
   maxFontSize: 70
   minFontSize: 60
+  baseColor: {r: 0, g: 0, b: 0, a: 0}
+  changedColor: {r: 0, g: 0, b: 0, a: 0}
   mouseIndex: 1
   keyboardSelect: {fileID: 1776001567}
   loadKeyBoardClick: {fileID: 0}
@@ -739,6 +745,8 @@ MonoBehaviour:
   selectText: {fileID: 0}
   maxFontSize: 70
   minFontSize: 60
+  baseColor: {r: 0, g: 0, b: 0, a: 0}
+  changedColor: {r: 0, g: 0, b: 0, a: 0}
   mouseIndex: 0
   keyboardSelect: {fileID: 1776001567}
   loadKeyBoardClick: {fileID: 0}
@@ -973,6 +981,8 @@ MonoBehaviour:
   selectText: {fileID: 0}
   maxFontSize: 70
   minFontSize: 60
+  baseColor: {r: 0, g: 0, b: 0, a: 0}
+  changedColor: {r: 0, g: 0, b: 0, a: 0}
   mouseIndex: 3
   keyboardSelect: {fileID: 1776001567}
   loadKeyBoardClick: {fileID: 0}
@@ -1008,8 +1018,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2891544002754926430}
-  - {fileID: 2891544002084006793}
   - {fileID: 2804006668365814222}
+  - {fileID: 2891544002084006793}
   - {fileID: 2891544003332510697}
   m_Father: {fileID: 2891544001588411710}
   m_RootOrder: 0
@@ -1069,6 +1079,8 @@ MonoBehaviour:
   - {fileID: 2891544003186681181}
   - {fileID: 1812179944396060932}
   - {fileID: 2891544002039792749}
+  baseColor: {r: 0, g: 0, b: 0, a: 0}
+  changedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &4890191261390237937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,7 +1160,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CHAPTER
+  m_Text: CONTINUE
 --- !u!1001 &2289239215733750760
 PrefabInstance:
   m_ObjectHideFlags: 0
