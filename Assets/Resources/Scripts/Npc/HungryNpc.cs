@@ -11,7 +11,7 @@ public class HungryNpc : Npc
         successGauge = 1;
         soundTime = initSoundTime;
         target = GameObject.FindWithTag("Player").gameObject.transform;
-        npcDistance = 4;
+        npcDistance = 2;
         isInteraction = true;
     }
 

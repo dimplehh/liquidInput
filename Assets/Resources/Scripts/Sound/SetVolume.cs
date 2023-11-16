@@ -8,9 +8,11 @@ public class SetVolume : MonoBehaviour
     public void BgmSlider()
     {
         SoundManager.instance.GetComponentsInChildren<AudioSource>()[0].volume = slider.value;
+        SoundManager.instance.GetComponentsInChildren<AudioSource>()[2].volume = slider.value;
     }
     public void SfxSlider()
     {
         SoundManager.instance.GetComponentsInChildren<AudioSource>()[1].volume = slider.value;
+        SoundManager.instance.GetComponentsInChildren<AudioSource>()[3].volume = slider.value;
     }
 }
