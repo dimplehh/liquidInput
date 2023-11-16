@@ -490,6 +490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TrackedObjects:
   - rid: 5165437040421765319
+  - rid: 6791696891278000138
   references:
     version: 2
     RefIds:
@@ -500,6 +501,8 @@ MonoBehaviour:
         m_TrackedProperties:
           items:
           - rid: 5165437040421765320
+          - rid: 6791696891278000136
+          - rid: 6791696891278000137
         m_UpdateType: 0
     - rid: 5165437040421765320
       type: {class: LocalizedAssetProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
@@ -517,6 +520,51 @@ MonoBehaviour:
           m_Key: 
         m_FallbackState: 0
         m_WaitForCompletion: 0
+    - rid: 6791696891278000136
+      type: {class: IntTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
+      data:
+        m_PropertyPath: m_FontData.m_FontSize
+        m_VariantData:
+        - localeIdentifier:
+            m_Code: en
+          value: 50
+        - localeIdentifier:
+            m_Code: ko
+          value: 50
+    - rid: 6791696891278000137
+      type: {class: IntTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
+      data:
+        m_PropertyPath: m_FontData.m_MaxSize
+        m_VariantData:
+        - localeIdentifier:
+            m_Code: en
+          value: 70
+        - localeIdentifier:
+            m_Code: ko
+          value: 70
+    - rid: 6791696891278000138
+      type: {class: TrackedRectTransform, ns: UnityEngine.Localization.PropertyVariants.TrackedObjects, asm: Unity.Localization}
+      data:
+        m_Target: {fileID: 240947450}
+        m_TrackedProperties:
+          items:
+          - rid: 6791696891278000139
+    - rid: 6791696891278000139
+      type: {class: FloatTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties, asm: Unity.Localization}
+      data:
+        m_PropertyPath: m_AnchoredPosition.x
+        m_VariantData:
+        - localeIdentifier:
+            m_Code: en
+          value: 128
+        - localeIdentifier:
+            m_Code: ko
+          value: 121
+--- !u!224 &240947450 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1591094997, guid: 781d3573a57fbe04987e1f678de32a91, type: 3}
+  m_PrefabInstance: {fileID: 4654570525839947792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &339453711 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2891544001905637212, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
@@ -5517,6 +5565,34 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1591094997, guid: 781d3573a57fbe04987e1f678de32a91, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591094997, guid: 781d3573a57fbe04987e1f678de32a91, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591094997, guid: 781d3573a57fbe04987e1f678de32a91, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591094997, guid: 781d3573a57fbe04987e1f678de32a91, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591094997, guid: 781d3573a57fbe04987e1f678de32a91, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591094997, guid: 781d3573a57fbe04987e1f678de32a91, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591094997, guid: 781d3573a57fbe04987e1f678de32a91, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591094997, guid: 781d3573a57fbe04987e1f678de32a91, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 110
       objectReference: {fileID: 0}
@@ -5540,6 +5616,14 @@ PrefabInstance:
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: 8816c16e40d425749b6dd97470272849, type: 3}
+    - target: {fileID: 1591094998, guid: 781d3573a57fbe04987e1f678de32a91, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591094998, guid: 781d3573a57fbe04987e1f678de32a91, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1883157150, guid: 781d3573a57fbe04987e1f678de32a91, type: 3}
       propertyPath: m_IsActive
       value: 1
