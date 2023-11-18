@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     
     
     public GameObject SaveAndLoadPanel;
-    public LoadSlotSelect loadSlotSelect;
+    public CheckSaveSlot checkSaveSlot;
 
     public EffectsPool effectsPool;
 

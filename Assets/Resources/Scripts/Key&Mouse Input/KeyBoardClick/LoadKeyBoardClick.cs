@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class LoadKeyBoardClick : MonoBehaviour
 {
     public int loadindex; //챕터는 1부터 시작이고 이거는 0부터 시작하는거 통일성있게 가야함
-    [SerializeField] private LoadSlotSelect? loadSlotSelect; //수동 불러오기
+    [SerializeField] private CheckSaveSlot? checkSaveSlot; //수동 불러오기
     [SerializeField] private RectTransform?[] selectPos; //선택이미지 위치
     public Text[] selectText; //선택 텍스트
     [SerializeField] private Color baseColor, changedColor;
@@ -69,7 +69,7 @@ public class LoadKeyBoardClick : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             SoundManager.instance.SfxPlaySound(3, transform.position);
-            loadSlotSelect.Slot(loadindex);
+            checkSaveSlot.Slot(loadindex);
         }
     }
     public void SelectTextColorChanged()

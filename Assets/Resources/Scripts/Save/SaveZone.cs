@@ -37,7 +37,7 @@ public class SaveZone : Zone
             SoundManager.instance.SfxPlaySound(6, transform.position);
             StageManager.instance.UpdateSave(this);
             AutoSave(other.gameObject);
-            GameManager.instance.loadSlotSelect.SlotSaveFileCheck();
+            GameManager.instance.checkSaveSlot.SlotSaveFileCheck();
         }
     }
 
