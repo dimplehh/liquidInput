@@ -4967,6 +4967,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: CheckSaveSlot, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 2891544001905637212, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2891544001905637213, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 520
+      objectReference: {fileID: 0}
     - target: {fileID: 2891544002039792749, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
       propertyPath: m_Text
       value: "\uC124\uC815"
@@ -6105,6 +6113,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 997415198, guid: 781d3573a57fbe04987e1f678de32a91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 997415200, guid: 781d3573a57fbe04987e1f678de32a91, type: 3}
       propertyPath: m_Color.b
       value: 1
