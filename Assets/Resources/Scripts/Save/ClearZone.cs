@@ -1,14 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
 public class ClearZone : Zone
 {
+    [SerializeField] GameObject videoPanel;
     private bool oneAct = false;
     protected override void Start()
     {
         isClear = false;
+    }
+    private void OnEnable()
+    {
+        CheckVideoEnd();
+    }
+    private void CheckVideoEnd()
+    {
+        if (videoPanel != null)
+            videoPanel.GetComponent<VideoPlayer>().loopPointReached += CheckOver;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -29,12 +40,19 @@ public class ClearZone : Zone
                     Debug.Log("이름에 맞는 씬이 없습니다!");
                     return;
                 }
-                LoadingSceneController.Instance.LoadScene("GameScene" + (StageManager.instance.currentStageIndex - 1).ToString());//해당하는 스테이지 씬으로 이동
+                videoPanel.SetActive(true);
+                SoundManager.instance.BgmStopSound();
+                videoPanel.GetComponent<VideoPlayer>().Play();
                 oneAct = true;
             }
         }
     }
-    
+
+    void CheckOver(UnityEngine.Video.VideoPlayer vp) //이벤트핸들러
+    {
+        LoadingSceneController.Instance.LoadScene("GameScene" + (StageManager.instance.currentStageIndex - 1).ToString());//해당하는 스테이지 씬으로 이동
+    }
+
     IEnumerator LoadScene(string sceneName)
     {
         yield return null;

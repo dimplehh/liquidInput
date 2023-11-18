@@ -10,11 +10,8 @@ using UnityEngine.Localization.Settings;
 public class LoadSlotSelect : MonoBehaviour
 {
     //public GameObject creat; //비어있는 슬롯을 눌렀을 때 뜨는 창
-    public Text[] slotTxt;
     [SerializeField] GameObject videoPanel;
     [SerializeField] GameObject buttonCanvas;
-
-    private bool[] saveFile = new bool[4];
     
     private void OnEnable()
     {
