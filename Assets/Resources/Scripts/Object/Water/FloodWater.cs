@@ -6,7 +6,6 @@ public class FloodWater : Water
 {
     [SerializeField]
     GameObject insideWater;
-    float time = 0f;
     protected override void Init()
     {
         currentWaterReserves = 0;
@@ -49,7 +48,6 @@ public class FloodWater : Water
                         GameManager.instance.curWaterReserves += 3;
                         currentWaterReserves--;
                         insideWater.transform.localScale = Vector3.Lerp(insideWater.transform.localScale, insideWater.transform.localScale * 0.75f, 1.3f);
-                        time = 0f;
                     }
                     else
                     {
