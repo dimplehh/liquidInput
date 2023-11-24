@@ -245,10 +245,10 @@ public class GameManager : MonoBehaviour
                 waterConsume = 2;
                 break;
             case 3:
-                waterConsume = 4;
+                waterConsume = 3;
                 break;
             case 4:
-                waterConsume = 5;
+                waterConsume = 4;
                 break;
             default:
                 break;
