@@ -100,6 +100,10 @@ public class KeyboardSelect : MonoBehaviour
         {
             selectButtonEvent[0].GetComponentInParent<LoadSlotSelect>().NewGame();        
         }
+        else if (selectIndex == 1)
+        {
+            selectButtonEvent[0].GetComponentInParent<LoadSlotSelect>().GoGame();
+        }
         else
         {
             selectButtonEvent[selectIndex].SetActive(true);
