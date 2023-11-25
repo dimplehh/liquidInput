@@ -5621,6 +5621,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d9affb507cacca343ac10288ecbd4b0f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b072c124ca20204088476e40fc0d297, type: 3}
+--- !u!1 &161714077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 374595718534824600, guid: 6ba536ec60727fc4487f2d435e2e5462, type: 3}
+  m_PrefabInstance: {fileID: 374595717456525682}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &164878871
 GameObject:
   m_ObjectHideFlags: 0
@@ -7045,6 +7050,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4962521689927122, guid: d2d3d94d01c39fb459635fcc6afeb3c2, type: 3}
   m_PrefabInstance: {fileID: 451219345}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &211110168 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6349939187404357235, guid: 6ba536ec60727fc4487f2d435e2e5462, type: 3}
+  m_PrefabInstance: {fileID: 374595717456525682}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &211489891
 GameObject:
@@ -16444,6 +16454,11 @@ Transform:
   m_Father: {fileID: 1075003555}
   m_RootOrder: 131
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 114.292}
+--- !u!4 &383987658 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 374595718116340177, guid: 6ba536ec60727fc4487f2d435e2e5462, type: 3}
+  m_PrefabInstance: {fileID: 374595717456525682}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &384613510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23994,6 +24009,11 @@ Transform:
   m_Father: {fileID: 1858358717}
   m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &541730173 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 374595718111595941, guid: 6ba536ec60727fc4487f2d435e2e5462, type: 3}
+  m_PrefabInstance: {fileID: 374595717456525682}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &545926480
 GameObject:
   m_ObjectHideFlags: 0
@@ -29522,6 +29542,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 374595718111595946, guid: 6ba536ec60727fc4487f2d435e2e5462, type: 3}
   m_PrefabInstance: {fileID: 374595717456525682}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &688682202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541730173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eaef33454eda4c469cea93cbc0c084c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stoneSpawnPoint: {fileID: 383987658}
+  stone: {fileID: 211110168}
+  board: {fileID: 161714077}
 --- !u!1 &689546921
 GameObject:
   m_ObjectHideFlags: 0
@@ -101156,6 +101191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 374595718265291739, guid: 6ba536ec60727fc4487f2d435e2e5462, type: 3}
+    - {fileID: 374595718111595944, guid: 6ba536ec60727fc4487f2d435e2e5462, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6ba536ec60727fc4487f2d435e2e5462, type: 3}
 --- !u!1001 &700840209065964474
 PrefabInstance:
@@ -101419,11 +101455,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3081195120071446721, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.48428825
+      value: -0.48428828
       objectReference: {fileID: 0}
     - target: {fileID: 3081195120071446721, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.87490857
+      value: 0.8749085
       objectReference: {fileID: 0}
     - target: {fileID: 3081195120088893067, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
       propertyPath: m_LocalScale.y
@@ -103187,7 +103223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3081195121507199267, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.16537024
+      value: 0.16537023
       objectReference: {fileID: 0}
     - target: {fileID: 3081195121540031264, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
       propertyPath: m_IsActive
