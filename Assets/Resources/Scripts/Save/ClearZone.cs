@@ -92,6 +92,12 @@ public class ClearZone : Zone
             LoadingSceneController.Instance.LoadScene("GameScene" + (StageManager.instance.currentStageIndex - 1).ToString());//해당하는 스테이지 씬으로 이동
     }
 
+    public void SkipVideo()
+    {
+        if (StageManager.instance.currentStageIndex == 4) //진, 히든 엔딩은 마지막 크레딧 씬으로 넘어가도록 코드 짜기
+            LoadingSceneController.Instance.LoadScene("HomeScene");
+    }
+
     IEnumerator LoadScene(string sceneName)
     {
         yield return null;
