@@ -17,6 +17,7 @@ public class SoundVolumePanel : MonoBehaviour
         BGMSlider.value = SoundManager.instance.GetComponentsInChildren<AudioSource>()[0].volume;
         SFXSlider.value = SoundManager.instance.GetComponentsInChildren<AudioSource>()[1].volume;
         SelectTextColorChanged();
+        //LanguageManager.Instance.ChangeLanguage(LanguageManager.Instance.languageData.index);
     }
 
     private void Update()

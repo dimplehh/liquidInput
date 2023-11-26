@@ -6,6 +6,7 @@ public class HomeScene : MonoBehaviour
 {
     public Slider[] volumeSlider; //볼륨 조절 슬라이더
     [SerializeField] private GameObject[] backgroundImage;
+
     private void Start()
     {
         SetVolume();

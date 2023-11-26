@@ -9,7 +9,7 @@ public class CustomLanguage : MonoBehaviour
     [SerializeField] private string _koreanLanguage;
     [SerializeField] private string _englishLanguage;
 
-    [SerializeField] private Text _languageText;
+    [SerializeField] public Text _languageText;
 
 
     public void SetLanguageText(int index)

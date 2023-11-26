@@ -15,7 +15,7 @@ public class CheckSaveSlot : MonoBehaviour
 
     private void OnEnable()
     {
-        lang = (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[0]) ? "en" : "ko";
+        lang = (LanguageManager.Instance.languageData.index == 0) ? "en" : "ko";
         SlotSaveFileCheck();
     }
 
