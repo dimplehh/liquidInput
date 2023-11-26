@@ -19,10 +19,6 @@ public class CheckSaveSlot : MonoBehaviour
         get => isCreat;
         set => isCreat = value;
     }
-    public void SetCreat(bool isTrue)
-    {
-        creat.SetActive(isTrue);
-    }
 
     private void Start()
     {
@@ -33,7 +29,6 @@ public class CheckSaveSlot : MonoBehaviour
     
     private void OnEnable()
     {
-        isCreat = false;
         if (LanguageManager.Instance.languageData != null)
             lang = (LanguageManager.Instance.languageData.index == 0) ? "en" : "ko";
         SlotSaveFileCheck();
@@ -157,11 +152,5 @@ public class CheckSaveSlot : MonoBehaviour
     {
         creat.gameObject.SetActive(true);
         isCreat = true;
-    }
-
-    void OnDisable()
-    {
-        creat.SetActive(false);
-        isCreat = false;
     }
 }

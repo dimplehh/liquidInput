@@ -30,7 +30,6 @@ public class LoadKeyBoardClick : MonoBehaviour
                 if (checkSaveSlot.IsCreat)
                 {
                     checkSaveSlot.IsCreat = false;
-                    checkSaveSlot.SetCreat(false);
                 }
                 else
                 {
