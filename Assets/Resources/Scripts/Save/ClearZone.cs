@@ -94,6 +94,8 @@ public class ClearZone : Zone
 
     public void SkipVideo()
     {
+        if (StageManager.instance.currentStageIndex == 2)
+            LoadingSceneController.Instance.LoadScene("GameScene1");
         if (StageManager.instance.currentStageIndex == 4) //진, 히든 엔딩은 마지막 크레딧 씬으로 넘어가도록 코드 짜기
             LoadingSceneController.Instance.LoadScene("HomeScene");
     }
