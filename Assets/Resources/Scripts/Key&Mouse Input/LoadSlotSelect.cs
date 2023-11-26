@@ -12,7 +12,7 @@ public class LoadSlotSelect : MonoBehaviour
     //public GameObject creat; //비어있는 슬롯을 눌렀을 때 뜨는 창
     [SerializeField] GameObject videoPanel;
     [SerializeField] GameObject buttonCanvas;
-    
+    [SerializeField] private List<GameObject> _reSelectPop;
     private void OnEnable()
     {
         CheckVideoEnd();
@@ -23,6 +23,21 @@ public class LoadSlotSelect : MonoBehaviour
             videoPanel.GetComponent<VideoPlayer>().loopPointReached += CheckOver;
     }
 
+    public void Update()
+    {
+        EscEvent();
+    }
+    private void EscEvent()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            for (int i = 0; i < _reSelectPop.Count; i++)
+            {
+                if(_reSelectPop[i].activeSelf)
+                    _reSelectPop[i].SetActive(false);
+            }
+        }
+    }
     public void GoGame()
     {
         Managers.Data.SlotLoadData(Managers.Data.nowSlot);

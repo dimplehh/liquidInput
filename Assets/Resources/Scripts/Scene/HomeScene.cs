@@ -7,6 +7,7 @@ public class HomeScene : MonoBehaviour
     public Slider[] volumeSlider; //볼륨 조절 슬라이더
     [SerializeField] private GameObject[] backgroundImage;
 
+    
     private void Start()
     {
         SetVolume();
@@ -19,6 +20,8 @@ public class HomeScene : MonoBehaviour
         volumeSlider[0].value = SoundManager.instance.bgmAudioSource.volume;
         volumeSlider[1].value = SoundManager.instance.sfxAudioSource.volume;
     }
+
+   
 
     private void SetBackImage()
     {
