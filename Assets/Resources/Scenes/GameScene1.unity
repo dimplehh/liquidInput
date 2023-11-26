@@ -15996,9 +15996,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 32900000, guid: 5c501ceb26dbad943a4aff93f0176cb4, type: 3}
     - target: {fileID: 6858936942381928757, guid: 23ebdee56f8f34c4fb34c5841f8713c6, type: 3}
+      propertyPath: m_AudioOutputMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858936942381928757, guid: 23ebdee56f8f34c4fb34c5841f8713c6, type: 3}
       propertyPath: m_TargetAudioSources.Array.data[0]
       value: 
-      objectReference: {fileID: 362951128}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23ebdee56f8f34c4fb34c5841f8713c6, type: 3}
 --- !u!1001 &362951127
@@ -16058,11 +16062,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3610580a5840dfe41a178924408f8838, type: 3}
---- !u!82 &362951128 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7851511520411101391, guid: 3610580a5840dfe41a178924408f8838, type: 3}
-  m_PrefabInstance: {fileID: 362951127}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &363193935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101455,11 +101454,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3081195120071446721, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.48428828
+      value: -0.48428825
       objectReference: {fileID: 0}
     - target: {fileID: 3081195120071446721, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.8749085
+      value: 0.87490857
       objectReference: {fileID: 0}
     - target: {fileID: 3081195120088893067, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
       propertyPath: m_LocalScale.y
@@ -103223,7 +103222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3081195121507199267, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.16537023
+      value: 0.16537024
       objectReference: {fileID: 0}
     - target: {fileID: 3081195121540031264, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
       propertyPath: m_IsActive

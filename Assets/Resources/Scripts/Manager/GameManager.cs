@@ -101,8 +101,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        
-        SoundManager.instance.BgmPlaySound(1);
+        SoundManager.instance.BgmPlaySound(StageManager.instance.currentStageIndex);
         if(Managers.Data.playerData.isFirst == true)
         {
             Debug.Log("처음임");

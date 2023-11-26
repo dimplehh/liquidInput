@@ -15,11 +15,18 @@ public class ClearZone : Zone
     private void OnEnable()
     {
         CheckVideoEnd();
+        SetVideoVolume();
     }
     private void CheckVideoEnd()
     {
         if (videoPanel != null)
             videoPanel.GetComponent<VideoPlayer>().loopPointReached += CheckOver;
+    }
+
+    private void SetVideoVolume()
+    {
+        if (videoPanel != null)
+            videoPanel.GetComponent<VideoPlayer>().SetDirectAudioVolume(0,SoundManager.instance.bgmAudioSource.volume);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

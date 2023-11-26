@@ -46,7 +46,6 @@ public class StageManager : MonoBehaviour
         npcList = FindObjectsOfType<Npc>();
         saveZoneList = FindObjectsOfType<SaveZone>();
     }
-
     public StageData GetStageData(int stageChapter)
     {
         StageData stageData = new StageData();
@@ -78,37 +77,45 @@ public class StageManager : MonoBehaviour
         var waterData= Managers.Data.stageData.waterData;
         var npcData = Managers.Data.stageData.npcData;
         var saveZoneData = Managers.Data.stageData.saveZoneData;
-        
-        for (int i = 0; i < waterData.Count; i++)
+
+        if(waterList.Length > 0)
         {
-            if (waterList[i].id == waterData[i].id)
+            for (int i = 0; i < waterData.Count; i++)
             {
-                waterList[i].currentWaterReserves = waterData[i].waterReserves;
-                waterList[i].UpdateWater();
-            }
-        }
-        
-        for (int i = 0; i < npcData.Count; i++)
-        {
-            if (npcList[i].id == npcData[i].id)
-            {
-                npcList[i].isInteraction = npcData[i].interaction;
-                npcList[i].UpdateNpcData();
-            }
-        }
-        
-        for (int i = 0; i < saveZoneData.Count; i++)
-        {
-            if (saveZoneList[i].id == saveZoneData[i].id)
-            {
-                var isSave = saveZoneData[i].isSave;
-                saveZoneList[i].isSave = isSave;
-                if (isSave)
+                if (waterList[i].id == waterData[i].id)
                 {
-                    saveZoneList[i].anim.enabled = false;
-                    saveZoneList[i].anim.SetBool("Active",isSave);
-                    saveZoneList[i].Save(); 
-                    
+                    waterList[i].currentWaterReserves = waterData[i].waterReserves;
+                    waterList[i].UpdateWater();
+                }
+            }
+        }
+        
+        if(npcList.Length > 0)
+        {
+            for (int i = 0; i < npcData.Count; i++)
+            {
+                if (npcList[i].id == npcData[i].id)
+                {
+                    npcList[i].isInteraction = npcData[i].interaction;
+                    npcList[i].UpdateNpcData();
+                }
+            }
+        }
+        
+        if(saveZoneList.Length > 0)
+        {
+            for (int i = 0; i < saveZoneData.Count; i++)
+            {
+                if (saveZoneList[i].id == saveZoneData[i].id)
+                {
+                    var isSave = saveZoneData[i].isSave;
+                    saveZoneList[i].isSave = isSave;
+                    if (isSave)
+                    {
+                        saveZoneList[i].anim.enabled = false;
+                        saveZoneList[i].anim.SetBool("Active", isSave);
+                        saveZoneList[i].Save();
+                    }
                 }
             }
         }
