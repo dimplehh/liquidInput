@@ -181,7 +181,6 @@ public class GameManager : MonoBehaviour
     private void LateUpdate()
     {
         playTime += Time.deltaTime; 
-        pushZ();
         WaterReservesUI();
         if (curWaterReserves <= -2)
             StartCoroutine("OpenGameOver");
@@ -194,16 +193,6 @@ public class GameManager : MonoBehaviour
             if(player.transform.GetChild(3).transform.GetComponent<SpriteRenderer>().color.a != (float)curWaterReserves / 50f)
                 player.transform.GetChild(3).transform.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, (float)curWaterReserves / 50f);
         SettingButton();
-    }
-    private void pushZ()
-    {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            if(settingPanel.activeSelf == false)
-                settingPanel.SetActive(true);
-            else
-                settingPanel.SetActive(false);
-        }
     }
 
     private void WaterReservesUI()

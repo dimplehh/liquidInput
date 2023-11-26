@@ -13,9 +13,16 @@ public class CheckSaveSlot : MonoBehaviour
     private bool[] saveFile = new bool[4];
     string lang = "ko";
 
+    private void Start()
+    {
+        //if (LanguageManager.Instance.languageData != null)
+        //    lang = (LanguageManager.Instance.languageData.index == 0) ? "en" : "ko";
+    }
+
     private void OnEnable()
     {
-        lang = (LanguageManager.Instance.languageData.index == 0) ? "en" : "ko";
+        if (LanguageManager.Instance.languageData != null)
+            lang = (LanguageManager.Instance.languageData.index == 0) ? "en" : "ko";
         SlotSaveFileCheck();
     }
 
