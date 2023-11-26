@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17800,6 +17800,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1058331005393391792, guid: f2ab223877ab76a4086333b86474cfd5, type: 3}
       propertyPath: videoPanel
+      value: 
+      objectReference: {fileID: 895084176}
+    - target: {fileID: 1058331005393391792, guid: f2ab223877ab76a4086333b86474cfd5, type: 3}
+      propertyPath: videoPanels.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058331005393391792, guid: f2ab223877ab76a4086333b86474cfd5, type: 3}
+      propertyPath: videoPanels.Array.data[0]
       value: 
       objectReference: {fileID: 895084176}
     - target: {fileID: 1058331005393391794, guid: f2ab223877ab76a4086333b86474cfd5, type: 3}
