@@ -236,7 +236,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LOAD
+  m_Text: "\uBD88\uB7EC\uC624\uAE30"
 --- !u!114 &1067702649650419079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -735,7 +735,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: OPTION
+  m_Text: "\uC124\uC815"
 --- !u!114 &3579238399440200867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1201,7 +1201,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: HOME
+  m_Text: "\uD648 \uD654\uBA74\uC73C\uB85C"
 --- !u!114 &5956878999854097948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1298,6 +1298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPanel: {fileID: 0}
   buttonCanvas: {fileID: 0}
+  _reSelectPop: []
 --- !u!1 &1926499872
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,7 +1653,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.773
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1832,7 +1833,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: START
+  m_Text: "\uC7AC\uAC1C"
 --- !u!114 &618101588188162720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2459,6 +2460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPanel: {fileID: 0}
   buttonCanvas: {fileID: 0}
+  _reSelectPop: []
 --- !u!224 &1056316239 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 969216681710323552, guid: 96fc600fe4f76a54b94c521cc2d80533, type: 3}
@@ -3341,11 +3343,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 293456561, guid: 5191fedd028c052448cf40303d517c70, type: 3}
       propertyPath: m_Text
-      value: CONTROL
+      value: "\uBC29\uD5A5\uD0A4"
       objectReference: {fileID: 0}
     - target: {fileID: 74284078907389613, guid: 5191fedd028c052448cf40303d517c70, type: 3}
       propertyPath: m_Text
-      value: LANGUAGE
+      value: "\uC5B8\uC5B4"
       objectReference: {fileID: 0}
     - target: {fileID: 384833733105154373, guid: 5191fedd028c052448cf40303d517c70, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3477,7 +3479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1419517270150981760, guid: 5191fedd028c052448cf40303d517c70, type: 3}
       propertyPath: m_Text
-      value: BGM
+      value: "\uBC30\uACBD\uC74C"
       objectReference: {fileID: 0}
     - target: {fileID: 1419517270150981761, guid: 5191fedd028c052448cf40303d517c70, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3501,15 +3503,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2618546782243486422, guid: 5191fedd028c052448cf40303d517c70, type: 3}
       propertyPath: m_Text
-      value: OPTION
+      value: "\uC124\uC815"
       objectReference: {fileID: 0}
     - target: {fileID: 3333287417685912256, guid: 5191fedd028c052448cf40303d517c70, type: 3}
       propertyPath: m_Text
-      value: SFX
+      value: "\uD6A8\uACFC\uC74C"
       objectReference: {fileID: 0}
     - target: {fileID: 3487688703846786251, guid: 5191fedd028c052448cf40303d517c70, type: 3}
       propertyPath: m_Text
-      value: SELECT
+      value: "\uACB0\uC815"
       objectReference: {fileID: 0}
     - target: {fileID: 5445810054007579134, guid: 5191fedd028c052448cf40303d517c70, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3549,7 +3551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6771096317995975679, guid: 5191fedd028c052448cf40303d517c70, type: 3}
       propertyPath: m_Text
-      value: Go Back
+      value: "\uB4A4\uB85C\uAC00\uAE30"
       objectReference: {fileID: 0}
     - target: {fileID: 7098551159545674517, guid: 5191fedd028c052448cf40303d517c70, type: 3}
       propertyPath: m_AnchorMax.x
