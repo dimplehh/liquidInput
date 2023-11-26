@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -507,6 +507,17 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 7851511520411101391, guid: 3610580a5840dfe41a178924408f8838, type: 3}
   m_PrefabInstance: {fileID: 7851511518499559110}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &674284953 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 734679627, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+  m_PrefabInstance: {fileID: 2891544003147358800}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 818aeb2bdd2043745a02b74de1d4ed0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &740253710 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 740253710, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
@@ -1370,6 +1381,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1598254134}
+    - target: {fileID: 3644642926845544754, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
+      propertyPath: checkSaveSlot
+      value: 
+      objectReference: {fileID: 674284953}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
 --- !u!114 &2891544003147358810 stripped

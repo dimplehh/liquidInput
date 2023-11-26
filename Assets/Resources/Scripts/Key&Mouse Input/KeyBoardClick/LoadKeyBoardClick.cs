@@ -26,7 +26,16 @@ public class LoadKeyBoardClick : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 SoundManager.instance.SfxPlaySound(2, transform.position);
-                gameObject.SetActive(false);
+
+                if (checkSaveSlot.IsCreat)
+                {
+                    checkSaveSlot.IsCreat = false;
+                }
+                else
+                {
+                    gameObject.SetActive(false);
+                }
+                
                 for (int i = 0; i < selectText.Length; i++)
                 {
                     selectText[i].color = baseColor;

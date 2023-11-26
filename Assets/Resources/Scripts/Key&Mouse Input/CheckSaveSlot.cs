@@ -9,9 +9,16 @@ using UnityEngine.Localization.Settings;
 public class CheckSaveSlot : MonoBehaviour
 {
     [SerializeField] GameObject creat; //ºñ¾îÀÖ´Â ½½·ÔÀ» ´­·¶À» ¶§ ¶ß´Â Ã¢
+    private bool isCreat = false;
     public Text[] slotTxt;
     private bool[] saveFile = new bool[4];
     string lang = "ko";
+
+    public bool IsCreat
+    {
+        get => isCreat;
+        set => isCreat = value;
+    }
 
     private void Start()
     {
@@ -19,6 +26,7 @@ public class CheckSaveSlot : MonoBehaviour
         //    lang = (LanguageManager.Instance.languageData.index == 0) ? "en" : "ko";
     }
 
+    
     private void OnEnable()
     {
         if (LanguageManager.Instance.languageData != null)
@@ -143,5 +151,6 @@ public class CheckSaveSlot : MonoBehaviour
     public void Creat()
     {
         creat.gameObject.SetActive(true);
+        isCreat = true;
     }
 }
