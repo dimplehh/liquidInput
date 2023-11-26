@@ -13,6 +13,7 @@ public class LoadSlotSelect : MonoBehaviour
     [SerializeField] GameObject videoPanel;
     [SerializeField] GameObject buttonCanvas;
     [SerializeField] private List<GameObject> _reSelectPop;
+
     private void OnEnable()
     {
         CheckVideoEnd();
@@ -82,6 +83,12 @@ public class LoadSlotSelect : MonoBehaviour
     }
 
     void CheckOver(UnityEngine.Video.VideoPlayer vp) //이벤트핸들러
+    {
+        LoadingSceneController.Instance.LoadScene("GameScene0");
+        Debug.Log("데이터가 없으니 새로 시작");
+    }
+
+    public void SkipVideo()
     {
         LoadingSceneController.Instance.LoadScene("GameScene0");
         Debug.Log("데이터가 없으니 새로 시작");
