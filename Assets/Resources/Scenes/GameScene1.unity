@@ -403,6 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creat: {fileID: 1799666353}
+  isCreat: 0
   slotTxt:
   - {fileID: 1799666352}
   - {fileID: 1799666351}
@@ -5629,11 +5630,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d9affb507cacca343ac10288ecbd4b0f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b072c124ca20204088476e40fc0d297, type: 3}
---- !u!1 &161714077 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 374595718534824600, guid: 6ba536ec60727fc4487f2d435e2e5462, type: 3}
-  m_PrefabInstance: {fileID: 374595717456525682}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &162832736
 GameObject:
   m_ObjectHideFlags: 0
@@ -29778,7 +29774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stoneSpawnPoint: {fileID: 383987658}
   stone: {fileID: 211110168}
-  board: {fileID: 161714077}
+  board: {fileID: 1028575453}
 --- !u!1 &689546921
 GameObject:
   m_ObjectHideFlags: 0
@@ -45175,6 +45171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creat: {fileID: 1799666353}
+  isCreat: 0
   slotTxt:
   - {fileID: 1799666352}
   - {fileID: 1799666351}
