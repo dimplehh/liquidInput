@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class ClearZone : Zone
 {
     [SerializeField] List<GameObject> videoPanels;
+    [SerializeField] GameObject panelGroup; //esc키 안 먹히도록
     private bool oneAct = false;
     protected override void Start()
     {
@@ -57,6 +58,7 @@ public class ClearZone : Zone
                 }
 
                 SoundManager.instance.BgmStopSound();
+                panelGroup.SetActive(false);
                 if (StageManager.instance.currentStageIndex == 3)     //챕터 3로 넘어갈 때
                 {
                     LoadingSceneController.Instance.LoadScene("GameScene2");

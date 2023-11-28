@@ -40,21 +40,20 @@ public class PanelManager : MonoBehaviour
             }
             if (depthFirstPanel.Length > 0)
             {
-
-                Debug.Log("여길 들어오는가?1");
                 for (int i = 0; i < depthFirstPanel.Length; i++)
                 {
-                    Debug.Log("여길 들어오는가?2");
                     if (depthFirstPanel[i].activeSelf == true)
                     {
-                        Debug.Log("여길 들어오는가?3");
                         depthFirstPanel[i].SetActive(false);
                         return;
                     }
                 }
             }
             if (!ManualGroup.activeSelf)
+            {
                 ManualGroup.SetActive(true);
+                Time.timeScale = 0;
+            }
         }
     }
 }
