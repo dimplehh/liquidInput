@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class LoadKeyBoardClick : MonoBehaviour
 {
+    [SerializeField] GameObject creat; //비어있는 슬롯을 눌렀을 때 뜨는 창
     public int loadindex; //챕터는 1부터 시작이고 이거는 0부터 시작하는거 통일성있게 가야함
     [SerializeField] private CheckSaveSlot? checkSaveSlot; //수동 불러오기
     [SerializeField] private RectTransform?[] selectPos; //선택이미지 위치
@@ -17,33 +18,12 @@ public class LoadKeyBoardClick : MonoBehaviour
     private void Update()
     {
         SlotLoadKeyBoardClick();
-        //ExitButton();
     }
-    private void ExitButton()
-    {
-        if (gameObject.activeSelf)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                SoundManager.instance.SfxPlaySound(2, transform.position);
-                //if (checkSaveSlot.IsCreat)
-                //{
-                //    checkSaveSlot.IsCreat = false;
-                //}
-                //else
-                //{
-                //    gameObject.SetActive(false);
-                //}
-                
-                for (int i = 0; i < selectText.Length; i++)
-                {
-                    selectText[i].color = baseColor;
-                }
-            }
-        }
-    }
+
     private void SlotLoadKeyBoardClick()
     {
+        if (creat.activeSelf)
+            return;
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             if (loadindex >= 3)

@@ -56,4 +56,21 @@ public class PanelManager : MonoBehaviour
             }
         }
     }
+
+    public void ClickSettingButton()
+    {
+        if (!ManualGroup.activeSelf)
+        {
+            ManualGroup.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
+    public void ClickResumeButton()
+    {
+        if (ManualGroup.activeSelf)
+        {
+            ManualGroup.SetActive(false);
+            GameManager.instance.PlayGame();
+        }
+    }
 }
