@@ -60,25 +60,7 @@ public class GameManager : MonoBehaviour
     {
         LoadingSceneController.Instance.LoadScene("HomeScene");
     }
-    public void SettingButton()
-    {
-        if (!settingPanel.activeSelf)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                Time.timeScale = 0;
-                settingPanel.SetActive(true);
-            }
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                Time.timeScale = 1;
-                settingPanel.SetActive(false);
-            }
-        }
-    }
+
     public void PlayGame()
     {
         Time.timeScale = 1;
@@ -192,7 +174,6 @@ public class GameManager : MonoBehaviour
        else if (curWaterReserves > 5)
             if(player.transform.GetChild(3).transform.GetComponent<SpriteRenderer>().color.a != (float)curWaterReserves / 50f)
                 player.transform.GetChild(3).transform.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, (float)curWaterReserves / 50f);
-        SettingButton();
     }
 
     private void WaterReservesUI()

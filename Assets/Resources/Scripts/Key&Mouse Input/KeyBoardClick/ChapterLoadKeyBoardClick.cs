@@ -30,7 +30,7 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
     private void Update()
     {
         LoadKeyBoardClick();
-        ExitButton();
+        //ExitButton();
         buttonGroup.position = Vector3.Lerp(buttonGroup.position, initButtonGroup.position - (new Vector3(1100, 0, 0) * (chapLoadindex-1)), Time.deltaTime * 3f);
     }
     private void ExitButton()

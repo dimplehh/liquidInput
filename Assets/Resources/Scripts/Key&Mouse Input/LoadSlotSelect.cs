@@ -13,7 +13,7 @@ public class LoadSlotSelect : MonoBehaviour
     [SerializeField] GameObject videoPanel;
     [SerializeField] GameObject buttonCanvas;
     [SerializeField] private List<GameObject> _reSelectPop;
-
+    [SerializeField] GameObject noDataPopup;
     private void OnEnable()
     {
         CheckVideoEnd();
@@ -24,26 +24,16 @@ public class LoadSlotSelect : MonoBehaviour
             videoPanel.GetComponent<VideoPlayer>().loopPointReached += CheckOver;
     }
 
-    public void Update()
-    {
-        EscEvent();
-    }
-    private void EscEvent()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            for (int i = 0; i < _reSelectPop.Count; i++)
-            {
-                if(_reSelectPop[i].activeSelf)
-                    _reSelectPop[i].SetActive(false);
-            }
-        }
-    }
     public void GoGame()
     {
-        Managers.Data.SlotLoadData(Managers.Data.nowSlot);
-        // LoadingSceneController.Instance.LoadScene("GameScene" + (Managers.Data.playerData.currentStage - 1).ToString());
-        LoadingSceneController.Instance.LoadScene("GameScene" + (Managers.Data.stageData.stageChapter - 1).ToString());
+        if (File.Exists(Managers.Data.path + "PlayerData0"))
+        {
+            Managers.Data.SlotLoadData(Managers.Data.nowSlot);
+            LoadingSceneController.Instance.LoadScene("GameScene" + (Managers.Data.stageData.stageChapter - 1).ToString());
+        }
+        else
+            noDataPopup.SetActive(true);
+
     }
     public void NewGame() 
     {

@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creat: {fileID: 1799666353}
+  isCreat: 0
   slotTxt:
   - {fileID: 1799666352}
   - {fileID: 1799666351}
@@ -53280,6 +53281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creat: {fileID: 1799666353}
+  isCreat: 0
   slotTxt:
   - {fileID: 1799666352}
   - {fileID: 1799666351}
@@ -65476,11 +65478,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1313588111 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 214013897269630178, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
-  m_PrefabInstance: {fileID: 1799666345}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1314548134
 Mesh:
   m_ObjectHideFlags: 0
@@ -90683,7 +90680,7 @@ PrefabInstance:
     - target: {fileID: 878992757792852416, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: selectButtonEvent.Array.data[0]
       value: 
-      objectReference: {fileID: 1313588111}
+      objectReference: {fileID: 1799666346}
     - target: {fileID: 878992757792852416, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: selectButtonEvent.Array.data[1]
       value: 
@@ -90695,7 +90692,7 @@ PrefabInstance:
     - target: {fileID: 878992757792852416, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: selectButtonEvent.Array.data[3]
       value: 
-      objectReference: {fileID: 1313588111}
+      objectReference: {fileID: 1361488908}
     - target: {fileID: 914060149936112660, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
