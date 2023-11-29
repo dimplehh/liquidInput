@@ -31,7 +31,7 @@ public class StageManager : MonoBehaviour
         }
         DontDestroyOnLoad(this);
 
-        //최종 스테이지 초기화 (1스테이지로 초기화 할거면 주석 풀고 실행하고 다시 주석 처리하면 됨)
+        //최종 스테이지 초기화(1스테이지로 초기화 할거면 주석 풀고 실행하고 다시 주석 처리하면 됨)
         //PlayerPrefs.SetInt(LAST_STAGE_KEY, 1);
         //Debug.Log("초기화");
         lastStageIndex = PlayerPrefs.GetInt(LAST_STAGE_KEY);
@@ -77,7 +77,10 @@ public class StageManager : MonoBehaviour
         var waterData= Managers.Data.stageData.waterData;
         var npcData = Managers.Data.stageData.npcData;
         var saveZoneData = Managers.Data.stageData.saveZoneData;
-
+        Debug.Log(Managers.Data.stageData.stageChapter);
+        Debug.Log(StageManager.instance.currentStageIndex);
+        if (Managers.Data.stageData.stageChapter != StageManager.instance.currentStageIndex)
+            return;
         if(waterList.Length > 0)
         {
             for (int i = 0; i < waterData.Count; i++)
