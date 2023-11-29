@@ -89,7 +89,12 @@ public class ClearZone : Zone
     {
         //마지막 스테이지면 홈으로 이동
         if(StageManager.instance.currentStageIndex == 4) //진, 히든 엔딩은 마지막 크레딧 씬으로 넘어가도록 코드 짜기
-            LoadingSceneController.Instance.LoadScene("HomeScene");
+        {
+            if (EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves) < 2)
+                LoadingSceneController.Instance.LoadScene("HomeScene");
+            else
+                LoadingSceneController.Instance.LoadScene("GameScene3"); //크레딧씬
+        }
         else
             LoadingSceneController.Instance.LoadScene("GameScene" + (StageManager.instance.currentStageIndex - 1).ToString());//해당하는 스테이지 씬으로 이동
     }
@@ -99,7 +104,12 @@ public class ClearZone : Zone
         if (StageManager.instance.currentStageIndex == 2)
             LoadingSceneController.Instance.LoadScene("GameScene1");
         if (StageManager.instance.currentStageIndex == 4) //진, 히든 엔딩은 마지막 크레딧 씬으로 넘어가도록 코드 짜기
-            LoadingSceneController.Instance.LoadScene("HomeScene");
+        {
+            if (EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves) < 2)
+                LoadingSceneController.Instance.LoadScene("HomeScene");
+            else
+                LoadingSceneController.Instance.LoadScene("GameScene3"); //크레딧씬
+        }
     }
 
     IEnumerator LoadScene(string sceneName)

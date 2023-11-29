@@ -47,13 +47,21 @@ MonoBehaviour:
   sandBoxGridPrefab: {fileID: 3767264360502089245, guid: 27103f8a497277a458eacf6b41218bd5, type: 3}
   gameOver: 0
   gridGroup: {fileID: 0}
+  waterParticle: {fileID: 0}
+  waterSlider: {fileID: 0}
+  settingPanel: {fileID: 0}
   gameOverPanel: {fileID: 0}
+  maxWaterReserves: 35
   curWaterReserves: 0
   oldCurWaterReserves: 0
   curWaterReservesImage: {fileID: 0}
   curWaterReservesTxt: {fileID: 0}
   player: {fileID: 0}
+  successGauge: 0
+  playTime: 0
   isPlay: 0
   isNonAutoSave: 0
   SaveAndLoadPanel: {fileID: 0}
-  loadSlotSelect: {fileID: 0}
+  checkSaveSlot: {fileID: 0}
+  effectsPool: {fileID: 0}
+  playableDirector: {fileID: 0}

@@ -9,26 +9,26 @@ public class EndingManager : MonoBehaviour
     /// <summary>
     /// BAD
     /// </summary>
-    public readonly int Bad_Ending_GoodGauge = 5;
-    public readonly int Bad_Ending_WaterReserves = 5;
+    public readonly int Bad_Ending_GoodGauge = 0;
+    public readonly int Bad_Ending_WaterReserves = 0;
 
     /// <summary>
     /// NORMAL
     /// </summary>
-    public readonly int Normal_Ending_GoodGauge = 10;
-    public readonly int Normal_Ending_WaterReserves = 10;
+    public readonly int Normal_Ending_GoodGauge = 2;
+    public readonly int Normal_Ending_WaterReserves = 15;
 
     /// <summary>
     /// JEAN
     /// </summary>
-    public readonly int Jean_Ending_GoodGauge = 15;
-    public readonly int Jean_Ending_WaterReserves = 15;
+    public readonly int Jean_Ending_GoodGauge = 4;
+    public readonly int Jean_Ending_WaterReserves = 30;
 
     /// <summary>
     /// HIDDEN
     /// </summary>
-    public readonly int Hidden_Ending_GoodGauge = 20;
-    public readonly int Hidden_Ending_WaterReserves = 20;
+    public readonly int Hidden_Ending_GoodGauge = 4;
+    public readonly int Hidden_Ending_WaterReserves = 35;
 
     private void Awake()
     {
@@ -66,8 +66,7 @@ public class EndingManager : MonoBehaviour
         {
             endingIndex = 0;
         }
-                
-
+        Debug.Log("선행게이지:" + playerGoodGauge + "물방울 양:" + playerWaterReserves + "/엔딩 인덱스: " + endingIndex);
         return endingIndex;
     }
 

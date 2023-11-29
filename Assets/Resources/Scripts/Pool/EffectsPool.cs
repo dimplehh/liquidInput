@@ -45,10 +45,11 @@ public class EffectsPool : MonoBehaviour
             case 2:
                 select.transform.position = pos.position + new Vector3(0, -1f, 0); 
                 break;
+           case 3:
+                select.transform.position = pos.position;
+                break;
         }
-        
-        
-        
+
         StartCoroutine(HitPsSetFalse(select, 2)); //시간 경과 후 비활성화
 
         return select;
