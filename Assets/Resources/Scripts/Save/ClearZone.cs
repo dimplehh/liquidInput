@@ -51,11 +51,12 @@ public class ClearZone : Zone
                 Managers.Data.StageLoadData(StageManager.instance.currentStageIndex); //저장과 동시에 불러와야해 
                 Managers.Data.isClear = true;
                 
-                if (!Application.CanStreamedLevelBeLoaded("GameScene" + (StageManager.instance.currentStageIndex - 1).ToString()))
-                {
-                    Debug.Log("이름에 맞는 씬이 없습니다!");
-                    return;
-                }
+                if(StageManager.instance.currentStageIndex != 4)
+                    if (!Application.CanStreamedLevelBeLoaded("GameScene" + (StageManager.instance.currentStageIndex - 1).ToString()))
+                    {
+                        Debug.Log("이름에 맞는 씬이 없습니다!");
+                        return;
+                    }
 
                 SoundManager.instance.BgmStopSound();
                 panelGroup.SetActive(false);
@@ -93,7 +94,7 @@ public class ClearZone : Zone
             if (EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves) < 2)
                 LoadingSceneController.Instance.LoadScene("HomeScene");
             else
-                LoadingSceneController.Instance.LoadScene("GameScene3"); //크레딧씬
+                LoadingSceneController.Instance.LoadScene("CreditScene");
         }
         else
             LoadingSceneController.Instance.LoadScene("GameScene" + (StageManager.instance.currentStageIndex - 1).ToString());//해당하는 스테이지 씬으로 이동
@@ -108,7 +109,7 @@ public class ClearZone : Zone
             if (EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves) < 2)
                 LoadingSceneController.Instance.LoadScene("HomeScene");
             else
-                LoadingSceneController.Instance.LoadScene("GameScene3"); //크레딧씬
+                LoadingSceneController.Instance.LoadScene("CreditScene");
         }
     }
 
