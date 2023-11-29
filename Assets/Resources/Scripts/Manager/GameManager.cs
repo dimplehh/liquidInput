@@ -144,6 +144,7 @@ public class GameManager : MonoBehaviour
         {
             player.transform.position = new Vector3(Managers.Data.playerData.playerXPos, Managers.Data.playerData.playerYPos, 0);
             curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
+            successGauge = (int)Managers.Data.playerData.goodGauge;
         }
         else //홈씬말고 게임씬에서 플레이 시작하는 경우 - 모두 기본 값, 기본 위치로 시작
         {
