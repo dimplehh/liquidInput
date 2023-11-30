@@ -5,6 +5,7 @@ using UnityEngine;
 public class CheckStoneInPoisionWater : MonoBehaviour
 {
     [SerializeField] float yPos;
+    [SerializeField] BoxCollider2D seesawCollider;
     int count = 2;
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,6 +16,11 @@ public class CheckStoneInPoisionWater : MonoBehaviour
             count--;
             Debug.Log(count);
             collision.gameObject.SetActive(false);
+            if(count >= 1)
+            {
+                seesawCollider.enabled = false;
+                seesawCollider.enabled = true;
+            }
         }
     }
 }

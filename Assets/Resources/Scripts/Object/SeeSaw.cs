@@ -18,18 +18,24 @@ public class SeeSaw : MonoBehaviour
             StartCoroutine(ActivateAndDeactivateStone());
         }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isTriggered = false;
+            stone.SetActive(false);
+        }
+    }
+
 
     private IEnumerator ActivateAndDeactivateStone()
     {
-        while (isTriggered)
+        if(isTriggered)
         {
             stone.transform.localPosition = stoneSpawnPoint.localPosition;
-            board.transform.localRotation = new Quaternion(0, 0, 0, 0);
             SoundManager.instance.Bgm2PlaySoundOneTime(2, this.gameObject.transform.position);
+            yield return null;
             stone.SetActive(true);
-            yield return new WaitForSeconds(20f);
-            stone.SetActive(false);
-            yield return new WaitForSeconds(5f);
         }
     }
 }

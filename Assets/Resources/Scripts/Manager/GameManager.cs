@@ -183,7 +183,8 @@ public class GameManager : MonoBehaviour
 
         if(oldCurWaterReserves != curWaterReserves)
         {
-            curWaterReservesImage.rectTransform.localPosition = new Vector2(0, firstWater + waterFull * curWaterReserves / maxWaterReserves);
+            if(curWaterReserves <= 35)
+                curWaterReservesImage.rectTransform.localPosition = new Vector2(0, firstWater + waterFull * curWaterReserves / maxWaterReserves);
             oldCurWaterReserves = curWaterReserves;
         }
     }

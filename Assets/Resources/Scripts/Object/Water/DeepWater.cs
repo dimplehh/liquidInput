@@ -10,10 +10,11 @@ public class DeepWater : Water
     float time = 0f;
     [SerializeField]
     GameObject deadZone;
+    [SerializeField] int waterCount;
     protected override void Init()
     {
         currentWaterReserves = 0;
-        maxWaterReserves = 7;
+        maxWaterReserves = waterCount;
         currentWaterReserves = maxWaterReserves;
     }
     protected override void Start()

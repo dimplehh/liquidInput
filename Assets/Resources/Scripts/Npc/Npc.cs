@@ -97,9 +97,6 @@ public class Npc : MonoBehaviour
         Vector2 thisPos = transform.position;
         Vector2 targetPos = target.position;
 
-        thisPos.y = 0;
-        targetPos.y = 0;
-
         _distance = Vector2.Distance(thisPos, targetPos); // 나중에 플레이어와 npc 거리측정 
 
         if (_distance < npcDistance) // 만약 플레이어가 npc 사운드 사거리 내로 들어왔다면,

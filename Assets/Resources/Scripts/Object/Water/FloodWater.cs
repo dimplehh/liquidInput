@@ -6,10 +6,11 @@ public class FloodWater : Water
 {
     [SerializeField]
     GameObject insideWater;
+    [SerializeField] int waterCount;
     protected override void Init()
     {
         currentWaterReserves = 0;
-        maxWaterReserves = 1;
+        maxWaterReserves = waterCount;
         currentWaterReserves = maxWaterReserves;
     }
 

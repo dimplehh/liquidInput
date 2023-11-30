@@ -7,11 +7,12 @@ public class ShallowWater : Water
 {
     [SerializeField]
     GameObject insideWater;
+    [SerializeField] int waterCount;
     float time = 0f;
     protected override void Init()
     {
         currentWaterReserves = 0;
-        maxWaterReserves = 5;
+        maxWaterReserves = waterCount;
         currentWaterReserves = maxWaterReserves;
     }
     protected override void Start()
