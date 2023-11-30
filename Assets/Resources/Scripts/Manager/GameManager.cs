@@ -191,13 +191,17 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator GameOver()
     {
-        SoundManager.instance.SfxPlaySound2(2, transform.position);
-        SoundManager.instance.SfxPlaySound(1, transform.position);
-        yield return new WaitForSecondsRealtime(3.0f);
-        gameOver = true;
-        Managers.Data.SlotLoadData(0);
-        // LoadingSceneController.Instance.LoadScene("GameScene0");
-        LoadingSceneController.Instance.LoadScene("GameScene" + (Managers.Data.stageData.stageChapter - 1).ToString());
+        if(gameOver == false)
+        {
+            SoundManager.instance.SfxPlaySound2(2, transform.position);
+            SoundManager.instance.SfxPlaySound(1, transform.position);
+            gameOver = true;
+            yield return new WaitForSecondsRealtime(3.0f);
+            Managers.Data.SlotLoadData(0);
+            // LoadingSceneController.Instance.LoadScene("GameScene0");
+            LoadingSceneController.Instance.LoadScene("GameScene" + (Managers.Data.stageData.stageChapter - 1).ToString());
+        }
+        yield return null;
     }
     public void OpenGameOver()
     {

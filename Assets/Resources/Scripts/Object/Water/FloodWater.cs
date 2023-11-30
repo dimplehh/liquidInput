@@ -46,7 +46,7 @@ public class FloodWater : Water
                     if (currentWaterReserves > 0)
                     {
                         SoundManager.instance.SfxPlaySound(5, transform.position);
-                        GameManager.instance.curWaterReserves += 3;
+                        GameManager.instance.curWaterReserves += 1;
                         currentWaterReserves--;
                         insideWater.transform.localScale = Vector3.Lerp(insideWater.transform.localScale, insideWater.transform.localScale * 0.75f, 1.3f);
                     }
