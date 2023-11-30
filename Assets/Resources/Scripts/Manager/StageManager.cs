@@ -79,8 +79,6 @@ public class StageManager : MonoBehaviour
         var saveZoneData = Managers.Data.stageData.saveZoneData;
         Debug.Log(Managers.Data.stageData.stageChapter);
         Debug.Log(StageManager.instance.currentStageIndex);
-        if (Managers.Data.stageData.stageChapter != StageManager.instance.currentStageIndex)
-            return;
         if(waterList.Length > 0)
         {
             for (int i = 0; i < waterData.Count; i++)
