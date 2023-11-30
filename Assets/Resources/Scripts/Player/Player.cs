@@ -53,10 +53,15 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
+
         if (!GameManager.instance.isPlay)
             return;
-        if (manualPanel.activeSelf == true || loadPanel.activeSelf == true || videoPanel.activeSelf == true)
-            return;
+        //if (loadPanel.activeSelf == true)
+        //    return;
+        //if (manualPanel.activeSelf == true)
+        //    return;
+        //if (videoPanel.activeSelf == true)
+        //    return;
         Turn(); //이미지 좌우전환
         Run(); //달리기 
         Jump(); //점프
@@ -69,10 +74,15 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
+
         if (!GameManager.instance.isPlay)
             return;
-        if (manualPanel.activeSelf == true || loadPanel.activeSelf == true || videoPanel.activeSelf == true)
-            return;
+        //if (manualPanel.activeSelf == true)
+        //    return;
+        //if(loadPanel.activeSelf == true)
+        //    return;
+        //if (videoPanel.activeSelf == true)
+        //    return;
         Move(); //플레이어 이동
         Swing();//줄반동
     }

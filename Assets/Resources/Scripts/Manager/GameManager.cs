@@ -78,8 +78,6 @@ public class GameManager : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
-
-        
     }
     private void Start()
     {
@@ -98,7 +96,6 @@ public class GameManager : MonoBehaviour
         Initialized();
         //CreateGrid(); 
         setWaterSlider();
-
     }
     private IEnumerator CutScene()
     {

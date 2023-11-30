@@ -16,16 +16,16 @@ public class ClearZone : Zone
     private void OnEnable()
     {
         CheckVideoEnd();
-        //SetVideoVolume();
     }
     private void CheckVideoEnd()
     {
         if (videoPanels.Count != 0)
-            for(int i=0; i<videoPanels.Count; i++)
+        {
+            for (int i = 0; i < videoPanels.Count; i++)
             {
                 videoPanels[i].GetComponent<VideoPlayer>().loopPointReached += CheckOver;
             }
-            
+        }
     }
 
     private void SetVideoVolume()
@@ -43,7 +43,6 @@ public class ClearZone : Zone
         {
             if(oneAct ==false)
             {
-                
                 StageManager.instance.currentStageIndex++; //현재스테이지 올려주고
                 StageManager.instance.LastStageUp(); //스테이지 체크 후 최종 스테이지 저장
                                                      //1스테이지의 정보를 2스테이지에 담아준다. 시작할때 2스테이지의 정보가 저장되게
@@ -75,11 +74,13 @@ public class ClearZone : Zone
                 }
                 else
                 {
-                    videoPanels[0].SetActive(true);
-                    
-                    videoPanels[0].GetComponent<VideoPlayer>().Play();
+                    if(videoPanels != null)
+                    {
+                        videoPanels[0].SetActive(true);
+                        videoPanels[0].GetComponent<VideoPlayer>().Play();
+
+                    }
                 }
-                
                 oneAct = true;
 
             }
@@ -104,6 +105,8 @@ public class ClearZone : Zone
     {
         if (StageManager.instance.currentStageIndex == 2)
             LoadingSceneController.Instance.LoadScene("GameScene1");
+        if (StageManager.instance.currentStageIndex == 3)
+            LoadingSceneController.Instance.LoadScene("GameScene2");
         if (StageManager.instance.currentStageIndex == 4) //진, 히든 엔딩은 마지막 크레딧 씬으로 넘어가도록 코드 짜기
         {
             if (EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves) < 2)
