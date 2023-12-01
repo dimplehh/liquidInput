@@ -32,7 +32,8 @@ public class LoadSlotSelect : MonoBehaviour
             LoadingSceneController.Instance.LoadScene("GameScene" + (Managers.Data.stageData.stageChapter - 1).ToString());
         }
         else
-            noDataPopup.SetActive(true);
+            if(noDataPopup != null)
+                noDataPopup.SetActive(true);
 
     }
     public void NewGame() 
