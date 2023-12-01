@@ -126,6 +126,11 @@ public class DataManager : MonoBehaviour
     //기본정보들 저장 / 불러오기
     public void DefaultSaveData()
     {
+        if (File.Exists(Managers.Data.path + "DefaultPlayerData"))
+        {
+            Debug.Log("DefaultPlayerData");
+            return;
+        }
         playerData.playerWaterReserves = 5; //물보유량
         playerData.currentStage = 1; //스테이지
         playerData.playerXPos = -20f; //첫 시작 위치

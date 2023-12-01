@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
     }
     public void HomeButton()
     {
+        Time.timeScale = 1f;
         LoadingSceneController.Instance.LoadScene("HomeScene");
     }
 
@@ -83,6 +84,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        Debug.Log(Managers.Data.playerData.playTime);
+        playTime = Managers.Data.playerData.playTime;
         SoundManager.instance.BgmPlaySound(StageManager.instance.currentStageIndex);
         if(Managers.Data.playerData.isFirst == true)
         {

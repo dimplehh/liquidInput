@@ -8,7 +8,7 @@ using UnityEngine.Localization.Settings;
 
 public class CheckSaveSlot : MonoBehaviour
 {
-    [SerializeField] GameObject creat; //ºñ¾îÀÖ´Â ½½·ÔÀ» ´­·¶À» ¶§ ¶ß´Â Ã¢
+    [SerializeField] GameObject creat; //ë¹„ì–´ìˆëŠ” ìŠ¬ë¡¯ì„ ëˆŒë €ì„ ë•Œ ëœ¨ëŠ” ì°½
     [SerializeField] private bool isCreat = false;
     public Text[] slotTxt;
     private bool[] saveFile = new bool[4];
@@ -34,7 +34,7 @@ public class CheckSaveSlot : MonoBehaviour
         SlotSaveFileCheck();
     }
 
-    public void SlotSaveFileCheck()//½½·Ôº°·Î ÀúÀåµÈ µ¥ÀÌÅÍ°¡ Á¸ÀçÇÏ´ÂÁö ÆÇ´Ü
+    public void SlotSaveFileCheck()//ìŠ¬ë¡¯ë³„ë¡œ ì €ì¥ëœ ë°ì´í„°ê°€ ì¡´ì¬í•˜ëŠ”ì§€ íŒë‹¨
     {
         for (int i = 0; i < 4; i++)
         {
@@ -49,16 +49,16 @@ public class CheckSaveSlot : MonoBehaviour
                 if (i == 0)
                 {
                     slotTxt[i].text = (lang == "ko") ?
-                        "<ÀÚµ¿> \n" + StageName(currentSlotData.currentStage) + "\nÀúÀå ³¯Â¥ : " + currentSlotData.saveDate
-                        + "\nÇÃ·¹ÀÌ Å¸ÀÓ : " + TimeSpan.FromSeconds(currentSlotData.playTime).ToString(@"mm\:ss") + "\n¹°¹æ¿ï : " + currentSlotData.playerWaterReserves
+                        "<ìë™> \n" + StageName(currentSlotData.currentStage) + "\nì €ì¥ ë‚ ì§œ : " + currentSlotData.saveDate
+                        + "\ní”Œë ˆì´ íƒ€ì„ : " + TimeSpan.FromSeconds(currentSlotData.playTime).ToString(@"mm\:ss") + "\në¬¼ë°©ìš¸ : " + currentSlotData.playerWaterReserves
                         : "<Auto> \n" + StageName(currentSlotData.currentStage) + "\nSave Date : " + currentSlotData.saveDate
                           + "\nPlay Time : " + TimeSpan.FromSeconds(currentSlotData.playTime).ToString(@"mm\:ss") + "\nWater Reverse : " + currentSlotData.playerWaterReserves;
                 }
                 else
                 {
                     slotTxt[i].text = (lang == "ko") ?
-                        StageName(currentSlotData.currentStage) + "\nÀúÀå ³¯Â¥ : " + currentSlotData.saveDate +
-                        "\nÇÃ·¹ÀÌ Å¸ÀÓ : " + TimeSpan.FromSeconds(currentSlotData.playTime).ToString(@"mm\:ss") + "\n¹°¹æ¿ï : " + currentSlotData.playerWaterReserves
+                        StageName(currentSlotData.currentStage) + "\nì €ì¥ ë‚ ì§œ : " + currentSlotData.saveDate +
+                        "\ní”Œë ˆì´ íƒ€ì„ : " + TimeSpan.FromSeconds(currentSlotData.playTime).ToString(@"mm\:ss") + "\në¬¼ë°©ìš¸ : " + currentSlotData.playerWaterReserves
                         : StageName(currentSlotData.currentStage) + "\nSave Date : " + currentSlotData.saveDate +
                           "\nPlay Time : " + TimeSpan.FromSeconds(currentSlotData.playTime).ToString(@"mm\:ss") + "\nWater Reverse : " + currentSlotData.playerWaterReserves;
                 }
@@ -67,33 +67,33 @@ public class CheckSaveSlot : MonoBehaviour
             {
                 if (i == 0)
                 {
-                    slotTxt[i].text = (lang == "ko") ? "<ÀÚµ¿>" + "\nºñ¾îÀÖÀ½" : "<Auto>" + "\nEmpty";
+                    slotTxt[i].text = (lang == "ko") ? "<ìë™>" + "\në¹„ì–´ìˆìŒ" : "<Auto>" + "\nEmpty";
                 }
                 else
                 {
-                    slotTxt[i].text = (lang == "ko") ? "ºñ¾îÀÖÀ½" : "Empty";
+                    slotTxt[i].text = (lang == "ko") ? "ë¹„ì–´ìˆìŒ" : "Empty";
                 }
 
             }
         }
     }
-    //½ºÅ×ÀÌÁö ÀÌ¸§
+    //ìŠ¤í…Œì´ì§€ ì´ë¦„
     public string StageName(int currentStage)
     {
         string currentName = "";
         switch (currentStage)
         {
             case 1:
-                currentName = (lang == "ko") ? "¼¼»óÀÇ¿Ü°û" : "The Edge of the World";
+                currentName = (lang == "ko") ? "ì„¸ìƒì˜ì™¸ê³½" : "The Edge of the World";
                 break;
             case 2:
-                currentName = (lang == "ko") ? "¹ö·ÁÁø ¸¶À»" : "Abandoned Village";
+                currentName = (lang == "ko") ? "ë²„ë ¤ì§„ ë§ˆì„" : "Abandoned Village";
                 break;
             case 3:
-                currentName = (lang == "ko") ? "ÁöÇÏ ¼Ó" : "Underground";
+                currentName = (lang == "ko") ? "ì§€í•˜ ì†" : "Underground";
                 break;
             case 4:
-                currentName = (lang == "ko") ? "¿À¿°ÀÇ Áß½ÉºÎ(°øÀå)" : "The heart of Pollution (Factory)";
+                currentName = (lang == "ko") ? "ì˜¤ì—¼ì˜ ì¤‘ì‹¬ë¶€(ê³µì¥)" : "The heart of Pollution (Factory)";
                 break;
         }
         return currentName;
@@ -102,35 +102,35 @@ public class CheckSaveSlot : MonoBehaviour
     {
         Managers.Data.nowSlot = num;
 
-        Debug.Log(num + "À¸·Î ÀÌµ¿");
-        //1. ÀúÀåµÈ µ¥ÀÌÅÍ°¡ ÀÖÀ» ¶§
+        Debug.Log(num + "ìœ¼ë¡œ ì´ë™");
+        //1. ì €ì¥ëœ ë°ì´í„°ê°€ ìˆì„ ë•Œ
         if (saveFile[num])
         {
-            if (!GameManager.instance) //Å¸ÀÌÆ²È­¸é¿¡¼­
+            if (!GameManager.instance) //íƒ€ì´í‹€í™”ë©´ì—ì„œ
                 Creat();
 
-            //ÀÎ°ÔÀÓ¿¡¼­
-            if (GameManager.instance && GameManager.instance.isNonAutoSave) //¼¼ÀÌºê Á¸¿¡¼­´Â ¼¼ÀÌºê¸¸ µÇ°Ô µ¤¾î¾º¿öÁØ´Ù.
+            //ì¸ê²Œì„ì—ì„œ
+            if (GameManager.instance && GameManager.instance.isNonAutoSave) //ì„¸ì´ë¸Œ ì¡´ì—ì„œëŠ” ì„¸ì´ë¸Œë§Œ ë˜ê²Œ ë®ì–´ì”Œì›Œì¤€ë‹¤.
             {
-                if (num != 0) //0¹ø½½·ÔÀº ÀúÀå¸øÇÔ
+                if (num != 0) //0ë²ˆìŠ¬ë¡¯ì€ ì €ì¥ëª»í•¨
                 {
                     Save(num);
                     return;
                 }
 
             }
-            else if (GameManager.instance && !GameManager.instance.isNonAutoSave) //¸Ş´ºÃ¢¿¡¼­´Â ·ÎµåµÇ°Ô
+            else if (GameManager.instance && !GameManager.instance.isNonAutoSave) //ë©”ë‰´ì°½ì—ì„œëŠ” ë¡œë“œë˜ê²Œ
                 Creat();
         }
-        else //1. ÀúÀåµÈ µ¥ÀÌÅÍ°¡ ¾øÀ» ¶§
+        else //1. ì €ì¥ëœ ë°ì´í„°ê°€ ì—†ì„ ë•Œ
         {
-            if (!GameManager.instance) //Å¸ÀÌÆ²È­¸é¿¡¼­
+            if (!GameManager.instance) //íƒ€ì´í‹€í™”ë©´ì—ì„œ
                 return;
-            else //ÀÎ°ÔÀÓ¿¡¼­
+            else //ì¸ê²Œì„ì—ì„œ
             {
                 if (GameManager.instance.isNonAutoSave)
                 {
-                    if (num != 0) //0¹ø½½·ÔÀº ÀúÀå¸øÇÔ
+                    if (num != 0) //0ë²ˆìŠ¬ë¡¯ì€ ì €ì¥ëª»í•¨
                     {
                         Save(num);
                         return;
@@ -145,8 +145,8 @@ public class CheckSaveSlot : MonoBehaviour
     {
         GameObject player = GameObject.FindWithTag("Player");
         Managers.Data.SlotSaveData(slotIndex, player.gameObject, StageManager.instance.currentStageIndex, GameManager.instance.curWaterReserves, GameManager.instance.playTime);
-        Debug.Log(slotIndex + "¼öµ¿ ¼¼ÀÌºê");
-        SlotSaveFileCheck(); //´Ù½Ã Á¤º¸ Ã¼Å©
+        Debug.Log(slotIndex + "ìˆ˜ë™ ì„¸ì´ë¸Œ");
+        SlotSaveFileCheck(); //ë‹¤ì‹œ ì •ë³´ ì²´í¬
     }
     public void Creat()
     {

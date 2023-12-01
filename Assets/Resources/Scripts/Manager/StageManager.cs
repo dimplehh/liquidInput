@@ -37,7 +37,7 @@ public class StageManager : MonoBehaviour
         lastStageIndex = PlayerPrefs.GetInt(LAST_STAGE_KEY);
 
         //완전 기초정보 저장 
-        //Managers.Data.DefaultSaveData();
+        Managers.Data.DefaultSaveData();
     }
 
     public void FindStageObjects()

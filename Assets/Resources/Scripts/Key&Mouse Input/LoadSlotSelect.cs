@@ -57,6 +57,7 @@ public class LoadSlotSelect : MonoBehaviour
             File.Delete(Managers.Data.path + "StageData" + 0);
             
             Managers.Data.DefaultLoadData(); //기본정보
+            Managers.Data.stageData = new StageData();
             videoPanel.SetActive(true);
             buttonCanvas.SetActive(false);
             SoundManager.instance.BgmStopSound();
@@ -65,6 +66,7 @@ public class LoadSlotSelect : MonoBehaviour
         else
         {
             Managers.Data.DefaultLoadData(); //기본정보
+            Managers.Data.stageData = new StageData();
             videoPanel.SetActive(true);
             buttonCanvas.SetActive(false);
             SoundManager.instance.BgmStopSound();
