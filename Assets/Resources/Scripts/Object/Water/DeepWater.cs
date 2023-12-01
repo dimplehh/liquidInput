@@ -60,8 +60,11 @@ public class DeepWater : Water
                 GameManager.instance.player.GetComponent<Player>().anim.Play("Die");//죽음
                 GameManager.instance.curWaterReserves = 0;
             }
-            if (!GameManager.instance.player.GetComponent<Player>().isSlime && currentWaterReserves >= 3) //사람 형태일 때
-                GameManager.instance.player.GetComponent<Rigidbody2D>().mass = 1.5f; //가라앉음
+            if (!GameManager.instance.player.GetComponent<Player>().isSlime) //사람 형태일 때
+            {
+                if(currentWaterReserves >= 3)
+                    GameManager.instance.player.GetComponent<Rigidbody2D>().mass = 1.5f; //가라앉음
+            }
             else//슬라임 형태일 때
             {
                 if ((Input.GetKey(KeyCode.X)))//물 흡수하면
@@ -73,7 +76,7 @@ public class DeepWater : Water
                             SoundManager.instance.SfxPlaySound(5, transform.position);
                             GameManager.instance.curWaterReserves += 1;
                             currentWaterReserves--;
-                            this.transform.position -= new Vector3(0, 0.7f, 0);
+                            this.transform.position -= new Vector3(0, yPos, 0);
                             time = 0f;
                         }
                 }
