@@ -55,7 +55,7 @@ public class PlayerPush : MonoBehaviour
             && Mathf.Abs(hit.collider.gameObject.transform.position.x - this.gameObject.transform.position.x) <= 1.7f && Input.GetKey(KeyCode.X))
         {
             box = hit.collider.gameObject;
-            if(box != null)
+            if(box != null && !player.isSlime)
             {
                 box.GetComponent<Rigidbody2D>().mass = 2;
                 box.GetComponent<FixedJoint2D>().enabled = true;

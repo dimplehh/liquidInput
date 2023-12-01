@@ -84,10 +84,9 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        Debug.Log(Managers.Data.playerData.playTime);
         playTime = Managers.Data.playerData.playTime;
         SoundManager.instance.BgmPlaySound(StageManager.instance.currentStageIndex);
-        if(Managers.Data.playerData.isFirst == true)
+        if (Managers.Data.playerData.isFirst == true)
         {
             Debug.Log("처음임");
             StartCoroutine(CutScene());

@@ -11,6 +11,7 @@ public class DeepWater : Water
     [SerializeField]
     GameObject deadZone;
     [SerializeField] int waterCount;
+    [SerializeField] float yPos = 0.5f;
     protected override void Init()
     {
         currentWaterReserves = 0;
@@ -60,7 +61,10 @@ public class DeepWater : Water
                 GameManager.instance.curWaterReserves = 0;
             }
             if (!GameManager.instance.player.GetComponent<Player>().isSlime) //사람 형태일 때
-                GameManager.instance.player.GetComponent<Rigidbody2D>().mass = 1.5f; //가라앉음
+            {
+                if(currentWaterReserves >= 3)
+                    GameManager.instance.player.GetComponent<Rigidbody2D>().mass = 1.5f; //가라앉음
+            }
             else//슬라임 형태일 때
             {
                 if ((Input.GetKey(KeyCode.X)))//물 흡수하면
@@ -72,7 +76,7 @@ public class DeepWater : Water
                             SoundManager.instance.SfxPlaySound(5, transform.position);
                             GameManager.instance.curWaterReserves += 1;
                             currentWaterReserves--;
-                            this.transform.position -= new Vector3(0, 0.5f, 0);
+                            this.transform.position -= new Vector3(0, yPos, 0);
                             time = 0f;
                         }
                 }
