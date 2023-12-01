@@ -74417,6 +74417,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 229069579}
     - target: {fileID: 8154362454662616442, guid: 4af70035d6e39f540ab8e9f2d560eef9, type: 3}
+      propertyPath: chapterName
+      value: 
+      objectReference: {fileID: 2101349789}
+    - target: {fileID: 8154362454662616442, guid: 4af70035d6e39f540ab8e9f2d560eef9, type: 3}
       propertyPath: effectsPool
       value: 
       objectReference: {fileID: 1413164616}
@@ -83797,7 +83801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 521423661, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 628323172, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_IsActive
@@ -84079,6 +84083,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 383682038268024856, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_text
+      value: "\uBC84\uB824\uC9C4 \uB9C8\uC744"
+      objectReference: {fileID: 0}
+    - target: {fileID: 383682038268024856, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 383682038268024856, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 16777215
+      objectReference: {fileID: 0}
     - target: {fileID: 878992757792852416, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: resumeButtonEvent
       value: 
@@ -84298,6 +84314,14 @@ PrefabInstance:
     - target: {fileID: 5001353525529026356, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5888232651508065615, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: _koreanLanguage
+      value: "\uBC84\uB824\uC9C4 \uB9C8\uC744"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5888232651508065615, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: _englishLanguage
+      value: Abandoned Village
       objectReference: {fileID: 0}
     - target: {fileID: 5988765703235425942, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: baseColor.a
@@ -98758,6 +98782,17 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d9affb507cacca343ac10288ecbd4b0f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a80e26022fdebc438c79911f81fe4ad, type: 3}
+--- !u!114 &2101349789 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 383682038268024856, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+  m_PrefabInstance: {fileID: 1799666345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2102299313
 GameObject:
   m_ObjectHideFlags: 0

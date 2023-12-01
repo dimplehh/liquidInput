@@ -21,6 +21,7 @@ public class LanguageManager : MonoBehaviour
     public LanguageData languageData = new LanguageData();
     public static LanguageManager Instance;
     [SerializeField] private List<CustomLanguage> customLanguages;
+    [SerializeField] private CustomLanguagePro customLanguagePro;
     [SerializeField] Font[] font;
     [SerializeField] Image titleImage;
     [SerializeField] Sprite[] titleImageSources;
@@ -49,6 +50,11 @@ public class LanguageManager : MonoBehaviour
 
     public void ChangeLanguage(int index)
     {
+        if(customLanguagePro != null)
+        {
+            customLanguagePro.SetLanguageText(index);
+        }
+
         for (int i = 0; i < customLanguages.Count; i++)
         {
             customLanguages[i].SetLanguageText(index);

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Playables;
+using TMPro;
 public class GameManager : MonoBehaviour
 {
     [Header("Grid")]
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
     private Grid[,] _sandBoxGrids;
     public bool gameOver = false;
     [SerializeField] private GameObject gridGroup;
+    [SerializeField] TextMeshProUGUI chapterName;
     //------------------------------------------------------
     [SerializeField]
     public GameObject waterParticle;
@@ -86,6 +88,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("처음임");
             StartCoroutine(CutScene());
+            StartCoroutine(ShowChapterName(0, 1, 2));
         }
         else
         {
@@ -103,7 +106,45 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(5.5f);
         PlayGame();
     }
-    
+
+    IEnumerator ShowChapterName(float startAlpha, float targetAlpha, float duration)
+    {
+        float currentTime = 0f;
+        Color startColor = chapterName.color;
+        Color targetColor = new Color(startColor.r, startColor.g, startColor.b, targetAlpha);
+
+        while (currentTime < duration)
+        {
+            float alpha = Mathf.Lerp(startAlpha, targetAlpha, currentTime / duration);
+            chapterName.color = new Color(startColor.r, startColor.g, startColor.b, alpha);
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+
+        chapterName.color = targetColor;
+
+        yield return new WaitForSeconds(1f); // 페이드 아웃을 위한 딜레이
+
+        StartCoroutine(FadeOut(duration));
+    }
+
+    IEnumerator FadeOut(float duration)
+    {
+        float currentTime = 0f;
+        Color startColor = chapterName.color;
+        Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
+
+        while (currentTime < duration)
+        {
+            float alpha = Mathf.Lerp(1f, 0f, currentTime / duration);
+            chapterName.color = new Color(startColor.r, startColor.g, startColor.b, alpha);
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+
+        chapterName.color = targetColor;
+    }
+
     private void setWaterSlider()
     {
         curWaterReservesImage.rectTransform.localPosition = new Vector2(0, firstWater + waterFull * curWaterReserves / maxWaterReserves);
