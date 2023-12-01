@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     //------------------------------------------------------
     [SerializeField]
     public GameObject waterParticle;
-    float firstWater = -950;
+    float firstWater = -1000;
     [SerializeField]
     GameObject waterSlider;
     [SerializeField]

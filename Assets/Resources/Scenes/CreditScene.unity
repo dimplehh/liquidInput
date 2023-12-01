@@ -370,6 +370,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
+      propertyPath: startDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: roleColor.b
       value: 0
       objectReference: {fileID: 0}
@@ -435,7 +439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: startPointOffset
-      value: -21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: Inlays.Array.size
@@ -455,7 +459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: SectionLineSpacing
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: data.Array.data[0]
@@ -474,8 +478,20 @@ PrefabInstance:
       value: ',Doc,,,'
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
+      propertyPath: GameTitleLineSpacing
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
+      propertyPath: GameTitleWordSpacing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: TitleCharacterSpacing
       value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
+      propertyPath: GameTitleCharacterSpacing
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: Inlays.Array.data[4].Scale

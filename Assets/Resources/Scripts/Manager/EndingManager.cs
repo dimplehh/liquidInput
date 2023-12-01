@@ -46,7 +46,7 @@ public class EndingManager : MonoBehaviour
     {
         int endingIndex = 0;
 
-        if(Hidden_Ending_GoodGauge <= playerGoodGauge && Hidden_Ending_GoodGauge <= playerWaterReserves)
+        if(Hidden_Ending_GoodGauge <= playerGoodGauge && Hidden_Ending_WaterReserves <= playerWaterReserves)
         {
             endingIndex = 3;
         }

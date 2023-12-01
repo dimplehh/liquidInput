@@ -92,10 +92,13 @@ public class ClearZone : Zone
         //마지막 스테이지면 홈으로 이동
         if(StageManager.instance.currentStageIndex == 4) //진, 히든 엔딩은 마지막 크레딧 씬으로 넘어가도록 코드 짜기
         {
-            if (EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves) < 2)
+            int endingIndex = EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves);
+            if (endingIndex < 2) //배드, 노말엔딩
                 LoadingSceneController.Instance.LoadScene("HomeScene");
-            else
+            else if (endingIndex == 2) //진엔딩
                 LoadingSceneController.Instance.LoadScene("CreditScene");
+            else if (endingIndex == 3) //히든엔딩
+                LoadingSceneController.Instance.LoadScene("CreditScene2");
         }
         else
             LoadingSceneController.Instance.LoadScene("GameScene" + (StageManager.instance.currentStageIndex - 1).ToString());//해당하는 스테이지 씬으로 이동
@@ -109,10 +112,13 @@ public class ClearZone : Zone
             LoadingSceneController.Instance.LoadScene("GameScene2");
         if (StageManager.instance.currentStageIndex == 4) //진, 히든 엔딩은 마지막 크레딧 씬으로 넘어가도록 코드 짜기
         {
-            if (EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves) < 2)
+            int endingIndex = EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves);
+            if (endingIndex < 2) //배드, 노말엔딩
                 LoadingSceneController.Instance.LoadScene("HomeScene");
-            else
+            else if(endingIndex ==2) //진엔딩
                 LoadingSceneController.Instance.LoadScene("CreditScene");
+            else if (endingIndex == 3) //히든엔딩
+                LoadingSceneController.Instance.LoadScene("CreditScene2");
         }
     }
 
