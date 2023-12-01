@@ -403,7 +403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: EnablePreview
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: LegalFontSize
@@ -420,7 +420,7 @@ PrefabInstance:
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: GameTitleImage
       value: 
-      objectReference: {fileID: 21300000, guid: 1fc4c75f3cd83f348999fdbe9fc9b4ec, type: 3}
+      objectReference: {fileID: 21300000, guid: b0e0c2ad53bab8a47ae63d4a33d0ad46, type: 3}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: gameTitleScale
       value: 8
@@ -505,6 +505,10 @@ PrefabInstance:
       propertyPath: Inlays.Array.data[4].Centering
       value: -0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
+      propertyPath: Inlays.Array.data[1].EasyCreditsInlays
+      value: 
+      objectReference: {fileID: 11400000, guid: d00c5b384436429419a5b49680124d19, type: 2}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: Inlays.Array.data[4].EasyCreditsInlays
       value: 
