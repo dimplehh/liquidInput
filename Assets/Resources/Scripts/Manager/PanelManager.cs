@@ -49,10 +49,13 @@ public class PanelManager : MonoBehaviour
                     }
                 }
             }
-            if (!ManualGroup.activeSelf)
+            if(ManualGroup != null)
             {
-                ManualGroup.SetActive(true);
-                Time.timeScale = 0;
+                if (!ManualGroup.activeSelf)
+                {
+                    ManualGroup.SetActive(true);
+                    Time.timeScale = 0;
+                }
             }
         }
     }
@@ -63,14 +66,6 @@ public class PanelManager : MonoBehaviour
         {
             ManualGroup.SetActive(true);
             Time.timeScale = 0;
-        }
-    }
-    public void ClickResumeButton()
-    {
-        if (ManualGroup.activeSelf)
-        {
-            ManualGroup.SetActive(false);
-            GameManager.instance.PlayGame();
         }
     }
 }

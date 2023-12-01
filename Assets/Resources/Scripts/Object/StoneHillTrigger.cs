@@ -17,9 +17,8 @@ public class StoneHillTrigger : MonoBehaviour
         {
             if (playerInTrigger == false)
             {
-                SoundManager.instance.Bgm2PlaySoundOneTime(2, this.gameObject.transform.position, 0.5f);
+                playerInTrigger = true;
             }
-            playerInTrigger = true;
         }
     }
 
@@ -37,13 +36,20 @@ public class StoneHillTrigger : MonoBehaviour
             return;
         else
         {
-            stone.SetActive(true);
+            if (stone.activeSelf == false)
+                stone.SetActive(true);
+
+            if (time == 10.0f)
+                SoundManager.instance.Bgm2PlaySoundOneTime(2, this.gameObject.transform.position, 0.5f);
+
             time -= Time.deltaTime;
+
             if(time <= 0)
             {
                 stone.transform.localPosition = firstStoneExist;
                 time = 10.0f;
             }
+
             if(onlyOneTime)
             {
                 StartCoroutine("hillTurnOff");
