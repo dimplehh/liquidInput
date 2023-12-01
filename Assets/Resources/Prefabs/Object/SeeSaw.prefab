@@ -143,8 +143,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 374595718111595946}
-  - component: {fileID: 374595718111595944}
   - component: {fileID: 374595718111595947}
+  - component: {fileID: 2282226965597798938}
   m_Layer: 0
   m_Name: SeeSaw
   m_TagString: Untagged
@@ -171,20 +171,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &374595718111595944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 374595718111595941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39873b8b82bce8b4ba314c40de4ecdc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stoneSpawnPoint: {fileID: 374595718116340177}
-  stone: {fileID: 6349939187404357235}
 --- !u!61 &374595718111595947
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -210,6 +196,32 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 28.863052, y: 22.008083}
+  m_EdgeRadius: 0
+--- !u!61 &2282226965597798938
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374595718111595941}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &374595718116340176
 GameObject:
@@ -708,11 +720,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8999f0213edf024ca7f2bea3faaa67f, type: 3}
---- !u!1 &6349939187404357235 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6714111534970796528, guid: e8999f0213edf024ca7f2bea3faaa67f, type: 3}
-  m_PrefabInstance: {fileID: 374595719225984899}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7696914157522119293 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8062070566177156606, guid: e8999f0213edf024ca7f2bea3faaa67f, type: 3}

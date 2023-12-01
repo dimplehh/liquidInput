@@ -305,11 +305,11 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if (!isSlime && !isFlicker)//슬라임으로 변신
+            if (!isSlime && !isFlicker & !isSlow)//슬라임으로 변신
             {
                 StartCoroutine("PlayerToSlimeAnimator");
             }
-            else if(isSlime && !isFlicker)//사람으로 다시 돌아오기
+            else if(isSlime && !isFlicker & !isSlow)//사람으로 다시 돌아오기
             {
                 StartCoroutine("SlimeToPlayerAnimator");
             }
@@ -461,6 +461,7 @@ public class Player : MonoBehaviour
                 shadow.SetActive(true);
             if (this.playerHeight > gameObject.transform.position.y + 15.0f)//추락사  차후 수정 필요,
             {
+                Debug.Log("바뀐높이:" + this.playerHeight + "원래높이:" + gameObject.transform.position.y);
                 Debug.Log("추락사");
                 if(!isSlime)anim.Play("Die");
                 GameManager.instance.OpenGameOver();
