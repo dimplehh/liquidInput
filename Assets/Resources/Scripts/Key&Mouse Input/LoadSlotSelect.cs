@@ -28,6 +28,7 @@ public class LoadSlotSelect : MonoBehaviour
     {
         if (File.Exists(Managers.Data.path + "PlayerData0"))
         {
+            Debug.Log("nowslot: "+Managers.Data.nowSlot);
             Managers.Data.SlotLoadData(Managers.Data.nowSlot);
             LoadingSceneController.Instance.LoadScene("GameScene" + (Managers.Data.stageData.stageChapter - 1).ToString());
         }

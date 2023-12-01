@@ -41,7 +41,7 @@ public class CheckSaveSlot : MonoBehaviour
             if (File.Exists(Managers.Data.path + "PlayerData" + i))
             {
                 saveFile[i] = true;
-                Managers.Data.nowSlot = i;
+                //Managers.Data.nowSlot = i;
                 var currentSlotData = Managers.Data.GetSlotPlayerData(i);
 
                 var aa = currentSlotData.currentStage + currentSlotData.saveDate + currentSlotData.playTime + currentSlotData.playerWaterReserves;
