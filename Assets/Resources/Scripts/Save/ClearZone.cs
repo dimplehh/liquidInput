@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ClearZone : Zone
 {
+    [SerializeField] GameObject videoPanelParent;
     [SerializeField] List<GameObject> videoPanels;
     [SerializeField] GameObject panelGroup; //esc키 안 먹히도록
     private bool oneAct = false;
@@ -65,6 +66,9 @@ public class ClearZone : Zone
                 }
                 else if (StageManager.instance.currentStageIndex == 4)                //마지막 스테이지에서는
                 {
+                    if (videoPanelParent != null)
+                        if (videoPanelParent.activeSelf == false)
+                            videoPanelParent.SetActive(true);
                     videoPanels[EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves)]
                         .SetActive(true);
 

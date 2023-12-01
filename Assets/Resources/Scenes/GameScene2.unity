@@ -23149,6 +23149,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &414202048 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 521423660, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+  m_PrefabInstance: {fileID: 1799666345}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &426550844
 GameObject:
   m_ObjectHideFlags: 0
@@ -52830,7 +52835,7 @@ PrefabInstance:
     - target: {fileID: 3944498665559805124, guid: 3c0349c3df2bba14d898cc3266be87bb, type: 3}
       propertyPath: videoPanel
       value: 
-      objectReference: {fileID: 1166810229}
+      objectReference: {fileID: 414202048}
     - target: {fileID: 3944498665559805124, guid: 3c0349c3df2bba14d898cc3266be87bb, type: 3}
       propertyPath: manualPanel
       value: 
@@ -76639,6 +76644,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1166810229}
     - target: {fileID: 1058331005393391792, guid: f2ab223877ab76a4086333b86474cfd5, type: 3}
+      propertyPath: videoPanelParent
+      value: 
+      objectReference: {fileID: 414202048}
+    - target: {fileID: 1058331005393391792, guid: f2ab223877ab76a4086333b86474cfd5, type: 3}
       propertyPath: videoPanels.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -89322,6 +89331,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1566613666}
+    - target: {fileID: 521423660, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 978187499, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

@@ -121,7 +121,6 @@ GameObject:
   - component: {fileID: 7228653006855302832}
   - component: {fileID: 384162795047691857}
   - component: {fileID: 7587569397575383104}
-  - component: {fileID: 8131771550888106354}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -191,21 +190,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: SKIP
---- !u!114 &8131771550888106354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 989616443614778931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04665f5f12e2dc0469401cadf8e29f4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _koreanLanguage: "\uAC74\uB108\uB6F0\uAE30"
-  _englishLanguage: SKIP
-  _languageText: {fileID: 7587569397575383104}
 --- !u!1 &5270180968383499745
 GameObject:
   m_ObjectHideFlags: 0
