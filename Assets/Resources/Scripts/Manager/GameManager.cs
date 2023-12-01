@@ -86,11 +86,11 @@ public class GameManager : MonoBehaviour
     {
         playTime = Managers.Data.playerData.playTime;
         SoundManager.instance.BgmPlaySound(StageManager.instance.currentStageIndex);
-        StartCoroutine(ShowChapterName(0, 1, 2));
         if (Managers.Data.playerData.isFirst == true)
         {
             Debug.Log("처음임");
             StartCoroutine(CutScene());
+            StartCoroutine(ShowChapterName(0, 1, 2));
         }
         else
         {
