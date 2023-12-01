@@ -358,6 +358,10 @@ PrefabInstance:
       value: Easy Credits Manager
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
+      propertyPath: exitTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: LegalLine
       value: Made by SlimeMakers
       objectReference: {fileID: 0}
@@ -399,7 +403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: EnablePreview
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: LegalFontSize
@@ -407,7 +411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: PreviewScroll
-      value: 0.48
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: TextCentering
@@ -424,6 +428,14 @@ PrefabInstance:
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: data.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
+      propertyPath: ExitToSceneOnEnd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
+      propertyPath: startPointOffset
+      value: -21
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: Inlays.Array.size
@@ -443,7 +455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: SectionLineSpacing
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: data.Array.data[0]
@@ -503,11 +515,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681020, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 70
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681020, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 38
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681020, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: m_LocalPosition.z
