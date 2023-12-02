@@ -50,8 +50,8 @@ public class ClearZone : Zone
                 Managers.Data.StageClearSaveData(GameManager.instance.curWaterReserves, StageManager.instance.currentStageIndex); //현재 물보유량과 선행게이지 스테이지 인덱스만 저장한다 나머지 정보는 날림(플레이어 위치 정보 , 스테이지 모든 데이터 정보)
                 Managers.Data.StageLoadData(StageManager.instance.currentStageIndex); //저장과 동시에 불러와야해 
                 Managers.Data.isClear = true;
-                
-                if(StageManager.instance.currentStageIndex != 4)
+                Managers.Data.playerData.isFirst = true;
+                if (StageManager.instance.currentStageIndex != 4)
                     if (!Application.CanStreamedLevelBeLoaded("GameScene" + (StageManager.instance.currentStageIndex - 1).ToString()))
                     {
                         Debug.Log("이름에 맞는 씬이 없습니다!");
