@@ -31,6 +31,16 @@ namespace Onerat.EasyCredits
 
         private void Start() {
             this.transform.position = new Vector3(this.transform.position.x + (this.gameObject.GetComponent<EasyCreditsDataManager>().TextCentering * 10), this.transform.position.y, this.transform.position.z);
+            Managers.Input.keyaction -= OnKeyboard;
+            Managers.Input.keyaction += OnKeyboard;
+        }
+
+        void OnKeyboard()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                scrollSpeed = 2;
+            }
         }
 
         private void Update() {

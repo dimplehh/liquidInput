@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class CreditScene : MonoBehaviour
 {
+    public int index;
     void Start()
     {
-        SoundManager.instance.BgmPlaySound(4);
+        SoundManager.instance.BgmPlaySound(index);
     }
+
 }
