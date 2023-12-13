@@ -45,18 +45,18 @@ public class SoundManager : MonoBehaviour
         bgmAudioSource.Play();
     }
 
-    public void Bgm2PlaySound(int index, Vector3 pos, float volume = 1f)
+    public void Bgm2PlaySound(int index, Vector3 pos)
     {
         transform.position = pos;
         bgm2AudioSource.clip = bgm2SoundList[index].clip;
-        bgm2AudioSource.volume = volume;
+        //bgm2AudioSource.volume = volume;
         bgm2AudioSource.Play();
     }
-    public void Bgm2PlaySoundOneTime(int index, Vector3 pos, float volume = 1f)
+    public void Bgm2PlaySoundOneTime(int index, Vector3 pos)
     {
         transform.position = pos;
         bgm2AudioSource.clip = bgm2SoundList[index].clip;
-        bgm2AudioSource.volume = volume;
+        //bgm2AudioSource.volume = volume;
         bgm2AudioSource.PlayOneShot(bgm2AudioSource.clip);
     }
     public void BgmStopSound()
@@ -68,17 +68,17 @@ public class SoundManager : MonoBehaviour
         bgm2AudioSource.Stop();
     }
 
-    public void SfxPlaySound(int index, Vector3 pos, float volume = 1f) //spatial blend 가 1이 가까워질 수록 3d 사운드로 변함
+    public void SfxPlaySound(int index, Vector3 pos) //spatial blend 가 1이 가까워질 수록 3d 사운드로 변함
     {
         transform.position = pos;
         sfxAudioSource.clip = sfxSoundList[index].clip;
-        sfxAudioSource.PlayOneShot(sfxAudioSource.clip, volume);
+        sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
     }
 
-    public void SfxPlaySound2(int index, Vector3 pos, float volume = 1f)
+    public void SfxPlaySound2(int index, Vector3 pos)
     {
         transform.position = pos;
         sfxAudioSource2.clip = sfxSoundList2[index].clip;
-        sfxAudioSource2.PlayOneShot(sfxAudioSource2.clip, volume);
+        sfxAudioSource2.PlayOneShot(sfxAudioSource2.clip);
     }
 }

@@ -33,7 +33,7 @@ public class SeeSaw : MonoBehaviour
         if(isTriggered)
         {
             stone.transform.localPosition = stoneSpawnPoint.localPosition;
-            SoundManager.instance.Bgm2PlaySoundOneTime(2, this.gameObject.transform.position);
+            SoundManager.instance.SfxPlaySound2(2, this.gameObject.transform.position);
             yield return null;
             stone.SetActive(true);
         }

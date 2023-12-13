@@ -9,14 +9,14 @@ public class TriggerSound : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("SaveZone"))
         {
-            SoundManager.instance.Bgm2PlaySound(soundIndex, this.gameObject.transform.position);
+            SoundManager.instance.SfxPlaySound2(soundIndex, this.gameObject.transform.position);
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("SaveZone"))
-        {
-            SoundManager.instance.Bgm2StopSound();
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("SaveZone"))
+    //    {
+    //        SoundManager.instance.Bgm2StopSound();
+    //    }
+    //}
 }

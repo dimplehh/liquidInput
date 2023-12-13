@@ -42,7 +42,7 @@ public class ClearZone : Zone
     {
         if (other.gameObject.CompareTag("SaveZone")) //SaveZone은 플레이어가 갖고있는것인데 헷갈려서 나중에 수정필요
         {
-            if(oneAct ==false)
+            if (oneAct ==false)
             {
                 StageManager.instance.currentStageIndex++; //현재스테이지 올려주고
                 StageManager.instance.LastStageUp(); //스테이지 체크 후 최종 스테이지 저장
@@ -71,10 +71,9 @@ public class ClearZone : Zone
                             videoPanelParent.SetActive(true);
                     videoPanels[EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves)]
                         .SetActive(true);
-
                     videoPanels[EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves)].
                         GetComponent<VideoPlayer>().Play();
-
+                    SetVideoVolume();
                 }
                 else
                 {
@@ -82,7 +81,7 @@ public class ClearZone : Zone
                     {
                         videoPanels[0].SetActive(true);
                         videoPanels[0].GetComponent<VideoPlayer>().Play();
-
+                        SetVideoVolume();
                     }
                 }
                 oneAct = true;
