@@ -25,6 +25,7 @@ public class LanguageManager : MonoBehaviour
     [SerializeField] Font[] font;
     [SerializeField] Image titleImage;
     [SerializeField] Sprite[] titleImageSources;
+    [SerializeField] Text[] loadLanguages;
     private void Awake()
     {
         if (Instance == null)
@@ -50,9 +51,16 @@ public class LanguageManager : MonoBehaviour
 
     public void ChangeLanguage(int index)
     {
-        if(customLanguagePro != null)
+        if (customLanguagePro != null)
         {
             customLanguagePro.SetLanguageText(index);
+        }
+        if (loadLanguages != null)
+        {
+            for (int i = 0; i < loadLanguages.Length; i++)
+            {
+                loadLanguages[i].font = font[index];
+            }
         }
 
         for (int i = 0; i < customLanguages.Count; i++)

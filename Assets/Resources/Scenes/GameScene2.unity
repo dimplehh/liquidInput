@@ -52166,7 +52166,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011202671}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.39, y: 6.608141, z: -113}
+  m_LocalPosition: {x: -15.390001, y: 6.608141, z: -113}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -89451,6 +89451,14 @@ PrefabInstance:
       propertyPath: m_text
       value: "\uC624\uC5FC\uC758 \uC911\uC2EC\uBD80"
       objectReference: {fileID: 0}
+    - target: {fileID: 1425283138310956492, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: _koreanLanguage
+      value: "\uC138\uC774\uBE0C/\uBD88\uB7EC\uC624\uAE30"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1425283138310956492, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: _englishLanguage
+      value: Save/Load
+      objectReference: {fileID: 0}
     - target: {fileID: 4240980981562872068, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -89499,6 +89507,10 @@ PrefabInstance:
       propertyPath: m_TargetAudioSources.Array.data[0]
       value: 
       objectReference: {fileID: 1768989542}
+    - target: {fileID: 7804107505407900259, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_Text
+      value: "\uC138\uC774\uBE0C/\uBD88\uB7EC\uC624\uAE30"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
 --- !u!1 &1799666346 stripped
@@ -97804,7 +97816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5100866402947384372, guid: e332b22b8b68b5a44a28981c3f79861f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.39
+      value: -15.390001
       objectReference: {fileID: 0}
     - target: {fileID: 5100866402947384372, guid: e332b22b8b68b5a44a28981c3f79861f, type: 3}
       propertyPath: m_LocalPosition.y
