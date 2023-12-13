@@ -1,1 +1,21 @@
-{"index":0}
+private bool AllObjectsPassed()
+{
+	int cnt = 0;
+	foreach(var obj in objectsToPassThrough)
+	{
+		if(passCount.ContainsKey(obj) && passCount[obj] >= 1)
+		{
+			cnt++;
+		}	
+	}
+	if(cnt >= 2)
+		return true;
+	else
+		return false;
+}
+
+
+큐브1
+
+딕셔너리에 큐브1이 없거나 큐브1의 Count가 1보다 작으면
+false
