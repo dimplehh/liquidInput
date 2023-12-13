@@ -438,7 +438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &521423661
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2475,7 +2475,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC138\uC0C1\uC758 \uC678\uACFD"
+  m_text: "\uC9C0\uD558 \uC18D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f44455c5eebde994ea9ea637f937c77c, type: 2}
   m_sharedMaterial: {fileID: -7079567324840849599, guid: f44455c5eebde994ea9ea637f937c77c, type: 2}
@@ -2556,8 +2556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36508f3e39b484948bb1fe1f74ca6b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _koreanLanguage: "\uC138\uC0C1\uC758 \uC678\uACFD"
-  _englishLanguage: The edge of the world
+  _koreanLanguage: "\uC9C0\uD558 \uC18D"
+  _englishLanguage: The heart of Pollution
   _languageText: {fileID: 383682038268024856}
 --- !u!1001 &784901853
 PrefabInstance:
@@ -2686,10 +2686,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5270180968383499745, guid: 23ebdee56f8f34c4fb34c5841f8713c6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6858936942381928757, guid: 23ebdee56f8f34c4fb34c5841f8713c6, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: d6806090fd2eda84c80d6497fdc1d16a, type: 3}
+      objectReference: {fileID: 32900000, guid: 056b59c083caf0f4aa03b193e782451a, type: 3}
     - target: {fileID: 6858936942381928757, guid: 23ebdee56f8f34c4fb34c5841f8713c6, type: 3}
       propertyPath: m_TargetAudioSources.Array.data[0]
       value: 
@@ -2828,10 +2832,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5270180968383499745, guid: 23ebdee56f8f34c4fb34c5841f8713c6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6858936942381928757, guid: 23ebdee56f8f34c4fb34c5841f8713c6, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: d6806090fd2eda84c80d6497fdc1d16a, type: 3}
+      objectReference: {fileID: 32900000, guid: d9f037b8cd51f604990247289868d652, type: 3}
     - target: {fileID: 6858936942381928757, guid: 23ebdee56f8f34c4fb34c5841f8713c6, type: 3}
       propertyPath: m_TargetAudioSources.Array.data[0]
       value: 
@@ -2970,10 +2978,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5270180968383499745, guid: 23ebdee56f8f34c4fb34c5841f8713c6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6858936942381928757, guid: 23ebdee56f8f34c4fb34c5841f8713c6, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: d6806090fd2eda84c80d6497fdc1d16a, type: 3}
+      objectReference: {fileID: 32900000, guid: e7dd8c6409bc7254cabbef786d95bc94, type: 3}
     - target: {fileID: 6858936942381928757, guid: 23ebdee56f8f34c4fb34c5841f8713c6, type: 3}
       propertyPath: m_TargetAudioSources.Array.data[0]
       value: 
@@ -3254,10 +3266,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5270180968383499745, guid: 23ebdee56f8f34c4fb34c5841f8713c6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6858936942381928757, guid: 23ebdee56f8f34c4fb34c5841f8713c6, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 5c501ceb26dbad943a4aff93f0176cb4, type: 3}
+      objectReference: {fileID: 32900000, guid: f9bf1cd2877b6a943af72e9fd0b09dc5, type: 3}
     - target: {fileID: 6858936942381928757, guid: 23ebdee56f8f34c4fb34c5841f8713c6, type: 3}
       propertyPath: m_TargetAudioSources.Array.data[0]
       value: 
@@ -3785,7 +3801,7 @@ PrefabInstance:
     - target: {fileID: 111074031, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
       propertyPath: loadSlotSelect
       value: 
-      objectReference: {fileID: 160058114}
+      objectReference: {fileID: 0}
     - target: {fileID: 315434383, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
       propertyPath: checkSaveSlot
       value: 
@@ -4193,7 +4209,7 @@ PrefabInstance:
     - target: {fileID: 1924317550842877842, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 160058114}
+      objectReference: {fileID: 0}
     - target: {fileID: 3265494140166674410, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
       propertyPath: m_Text
       value: "\uC218\uB3D9 \uC138\uC774\uBE0C"
