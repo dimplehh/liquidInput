@@ -219,7 +219,10 @@ public class GameManager : MonoBehaviour
 
     private void WaterReservesUI()
     {
-        curWaterReservesTxt.text = curWaterReserves.ToString();
+        if (curWaterReserves > 30)
+            curWaterReservesTxt.text = (30).ToString();
+        else
+            curWaterReservesTxt.text = curWaterReserves.ToString();
 
         if(oldCurWaterReserves != curWaterReserves)
         {
