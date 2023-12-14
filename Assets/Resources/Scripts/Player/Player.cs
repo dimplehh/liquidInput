@@ -528,10 +528,9 @@ private void OnCollisionExit2D(Collision2D collision)
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("SandSwamp"))
+        if (other.gameObject.CompareTag("SandSwamp") && !isSlime)
         {
             isSlow = true;
-            
         }
         if (!attached && !isSlime && Input.GetKeyDown(KeyCode.X))
         {
