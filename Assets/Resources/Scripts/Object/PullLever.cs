@@ -7,7 +7,6 @@ public class PullLever : MonoBehaviour
     bool pushX = false;
     [SerializeField]float endTime = 1.0f;
     [SerializeField]float startRotation = 0f;
-    [SerializeField] float endRotation = 30f;
     [SerializeField] GameObject ladder;
     [SerializeField] float ladderEndTime = 3.0f;
     [SerializeField] float ladderStartRotation = -15f;
@@ -16,18 +15,21 @@ public class PullLever : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if(Input.GetKey(KeyCode.X) && collision.transform.position.x < this.gameObject.transform.position.x)
+            if(Input.GetKey(KeyCode.X))
             {
                 GameManager.instance.player.GetComponent<Player>().anim.SetBool("canGrab", true);
                 pushX = true;
             }
             else
             {
+                GameManager.instance.player.GetComponent<Player>().anim.SetBool("canGrab", false);
                 pushX = false;
             }
-            if(pushX == true && Input.GetKey(KeyCode.LeftArrow))
+            if((pushX == true && Input.GetKey(KeyCode.LeftArrow)  && collision.transform.position.x < this.gameObject.transform.position.x) ||
+                (pushX == true && Input.GetKey(KeyCode.RightArrow) && collision.transform.position.x > this.gameObject.transform.position.x))
             {
-                StartCoroutine("PullingLever"); //StartCoroutine//그리고 해당 트리거를 비활성화합니다.
+                StartCoroutine("PullingLever", collision.transform.position.x - this.gameObject.transform.position.x);
+                Debug.Log(collision.transform.position.x + "/" + this.gameObject.transform.position.x);
             }
         }
     }
@@ -40,11 +42,13 @@ public class PullLever : MonoBehaviour
         }
     }
 
-    IEnumerator PullingLever()
+    IEnumerator PullingLever(float fromPlayerToLever)
     {
         float elapsedTime = 0f;
         Quaternion startRotationQuaternion = Quaternion.Euler(0, 0, startRotation);
-        Quaternion endRotationQuaternion = Quaternion.Euler(0, 0, endRotation);
+        Quaternion endRotationQuaternion = (fromPlayerToLever < 0) ? Quaternion.Euler(0, 0, startRotation + 30f) : Quaternion.Euler(0, 0, startRotation - 30f);
+        //플레이어가 레버보다 왼쪽에 있으면 왼쪽으로 30도, 오른쪽에 있으면 오른쪽으로 30도 회전
+
         while(elapsedTime < endTime)
         {
             float t = elapsedTime / endTime;

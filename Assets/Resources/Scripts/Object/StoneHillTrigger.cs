@@ -40,7 +40,7 @@ public class StoneHillTrigger : MonoBehaviour
                 stone.SetActive(true);
 
             if (time == 10.0f)
-                SoundManager.instance.SfxPlaySound2(2, this.gameObject.transform.position);
+                SoundManager.instance.SfxPlaySound2(6, this.gameObject.transform.position);
 
             time -= Time.deltaTime;
 
