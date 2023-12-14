@@ -29,7 +29,7 @@ public class HomeScene : MonoBehaviour
             backgroundImage[i].SetActive(false);
         var stageData = Managers.Data.GetSlotStageData(0);
         
-        if (stageData == null)
+        if (stageData == null || stageData.stageChapter == 0)
         {
             backgroundImage[0].SetActive(true);
         }

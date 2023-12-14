@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
 public class ClearZone : Zone
 {
+    private const string LAST_STAGE_KEY = "LAST_STAGE";
     [SerializeField] GameObject videoPanelParent;
     [SerializeField] List<GameObject> videoPanels;
     [SerializeField] GameObject panelGroup; //esc키 안 먹히도록
@@ -46,7 +48,6 @@ public class ClearZone : Zone
             {
                 StageManager.instance.currentStageIndex++; //현재스테이지 올려주고
                 StageManager.instance.LastStageUp(); //스테이지 체크 후 최종 스테이지 저장
-                                                     //1스테이지의 정보를 2스테이지에 담아준다. 시작할때 2스테이지의 정보가 저장되게
                 Managers.Data.StageClearSaveData(GameManager.instance.curWaterReserves, StageManager.instance.currentStageIndex); //현재 물보유량과 선행게이지 스테이지 인덱스만 저장한다 나머지 정보는 날림(플레이어 위치 정보 , 스테이지 모든 데이터 정보)
                 Managers.Data.StageLoadData(StageManager.instance.currentStageIndex); //저장과 동시에 불러와야해 
                 Managers.Data.isClear = true;
@@ -60,11 +61,13 @@ public class ClearZone : Zone
 
                 SoundManager.instance.BgmStopSound();
                 panelGroup.SetActive(false);
+
                 if (StageManager.instance.currentStageIndex == 3)     //챕터 3로 넘어갈 때
                 {
                     LoadingSceneController.Instance.LoadScene("GameScene2");
                 }
-                else if (StageManager.instance.currentStageIndex == 4)                //마지막 스테이지에서는
+                
+                else if (StageManager.instance.currentStageIndex >= 4)                //마지막 스테이지에서는
                 {
                     if (videoPanelParent != null)
                         if (videoPanelParent.activeSelf == false)
@@ -90,11 +93,25 @@ public class ClearZone : Zone
         }
     }
 
+    private void NewGame()
+    {
+        if (File.Exists(Managers.Data.path + "PlayerData0"))
+        {
+            File.Delete(Managers.Data.path + "PlayerData" + 0);
+            File.Delete(Managers.Data.path + "StageData" + 0);
+            Managers.Data.DefaultLoadData(); //기본정보
+            Managers.Data.stageData = new StageData();
+        }
+        StageManager.instance.currentStageIndex = 1;
+        StageManager.instance.lastStageIndex = 1;
+        StageManager.instance.LastStageUp();
+    }
     void CheckOver(UnityEngine.Video.VideoPlayer vp) //이벤트핸들러
     {
         //마지막 스테이지면 홈으로 이동
         if(StageManager.instance.currentStageIndex == 4) //진, 히든 엔딩은 마지막 크레딧 씬으로 넘어가도록 코드 짜기
         {
+            NewGame();
             int endingIndex = EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves);
             if (endingIndex < 2) //배드, 노말엔딩
                 LoadingSceneController.Instance.LoadScene("HomeScene");

@@ -571,11 +571,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04665f5f12e2dc0469401cadf8e29f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &645588519 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7851511520411101391, guid: 3610580a5840dfe41a178924408f8838, type: 3}
-  m_PrefabInstance: {fileID: 7851511518499559110}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &740253710 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 740253710, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
@@ -970,6 +965,7 @@ MonoBehaviour:
   titleImageSources:
   - {fileID: 21300000, guid: 1fc4c75f3cd83f348999fdbe9fc9b4ec, type: 3}
   - {fileID: 21300000, guid: b0e0c2ad53bab8a47ae63d4a33d0ad46, type: 3}
+  loadLanguages: []
 --- !u!114 &1400035070 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1400035070, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}
@@ -2024,7 +2020,7 @@ PrefabInstance:
     - target: {fileID: 6443550313845792142, guid: 781d3573a57fbe04987e1f678de32a91, type: 3}
       propertyPath: m_TargetAudioSources.Array.data[0]
       value: 
-      objectReference: {fileID: 645588519}
+      objectReference: {fileID: 0}
     - target: {fileID: 6885178756722546557, guid: 781d3573a57fbe04987e1f678de32a91, type: 3}
       propertyPath: m_Controller
       value: 
