@@ -49,6 +49,7 @@ public class PullLever : MonoBehaviour
         Quaternion endRotationQuaternion = (fromPlayerToLever < 0) ? Quaternion.Euler(0, 0, startRotation + 30f) : Quaternion.Euler(0, 0, startRotation - 30f);
         //플레이어가 레버보다 왼쪽에 있으면 왼쪽으로 30도, 오른쪽에 있으면 오른쪽으로 30도 회전
 
+        SoundManager.instance.SfxPlaySound2(5, transform.position);
         while(elapsedTime < endTime)
         {
             float t = elapsedTime / endTime;
@@ -66,6 +67,7 @@ public class PullLever : MonoBehaviour
         float elapsedTime = 0f;
         Quaternion startRotationQuaternion = Quaternion.Euler(0, 0, ladderStartRotation);
         Quaternion endRotationQuaternion = Quaternion.Euler(0, 0, ladderEndRotation);
+        SoundManager.instance.SfxPlaySound2(4, transform.position);
         while (elapsedTime < ladderEndTime)
         {
             float t = elapsedTime / ladderEndTime;

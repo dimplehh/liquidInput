@@ -140,7 +140,8 @@ public class Player : MonoBehaviour
     {
         if (!isWater)
         {
-            SoundManager.instance.SfxPlaySound(7, transform.position); //모래 이동 사운드
+            if(StageManager.instance.currentStageIndex == 3) SoundManager.instance.SfxPlaySound(13, transform.position);
+            else SoundManager.instance.SfxPlaySound(7, transform.position); //모래 이동 사운드
         }
         else if(Input.GetAxisRaw("Horizontal") != 0)
         {
@@ -469,7 +470,9 @@ public class Player : MonoBehaviour
             }
         }
         if((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill")))
+        {
             this.playerHeight = gameObject.transform.position.y;
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -477,6 +480,8 @@ public class Player : MonoBehaviour
         {
             Debug.Log("착지 이펙트 생성");
             GameManager.instance.effectsPool.Get(1, this.transform);
+            if (StageManager.instance.currentStageIndex == 3) SoundManager.instance.SfxPlaySound(14, transform.position);
+            else SoundManager.instance.SfxPlaySound(8, transform.position);
         }
     }
      
