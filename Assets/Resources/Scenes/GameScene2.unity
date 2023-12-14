@@ -23546,7 +23546,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &465503165
 MonoBehaviour:
@@ -23564,7 +23564,7 @@ MonoBehaviour:
   deactivateOnExit: 0
   objectTurnOff: 1
   objects:
-  - {fileID: 1789487076}
+  - {fileID: 1912221392}
   turnOffObj: {fileID: 486820394}
   lightColorController: {fileID: 3374805839087232203}
   time: 0.6
@@ -23581,7 +23581,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 26.500065}
+  m_Offset: {x: 52.766624, y: 26.500065}
   m_SpriteTilingProperty:
     border: {x: 4.48, y: 2.9199998, z: 2.6399999, w: 8.42}
     pivot: {x: 0.5, y: 0.5}
@@ -23592,7 +23592,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 23.288647, y: 51.26573}
+  m_Size: {x: 128.82185, y: 51.26573}
   m_EdgeRadius: 0
 --- !u!1 &471114469
 GameObject:
@@ -28491,7 +28491,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486820394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.490002, y: -4.067642, z: -20}
+  m_LocalPosition: {x: -14.490002, y: -1.1558812, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -47001,6 +47001,7 @@ Transform:
   - {fileID: 2144737936}
   - {fileID: 878757811}
   - {fileID: 256754135}
+  - {fileID: 1035191257}
   - {fileID: 1389622470}
   - {fileID: 465503163}
   m_Father: {fileID: 1861462396}
@@ -52257,6 +52258,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818aeb2bdd2043745a02b74de1d4ed0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1035191256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1035191257}
+  - component: {fileID: 1035191259}
+  - component: {fileID: 1035191258}
+  m_Layer: 0
+  m_Name: TriggerDown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1035191257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035191256}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 48.78, y: 38.45, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.12, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 973769795}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1035191258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035191256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad9be0fe60c1194294cbed646f50874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activatorTag: Player
+  deactivateOnExit: 0
+  objectTurnOff: 1
+  objects:
+  - {fileID: 486820394}
+  turnOffObj: {fileID: 1912221392}
+  lightColorController: {fileID: 3374805839087232203}
+  time: 0.4
+--- !u!61 &1035191259
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035191256}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -13.940596, y: 5.3309956}
+  m_SpriteTilingProperty:
+    border: {x: 4.48, y: 2.9199998, z: 2.6399999, w: 8.42}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 21.58, y: 20.22}
+    newSize: {x: 22, y: 1.92}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 51.16984, y: 93.60387}
+  m_EdgeRadius: 0
 --- !u!1 &1048164354
 GameObject:
   m_ObjectHideFlags: 0
@@ -69819,12 +69899,12 @@ GameObject:
   - component: {fileID: 1389622473}
   - component: {fileID: 1389622472}
   m_Layer: 0
-  m_Name: TriggerDown
+  m_Name: TriggerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1389622470
 Transform:
   m_ObjectHideFlags: 0
@@ -69838,7 +69918,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1389622472
 MonoBehaviour:
@@ -69856,8 +69936,8 @@ MonoBehaviour:
   deactivateOnExit: 0
   objectTurnOff: 1
   objects:
-  - {fileID: 486820394}
-  turnOffObj: {fileID: 1789487076}
+  - {fileID: 1912221392}
+  turnOffObj: {fileID: 486820394}
   lightColorController: {fileID: 3374805839087232203}
   time: 0.4
 --- !u!61 &1389622473
@@ -69873,7 +69953,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 26.500065}
+  m_Offset: {x: -2.6425571, y: 36.75925}
   m_SpriteTilingProperty:
     border: {x: 4.48, y: 2.9199998, z: 2.6399999, w: 8.42}
     pivot: {x: 0.5, y: 0.5}
@@ -69884,7 +69964,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 23.288647, y: 51.26573}
+  m_Size: {x: 17.190437, y: 105.66297}
   m_EdgeRadius: 0
 --- !u!1 &1398670856
 GameObject:
@@ -86770,7 +86850,7 @@ MonoBehaviour:
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
-  m_ScreenY: 0.2
+  m_ScreenY: 0.4
   m_CameraDistance: 20
   m_DeadZoneWidth: 0.2
   m_DeadZoneHeight: 0.1
@@ -86779,7 +86859,7 @@ MonoBehaviour:
   m_SoftZoneWidth: 0.8
   m_SoftZoneHeight: 1.14
   m_BiasX: 0
-  m_BiasY: -0.0000000716402
+  m_BiasY: -0.00000005731216
   m_CenterOnActivate: 1
   m_GroupFramingMode: 2
   m_AdjustmentMode: 0
