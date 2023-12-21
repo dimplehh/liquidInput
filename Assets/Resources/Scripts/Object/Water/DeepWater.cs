@@ -12,6 +12,7 @@ public class DeepWater : Water
     GameObject deadZone;
     [SerializeField] int waterCount;
     [SerializeField] float yPos = 0.5f;
+    [SerializeField] int custumWaterWaste = 1;
     protected override void Init()
     {
         currentWaterReserves = 0;
@@ -41,9 +42,11 @@ public class DeepWater : Water
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             GameManager.instance.player.GetComponent<Rigidbody2D>().mass = 0.6f;//다시 플레이어 질량 원래대로 되돌림
+            if (currentWaterReserves <= 0)//남아있는 물이 0보다 작을 때
+                gameObject.SetActive(false);//깊은물 비활성화
         }
     }
 
@@ -74,8 +77,8 @@ public class DeepWater : Water
                         if (currentWaterReserves > 0)
                         {
                             SoundManager.instance.SfxPlaySound(5, transform.position);
-                            GameManager.instance.curWaterReserves += 1;
-                            currentWaterReserves--;
+                            GameManager.instance.curWaterReserves += custumWaterWaste;
+                            currentWaterReserves -= custumWaterWaste;
                             this.transform.position -= new Vector3(0, yPos, 0);
                             time = 0f;
                         }

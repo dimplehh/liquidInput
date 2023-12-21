@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class HungryNpc : Npc
 {
+    [SerializeField] int changeDistance = 7;
     public override void Awake()
     {
         base.Awake();
@@ -11,7 +12,7 @@ public class HungryNpc : Npc
         successGauge = 1;
         soundTime = initSoundTime;
         target = GameObject.FindWithTag("Player").gameObject.transform;
-        npcDistance = 7;
+        npcDistance = changeDistance;
         isInteraction = true;
     }
 
