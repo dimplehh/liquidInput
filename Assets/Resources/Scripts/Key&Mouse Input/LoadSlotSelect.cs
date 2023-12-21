@@ -26,7 +26,7 @@ public class LoadSlotSelect : MonoBehaviour
 
     public void GoGame()
     {
-        if (File.Exists(Managers.Data.path + "PlayerData0"))
+        if (File.Exists(Managers.Data.path + "PlayerData"+(Managers.Data.nowSlot).ToString()))
         {
             Debug.Log("nowslot: "+Managers.Data.nowSlot);
             Managers.Data.SlotLoadData(Managers.Data.nowSlot);

@@ -8,6 +8,7 @@ public class KeyboardSelect : MonoBehaviour
     [SerializeField] private GameObject[] selectButtonEvent; //선택 버튼별 오브젝트 
     [SerializeField] private GameObject? resumeButtonEvent; //인게임 제개 버튼 
     [SerializeField] private GameObject exitGamePanel;
+    [SerializeField] private GameObject startGamePanel;
     //위에 제외 나머지는 공용으로 사용할 수 있음  
     public int selectIndex = 0; //선택 번호
     public Text[] selectText; //선택 텍스트
@@ -26,9 +27,8 @@ public class KeyboardSelect : MonoBehaviour
     }
     private void SlotLoadKeyBoardClick()
     {
-        if (exitGamePanel != null)
-            if (exitGamePanel.activeSelf)
-                return; //게임 종료 확인 패턴 활성화 시 다른 동작 하지 못하도록 막기
+        //if (startGamePanel != null && startGamePanel.activeSelf) return; 
+        if (exitGamePanel != null && exitGamePanel.activeSelf) return;
         for(int i=1; i<4; i++) //게임시작 제외하고선 오브젝트가 활성화 되어있으면 그대로 리턴
         {
             if (selectButtonEvent[i].activeSelf)
@@ -76,9 +76,8 @@ public class KeyboardSelect : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if (exitGamePanel != null)
-                if (exitGamePanel.activeSelf)
-                    return; //게임 종료 확인 패턴 활성화 시 다른 동작 하지 못하도록 막기
+            //if (startGamePanel != null && startGamePanel.activeSelf) return;
+            if (exitGamePanel != null && exitGamePanel.activeSelf) return;
             if (!GameManager.instance)
             {
                 //인게임이 아닐때
@@ -105,7 +104,7 @@ public class KeyboardSelect : MonoBehaviour
         }
         if(selectIndex == 0)
         {
-            selectButtonEvent[0].GetComponentInParent<LoadSlotSelect>().NewGame();        
+            startGamePanel.SetActive(true);    
         }
         else if (selectIndex == 1)
         {

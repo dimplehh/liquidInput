@@ -415,6 +415,8 @@ MonoBehaviour:
   - {fileID: 7335554001781741086}
   - {fileID: 7335554001781741086}
   resumeButtonEvent: {fileID: 628323172}
+  exitGamePanel: {fileID: 0}
+  startGamePanel: {fileID: 0}
   selectIndex: 0
   selectText:
   - {fileID: 8109767127808919814}
@@ -1393,6 +1395,7 @@ MonoBehaviour:
   - {fileID: 6604550219474138728}
   - {fileID: 8407395865332847665}
   depthThirdPanel: []
+  exitPanel: {fileID: 0}
 --- !u!114 &7865243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3806,7 +3809,7 @@ PrefabInstance:
     - target: {fileID: 111074031, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
       propertyPath: loadSlotSelect
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 160058114}
     - target: {fileID: 315434383, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
       propertyPath: checkSaveSlot
       value: 
