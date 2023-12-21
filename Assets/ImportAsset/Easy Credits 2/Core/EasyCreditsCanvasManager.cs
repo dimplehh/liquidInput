@@ -31,16 +31,8 @@ namespace Onerat.EasyCredits
 
         private void Start() {
             this.transform.position = new Vector3(this.transform.position.x + (this.gameObject.GetComponent<EasyCreditsDataManager>().TextCentering * 10), this.transform.position.y, this.transform.position.z);
-            Managers.Input.keyaction -= OnKeyboard;
-            Managers.Input.keyaction += OnKeyboard;
-        }
-
-        void OnKeyboard()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                scrollSpeed = 2;
-            }
+            //Managers.Input.keyaction -= OnKeyboard;
+            //Managers.Input.keyaction += OnKeyboard;
         }
 
         private void Update() {
@@ -48,6 +40,15 @@ namespace Onerat.EasyCredits
             if (startDelay < 0) {
                 if (scroll) { panel.transform.Translate(transform.up * Time.deltaTime * scrollSpeed); }                  
             }
+            OnKeyboard();
+        }
+
+        void OnKeyboard()
+        {
+            if (Input.GetKeyUp(KeyCode.Space))
+                scrollSpeed = 1;
+            else if (Input.GetKeyDown(KeyCode.Space))
+                scrollSpeed = 2;
         }
 
         public void PlaceLogo(Sprite image, int scale)

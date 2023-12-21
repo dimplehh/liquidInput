@@ -19,7 +19,6 @@ public class InputManager
         if (keyaction != null)
         {
             keyaction.Invoke();
-
         }
     }
 }
