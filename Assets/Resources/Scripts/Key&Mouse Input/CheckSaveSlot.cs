@@ -20,14 +20,8 @@ public class CheckSaveSlot : MonoBehaviour
         set => isCreat = value;
     }
 
-    private void Start()
-    {
-        //if (LanguageManager.Instance.languageData != null)
-        //    lang = (LanguageManager.Instance.languageData.index == 0) ? "en" : "ko";
-    }
-
     
-    private void OnEnable()
+    void Start()
     {
         if (LanguageManager.Instance.languageData != null)
             lang = (LanguageManager.Instance.languageData.index == 0) ? "en" : "ko";
@@ -41,7 +35,6 @@ public class CheckSaveSlot : MonoBehaviour
             if (File.Exists(Managers.Data.path + "PlayerData" + i))
             {
                 saveFile[i] = true;
-                //Managers.Data.nowSlot = i;
                 var currentSlotData = Managers.Data.GetSlotPlayerData(i);
 
                 var aa = currentSlotData.currentStage + currentSlotData.saveDate + currentSlotData.playTime + currentSlotData.playerWaterReserves;
@@ -120,7 +113,9 @@ public class CheckSaveSlot : MonoBehaviour
 
             }
             else if (GameManager.instance && !GameManager.instance.isNonAutoSave) //메뉴창에서는 로드되게
+            {
                 Creat();
+            }
         }
         else //1. 저장된 데이터가 없을 때
         {
