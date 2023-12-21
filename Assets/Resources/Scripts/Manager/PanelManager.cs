@@ -8,6 +8,7 @@ public class PanelManager : MonoBehaviour
     [SerializeField] GameObject[] depthFirstPanel;
     [SerializeField] GameObject[] depthSecondPanel;
     [SerializeField] GameObject[] depthThirdPanel;
+    [SerializeField] GameObject exitPanel;
     void Update()
     {
         ESCEvent();
@@ -63,6 +64,10 @@ public class PanelManager : MonoBehaviour
                     GameManager.instance.PlayGame();
                     return;
                 }
+            }
+            if (exitPanel != null)
+            {
+                exitPanel.SetActive(true);
             }
         }
     }
