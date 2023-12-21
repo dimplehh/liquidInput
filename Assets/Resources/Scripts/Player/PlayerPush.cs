@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerPush : MonoBehaviour
 {
-    float distance = 10f;
+    float distance = 5f;
     public LayerMask boxMask;
     GameObject box;
     Player player;
@@ -52,7 +52,7 @@ public class PlayerPush : MonoBehaviour
             player.anim.SetBool("isPull", false);
         }
         else if (hit.collider != null && hit.collider.gameObject.layer == 12
-            && Mathf.Abs(hit.collider.gameObject.transform.position.x - this.gameObject.transform.position.x) <= 1.7f && Input.GetKey(KeyCode.X))
+            && Mathf.Abs(hit.collider.gameObject.transform.position.x - this.gameObject.transform.position.x) <= 1.4f && Input.GetKey(KeyCode.X))
         {
             box = hit.collider.gameObject;
             if(box != null && !player.isSlime)
