@@ -12,6 +12,7 @@ public class HomeScene : MonoBehaviour
     {
         SetVolume();
         SoundManager.instance.BgmPlaySound(0);
+        SoundManager.instance.SfxStopSound3();
         SetBackImage();
     }
 
