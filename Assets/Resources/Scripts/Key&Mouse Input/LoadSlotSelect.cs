@@ -30,7 +30,7 @@ public class LoadSlotSelect : MonoBehaviour
         {
             Debug.Log("nowslot: "+Managers.Data.nowSlot);
             Managers.Data.SlotLoadData(Managers.Data.nowSlot);
-            //Managers.Data.SlotSaveData(0);
+            Managers.Data.SlotSaveData(0);
             LoadingSceneController.Instance.LoadScene("GameScene" + (Managers.Data.stageData.stageChapter - 1).ToString());
         }
         else

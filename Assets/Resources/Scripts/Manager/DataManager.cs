@@ -85,26 +85,27 @@ public class DataManager : MonoBehaviour
         File.WriteAllText(path + "StageData" +index.ToString(), stageDataForm);
         nowSlot = index;
     }
-    //public void SlotSaveData(int index)
-    //{
-    //    #region PLAYERDATA
-    //    playerData.currentStage = stageData.stageChapter;
-    //    playerData.isFirst = false;
-    //    playerData.saveDate = DateTime.Now.ToString("yyyy MM dd");
-    //    #endregion
 
-    //    #region STAGEDATA
-    //    stageData = StageManager.instance.GetStageData(stageData.stageChapter);
-    //    #endregion
+    public void SlotSaveData(int index)
+    {
+        #region PLAYERDATA
+        playerData.currentStage = stageData.stageChapter;
+        playerData.isFirst = false;
+        playerData.saveDate = DateTime.Now.ToString("yyyy MM dd");
+        #endregion
 
-    //    string data = JsonUtility.ToJson(playerData);
-    //    string stageDataForm = JsonConvert.SerializeObject(stageData);
+        #region STAGEDATA
+        stageData = StageManager.instance.GetStageData(stageData.stageChapter);
+        #endregion
 
-    //    // File.WriteAllText(path + index.ToString(), data);
-    //    File.WriteAllText(path + "PlayerData" + index.ToString(), data);
-    //    File.WriteAllText(path + "StageData" + index.ToString(), stageDataForm);
-    //    nowSlot = index;
-    //}
+        string data = JsonUtility.ToJson(playerData);
+        string stageDataForm = JsonConvert.SerializeObject(stageData);
+
+        // File.WriteAllText(path + index.ToString(), data);
+        File.WriteAllText(path + "PlayerData" + index.ToString(), data);
+        File.WriteAllText(path + "StageData" + index.ToString(), stageDataForm);
+        nowSlot = index;
+    }
 
     public void SlotLoadData(int index)
     {
