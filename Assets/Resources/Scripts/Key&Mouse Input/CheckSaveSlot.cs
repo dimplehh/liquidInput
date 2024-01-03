@@ -21,7 +21,7 @@ public class CheckSaveSlot : MonoBehaviour
     }
 
     
-    void Start()
+    void OnEnable()
     {
         if (LanguageManager.Instance.languageData != null)
             lang = (LanguageManager.Instance.languageData.index == 0) ? "en" : "ko";
