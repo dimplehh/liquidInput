@@ -55,13 +55,51 @@ public class SoundVolumePanel : MonoBehaviour
                 SoundManager.instance.SfxPlaySound(2, transform.position);
             }
         }
-
+        else if(selectText.Length > 4) // 언어도 다룰 때
+        {
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                if (index >= 5)
+                {
+                    index = 5;
+                }
+                else if (index >= 3)
+                {
+                    SelectTextColorBase();
+                    index++;
+                    SelectTextColorChanged();
+                    SoundManager.instance.SfxPlaySound(2, transform.position);
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                if(index <= 3)
+                {
+                    index = 3;
+                }
+                if (index > 3)
+                {
+                    SelectTextColorBase();
+                    index--;
+                    SelectTextColorChanged();
+                    SoundManager.instance.SfxPlaySound(2, transform.position);
+                }
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if(index == 0)
+            if (index == 0)
             {
                 SoundManager.instance.SfxPlaySound(3, transform.position);
                 keySettingPanel.SetActive(true);
+            }
+            else if(index == 4)
+            {
+                LanguageManager.Instance.ChangeLanguage(0);
+            }
+            else if (index == 5)
+            {
+                LanguageManager.Instance.ChangeLanguage(1);
             }
         }
     }
