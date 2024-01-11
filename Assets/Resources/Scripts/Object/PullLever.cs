@@ -5,6 +5,7 @@ using UnityEngine;
 public class PullLever : MonoBehaviour
 {
     bool pushX = false;
+    [SerializeField] bool changeColliderX = false;
     [SerializeField]float endTime = 1.0f;
     [SerializeField]float startRotation = 0f;
     [SerializeField] GameObject ladder;
@@ -72,6 +73,7 @@ public class PullLever : MonoBehaviour
         {
             float t = elapsedTime / ladderEndTime;
             ladder.transform.rotation = Quaternion.Slerp(startRotationQuaternion, endRotationQuaternion, t);
+            if (changeColliderX == true) ladder.transform.GetComponent<PolygonCollider2D>().offset= new Vector2(0.6f, 0.29f);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
