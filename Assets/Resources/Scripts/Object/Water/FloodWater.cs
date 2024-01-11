@@ -26,10 +26,10 @@ public class FloodWater : Water
             var count = maxWaterReserves - currentWaterReserves;
             for (int i = 0; i < count; i++)
             {
-                insideWater.transform.localScale = Vector3.Lerp(insideWater.transform.localScale, insideWater.transform.localScale * 0.75f, 1.3f);
+                if (insideWater != null) insideWater.transform.localScale = Vector3.Lerp(insideWater.transform.localScale, insideWater.transform.localScale * 0.75f, 1.3f);
             }
         }
-        else
+        else if(insideWater != null)
         {
             insideWater.SetActive(false);
         }
@@ -48,9 +48,9 @@ public class FloodWater : Water
                         SoundManager.instance.SfxPlaySound(5, transform.position);
                         GameManager.instance.curWaterReserves += 1;
                         currentWaterReserves--;
-                        insideWater.transform.localScale = Vector3.Lerp(insideWater.transform.localScale, insideWater.transform.localScale * 0.75f, 1.3f);
+                        if (insideWater != null) insideWater.transform.localScale = Vector3.Lerp(insideWater.transform.localScale, insideWater.transform.localScale * 0.75f, 1.3f);
                     }
-                    else
+                    else if (insideWater != null)
                     {
                         insideWater.SetActive(false);
                     }
