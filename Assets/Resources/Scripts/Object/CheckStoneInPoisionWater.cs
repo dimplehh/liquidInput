@@ -16,7 +16,7 @@ public class CheckStoneInPoisionWater : MonoBehaviour
             count--;
             Debug.Log(count);
             collision.gameObject.SetActive(false);
-            if(count >= 1)
+            if(count > 0)
             {
                 seesawCollider.enabled = false;
                 seesawCollider.enabled = true;

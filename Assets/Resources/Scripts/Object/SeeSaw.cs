@@ -25,6 +25,11 @@ public class SeeSaw : MonoBehaviour
             isTriggered = false;
             stone.SetActive(false);
         }
+        if (collision.gameObject.layer == 24)
+        {
+            isTriggered = false;
+            StartCoroutine(ActivateAndDeactivateStone());
+        }
     }
 
 
