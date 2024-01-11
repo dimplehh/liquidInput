@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject loadPanel;
     [SerializeField] GameObject videoPanel;
     [Header("상태")]
+    private bool oneJump = false;
     public bool isGround = false;
     public bool isSlime = false;
     public bool canStepup = false;
@@ -175,6 +176,7 @@ public class Player : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump"))
             {
+                oneJump = true;
                 rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
                 SoundManager.instance.SfxPlaySound2(1, transform.position);
                 if (isSlime)
@@ -477,7 +479,7 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill")) && !isWater)
+        if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill")) && !isWater && oneJump == true)
         {
             Debug.Log("착지 이펙트 생성");
             GameManager.instance.effectsPool.Get(1, this.transform);
