@@ -140,8 +140,9 @@ public class Player : MonoBehaviour
     {
         if (!isWater)
         {
-            if(StageManager.instance.currentStageIndex == 3) SoundManager.instance.SfxPlaySound(13, transform.position);
-            else SoundManager.instance.SfxPlaySound(7, transform.position); //모래 이동 사운드
+            if (StageManager.instance.currentStageIndex == 1) SoundManager.instance.SfxPlaySound(7, transform.position); //모래 이동 사운드
+            if (StageManager.instance.currentStageIndex == 2) SoundManager.instance.SfxPlaySound(11, transform.position); //모래 이동 사운드
+            else if (StageManager.instance.currentStageIndex == 3) SoundManager.instance.SfxPlaySound(13, transform.position); //metal Sound
         }
         else if(Input.GetAxisRaw("Horizontal") != 0)
         {
@@ -480,8 +481,9 @@ public class Player : MonoBehaviour
         {
             Debug.Log("착지 이펙트 생성");
             GameManager.instance.effectsPool.Get(1, this.transform);
-            if (StageManager.instance.currentStageIndex == 3) SoundManager.instance.SfxPlaySound(14, transform.position);
-            else SoundManager.instance.SfxPlaySound(8, transform.position);
+            if (StageManager.instance.currentStageIndex == 1) SoundManager.instance.SfxPlaySound(8, transform.position);
+            else if (StageManager.instance.currentStageIndex == 2) SoundManager.instance.SfxPlaySound(12, transform.position);
+            else if (StageManager.instance.currentStageIndex == 3) SoundManager.instance.SfxPlaySound(14, transform.position);
         }
     }
      
