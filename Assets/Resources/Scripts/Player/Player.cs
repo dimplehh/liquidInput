@@ -481,7 +481,6 @@ public class Player : MonoBehaviour
     {
         if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Hill")) && !isWater && oneJump == true)
         {
-            Debug.Log("착지 이펙트 생성");
             GameManager.instance.effectsPool.Get(1, this.transform);
             if (StageManager.instance.currentStageIndex == 1) SoundManager.instance.SfxPlaySound(8, transform.position);
             else if (StageManager.instance.currentStageIndex == 2) SoundManager.instance.SfxPlaySound(12, transform.position);

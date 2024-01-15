@@ -77,16 +77,17 @@ public class StageManager : MonoBehaviour
         var waterData= Managers.Data.stageData.waterData;
         var npcData = Managers.Data.stageData.npcData;
         var saveZoneData = Managers.Data.stageData.saveZoneData;
-        Debug.Log(Managers.Data.stageData.stageChapter);
-        Debug.Log(StageManager.instance.currentStageIndex);
         if(waterList.Length > 0)
         {
             for (int i = 0; i < waterData.Count; i++)
             {
-                if (waterList[i].id == waterData[i].id)
+                for(int j = 0; j < waterList.Length; j++)
                 {
-                    waterList[i].currentWaterReserves = waterData[i].waterReserves;
-                    waterList[i].UpdateWater();
+                    if (waterList[j].id == waterData[i].id)
+                    {
+                        waterList[j].currentWaterReserves = waterData[i].waterReserves;
+                        waterList[j].UpdateWater();
+                    }
                 }
             }
         }
