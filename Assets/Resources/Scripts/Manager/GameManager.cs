@@ -88,7 +88,6 @@ public class GameManager : MonoBehaviour
         SoundManager.instance.BgmPlaySound(StageManager.instance.currentStageIndex);
         if (Managers.Data.playerData.isFirst == true)
         {
-            Debug.Log("처음임");
             StartCoroutine(CutScene());
             StartCoroutine(ShowChapterName(0, 1, 2));
         }

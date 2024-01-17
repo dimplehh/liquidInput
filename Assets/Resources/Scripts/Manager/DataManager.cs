@@ -86,7 +86,7 @@ public class DataManager : MonoBehaviour
         nowSlot = index;
     }
 
-    public void SlotSaveData(int index)
+    public void SlotSaveData(int index, StageData stageData)
     {
         #region PLAYERDATA
         playerData.currentStage = stageData.stageChapter;
@@ -94,14 +94,9 @@ public class DataManager : MonoBehaviour
         playerData.saveDate = DateTime.Now.ToString("yyyy MM dd");
         #endregion
 
-        #region STAGEDATA
-        stageData = StageManager.instance.GetStageData(stageData.stageChapter);
-        #endregion
-
         string data = JsonUtility.ToJson(playerData);
         string stageDataForm = JsonConvert.SerializeObject(stageData);
 
-        // File.WriteAllText(path + index.ToString(), data);
         File.WriteAllText(path + "PlayerData" + index.ToString(), data);
         File.WriteAllText(path + "StageData" + index.ToString(), stageDataForm);
         nowSlot = index;
@@ -109,7 +104,6 @@ public class DataManager : MonoBehaviour
 
     public void SlotLoadData(int index)
     {
-        Debug.Log(index);
         // string data = File.ReadAllText(path + index.ToString());
         string data = File.ReadAllText(path + "PlayerData" + index.ToString());
         string stageDataForm = File.ReadAllText(path + "StageData" + index.ToString());

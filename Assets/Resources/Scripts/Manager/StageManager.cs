@@ -96,10 +96,13 @@ public class StageManager : MonoBehaviour
         {
             for (int i = 0; i < npcData.Count; i++)
             {
-                if (npcList[i].id == npcData[i].id)
+                for (int j = 0; j < waterList.Length; j++)
                 {
-                    npcList[i].isInteraction = npcData[i].interaction;
-                    npcList[i].UpdateNpcData();
+                    if (npcList[j].id == npcData[i].id)
+                    {
+                        npcList[j].isInteraction = npcData[i].interaction;
+                        npcList[j].UpdateNpcData();
+                    }
                 }
             }
         }
@@ -108,15 +111,18 @@ public class StageManager : MonoBehaviour
         {
             for (int i = 0; i < saveZoneData.Count; i++)
             {
-                if (saveZoneList[i].id == saveZoneData[i].id)
+                for (int j = 0; j < saveZoneList.Length; j++)
                 {
-                    var isSave = saveZoneData[i].isSave;
-                    saveZoneList[i].isSave = isSave;
-                    if (isSave)
+                    if (saveZoneList[j].id == saveZoneData[i].id)
                     {
-                        saveZoneList[i].anim.enabled = false;
-                        saveZoneList[i].anim.SetBool("Active", isSave);
-                        saveZoneList[i].Save();
+                        var isSave = saveZoneData[i].isSave;
+                        saveZoneList[j].isSave = isSave;
+                        if (isSave)
+                        {
+                            saveZoneList[j].anim.enabled = false;
+                            saveZoneList[j].anim.SetBool("Active", isSave);
+                            saveZoneList[j].Save();
+                        }
                     }
                 }
             }

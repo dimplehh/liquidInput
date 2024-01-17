@@ -23,7 +23,6 @@ public class GameScene : BaseScene
     protected override void Init()
     {
         base.Init();
-        Debug.Log("여기 옴");
         //player = Managers.Game.Spawn("Player");
         if (stage != 1 && GameObject.FindWithTag("Stage").name == "BaseStage1")
         {

@@ -28,9 +28,9 @@ public class LoadSlotSelect : MonoBehaviour
     {
         if (File.Exists(Managers.Data.path + "PlayerData"+(Managers.Data.nowSlot).ToString()))
         {
-            Debug.Log("nowslot: "+Managers.Data.nowSlot);
             Managers.Data.SlotLoadData(Managers.Data.nowSlot);
-            //Managers.Data.SlotSaveData(0);
+            //Debug.Log("첫 번째 물 : " + Managers.Data.stageData.waterData.Find((x) => x.id == 0).waterReserves);
+            Managers.Data.SlotSaveData(0, Managers.Data.stageData);
             LoadingSceneController.Instance.LoadScene("GameScene" + (Managers.Data.stageData.stageChapter - 1).ToString());
         }
         else
