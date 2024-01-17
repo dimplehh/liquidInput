@@ -11175,7 +11175,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.1159954, y: 2.0079002}
+  m_Offset: {x: -1.0688286, y: 2.0079002}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -11186,7 +11186,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.712673, y: 14.0158}
+  m_Size: {x: 1.5169601, y: 14.0158}
   m_EdgeRadius: 0
 --- !u!1 &296283165 stripped
 GameObject:
@@ -23845,6 +23845,20 @@ PlayableDirector:
   m_SceneBindings: []
   m_ExposedReferences:
     m_References: []
+--- !u!114 &520230164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520230140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cbd65ace78523e47a9cc3f13b014961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 9
+  currentWaterReserves: 2
 --- !u!1 &520899126
 GameObject:
   m_ObjectHideFlags: 0
@@ -32731,7 +32745,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742850654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.3, y: 14.1, z: 0}
+  m_LocalPosition: {x: 93.6, y: 5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32752,10 +32766,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activatorTag: Player
   deactivateOnExit: 0
-  objectTurnOff: 0
+  objectTurnOff: 1
   objects:
   - {fileID: 1912221392}
-  turnOffObj: {fileID: 0}
+  turnOffObj: {fileID: 294427558}
   lightColorController: {fileID: 3374805839087232203}
   time: 0.75
 --- !u!61 &742850657
@@ -74483,7 +74497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9170781922196619643, guid: d8304d0ff1bbda1429b8d358630caea9, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.0781004
+      value: 3.6366758
       objectReference: {fileID: 0}
     - target: {fileID: 9170781922196619643, guid: d8304d0ff1bbda1429b8d358630caea9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -74491,7 +74505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9170781922196619643, guid: d8304d0ff1bbda1429b8d358630caea9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.785201
+      value: 9.7852
       objectReference: {fileID: 0}
     - target: {fileID: 9170781922196619643, guid: d8304d0ff1bbda1429b8d358630caea9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -74507,7 +74521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9170781922302680094, guid: d8304d0ff1bbda1429b8d358630caea9, type: 3}
       propertyPath: m_LocalScale.y
-      value: 8.371109
+      value: 14.649441
       objectReference: {fileID: 0}
     - target: {fileID: 9170781922302680094, guid: d8304d0ff1bbda1429b8d358630caea9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -74515,7 +74529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9170781922302680094, guid: d8304d0ff1bbda1429b8d358630caea9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.6
+      value: 4.2111
       objectReference: {fileID: 0}
     - target: {fileID: 9170781922302680094, guid: d8304d0ff1bbda1429b8d358630caea9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -107559,6 +107573,14 @@ PrefabInstance:
     - target: {fileID: 7293284109225901843, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293284109351748504, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 41.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293284109351748504, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.3
       objectReference: {fileID: 0}
     - target: {fileID: 7293284109351748506, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
       propertyPath: m_SortingLayer
