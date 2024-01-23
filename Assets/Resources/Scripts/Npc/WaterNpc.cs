@@ -25,6 +25,7 @@ public class WaterNpc : Npc
                 gameObject.GetComponent<SpriteRenderer>().flipX = false;
 
             anim.SetBool("IsSuccess", true);
+            SoundManager.instance.SfxPlaySound2(7, transform.position);
             GameManager.instance.successGauge += successGauge;
             GameManager.instance.effectsPool.Get(3, this.transform);
             isInteraction = false;
