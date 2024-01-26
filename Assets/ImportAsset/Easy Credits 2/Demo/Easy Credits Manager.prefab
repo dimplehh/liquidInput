@@ -48,42 +48,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fileName: Credits
   data:
-  - "Programming,Design,Art,Animation,Onerat Games\r"
-  - "Dylan J Walker,Dylan J Walker,Dylan J Walker,Dylan J Walker,\r"
-  - "Alison,Alison,Alison,Alison,\r"
-  - "Squeak,Doc,Emmett,Alan,\r"
-  - ',,Marty,,'
+  - Programming,Art,Game Design,Thanks to,GameMakers
+  - Hyunhee Lee,Uijin Jeong,Songhwa Choi,Siwon Choi,
+  - ',,,HyeongGeun Jeon,'
   startingPassComplete: 1
-  startDelay: 1
-  backgroundColor: {r: 0, g: 0, b: 0, a: 1}
+  startDelay: 0
+  backgroundColor: {r: 0.57087934, g: 0.6736716, b: 0.7169812, a: 1}
   scrollSpeed: 1
-  TextCentering: 0.15
+  TextCentering: 0.22
   TitleLogoCentering: -0.15
   KeepTitleCentered: 1
-  GameTitleImage: {fileID: 21300000, guid: f17954062dba9ef4f813b8fdb490ca2f, type: 3}
-  gameTitleScale: 15
+  GameTitleImage: {fileID: 21300000, guid: b0e0c2ad53bab8a47ae63d4a33d0ad46, type: 3}
+  gameTitleScale: 8
   GameTitle: 
   gameTitleFont: {fileID: 0}
-  GameTitleWordSpacing: 0
+  GameTitleWordSpacing: 1
   GameTitleCharacterSpacing: 0
-  GameTitleLineSpacing: 70
+  GameTitleLineSpacing: 34
   GameTitlefontSize: 22
   GameTitleColor: {r: 0.83091974, g: 0, b: 1, a: 1}
-  SectionLineSpacing: 20
+  SectionLineSpacing: 50
   roleFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   RoleWordSpacing: 0
   RoleCharacterSpacing: 63.2
   RoleLineSpacing: 10
   RolefontSize: 22
-  roleColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  roleColor: {r: 0, g: 0, b: 0, a: 1}
   titleFont: {fileID: 0}
   TitleWordSpacing: 22.7
-  TitleCharacterSpacing: 3.6
+  TitleCharacterSpacing: 58
   LegalFont: {fileID: 0}
   LegalWordSpacing: 0
   LegalCharacterSpacing: 32.8
-  LegalColor: {r: 1, g: 1, b: 1, a: 1}
-  LegalFontSize: 12
+  LegalColor: {r: 0, g: 0, b: 0, a: 1}
+  LegalFontSize: 14
   TitleLineSpacing: 5
   LegalLineSpacing: 0
   TitlefontSize: 18
@@ -93,7 +91,7 @@ MonoBehaviour:
   exitTime: 0
   SceneToExitTo: 0
   KeepLegalLineCentred: 1
-  LegalLine: Credits powered by Easy Credits
+  LegalLine: Made by SlimeMakers
   EnablePreview: 0
   PreviewScroll: 0
   OnCreditsStart:
@@ -106,19 +104,23 @@ MonoBehaviour:
   Inlays:
   - EasyCreditsInlays: {fileID: 11400000, guid: 23d3d3fedb87bd643a16f9c9953b193c, type: 2}
     Centering: -0.5
-    Spacing: 35
+    Spacing: 40
     Scale: 4
-  - EasyCreditsInlays: {fileID: 11400000, guid: bef2e93d43ce20447879fa06d7862252, type: 2}
+  - EasyCreditsInlays: {fileID: 11400000, guid: d00c5b384436429419a5b49680124d19, type: 2}
     Centering: -0.5
-    Spacing: 35
+    Spacing: 40
     Scale: 4
   - EasyCreditsInlays: {fileID: 11400000, guid: ccea7fd4a3a59c04d886c78154d1e7b6, type: 2}
     Centering: -0.5
-    Spacing: 35
+    Spacing: 40
     Scale: 4
   - EasyCreditsInlays: {fileID: 11400000, guid: 065976f7425d24749a93713bcbe56148, type: 2}
     Centering: -0.5
-    Spacing: 35
+    Spacing: 40
+    Scale: 4
+  - EasyCreditsInlays: {fileID: 11400000, guid: c585f577ca8d66c40b0bc2dded06c164, type: 2}
+    Centering: -0.5
+    Spacing: 40
     Scale: 4
   StationaryInlays:
   - EasyCreditsInlays: {fileID: 11400000, guid: 23d3d3fedb87bd643a16f9c9953b193c, type: 2}
@@ -137,12 +139,13 @@ MonoBehaviour:
   roleAnchor: 516
   titleAnchor: 513
   legalAnchor: 258
-  DataFormat: 0
+  DataFormat: 1
   SectionElements:
   - SectionElement: {fileID: 11400000, guid: d604b921b9b64a54d8e5e5aab416fa78, type: 2}
   - SectionElement: {fileID: 11400000, guid: 5d1d0be82a94e7540a9eff1dea12f275, type: 2}
   - SectionElement: {fileID: 11400000, guid: 4b62d25f9a3af4549b5996e8cbb2025a, type: 2}
   - SectionElement: {fileID: 11400000, guid: 26b500196192a5c42b5d9d5d31accffb, type: 2}
+  - SectionElement: {fileID: 11400000, guid: 792b375d46e3f0540acc8d5ea0cbbd63, type: 2}
   - SectionElement: {fileID: 11400000, guid: ab497f2b84c65574ab9915a1484d7cce, type: 2}
   scroll: 1
   AdvancedOptions: 0
