@@ -48,7 +48,7 @@ namespace Onerat.EasyCredits
             if (Input.GetKeyUp(KeyCode.Space))
                 scrollSpeed = 1;
             else if (Input.GetKeyDown(KeyCode.Space))
-                scrollSpeed = 2;
+                scrollSpeed = 3;
         }
 
         public void PlaceLogo(Sprite image, int scale)

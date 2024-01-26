@@ -48,43 +48,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fileName: Credits
   data:
-  - Programming,Art,Game Design,Thanks to,GameMakers
-  - Hyunhee Lee,Uijin Jeong,Songhwa Choi,Siwon Choi,
-  - ',,,HyeongGeun Jeon,'
+  - Programming,Art,Game Design,Thanks to,BGM,       ,       ,       ,GameMakers
+  - Hyunhee Lee,Euijin Jeong,Songhwa Choi,Siwon Choi, Tired Of Life,Labyrinth Of
+    Lost Dreams,Crystal Caverns,Purple Dream,
+  - ",,,HyeongGeun Jeon,Meyd\xE4n,Darren Curtis,Darren Curtis,Ghostrifter Official,"
+  - ",,,,\u266B,\u266B,\u266B,\u266B,"
+  - ",,,,Come Play With Me,Lightless Dawn,Come Out And Play,Don\u2019t Forget Me,"
+  - ",,,, Kevin MacLeod,Kevin MacLeod,Darren Curtis,Spheri\xE1,"
+  - ",,,,,,,\u266B,"
+  - ',,,,,,,And So It Begins,'
+  - ',,,,,,,Artificial.Music,'
   startingPassComplete: 1
   startDelay: 0
   backgroundColor: {r: 0.57087934, g: 0.6736716, b: 0.7169812, a: 1}
   scrollSpeed: 1
-  TextCentering: 0.22
+  TextCentering: 0
   TitleLogoCentering: -0.15
   KeepTitleCentered: 1
   GameTitleImage: {fileID: 21300000, guid: b0e0c2ad53bab8a47ae63d4a33d0ad46, type: 3}
   gameTitleScale: 8
   GameTitle: 
   gameTitleFont: {fileID: 0}
-  GameTitleWordSpacing: 1
+  GameTitleWordSpacing: 0
   GameTitleCharacterSpacing: 0
-  GameTitleLineSpacing: 34
-  GameTitlefontSize: 22
+  GameTitleLineSpacing: 38
+  GameTitlefontSize: 20
   GameTitleColor: {r: 0.83091974, g: 0, b: 1, a: 1}
-  SectionLineSpacing: 50
+  SectionLineSpacing: 29
   roleFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  RoleWordSpacing: 0
-  RoleCharacterSpacing: 63.2
-  RoleLineSpacing: 10
+  RoleWordSpacing: 24
+  RoleCharacterSpacing: 28
+  RoleLineSpacing: 16
   RolefontSize: 22
   roleColor: {r: 0, g: 0, b: 0, a: 1}
   titleFont: {fileID: 0}
-  TitleWordSpacing: 22.7
-  TitleCharacterSpacing: 58
+  TitleWordSpacing: 68
+  TitleCharacterSpacing: 23
   LegalFont: {fileID: 0}
   LegalWordSpacing: 0
   LegalCharacterSpacing: 32.8
   LegalColor: {r: 0, g: 0, b: 0, a: 1}
   LegalFontSize: 14
-  TitleLineSpacing: 5
+  TitleLineSpacing: 9
   LegalLineSpacing: 0
-  TitlefontSize: 18
+  TitlefontSize: 19
   titleColor: {r: 1, g: 1, b: 1, a: 1}
   startPointOffset: 0
   ExitToSceneOnEnd: 1
@@ -103,25 +110,37 @@ MonoBehaviour:
   inlayType: 1
   Inlays:
   - EasyCreditsInlays: {fileID: 11400000, guid: 23d3d3fedb87bd643a16f9c9953b193c, type: 2}
-    Centering: -0.5
-    Spacing: 40
+    Centering: 0
+    Spacing: 35
     Scale: 4
   - EasyCreditsInlays: {fileID: 11400000, guid: d00c5b384436429419a5b49680124d19, type: 2}
-    Centering: -0.5
-    Spacing: 40
+    Centering: 0
+    Spacing: 35
     Scale: 4
   - EasyCreditsInlays: {fileID: 11400000, guid: ccea7fd4a3a59c04d886c78154d1e7b6, type: 2}
-    Centering: -0.5
-    Spacing: 40
+    Centering: 0
+    Spacing: 35
     Scale: 4
   - EasyCreditsInlays: {fileID: 11400000, guid: 065976f7425d24749a93713bcbe56148, type: 2}
-    Centering: -0.5
-    Spacing: 40
+    Centering: 0
+    Spacing: 35
     Scale: 4
   - EasyCreditsInlays: {fileID: 11400000, guid: c585f577ca8d66c40b0bc2dded06c164, type: 2}
     Centering: -0.5
-    Spacing: 40
+    Spacing: 35
     Scale: 4
+  - EasyCreditsInlays: {fileID: 11400000, guid: 607016531bd62b54bace62e40ef719ac, type: 2}
+    Centering: 0.5
+    Spacing: 35
+    Scale: 4
+  - EasyCreditsInlays: {fileID: 11400000, guid: 1864cd3a453488d4284db67f361939fd, type: 2}
+    Centering: -0.5
+    Spacing: 35
+    Scale: 4
+  - EasyCreditsInlays: {fileID: 11400000, guid: ed1fa67f57b3d0042b2e84c08b68971f, type: 2}
+    Centering: 0
+    Spacing: 35
+    Scale: 2
   StationaryInlays:
   - EasyCreditsInlays: {fileID: 11400000, guid: 23d3d3fedb87bd643a16f9c9953b193c, type: 2}
     StartTime: 7
@@ -132,12 +151,12 @@ MonoBehaviour:
     EndTime: 16
     Scale: 0.5
   cinematicRoleCentering: -59
-  creditType: 1
+  creditType: 0
   InlayPostionLeftRight: 0.7
   InlayPostionUpDown: 0.5
   gameTitleAnchor: 514
-  roleAnchor: 516
-  titleAnchor: 513
+  roleAnchor: 514
+  titleAnchor: 514
   legalAnchor: 258
   DataFormat: 1
   SectionElements:
@@ -145,7 +164,10 @@ MonoBehaviour:
   - SectionElement: {fileID: 11400000, guid: 5d1d0be82a94e7540a9eff1dea12f275, type: 2}
   - SectionElement: {fileID: 11400000, guid: 4b62d25f9a3af4549b5996e8cbb2025a, type: 2}
   - SectionElement: {fileID: 11400000, guid: 26b500196192a5c42b5d9d5d31accffb, type: 2}
+  - SectionElement: {fileID: 11400000, guid: c6b8c57812bcc72498af7c4924552e71, type: 2}
+  - SectionElement: {fileID: 11400000, guid: 71413ab5b4518b543a86a23790a34774, type: 2}
   - SectionElement: {fileID: 11400000, guid: 792b375d46e3f0540acc8d5ea0cbbd63, type: 2}
+  - SectionElement: {fileID: 11400000, guid: bd058e8a5e802f04da407f2fc4209600, type: 2}
   - SectionElement: {fileID: 11400000, guid: ab497f2b84c65574ab9915a1484d7cce, type: 2}
   scroll: 1
   AdvancedOptions: 0
@@ -179,8 +201,8 @@ MonoBehaviour:
   DistanceToMove: 0
   panel: {fileID: 0}
   canvasObj: {fileID: 0}
-  startDelay: 1
-  backgroundColor: {r: 0, g: 0, b: 0, a: 1}
+  startDelay: 0
+  backgroundColor: {r: 0.57087934, g: 0.6736716, b: 0.7169812, a: 1}
   scrollSpeed: 1
   scroll: 1
   offset: 0
