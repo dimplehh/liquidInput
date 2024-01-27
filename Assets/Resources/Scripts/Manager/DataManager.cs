@@ -16,7 +16,7 @@ public class PlayerData
     public float goodGauge; //선행게이지
     public float playTime = 0; //플레이 시간
     public string saveDate = ""; //저장날짜
-
+    public int deathCount = 0;
     public bool isFirst = true; //새로시작하면 컷신 나오게
 }
 
@@ -51,13 +51,14 @@ public class DataManager : MonoBehaviour
         
     }
     //슬롯 별 저장 / 불러오기
-    public void SlotSaveData(int index, GameObject pos, int stage, int curWater, float playTime)
+    public void SlotSaveData(int index, GameObject pos, int stage, int curWater, float playTime, int deathCount)
     {
         #region PLAYERDATA
         playerData.playerXPos = pos.transform.position.x;
         playerData.playerYPos = pos.transform.position.y;
         playerData.currentStage = stage;
         playerData.goodGauge = GameManager.instance.successGauge;
+        playerData.deathCount = deathCount;
         if (curWater <= 0) //저장된 물 갯수가 0보다 작으면 1으로 초기화
         {
             playerData.playerWaterReserves = 1;
@@ -100,6 +101,17 @@ public class DataManager : MonoBehaviour
         File.WriteAllText(path + "PlayerData" + index.ToString(), data);
         File.WriteAllText(path + "StageData" + index.ToString(), stageDataForm);
         nowSlot = index;
+    }
+
+    public void SlotSaveData()
+    {
+        #region PLAYERDATA
+        playerData.deathCount++;
+        #endregion
+
+        string data = JsonUtility.ToJson(playerData);
+
+        File.WriteAllText(path + "PlayerData0", data);
     }
 
     public void SlotLoadData(int index)
@@ -153,6 +165,7 @@ public class DataManager : MonoBehaviour
         playerData.playerYPos = 0f; //첫 시작 위치
         playerData.playTime = 0; //플레이 타임
         playerData.saveDate = "";
+        playerData.deathCount = 0;
         playerData.isFirst = true;
         //저장할것들....추가하면 됨
         string data = JsonUtility.ToJson(playerData);
@@ -169,6 +182,7 @@ public class DataManager : MonoBehaviour
     {
         playerData.playerWaterReserves = curWater; //물보유량
         playerData.goodGauge = GameManager.instance.successGauge;
+        //playerData.deathCount = 
 
         //스테이지 클리어 후 초기화 시켜서 저장해야 할 것들
         playerData.playerXPos = -20f; //첫 시작 위치

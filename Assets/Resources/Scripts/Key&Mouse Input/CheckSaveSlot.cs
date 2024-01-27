@@ -139,7 +139,7 @@ public class CheckSaveSlot : MonoBehaviour
     public void Save(int slotIndex)
     {
         GameObject player = GameObject.FindWithTag("Player");
-        Managers.Data.SlotSaveData(slotIndex, player.gameObject, StageManager.instance.currentStageIndex, GameManager.instance.curWaterReserves, GameManager.instance.playTime);
+        Managers.Data.SlotSaveData(slotIndex, player.gameObject, StageManager.instance.currentStageIndex, GameManager.instance.curWaterReserves, GameManager.instance.playTime, GameManager.instance.deathCount);
         Debug.Log(slotIndex + "수동 세이브");
         SlotSaveFileCheck(); //다시 정보 체크
     }

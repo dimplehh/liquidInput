@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
 
 
     public float successGauge = 0;
+    public int deathCount = 0;
 
     public float playTime = 0;
 
@@ -184,6 +185,7 @@ public class GameManager : MonoBehaviour
             player.transform.position = new Vector3(Managers.Data.playerData.playerXPos, Managers.Data.playerData.playerYPos, 0);
             curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
             successGauge = (int)Managers.Data.playerData.goodGauge;
+            deathCount = (int)Managers.Data.playerData.deathCount;
         }
         else //홈씬말고 게임씬에서 플레이 시작하는 경우 - 모두 기본 값, 기본 위치로 시작
         {
@@ -239,8 +241,8 @@ public class GameManager : MonoBehaviour
             SoundManager.instance.SfxPlaySound(1, transform.position);
             gameOver = true;
             yield return new WaitForSecondsRealtime(3.0f);
+            Managers.Data.SlotSaveData();
             Managers.Data.SlotLoadData(0);
-            // LoadingSceneController.Instance.LoadScene("GameScene0");
             LoadingSceneController.Instance.LoadScene("GameScene" + (Managers.Data.stageData.stageChapter - 1).ToString());
         }
         yield return null;

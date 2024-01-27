@@ -19,9 +19,19 @@ public class SteamIntegration : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown("a"))
+        switch (GameManager.instance.deathCount)
         {
-            SteamUserStats.SetAchievement("Test1");
+            case 10:
+                SteamUserStats.SetAchievement("Repechage");
+                break;
+            case 50:
+                SteamUserStats.SetAchievement("Unbroken_Heart");
+                break;
+            case 100:
+                SteamUserStats.SetAchievement("Liquid_Never_Die");
+                break;
+            default:
+                break;
         }
     }
 }

@@ -66,7 +66,8 @@ public class SaveZone : Zone
     }
     public void AutoSave(GameObject other)
     {
-        Managers.Data.SlotSaveData(0, other, StageManager.instance.currentStageIndex ,GameManager.instance.curWaterReserves, GameManager.instance.playTime);
+        Debug.Log("DeathCount : " + GameManager.instance.deathCount); 
+        Managers.Data.SlotSaveData(0, other, StageManager.instance.currentStageIndex ,GameManager.instance.curWaterReserves, GameManager.instance.playTime, GameManager.instance.deathCount);
         Debug.Log(0 + "자동 세이브");
     }
     
