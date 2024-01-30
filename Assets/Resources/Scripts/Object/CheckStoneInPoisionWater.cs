@@ -4,19 +4,9 @@ using UnityEngine;
 
 public class CheckStoneInPoisionWater : MonoBehaviour
 {
-    [SerializeField] float yPos;
+    [SerializeField] public float yPos;
     [SerializeField] BoxCollider2D seesawCollider;
-    int count = 2;
-
-    private void Start()
-    {
-        if (Managers.Data.stageData.stageChapter == 2)
-        {
-            int waterReserves = Managers.Data.stageData.waterData.Find((x) => x.id == 9).waterReserves;
-            this.gameObject.transform.position += new Vector3(0, yPos * (2 - waterReserves), 0);
-            count = waterReserves;
-        }
-    }
+    public int count = 2;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public bool gameOver = false;
     [SerializeField] private GameObject gridGroup;
     [SerializeField] TextMeshProUGUI chapterName;
+    [SerializeField] GameObject poisonWater;
     //------------------------------------------------------
     [SerializeField]
     public GameObject waterParticle;
@@ -99,8 +100,8 @@ public class GameManager : MonoBehaviour
         
         StageManager.instance.FindStageObjects();
         Initialized();
-        //CreateGrid(); 
         setWaterSlider();
+        SetPoisonWaterHeight();
     }
     private IEnumerator CutScene()
     {
@@ -151,6 +152,21 @@ public class GameManager : MonoBehaviour
     {
         curWaterReservesImage.rectTransform.localPosition = new Vector2(0, firstWater + waterFull * curWaterReserves / maxWaterReserves);
     }
+
+    private void SetPoisonWaterHeight()
+    {
+        if (Managers.Data.stageData.stageChapter == 2)
+        {
+            if(poisonWater != null)
+            {
+                CheckStoneInPoisionWater checkStoneInPoisionWater = poisonWater.GetComponent<CheckStoneInPoisionWater>();
+                int waterReserves = Managers.Data.stageData.waterData.Find((x) => x.id == 9).waterReserves;
+                this.gameObject.transform.position += new Vector3(0, checkStoneInPoisionWater.yPos * (2 - waterReserves), 0);
+                checkStoneInPoisionWater.count = waterReserves;
+            }
+        }
+    }
+
     public void CreateGrid()
     {
         gridPosition = new Vector3[_row, _column];

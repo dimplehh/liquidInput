@@ -23890,6 +23890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yPos: 0.9
   seesawCollider: {fileID: 688682203}
+  count: 2
 --- !u!320 &520230157
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -76380,6 +76381,10 @@ PrefabInstance:
       propertyPath: effectsPool
       value: 
       objectReference: {fileID: 1413164616}
+    - target: {fileID: 8154362454662616442, guid: 4af70035d6e39f540ab8e9f2d560eef9, type: 3}
+      propertyPath: poisonWater
+      value: 
+      objectReference: {fileID: 520230140}
     - target: {fileID: 8154362454662616442, guid: 4af70035d6e39f540ab8e9f2d560eef9, type: 3}
       propertyPath: waterSlider
       value: 
