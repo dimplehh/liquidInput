@@ -173,8 +173,8 @@ public class DataManager : MonoBehaviour
     }
     public void DefaultLoadData()
     {
-        string defaultData = File.ReadAllText(path + "DefaultPlayerData");
-        playerData = JsonUtility.FromJson<PlayerData>(defaultData);
+        string defaultPlayerData = File.ReadAllText(path + "DefaultPlayerData");
+        playerData = JsonUtility.FromJson<PlayerData>(defaultPlayerData);
     }
 
     //챕터별 저장 / 불러오기

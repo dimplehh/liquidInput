@@ -34,7 +34,7 @@ public class SaveZone : Zone
             isSave = true;
             anim.enabled = true;
             anim.SetBool("Active",true);
-            SoundManager.instance.SfxPlaySound(6, transform.position);
+            if(id != 99)SoundManager.instance.SfxPlaySound(6, transform.position);
             StageManager.instance.UpdateSave(this);
             AutoSave(other.gameObject);
             GameManager.instance.checkSaveSlot.SlotSaveFileCheck();
@@ -66,9 +66,7 @@ public class SaveZone : Zone
     }
     public void AutoSave(GameObject other)
     {
-        Debug.Log("DeathCount : " + GameManager.instance.deathCount); 
         Managers.Data.SlotSaveData(0, other, StageManager.instance.currentStageIndex ,GameManager.instance.curWaterReserves, GameManager.instance.playTime, GameManager.instance.deathCount);
-        Debug.Log(0 + "자동 세이브");
     }
     
     private void OnTriggerExit2D(Collider2D other)
@@ -76,7 +74,6 @@ public class SaveZone : Zone
         if (other.gameObject.CompareTag("SaveZone"))
         {
             GameManager.instance.isNonAutoSave = false; 
-            Debug.Log("player가 SaveZone에서 나갔습니다.");
         }
     }
 }

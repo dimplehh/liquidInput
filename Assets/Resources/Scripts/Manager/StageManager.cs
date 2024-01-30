@@ -96,7 +96,7 @@ public class StageManager : MonoBehaviour
         {
             for (int i = 0; i < npcData.Count; i++)
             {
-                for (int j = 0; j < waterList.Length; j++)
+                for (int j = 0; j < npcList.Length; j++)
                 {
                     if (npcList[j].id == npcData[i].id)
                     {

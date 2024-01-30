@@ -29,7 +29,6 @@ public class LoadSlotSelect : MonoBehaviour
         if (File.Exists(Managers.Data.path + "PlayerData"+(Managers.Data.nowSlot).ToString()))
         {
             Managers.Data.SlotLoadData(Managers.Data.nowSlot);
-            //Debug.Log("첫 번째 물 : " + Managers.Data.stageData.waterData.Find((x) => x.id == 0).waterReserves);
             Managers.Data.SlotSaveData(0, Managers.Data.stageData);
             LoadingSceneController.Instance.LoadScene("GameScene" + (Managers.Data.stageData.stageChapter - 1).ToString());
         }
@@ -80,12 +79,10 @@ public class LoadSlotSelect : MonoBehaviour
     void CheckOver(UnityEngine.Video.VideoPlayer vp) //이벤트핸들러
     {
         LoadingSceneController.Instance.LoadScene("GameScene0");
-        Debug.Log("데이터가 없으니 새로 시작");
     }
 
     public void SkipVideo()
     {
         LoadingSceneController.Instance.LoadScene("GameScene0");
-        Debug.Log("데이터가 없으니 새로 시작");
     }
 }
