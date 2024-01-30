@@ -94,8 +94,6 @@ public class CheckSaveSlot : MonoBehaviour
     public void Slot(int num)
     {
         Managers.Data.nowSlot = num;
-
-        Debug.Log(num + "으로 이동");
         //1. 저장된 데이터가 있을 때
         if (saveFile[num])
         {
@@ -140,7 +138,6 @@ public class CheckSaveSlot : MonoBehaviour
     {
         GameObject player = GameObject.FindWithTag("Player");
         Managers.Data.SlotSaveData(slotIndex, player.gameObject, StageManager.instance.currentStageIndex, GameManager.instance.curWaterReserves, GameManager.instance.playTime, GameManager.instance.deathCount);
-        Debug.Log(slotIndex + "수동 세이브");
         SlotSaveFileCheck(); //다시 정보 체크
     }
     public void Creat()

@@ -16,7 +16,6 @@ public class ReSelectGoButton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            Debug.Log("¿©±â µé¿È");
             loadSlotSelect.GoGame();
         }
     }
