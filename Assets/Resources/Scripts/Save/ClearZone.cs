@@ -11,7 +11,8 @@ public class ClearZone : Zone
     [SerializeField] GameObject videoPanelParent;
     [SerializeField] List<GameObject> videoPanels;
     [SerializeField] GameObject panelGroup; //esc키 안 먹히도록
-    private bool oneAct = false;
+    public bool oneAct = false;
+    public int endingIndex = 0;
     protected override void Start()
     {
         isClear = false;
@@ -88,7 +89,6 @@ public class ClearZone : Zone
                     }
                 }
                 oneAct = true;
-
             }
         }
     }
@@ -112,8 +112,8 @@ public class ClearZone : Zone
         if(StageManager.instance.currentStageIndex == 4) //진, 히든 엔딩은 마지막 크레딧 씬으로 넘어가도록 코드 짜기
         {
             NewGame();
-            int endingIndex = EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves);
-            if (endingIndex < 2) //배드, 노말엔딩
+            endingIndex = EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves);
+            if (endingIndex <= 1) //배드, 노말엔딩
                 LoadingSceneController.Instance.LoadScene("HomeScene");
             else if (endingIndex == 2) //진엔딩
                 LoadingSceneController.Instance.LoadScene("CreditScene");

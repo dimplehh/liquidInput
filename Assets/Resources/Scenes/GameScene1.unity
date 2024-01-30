@@ -3434,6 +3434,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2ab223877ab76a4086333b86474cfd5, type: 3}
+--- !u!1 &85779414 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1058331005393391794, guid: f2ab223877ab76a4086333b86474cfd5, type: 3}
+  m_PrefabInstance: {fileID: 85779413}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &88505757 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4473551319339406, guid: 1872f9d9dd44e774595466b4ad6f715f, type: 3}
@@ -35725,7 +35730,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807694899}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 264.8, y: -0.4999981, z: 15}
+  m_LocalPosition: {x: 260.5, y: 2.8, z: 15}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90329,6 +90334,56 @@ Transform:
   m_Father: {fileID: 1075003555}
   m_RootOrder: 198
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1878102954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1878102956}
+  - component: {fileID: 1878102955}
+  m_Layer: 0
+  m_Name: Steam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1878102955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878102954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ef4be8ff2bcb4468bb9c41d3f2bae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GameID:
+    m_GameID: 2770300
+  appID:
+    m_AppId: 2770300
+  firstObstacle: {fileID: 0}
+  clearZone: {fileID: 85779414}
+--- !u!4 &1878102956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878102954}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 242.32152, y: -3.7517815, z: -0.75964224}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1880027526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103473,7 +103528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 212938201292338988, guid: 7e91cf4917d70b3438174ee2c7515a22, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 212938201292338988, guid: 7e91cf4917d70b3438174ee2c7515a22, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -105306,8 +105361,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2529993512762744433, guid: 5ac95aad677b969438a81e9e687b9952, type: 3}
       propertyPath: m_Name
-      value: Steam
+      value: SteamManager
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: clearZone
+      value: 
+      objectReference: {fileID: 85779414}
     - target: {fileID: 2529993512762744439, guid: 5ac95aad677b969438a81e9e687b9952, type: 3}
       propertyPath: m_RootOrder
       value: 15

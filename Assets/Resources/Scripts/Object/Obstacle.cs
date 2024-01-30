@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    private bool isTriggerEnter = false;
+    [SerializeField]private int obstacleNum = 0;
+    public bool isTriggerEnter = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "SaveZone")
@@ -13,10 +14,10 @@ public class Obstacle : MonoBehaviour
             {
                 if(!isTriggerEnter)
                 {
+                    isTriggerEnter = true;
                     GameManager.instance.player.GetComponent<Player>().anim.Play("Die");
                     GameManager.instance.OpenGameOver();
                     GameManager.instance.isPlay = false;
-                    isTriggerEnter = true;
                 }
             }
         }

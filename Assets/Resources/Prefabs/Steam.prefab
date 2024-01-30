@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2529993512762744439}
   - component: {fileID: 2529993512762744436}
-  - component: {fileID: 2529993512762744438}
   m_Layer: 0
   m_Name: Steam
   m_TagString: Untagged
@@ -45,19 +44,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4bffeda13d7a748973ff9204401c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2529993512762744438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2529993512762744433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55ef4be8ff2bcb4468bb9c41d3f2bae6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_GameID:
-    m_GameID: 2770300
-  appID:
-    m_AppId: 2770300
