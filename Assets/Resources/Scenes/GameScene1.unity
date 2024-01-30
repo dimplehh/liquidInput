@@ -3608,7 +3608,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 101909850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.7, y: 3, z: 0}
+  m_LocalPosition: {x: 37.92, y: 2.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16262,7 +16262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 361066581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.7, y: -6.6, z: 0}
+  m_LocalPosition: {x: 36.64, y: -6.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28337,6 +28337,7 @@ MonoBehaviour:
   currentWaterReserves: 0
   insideWater: {fileID: 1408260533}
   waterCount: 3
+  getWater: 0
 --- !u!1 &643195888
 GameObject:
   m_ObjectHideFlags: 0
@@ -33514,6 +33515,7 @@ MonoBehaviour:
   currentWaterReserves: 0
   insideWater: {fileID: 1277757026}
   waterCount: 4
+  getWater: 0
 --- !u!4 &759197081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4049150327833154, guid: 3e7b50fda3f921548b41bb1e5178bad7, type: 3}
@@ -41327,6 +41329,16 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4368096361441972, guid: 3690c642ddda22d439f918ce17e41615, type: 3}
   m_PrefabInstance: {fileID: 908487329}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &908950891 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3081195121630618818, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
+  m_PrefabInstance: {fileID: 3081195121999439216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &908950892 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1061876472911334200, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
+  m_PrefabInstance: {fileID: 3081195121999439216}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &909688018
 GameObject:
@@ -88765,6 +88777,7 @@ MonoBehaviour:
   currentWaterReserves: 0
   insideWater: {fileID: 155843992}
   waterCount: 3
+  getWater: 0
 --- !u!1001 &1834376305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90369,6 +90382,10 @@ MonoBehaviour:
     m_AppId: 2770300
   firstObstacle: {fileID: 0}
   clearZone: {fileID: 85779414}
+  hiddenWater:
+  - {fileID: 908950892}
+  - {fileID: 908950891}
+  - {fileID: 1834244037}
 --- !u!4 &1878102956
 Transform:
   m_ObjectHideFlags: 0
@@ -91989,7 +92006,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912880908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.39, y: 1.64305, z: -12.3}
+  m_LocalPosition: {x: -14.44, y: 0.06, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -98671,7 +98688,7 @@ MonoBehaviour:
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
-  m_ScreenY: 0.65
+  m_ScreenY: 0.5
   m_CameraDistance: 15
   m_DeadZoneWidth: 0.2
   m_DeadZoneHeight: 0.1
@@ -105363,10 +105380,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SteamManager
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: clearZone
-      value: 
-      objectReference: {fileID: 85779414}
     - target: {fileID: 2529993512762744439, guid: 5ac95aad677b969438a81e9e687b9952, type: 3}
       propertyPath: m_RootOrder
       value: 15

@@ -7,6 +7,7 @@ public class FloodWater : Water
     [SerializeField]
     GameObject insideWater;
     [SerializeField] int waterCount;
+    public bool getWater = false;
     protected override void Init()
     {
         currentWaterReserves = 0;
@@ -48,6 +49,7 @@ public class FloodWater : Water
                         SoundManager.instance.SfxPlaySound(5, transform.position);
                         GameManager.instance.curWaterReserves += 1;
                         currentWaterReserves--;
+                        getWater = true;
                         if (insideWater != null) insideWater.transform.localScale = Vector3.Lerp(insideWater.transform.localScale, insideWater.transform.localScale * 0.75f, 1.3f);
                     }
                     else if (insideWater != null)

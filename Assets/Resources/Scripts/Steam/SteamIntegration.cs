@@ -12,6 +12,7 @@ public class SteamIntegration : MonoBehaviour
     [Header("Utils")]
     [SerializeField] GameObject firstObstacle;
     [SerializeField] GameObject clearZone;
+    [SerializeField] GameObject[] hiddenWater;
 
     private void Start()
     {
@@ -37,7 +38,16 @@ public class SteamIntegration : MonoBehaviour
             default:
                 break;
         }
-        if(firstObstacle != null) //Are You Serious?
+        if(hiddenWater[0] != null && hiddenWater[1] != null && hiddenWater[2] != null)
+        {
+            if (hiddenWater[0].GetComponent<ShallowWater>().getWater == true)
+                GetAndSetAchievemt("Water_here_Too");
+            if (hiddenWater[1].GetComponent<FloodWater>().getWater == true)
+                GetAndSetAchievemt("Here_Too");
+            if (hiddenWater[2].GetComponent<FloodWater>().getWater == true)
+                GetAndSetAchievemt("No_way_Here_Too");
+        }
+        if(firstObstacle != null)
         {
             Obstacle obstacle = firstObstacle.GetComponent<Obstacle>();
             if (obstacle.isTriggerEnter != false)

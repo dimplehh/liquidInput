@@ -9,6 +9,7 @@ public class ShallowWater : Water
     GameObject insideWater;
     [SerializeField] int waterCount;
     float time = 0f;
+    public bool getWater = false;
     protected override void Init()
     {
         currentWaterReserves = 0;
@@ -54,6 +55,7 @@ public class ShallowWater : Water
                             SoundManager.instance.SfxPlaySound(5, transform.position);
                             GameManager.instance.curWaterReserves += 1;
                             currentWaterReserves--;
+                            getWater = true;
                             this.transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale * 0.75f, 1.3f);
                             insideWater.transform.localScale = Vector3.Lerp(insideWater.transform.localScale, insideWater.transform.localScale * 0.75f, 1.3f);
                             time = 0f;
