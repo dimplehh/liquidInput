@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gridGroup;
     [SerializeField] TextMeshProUGUI chapterName;
     [SerializeField] GameObject poisonWater;
+    public bool waterDie = false;
     //------------------------------------------------------
     [SerializeField]
     public GameObject waterParticle;

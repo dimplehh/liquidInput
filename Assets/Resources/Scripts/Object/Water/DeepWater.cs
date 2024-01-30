@@ -60,6 +60,7 @@ public class DeepWater : Water
             if (!GameManager.instance.player.GetComponent<Player>().isSlime //슬라임이 아니면서
                 && currentWaterReserves >= 3 && collision.transform.position.y <= deadZone.transform.position.y) //남은 물이 3 이상인데 플레이어 위치가 이럴때
             {
+                GameManager.instance.waterDie = true;
                 GameManager.instance.player.GetComponent<Player>().anim.Play("Die");//죽음
                 GameManager.instance.curWaterReserves = 0;
             }

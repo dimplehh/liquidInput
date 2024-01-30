@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    [SerializeField]private int obstacleNum = 0;
+    [SerializeField]public int obstacleNum = 0;
     public bool isTriggerEnter = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {

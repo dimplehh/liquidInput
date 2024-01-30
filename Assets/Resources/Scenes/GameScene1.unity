@@ -81380,6 +81380,11 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!1 &1685035450 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3081195121498340372, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
+  m_PrefabInstance: {fileID: 3081195121999439216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1686860983
 GameObject:
   m_ObjectHideFlags: 0
@@ -90380,7 +90385,7 @@ MonoBehaviour:
     m_GameID: 2770300
   appID:
     m_AppId: 2770300
-  firstObstacle: {fileID: 0}
+  firstObstacle: {fileID: 1685035450}
   clearZone: {fileID: 85779414}
   hiddenWater:
   - {fileID: 908950892}
@@ -107592,6 +107597,10 @@ PrefabInstance:
     - target: {fileID: 3081195121498340373, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3081195121498340374, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
+      propertyPath: obstacleNum
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3081195121498340375, guid: a1f1cd5331ddf664284a674d82150064, type: 3}
       propertyPath: m_Size.x

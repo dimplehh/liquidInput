@@ -38,6 +38,24 @@ public class SteamIntegration : MonoBehaviour
             default:
                 break;
         }
+
+        switch(GameManager.instance.successGauge)
+        {
+            case 1:
+                GetAndSetAchievemt("Good_Deed");
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                GetAndSetAchievemt("Encounter_God");
+                break;
+        }
+
+        if (GameManager.instance.waterDie == true) 
+            GetAndSetAchievemt("Sink_Like_A_Rock");
+
         if(hiddenWater[0] != null && hiddenWater[1] != null && hiddenWater[2] != null)
         {
             if (hiddenWater[0].GetComponent<ShallowWater>().getWater == true)
@@ -47,12 +65,19 @@ public class SteamIntegration : MonoBehaviour
             if (hiddenWater[2].GetComponent<FloodWater>().getWater == true)
                 GetAndSetAchievemt("No_way_Here_Too");
         }
+
         if(firstObstacle != null)
         {
             Obstacle obstacle = firstObstacle.GetComponent<Obstacle>();
             if (obstacle.isTriggerEnter != false)
-                GetAndSetAchievemt("Are_You_Serious");
+            {
+                if(obstacle.obstacleNum == 1)
+                    GetAndSetAchievemt("Are_You_Serious");
+                if(obstacle.obstacleNum == 2)
+                    GetAndSetAchievemt("Plants_Like_Water");
+            }
         }
+
         if(clearZone != null)
         {
             ClearZone ClearZone = clearZone.GetComponent<ClearZone>();
@@ -95,6 +120,7 @@ public class SteamIntegration : MonoBehaviour
                 }
             }
         }
+
     }
 
     void GetAndSetAchievemt(string name)
