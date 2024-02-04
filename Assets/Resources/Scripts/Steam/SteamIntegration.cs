@@ -56,7 +56,7 @@ public class SteamIntegration : MonoBehaviour
         if (GameManager.instance.waterDie == true) 
             GetAndSetAchievemt("Sink_Like_A_Rock");
 
-        if(hiddenWater[0] != null && hiddenWater[1] != null && hiddenWater[2] != null)
+        if(hiddenWater.Length != 0)
         {
             if (hiddenWater[0].GetComponent<ShallowWater>().getWater == true)
                 GetAndSetAchievemt("Water_here_Too");

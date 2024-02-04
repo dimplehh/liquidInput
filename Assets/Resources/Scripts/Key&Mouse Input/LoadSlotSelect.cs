@@ -30,6 +30,7 @@ public class LoadSlotSelect : MonoBehaviour
         {
             Managers.Data.SlotLoadData(Managers.Data.nowSlot);
             Managers.Data.SlotSaveData(0, Managers.Data.stageData);
+            SoundManager.instance.SfxStopSound3();
             LoadingSceneController.Instance.LoadScene("GameScene" + (Managers.Data.stageData.stageChapter - 1).ToString());
         }
         else

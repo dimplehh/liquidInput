@@ -13,6 +13,7 @@ public class DeepWater : Water
     [SerializeField] int waterCount;
     [SerializeField] float yPos = 0.5f;
     [SerializeField] int custumWaterWaste = 1;
+    [SerializeField] bool isChecked = false;
     protected override void Init()
     {
         currentWaterReserves = 0;
@@ -81,6 +82,7 @@ public class DeepWater : Water
                             GameManager.instance.curWaterReserves += custumWaterWaste;
                             currentWaterReserves -= custumWaterWaste;
                             this.transform.position -= new Vector3(0, yPos, 0);
+                            if(isChecked == true)this.transform.localScale -= new Vector3(0, 0.2f, 0);
                             time = 0f;
                         }
                 }
