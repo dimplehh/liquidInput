@@ -18,6 +18,7 @@ public class PlayerData
     public string saveDate = ""; //저장날짜
     public int deathCount = 0;
     public bool isFirst = true; //새로시작하면 컷신 나오게
+    public bool[] allSave = { false, false, false};
 }
 
 [Serializable]
@@ -53,6 +54,10 @@ public class DataManager : MonoBehaviour
     //슬롯 별 저장 / 불러오기
     public void SlotSaveData(int index, GameObject pos, int stage, int curWater, float playTime, int deathCount)
     {
+        #region STAGEDATA
+        stageData = StageManager.instance.GetStageData(stage);
+        #endregion
+
         #region PLAYERDATA
         playerData.playerXPos = pos.transform.position.x;
         playerData.playerYPos = pos.transform.position.y;
@@ -72,10 +77,15 @@ public class DataManager : MonoBehaviour
         playerData.playTime = playTime;
         playerData.isFirst = false;
         playerData.saveDate = DateTime.Now.ToString("yyyy MM dd");
-        #endregion
-
-        #region STAGEDATA
-        stageData = StageManager.instance.GetStageData(stage);
+        if(stageData.stageChapter >= 1)
+        {
+            playerData.allSave[stageData.stageChapter - 1] = true;
+            for (int i = 0; i < stageData.saveZoneData.Count; i++)
+            {
+                if (stageData.saveZoneData[i].isSave == false)
+                    playerData.allSave[stageData.stageChapter - 1] = false;
+            }
+        }
         #endregion
 
         string data = JsonUtility.ToJson(playerData);
@@ -167,6 +177,8 @@ public class DataManager : MonoBehaviour
         playerData.saveDate = "";
         playerData.deathCount = 0;
         playerData.isFirst = true;
+        for(int i = 0; i < 3; i++) playerData.allSave[i] = false;
+
         //저장할것들....추가하면 됨
         string data = JsonUtility.ToJson(playerData);
         File.WriteAllText(path + "DefaultPlayerData", data);
@@ -182,8 +194,15 @@ public class DataManager : MonoBehaviour
     {
         playerData.playerWaterReserves = curWater; //물보유량
         playerData.goodGauge = GameManager.instance.successGauge;
-        //playerData.deathCount = 
-
+        if (stageData.stageChapter >= 1)
+        {
+            playerData.allSave[stageData.stageChapter - 1] = true;
+            for (int i = 0; i < stageData.saveZoneData.Count; i++)
+            {
+                if (stageData.saveZoneData[i].isSave == false)
+                    playerData.allSave[stageData.stageChapter - 1] = false;
+            }
+        }
         //스테이지 클리어 후 초기화 시켜서 저장해야 할 것들
         playerData.playerXPos = -20f; //첫 시작 위치
         playerData.playerYPos = 0f; //첫 시작 위치
