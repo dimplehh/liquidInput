@@ -19,6 +19,7 @@ public class PlayerData
     public int deathCount = 0;
     public bool isFirst = true; //새로시작하면 컷신 나오게
     public bool[] allSave = { false, false, false};
+    public bool[] NoSave = { false, false, false };
 }
 
 [Serializable]
@@ -80,10 +81,15 @@ public class DataManager : MonoBehaviour
         if(stageData.stageChapter >= 1)
         {
             playerData.allSave[stageData.stageChapter - 1] = true;
+            playerData.NoSave[stageData.stageChapter - 1] = true;
             for (int i = 0; i < stageData.saveZoneData.Count; i++)
             {
                 if (stageData.saveZoneData[i].isSave == false)
                     playerData.allSave[stageData.stageChapter - 1] = false;
+                else
+                    if(stageData.saveZoneData[i].id != 99)
+                        playerData.NoSave[stageData.stageChapter - 1] = false;
+
             }
         }
         #endregion
@@ -178,6 +184,7 @@ public class DataManager : MonoBehaviour
         playerData.deathCount = 0;
         playerData.isFirst = true;
         for(int i = 0; i < 3; i++) playerData.allSave[i] = false;
+        for (int i = 0; i < 3; i++) playerData.NoSave[i] = false;
 
         //저장할것들....추가하면 됨
         string data = JsonUtility.ToJson(playerData);
@@ -197,10 +204,14 @@ public class DataManager : MonoBehaviour
         if (stageData.stageChapter >= 1)
         {
             playerData.allSave[stageData.stageChapter - 1] = true;
+            playerData.NoSave[stageData.stageChapter - 1] = true;
             for (int i = 0; i < stageData.saveZoneData.Count; i++)
             {
                 if (stageData.saveZoneData[i].isSave == false)
                     playerData.allSave[stageData.stageChapter - 1] = false;
+                else
+                    if (stageData.saveZoneData[i].id != 99)
+                        playerData.NoSave[stageData.stageChapter - 1] = false;
             }
         }
         //스테이지 클리어 후 초기화 시켜서 저장해야 할 것들

@@ -78,7 +78,7 @@ public class SteamIntegration : MonoBehaviour
             }
         }
 
-        if (IsAllSave(true))
+        if (IsAllSave())
             GetAndSetAchievemt("Grow_Fast");
 
         if (clearZone != null)
@@ -99,14 +99,14 @@ public class SteamIntegration : MonoBehaviour
                         switch (ClearZone.endingIndex)
                         {
                             case 0:
-                                GetAndSetAchievemt("Pollution");
-                                if (IsAllSave(false)) 
+                                    GetAndSetAchievemt("Pollution");
+                                    if (IsNoSave() == true && deathCount == 0) 
                                         GetAndSetAchievemt("You_Only_Live_Once");
                                 break;
                             case 1:
                                 if (deathCount == 0){ 
                                         GetAndSetAchievemt("Immortal_Liquid");
-                                        if (IsAllSave(false)) 
+                                        if (IsNoSave() == true) 
                                             GetAndSetAchievemt("You_Only_Live_Once");
                                 }
                                 GetAndSetAchievemt("Unbelief");
@@ -115,7 +115,7 @@ public class SteamIntegration : MonoBehaviour
                                     if (deathCount == 0)
                                     {
                                         GetAndSetAchievemt("Immortal_Liquid");
-                                        if (IsAllSave(false))
+                                        if (IsNoSave() == true)
                                             GetAndSetAchievemt("Doing_Impossible_Thing");
                                     }
                                 GetAndSetAchievemt("Blend_Into_The_World");
@@ -125,7 +125,7 @@ public class SteamIntegration : MonoBehaviour
                                 {
                                     GetAndSetAchievemt("Immortal_Liquid");
                                     GetAndSetAchievemt("GOAT");
-                                    if (IsAllSave(false))
+                                    if (IsNoSave() == true)
                                         GetAndSetAchievemt("Real_God");
 
                                     }
@@ -142,20 +142,33 @@ public class SteamIntegration : MonoBehaviour
 
     void GetAndSetAchievemt(string name)
     {
-        Debug.Log("Achieve '" + name + "'");
         bool isAchieved = SteamUserStats.GetAchievement(name, out bool achieved);
         if (isAchieved)
         {
             if (!achieved)
+            {
                 SteamUserStats.SetAchievement(name);
+                Debug.Log("Achieve '" + name + "'");
+            }
         }
     }
 
-    bool IsAllSave(bool bState)
+    bool IsAllSave()
     {
-        if (Managers.Data.playerData.allSave[2] == bState && Managers.Data.playerData.allSave[1] == bState && Managers.Data.playerData.allSave[0] == bState)
+        if (Managers.Data.playerData.allSave[2] == true && Managers.Data.playerData.allSave[1] == true && Managers.Data.playerData.allSave[0] == true)
         {
-            Debug.Log("Æ®·ç");
+            return true;
+        }
+        return false;
+    }
+
+    bool IsNoSave()
+    {
+        if (Managers.Data.playerData.NoSave[1] == true && Managers.Data.playerData.NoSave[0] == true)
+        {
+            for (int i = 0; i < Managers.Data.stageData.saveZoneData.Count; i++)
+                if (Managers.Data.stageData.saveZoneData[i].isSave == true)
+                    return false;
             return true;
         }
         return false;

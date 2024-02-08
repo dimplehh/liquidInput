@@ -73,10 +73,12 @@ public class ClearZone : Zone
                     if (videoPanelParent != null)
                         if (videoPanelParent.activeSelf == false)
                             videoPanelParent.SetActive(true);
-                    videoPanels[EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves)]
-                        .SetActive(true);
-                    videoPanels[EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves)].
-                        GetComponent<VideoPlayer>().Play();
+
+                    endingIndex = EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves);
+
+                    videoPanels[endingIndex].SetActive(true);
+                    videoPanels[endingIndex].GetComponent<VideoPlayer>().Play();
+
                     SetVideoVolume();
                 }
                 else
@@ -112,7 +114,6 @@ public class ClearZone : Zone
         if(StageManager.instance.currentStageIndex == 4) //진, 히든 엔딩은 마지막 크레딧 씬으로 넘어가도록 코드 짜기
         {
             NewGame();
-            endingIndex = EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves);
             if (endingIndex <= 1) //배드, 노말엔딩
                 LoadingSceneController.Instance.LoadScene("HomeScene");
             else if (endingIndex == 2) //진엔딩
@@ -132,7 +133,6 @@ public class ClearZone : Zone
             LoadingSceneController.Instance.LoadScene("GameScene2");
         if (StageManager.instance.currentStageIndex == 4) //진, 히든 엔딩은 마지막 크레딧 씬으로 넘어가도록 코드 짜기
         {
-            int endingIndex = EndingManager.Instance.OpenEnding(GameManager.instance.successGauge, GameManager.instance.curWaterReserves);
             if (endingIndex < 2) //배드, 노말엔딩
                 LoadingSceneController.Instance.LoadScene("HomeScene");
             else if(endingIndex ==2) //진엔딩
