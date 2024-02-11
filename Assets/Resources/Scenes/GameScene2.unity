@@ -89560,7 +89560,7 @@ PrefabInstance:
     - target: {fileID: 4691800778486314854, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: loadSlotSelect
       value: 
-      objectReference: {fileID: 1581862257, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      objectReference: {fileID: 1799666349}
     - target: {fileID: 4722311721586005889, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -89572,7 +89572,11 @@ PrefabInstance:
     - target: {fileID: 6604550220280183323, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1581862257, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      objectReference: {fileID: 1799666349}
+    - target: {fileID: 6604550220280183323, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoGame
+      objectReference: {fileID: 0}
     - target: {fileID: 6858936943090218984, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_TargetAudioSources.Array.data[0]
       value: 
@@ -89614,6 +89618,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1799666349 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 160058114, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+  m_PrefabInstance: {fileID: 1799666345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26db51a96f5ead94ab613896ef4b8642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!20 &1799666350 stripped

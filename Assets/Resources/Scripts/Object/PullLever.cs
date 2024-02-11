@@ -30,7 +30,7 @@ public class PullLever : MonoBehaviour
                 (pushX == true && Input.GetKey(KeyCode.RightArrow) && collision.transform.position.x > this.gameObject.transform.position.x))
             {
                 StartCoroutine("PullingLever", collision.transform.position.x - this.gameObject.transform.position.x);
-                Debug.Log(collision.transform.position.x + "/" + this.gameObject.transform.position.x);
+                //Debug.Log(collision.transform.position.x + "/" + this.gameObject.transform.position.x);
             }
         }
     }

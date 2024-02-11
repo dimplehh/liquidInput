@@ -49,16 +49,18 @@ public class ClearZone : Zone
             {
                 StageManager.instance.currentStageIndex++; //현재스테이지 올려주고
                 StageManager.instance.LastStageUp(); //스테이지 체크 후 최종 스테이지 저장
-                Managers.Data.StageClearSaveData(GameManager.instance.curWaterReserves, StageManager.instance.currentStageIndex); //현재 물보유량과 선행게이지 스테이지 인덱스만 저장한다 나머지 정보는 날림(플레이어 위치 정보 , 스테이지 모든 데이터 정보)
-                Managers.Data.StageLoadData(StageManager.instance.currentStageIndex); //저장과 동시에 불러와야해 
                 Managers.Data.isClear = true;
                 Managers.Data.playerData.isFirst = true;
                 if (StageManager.instance.currentStageIndex != 4)
+                {
+                    Managers.Data.StageClearSaveData(GameManager.instance.curWaterReserves, StageManager.instance.currentStageIndex); //현재 물보유량과 선행게이지 스테이지 인덱스만 저장한다 나머지 정보는 날림(플레이어 위치 정보 , 스테이지 모든 데이터 정보)
+                    Managers.Data.StageLoadData(StageManager.instance.currentStageIndex); //저장과 동시에 불러와야해 
                     if (!Application.CanStreamedLevelBeLoaded("GameScene" + (StageManager.instance.currentStageIndex - 1).ToString()))
                     {
                         Debug.Log("이름에 맞는 씬이 없습니다!");
                         return;
                     }
+                }
 
                 SoundManager.instance.BgmStopSound();
                 panelGroup.SetActive(false);
@@ -113,7 +115,6 @@ public class ClearZone : Zone
         //마지막 스테이지면 홈으로 이동
         if(StageManager.instance.currentStageIndex == 4) //진, 히든 엔딩은 마지막 크레딧 씬으로 넘어가도록 코드 짜기
         {
-            NewGame();
             if (endingIndex <= 1) //배드, 노말엔딩
                 LoadingSceneController.Instance.LoadScene("HomeScene");
             else if (endingIndex == 2) //진엔딩

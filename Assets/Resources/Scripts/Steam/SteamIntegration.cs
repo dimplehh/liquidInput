@@ -23,6 +23,8 @@ public class SteamIntegration : MonoBehaviour
 
     private void Update()
     {
+        if (appID != null)
+            return;
         int deathCount = GameManager.instance.deathCount;
         switch (deathCount)
         {
