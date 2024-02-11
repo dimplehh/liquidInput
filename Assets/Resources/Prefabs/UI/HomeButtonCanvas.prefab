@@ -395,7 +395,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1434453401242640827}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3509,7 +3509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 877411604748898387, guid: bf4f3fdea0e488f4a8ba0ce51600e2a6, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 978751475827604394, guid: bf4f3fdea0e488f4a8ba0ce51600e2a6, type: 3}
       propertyPath: changedColor.b
@@ -3801,7 +3801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2278278644436416274, guid: bf4f3fdea0e488f4a8ba0ce51600e2a6, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2278278644436416274, guid: bf4f3fdea0e488f4a8ba0ce51600e2a6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3858,6 +3858,10 @@ PrefabInstance:
     - target: {fileID: 2391628352771770803, guid: bf4f3fdea0e488f4a8ba0ce51600e2a6, type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449067776084727114, guid: bf4f3fdea0e488f4a8ba0ce51600e2a6, type: 3}
+      propertyPath: m_Text
+      value: "\uC7A1\uAE30/\uD761"
       objectReference: {fileID: 0}
     - target: {fileID: 2449067776084727114, guid: bf4f3fdea0e488f4a8ba0ce51600e2a6, type: 3}
       propertyPath: m_FontData.m_FontSize
@@ -4661,7 +4665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4402139722672140333, guid: bf4f3fdea0e488f4a8ba0ce51600e2a6, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 80
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4785591799731163415, guid: bf4f3fdea0e488f4a8ba0ce51600e2a6, type: 3}
       propertyPath: m_FontData.m_Font
@@ -4710,6 +4714,10 @@ PrefabInstance:
     - target: {fileID: 5010821881061909232, guid: bf4f3fdea0e488f4a8ba0ce51600e2a6, type: 3}
       propertyPath: m_SizeDelta.y
       value: 1900
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033276195724608340, guid: bf4f3fdea0e488f4a8ba0ce51600e2a6, type: 3}
+      propertyPath: m_Text
+      value: "\uBCC0\uC2E0"
       objectReference: {fileID: 0}
     - target: {fileID: 5033276195724608340, guid: bf4f3fdea0e488f4a8ba0ce51600e2a6, type: 3}
       propertyPath: m_FontData.m_FontSize
@@ -5217,7 +5225,7 @@ PrefabInstance:
       objectReference: {fileID: 12800000, guid: 4f7dc0ca726feee4091044f39be9584f, type: 3}
     - target: {fileID: 8996255987348276561, guid: bf4f3fdea0e488f4a8ba0ce51600e2a6, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 80
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 8996255987348276561, guid: bf4f3fdea0e488f4a8ba0ce51600e2a6, type: 3}
       propertyPath: m_SizeDelta.y
@@ -7457,8 +7465,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04665f5f12e2dc0469401cadf8e29f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _koreanLanguage: "\uC7A1\uAE30"
-  _englishLanguage: Catch
+  _koreanLanguage: "\uC7A1\uAE30/\uD761\uC218"
+  _englishLanguage: CatchAbsorb
   _languageText: {fileID: 4483848939943423650}
 --- !u!114 &6416726394766826116 stripped
 MonoBehaviour:
@@ -8013,8 +8021,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04665f5f12e2dc0469401cadf8e29f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _koreanLanguage: "\uBCC0\uC2E0/\uD761\uC218"
-  _englishLanguage: Change/Absorb
+  _koreanLanguage: "\uBCC0\uC2E0"
+  _englishLanguage: Change
   _languageText: {fileID: 6493285731399399612}
 --- !u!114 &7894746160781226590 stripped
 MonoBehaviour:

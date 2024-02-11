@@ -63,7 +63,7 @@ public class LoadKeyBoardClick : MonoBehaviour
     public void SelectTextColorChanged()
     {
         selectText[loadindex].color = changedColor;
-        selectText[loadindex].fontSize = 40;
+        selectText[loadindex].fontSize = 35;
     }
     public void SelectTextColorBase()
     {
