@@ -28,9 +28,8 @@ public class SaveZone : Zone
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("SaveZone") && !isSave)
+        if (other.gameObject.CompareTag("Player") && !isSave)
         {
-
             isSave = true;
             anim.enabled = true;
             anim.SetBool("Active",true);
@@ -55,13 +54,18 @@ public class SaveZone : Zone
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("SaveZone")) //player 안에 자식오브젝트로 saveZone이라는 태그를 가진 충돌체 생성
+        if (other.gameObject.CompareTag("Player"))
         {
             if (Input.GetKeyDown(KeyCode.X) && isSave)
             {
-                GameManager.instance.isNonAutoSave = true;
-                GameManager.instance.SaveAndLoadPanel.SetActive(true);
+                if (GameManager.instance.player.GetComponent<PlayerPush>().isBox == false)
+                {
+                    GameManager.instance.isNonAutoSave = true;
+                    GameManager.instance.SaveAndLoadPanel.SetActive(true);
+                }
             }
+            if(Input.GetKeyDown(KeyCode.Escape))
+                GameManager.instance.isNonAutoSave = false;
         }
     }
     public void AutoSave(GameObject other)
@@ -71,7 +75,7 @@ public class SaveZone : Zone
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("SaveZone"))
+        if (other.gameObject.CompareTag("Player"))
         {
             GameManager.instance.isNonAutoSave = false; 
         }

@@ -6,8 +6,10 @@ public class PlayerPush : MonoBehaviour
 {
     float distance = 5f;
     public LayerMask boxMask;
-    GameObject box;
+    public GameObject box;
+    public RaycastHit2D hit;
     Player player;
+    public bool isBox = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +42,8 @@ public class PlayerPush : MonoBehaviour
         Physics2D.queriesStartInColliders = false;
         int right = (player.spriteRenderer.flipX) ? -1 : 1;
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.3f), new Vector2(right, 0) * transform.localScale.x, distance, boxMask);
+        if (hit.collider != null && hit.collider.gameObject.layer == 12)
+            isBox = (Mathf.Abs(hit.collider.gameObject.transform.position.x - this.gameObject.transform.position.x) <= 1.4f) ? true : false;
         if (player.isSlow || box != null && Input.GetKeyUp(KeyCode.X))
         {
             if (box != null)
