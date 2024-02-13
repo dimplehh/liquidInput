@@ -360,13 +360,17 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        if(GameManager.instance.curWaterReserves <= 0) //현재 시작 물보유량이 0이어서 test용         //if (GameManager.instance.curWaterReserves <= 0)
+        if(GameManager.instance.curWaterReserves <= 0) //현재 시작 물보유량이 0이어서 test용
         {
             if(!isSlime)
             {
                 anim.Play("ThirstyDie");
                 GameManager.instance.OpenGameOver();
                 GameManager.instance.isPlay = false;
+            }
+            else
+            {
+                GameManager.instance.curWaterReserves = 0;
             }
         }
     }

@@ -14,12 +14,14 @@ public class SeeSaw : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !isTriggered)
         {
-            if(Managers.Data.stageData.stageChapter == 2)
-                if(Managers.Data.stageData.waterData.Find((x) => x.id == 9).waterReserves != 0)
-                {
-                    isTriggered = true;
-                    StartCoroutine(ActivateAndDeactivateStone());
-                }
+            isTriggered = true;
+            StartCoroutine(ActivateAndDeactivateStone());
+            //if(Managers.Data.stageData.stageChapter == 2)
+            //    if(Managers.Data.stageData.waterData.Find((x) => x.id == 9).waterReserves != 0)
+            //    {
+            //        isTriggered = true;
+            //        StartCoroutine(ActivateAndDeactivateStone());
+            //    }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

@@ -224,9 +224,7 @@ public class GameManager : MonoBehaviour
     {
         playTime += Time.deltaTime; 
         WaterReservesUI();
-        if (curWaterReserves <= -1)
-            StartCoroutine("OpenGameOver");
-        else if (0 <= curWaterReserves && curWaterReserves <= 10)
+        if (0 <= curWaterReserves && curWaterReserves <= 10)
         {
             if (player.GetComponent<SpriteRenderer>().color.a != 0.5f + (float)(curWaterReserves / 30.0f))
                 player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, (0.5f + (float)curWaterReserves / 30.0f));
