@@ -93,6 +93,7 @@ public class CheckSaveSlot : MonoBehaviour
     }
     public void Slot(int num)
     {
+        SoundManager.instance.SfxPlaySound(3, transform.position);
         Managers.Data.nowSlot = num;
         //1. 저장된 데이터가 있을 때
         if (saveFile[num])

@@ -56,7 +56,6 @@ public class LoadKeyBoardClick : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SoundManager.instance.SfxPlaySound(3, transform.position);
             checkSaveSlot.Slot(loadindex);
         }
     }

@@ -408,7 +408,7 @@ public class Player : MonoBehaviour
         hj.enabled = false;
         hj.connectedBody = null;
         anim.SetBool("inRope", false);
-        rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+        rigid.AddForce(Vector2.up * jumpPower * 0.3f, ForceMode2D.Impulse);
         StartCoroutine("ChangeAttachedTo");
     }
 
@@ -531,7 +531,7 @@ private void OnCollisionExit2D(Collision2D collision)
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("SandSwamp") && !isSlime)
+        if (other.gameObject.CompareTag("SandSwamp"))
         {
             isSlow = true;
         }

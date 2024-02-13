@@ -359,8 +359,20 @@ PrefabInstance:
       value: Easy Credits Manager
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
+      propertyPath: exitTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
+      propertyPath: LegalLine
+      value: Thank You
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: Inlays.Array.data[7].Scale
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
+      propertyPath: SectionElements.Array.size
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: Inlays.Array.data[2].EasyCreditsInlays
@@ -370,6 +382,10 @@ PrefabInstance:
       propertyPath: Inlays.Array.data[7].EasyCreditsInlays
       value: 
       objectReference: {fileID: 11400000, guid: 53e3250c648e20b41b30ea0d76df5491, type: 2}
+    - target: {fileID: 3324073972223681019, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
+      propertyPath: SectionElements.Array.data[9].SectionElement
+      value: 
+      objectReference: {fileID: 11400000, guid: b0ac30a1aa3d2c64ca2beb1d2878481e, type: 2}
     - target: {fileID: 3324073972223681020, guid: cdf135cd3d445a943b51f21b1a6dd1cf, type: 3}
       propertyPath: m_RootOrder
       value: 1

@@ -9,6 +9,7 @@ public class SandSwamp : MonoBehaviour
     [SerializeField] private ParticleSystem sandPs;
     [SerializeField] private GameObject sandPsGo;
     [SerializeField] private GameObject sandSwampPos;
+    [SerializeField] GameObject arrow;
     public Vector3 initdownLoadPos;
     public bool isTriggerPlayer = false;
     private float downSpeed = 0.3f;
@@ -31,6 +32,7 @@ public class SandSwamp : MonoBehaviour
                 time += Time.deltaTime;
                 if (time >= 2.0f)
                 {
+                    if (arrow != null) StartCoroutine("ShowArrow");
                     GameManager.instance.waterParticle.GetComponent<ParticleSystem>().Play();
                     if (GameManager.instance.curWaterReserves > 0)
                         GameManager.instance.curWaterReserves -= 1;
@@ -38,6 +40,13 @@ public class SandSwamp : MonoBehaviour
                 }
             }
         }
+    }
+    IEnumerator ShowArrow()
+    {
+        arrow.SetActive(true);
+        yield return new WaitForSeconds(1.8f);
+        arrow.SetActive(false);
+        arrow = null;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -58,7 +67,7 @@ public class SandSwamp : MonoBehaviour
             Down();
         }
 
-        if(GameManager.instance.player.GetComponent<Player>().isSlow)
+        if(GameManager.instance.player.GetComponent<Player>().isSlow && !GameManager.instance.player.GetComponent<Player>().isSlime)
         {
             sandPs.Play();
             sandPsGo.transform.position = new Vector3(GameManager.instance.player.GetComponent<Player>().transform.position.x, sandSwampPos.transform.position.y, 0);

@@ -21,6 +21,7 @@ public class ChapterLoad : MonoBehaviour
 
     public void ChapterLoadButton(int index)
     {
+        SoundManager.instance.SfxPlaySound(3, transform.position);
         if (!StageManager.instance.LastStageCheck(index))
             return;
 

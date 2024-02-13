@@ -16335,12 +16335,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256754134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.4, y: 45.2, z: 0}
+  m_LocalPosition: {x: -16.4, y: 59.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &256754136
 MonoBehaviour:
@@ -16361,7 +16361,7 @@ MonoBehaviour:
   - {fileID: 1912880908}
   turnOffObj: {fileID: 1912221392}
   lightColorController: {fileID: 3374805839087232203}
-  time: 0.9
+  time: 1
 --- !u!61 &256754137
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16375,7 +16375,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 9.213568}
+  m_Offset: {x: 0, y: -0.26174068}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -16386,7 +16386,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 17.9, y: 2.6548042}
+  m_Size: {x: 17.9, y: 3.1782856}
   m_EdgeRadius: 0
 --- !u!1 &263235992
 GameObject:
@@ -23518,7 +23518,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &465503165
 MonoBehaviour:
@@ -46995,6 +46995,7 @@ Transform:
   - {fileID: 1887842911}
   - {fileID: 2144737936}
   - {fileID: 878757811}
+  - {fileID: 1370571903}
   - {fileID: 256754135}
   - {fileID: 1447074819}
   - {fileID: 1035191257}
@@ -52285,7 +52286,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1035191258
 MonoBehaviour:
@@ -65115,6 +65116,85 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1370571902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1370571903}
+  - component: {fileID: 1370571905}
+  - component: {fileID: 1370571904}
+  m_Layer: 0
+  m_Name: TriggerChangeTime (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1370571903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370571902}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.4, y: 54.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 973769795}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1370571904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370571902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad9be0fe60c1194294cbed646f50874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activatorTag: Player
+  deactivateOnExit: 0
+  objectTurnOff: 0
+  objects:
+  - {fileID: 1912880908}
+  turnOffObj: {fileID: 1912221392}
+  lightColorController: {fileID: 3374805839087232203}
+  time: 0.88
+--- !u!61 &1370571905
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370571902}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.26174068}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 17.9, y: 3.1782856}
+  m_EdgeRadius: 0
 --- !u!1 &1371084060
 GameObject:
   m_ObjectHideFlags: 0
@@ -69992,7 +70072,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1389622472
 MonoBehaviour:
@@ -70725,7 +70805,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1447074820
 MonoBehaviour:
@@ -98592,7 +98672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4965804714991716740, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: gradient.ctime4
-      value: 65535
+      value: 59560
       objectReference: {fileID: 0}
     - target: {fileID: 4965804714991716740, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: gradient.ctime5
@@ -98664,15 +98744,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4965804714991716740, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: gradient.key4.b
-      value: 0.60250634
+      value: 0.597202
       objectReference: {fileID: 0}
     - target: {fileID: 4965804714991716740, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: gradient.key4.g
-      value: 0.6509434
+      value: 0.2831488
       objectReference: {fileID: 0}
     - target: {fileID: 4965804714991716740, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: gradient.key4.r
-      value: 0.43846565
+      value: 0.09989874
       objectReference: {fileID: 0}
     - target: {fileID: 4965804714991716740, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: gradient.key5.b
@@ -98704,7 +98784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4965804714991716740, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: gradient.m_NumColorKeys
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8770566156078375187, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: m_Color.b

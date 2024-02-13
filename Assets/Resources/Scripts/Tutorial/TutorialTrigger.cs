@@ -11,6 +11,7 @@ public class TutorialTrigger : MonoBehaviour
     [SerializeField] string slimeKey;
     [SerializeField] bool isWater;
     [SerializeField] bool isRope;
+    [SerializeField] GameObject arrow;
     GameObject tutorialBox;
     SpriteRenderer square;
     Text keyText, normalText;
@@ -77,6 +78,8 @@ public class TutorialTrigger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            if(Input.GetKeyDown(realHumanKey))
+                if (arrow != null) StartCoroutine("ShowArrow");
             if (GameManager.instance.player.GetComponent<Player>().isSlime == true) keyText.text = slimeKey;
             else if (GameManager.instance.player.GetComponent<Player>().attached == true) keyText.text = "¡ê";
             else keyText.text = humanKey;
@@ -90,5 +93,12 @@ public class TutorialTrigger : MonoBehaviour
                         this.gameObject.SetActive(false);
             }
         }
+    }
+
+    IEnumerator ShowArrow()
+    {
+        arrow.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        arrow.SetActive(false);
     }
 }

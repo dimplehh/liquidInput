@@ -47,7 +47,7 @@ public class HungryNpc : Npc
 
     public override IEnumerator SuccessMessege()
     {
-        GameManager.instance.waterParticle.GetComponent<ParticleSystem>().Play();
+        GameManager.instance.NPCwaterParticle.GetComponent<ParticleSystem>().Play();
         SoundManager.instance.SfxPlaySound2(7, transform.position);
         messegeImage.SetActive(true);
         messegeTxt.text = "물 맛있다.";

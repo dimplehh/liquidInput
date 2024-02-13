@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     //------------------------------------------------------
     [SerializeField]
     public GameObject waterParticle;
+    public GameObject NPCwaterParticle;
     float firstWater = -1000;
     [SerializeField]
     GameObject waterSlider;
