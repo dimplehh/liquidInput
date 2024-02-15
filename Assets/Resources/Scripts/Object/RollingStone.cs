@@ -11,14 +11,15 @@ public class RollingStone : MonoBehaviour
         {
             if(isTrigger == false)
             {
-                if (this.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude >= 3)
-                {
-                    GameManager.instance.player.GetComponent<Player>().anim.Play("Die");
-                    GameManager.instance.OpenGameOver();
-                    GameManager.instance.isPlay = false;
-                    isTrigger = true;
-                }
+                GameManager.instance.player.GetComponent<Player>().anim.Play("Die");
+                GameManager.instance.OpenGameOver();
+                GameManager.instance.isPlay = false;
+                isTrigger = true;
             }
+        }
+        if(collision.gameObject.tag == "stoneTrigger")
+        {
+            isTrigger = true;
         }
     }
 }
