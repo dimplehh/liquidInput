@@ -52244,17 +52244,6 @@ MonoBehaviour:
   m_FocusTarget: {fileID: 2142217077}
   m_FocusOffset: 0
   m_Profile: {fileID: 11400000, guid: 95ee447867d72d14f8b45ef8ef2fb976, type: 2}
---- !u!114 &1015115892 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1015115892, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
-  m_PrefabInstance: {fileID: 1799666345}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799666346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 818aeb2bdd2043745a02b74de1d4ed0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1035191256
 GameObject:
   m_ObjectHideFlags: 0
@@ -76806,7 +76795,7 @@ PrefabInstance:
     - target: {fileID: 8154362454662616442, guid: 4af70035d6e39f540ab8e9f2d560eef9, type: 3}
       propertyPath: checkSaveSlot
       value: 
-      objectReference: {fileID: 1015115892}
+      objectReference: {fileID: 0}
     - target: {fileID: 8154362454662616442, guid: 4af70035d6e39f540ab8e9f2d560eef9, type: 3}
       propertyPath: gameOverPanel
       value: 
@@ -87168,6 +87157,7 @@ GameObject:
   - component: {fileID: 1614509499}
   - component: {fileID: 1614509503}
   - component: {fileID: 1614509501}
+  - component: {fileID: 1614509504}
   m_Layer: 8
   m_Name: Factory_Plate_2
   m_TagString: Platform
@@ -87276,7 +87266,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: -0.008595884, y: 0.45489606}
+  m_Offset: {x: 0.68529326, y: 0.45489606}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -87287,7 +87277,33 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.4328084, y: 0.27174503}
+  m_Size: {x: 1.04503, y: 0.27174503}
+  m_EdgeRadius: 0
+--- !u!61 &1614509504
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614509498}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.5281391, y: 0.45489606}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.45, y: 1.45}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.055267, y: 0.27174503}
   m_EdgeRadius: 0
 --- !u!1001 &1623606556
 PrefabInstance:
@@ -89843,6 +89859,22 @@ PrefabInstance:
       propertyPath: _koreanLanguage
       value: "\uC624\uC5FC\uC758 \uC911\uC2EC\uBD80"
       objectReference: {fileID: 0}
+    - target: {fileID: 6604550219111523411, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1799666351}
+    - target: {fileID: 6604550219111523411, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604550219466388939, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1799666351}
+    - target: {fileID: 6604550219466388939, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Slot
+      objectReference: {fileID: 0}
     - target: {fileID: 6604550220280183323, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -89850,6 +89882,22 @@ PrefabInstance:
     - target: {fileID: 6604550220280183323, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: GoGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604550220486403310, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1799666351}
+    - target: {fileID: 6604550220486403310, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604550220797735834, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1799666351}
+    - target: {fileID: 6604550220797735834, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 6633349495806118853, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: simulationSpeed
@@ -89922,6 +89970,17 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 1370292070, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
   m_PrefabInstance: {fileID: 1799666345}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1799666351 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7865243, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+  m_PrefabInstance: {fileID: 1799666345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799666347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 818aeb2bdd2043745a02b74de1d4ed0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1805503122
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ public class CheckSaveSlot : MonoBehaviour
     
     void OnEnable()
     {
-        if (LanguageManager.Instance.languageData != null)
+        if (LanguageManager.Instance != null && LanguageManager.Instance.languageData != null)
             lang = (LanguageManager.Instance.languageData.index == 0) ? "en" : "ko";
         SlotSaveFileCheck();
     }
@@ -95,9 +95,11 @@ public class CheckSaveSlot : MonoBehaviour
     {
         SoundManager.instance.SfxPlaySound(3, transform.position);
         Managers.Data.nowSlot = num;
+        Debug.Log(saveFile[num]);
         //1. 저장된 데이터가 있을 때
         if (saveFile[num])
         {
+            Debug.Log("저장된 데이터 있음");
             if (!GameManager.instance) //타이틀화면에서
                 Creat();
 

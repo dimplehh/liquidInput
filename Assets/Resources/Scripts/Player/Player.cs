@@ -188,16 +188,9 @@ public class Player : MonoBehaviour
     }
     private void Turn()
     {
-        if (Input.GetButton("Horizontal") && !anim.GetBool("canGrab") && !attached)
+        if (Input.GetButton("Horizontal") && !anim.GetBool("canGrab") && !attached && !anim.GetBool("inLadder"))
         {
-             if (anim.GetBool("inLadder") && (this.tag =="inLadder" || this.tag == "inSafetyZone"))
-            {
-                spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == 1;
-            }
-             else
-            {
-                spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
-            }
+            spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
         }
     }
 
@@ -243,13 +236,9 @@ public class Player : MonoBehaviour
         {
             float k = Input.GetAxisRaw("Vertical");
             Ladder(k);
-            if (Input.GetKeyDown(KeyCode.A) && ladderPosition.x < this.transform.position.x)
-                this.transform.position = new Vector3(ladderPosition.x - 0.3f, transform.position.y, transform.position.z);
-            else if (Input.GetKeyDown(KeyCode.D) && ladderPosition.x > this.transform.position.x)
-                this.transform.position = new Vector3(ladderPosition.x + 0.3f, transform.position.y, transform.position.z);
+            if (Input.GetKeyDown(KeyCode.Space))
+                 LadderOut();
         }
-        if ((anim.GetBool("inLadder") || this.tag == "inSafetyZone") && (Input.GetKeyDown(KeyCode.Space)))
-            LadderOut();
     }
 
     private void Ladder(float k)

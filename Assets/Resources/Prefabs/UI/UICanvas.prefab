@@ -1356,7 +1356,6 @@ GameObject:
   - component: {fileID: 1581862256}
   - component: {fileID: 1721606269857660999}
   - component: {fileID: 7865243}
-  - component: {fileID: 1144652741}
   m_Layer: 5
   m_Name: PanelGroup
   m_TagString: Untagged
@@ -1410,25 +1409,6 @@ MonoBehaviour:
   depthThirdPanel: []
   exitPanel: {fileID: 0}
 --- !u!114 &7865243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1581862255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 818aeb2bdd2043745a02b74de1d4ed0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  creat: {fileID: 6604550219474138728}
-  isCreat: 0
-  slotTxt:
-  - {fileID: 6604550219666352181}
-  - {fileID: 6604550218950087243}
-  - {fileID: 6604550220185505229}
-  - {fileID: 6604550220960102199}
---- !u!114 &1144652741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3970,7 +3950,7 @@ PrefabInstance:
     - target: {fileID: 1924317548955342914, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1144652741}
+      objectReference: {fileID: 0}
     - target: {fileID: 1924317548955342914, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: CheckSaveSlot, Assembly-CSharp
@@ -4122,7 +4102,7 @@ PrefabInstance:
     - target: {fileID: 1924317549673302490, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1144652741}
+      objectReference: {fileID: 0}
     - target: {fileID: 1924317549673302490, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: CheckSaveSlot, Assembly-CSharp
@@ -4182,7 +4162,7 @@ PrefabInstance:
     - target: {fileID: 1924317549975882087, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1144652741}
+      objectReference: {fileID: 0}
     - target: {fileID: 1924317549975882087, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: CheckSaveSlot, Assembly-CSharp
@@ -4222,7 +4202,7 @@ PrefabInstance:
     - target: {fileID: 1924317550287347219, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1144652741}
+      objectReference: {fileID: 0}
     - target: {fileID: 1924317550287347219, guid: 16fdc0182b5621445ab38f83d6c64c83, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: CheckSaveSlot, Assembly-CSharp
@@ -4595,25 +4575,6 @@ GameObject:
   m_PrefabInstance: {fileID: 4691800778376818057}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &672695723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6604550219779196941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 818aeb2bdd2043745a02b74de1d4ed0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  creat: {fileID: 6604550219474138728}
-  isCreat: 0
-  slotTxt:
-  - {fileID: 6604550219666352181}
-  - {fileID: 6604550218950087243}
-  - {fileID: 6604550220185505229}
-  - {fileID: 6604550220960102199}
---- !u!114 &1015115892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
