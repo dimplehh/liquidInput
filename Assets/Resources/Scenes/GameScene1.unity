@@ -11032,7 +11032,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 294427558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 92.4, y: 7.9, z: 0}
+  m_LocalPosition: {x: 72.4, y: 10.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -69301,7 +69301,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: eed436c764e32a940b3b5e82c4568689, type: 2}
     - target: {fileID: 5348255735167013521, guid: 4f71003553d91c24dbf6dd21b52a02c7, type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 21
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 5348255735167013521, guid: 4f71003553d91c24dbf6dd21b52a02c7, type: 3}
       propertyPath: m_SceneBindings.Array.data[4].key
@@ -69372,6 +69372,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8142142027675656047, guid: eed436c764e32a940b3b5e82c4568689, type: 2}
     - target: {fileID: 5348255735167013521, guid: 4f71003553d91c24dbf6dd21b52a02c7, type: 3}
+      propertyPath: m_SceneBindings.Array.data[21].key
+      value: 
+      objectReference: {fileID: -4054923394998864712, guid: eed436c764e32a940b3b5e82c4568689, type: 2}
+    - target: {fileID: 5348255735167013521, guid: 4f71003553d91c24dbf6dd21b52a02c7, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
       objectReference: {fileID: 1106766979}
@@ -69439,6 +69443,10 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[20].value
       value: 
       objectReference: {fileID: 1106766978}
+    - target: {fileID: 5348255735167013521, guid: 4f71003553d91c24dbf6dd21b52a02c7, type: 3}
+      propertyPath: m_SceneBindings.Array.data[21].value
+      value: 
+      objectReference: {fileID: 1912221397}
     - target: {fileID: 5348255735167013522, guid: 4f71003553d91c24dbf6dd21b52a02c7, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -87051,6 +87059,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3200420756312387262, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3210316622164426103, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -87274,6 +87286,10 @@ PrefabInstance:
     - target: {fileID: 6604550219779196941, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604550219821007374, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 6604550220486403309, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_AnchorMax.y
@@ -92708,7 +92724,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912221392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.2, y: 4.1397023, z: -20}
+  m_LocalPosition: {x: -13.54, y: 3.6997023, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
