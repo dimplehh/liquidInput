@@ -157,15 +157,15 @@ public class GameManager : MonoBehaviour
 
     private void SetPoisonWaterHeight()
     {
-        if (Managers.Data.stageData.stageChapter == 2)
+        int waterReserves = 2;
+        if (poisonWater != null)
         {
-            if(poisonWater != null)
-            {
-                CheckStoneInPoisionWater checkStoneInPoisionWater = poisonWater.GetComponent<CheckStoneInPoisionWater>();
-                int waterReserves = Managers.Data.stageData.waterData.Find((x) => x.id == 9).waterReserves;
-                this.gameObject.transform.position += new Vector3(0, checkStoneInPoisionWater.yPos * (2 - waterReserves), 0);
-                checkStoneInPoisionWater.count = waterReserves;
-            }
+            CheckStoneInPoisionWater checkStoneInPoisionWater = poisonWater.GetComponent<CheckStoneInPoisionWater>();
+            var foundData = Managers.Data.stageData.waterData.Find((x) => x.id == 9);
+            if (foundData != null)waterReserves = foundData.waterReserves;
+            poisonWater.gameObject.transform.position += new Vector3(0, checkStoneInPoisionWater.yPos * (2 - waterReserves), 0);
+            Debug.Log(poisonWater.gameObject.transform.position.y);
+            checkStoneInPoisionWater.count = waterReserves;
         }
     }
 
