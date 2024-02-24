@@ -226,12 +226,20 @@ public class GameManager : MonoBehaviour
         WaterReservesUI();
         if (0 <= curWaterReserves && curWaterReserves <= 10)
         {
-            if (player.GetComponent<SpriteRenderer>().color.a != 0.5f + (float)(curWaterReserves / 30.0f))
-                player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, (0.5f + (float)curWaterReserves / 30.0f));
+            if (player.GetComponent<Player>().isFlicker == false)
+            {
+                if (player.GetComponent<SpriteRenderer>().color.a != 0.5f + (float)(curWaterReserves / 30.0f))
+                    player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, (0.5f + (float)curWaterReserves / 30.0f));
+            }
         }
-       else if (curWaterReserves > 10)
-            if (player.GetComponent<SpriteRenderer>().color.a != 1)
-                player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        else if (curWaterReserves > 10)
+        {
+            if (player.GetComponent<Player>().isFlicker == false)
+            {
+                if (player.GetComponent<SpriteRenderer>().color.a != 1)
+                    player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            }
+        }
     }
 
     private void WaterReservesUI()

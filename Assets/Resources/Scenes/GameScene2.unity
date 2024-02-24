@@ -33549,6 +33549,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &524520619 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 672695723, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+  m_PrefabInstance: {fileID: 1799666345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799666346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 818aeb2bdd2043745a02b74de1d4ed0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &529739203
 Mesh:
   m_ObjectHideFlags: 0
@@ -76795,7 +76806,7 @@ PrefabInstance:
     - target: {fileID: 8154362454662616442, guid: 4af70035d6e39f540ab8e9f2d560eef9, type: 3}
       propertyPath: checkSaveSlot
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 524520619}
     - target: {fileID: 8154362454662616442, guid: 4af70035d6e39f540ab8e9f2d560eef9, type: 3}
       propertyPath: gameOverPanel
       value: 
@@ -89859,6 +89870,10 @@ PrefabInstance:
       propertyPath: _koreanLanguage
       value: "\uC624\uC5FC\uC758 \uC911\uC2EC\uBD80"
       objectReference: {fileID: 0}
+    - target: {fileID: 6604550219111523410, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 6604550219111523411, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -89866,6 +89881,10 @@ PrefabInstance:
     - target: {fileID: 6604550219111523411, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604550219466388938, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6604550219466388939, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -89883,6 +89902,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: GoGame
       objectReference: {fileID: 0}
+    - target: {fileID: 6604550220486403309, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 6604550220486403310, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -89890,6 +89913,10 @@ PrefabInstance:
     - target: {fileID: 6604550220486403310, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604550220797735833, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6604550220797735834, guid: 4e1071d4e45199544b5bea77e200f247, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -98727,11 +98754,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4965804714991716740, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: gradient.ctime3
-      value: 44140
+      value: 44718
       objectReference: {fileID: 0}
     - target: {fileID: 4965804714991716740, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: gradient.ctime4
-      value: 59560
+      value: 65535
       objectReference: {fileID: 0}
     - target: {fileID: 4965804714991716740, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: gradient.ctime5
@@ -98791,27 +98818,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4965804714991716740, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: gradient.key3.b
-      value: 0.8235294
+      value: 0.50980395
       objectReference: {fileID: 0}
     - target: {fileID: 4965804714991716740, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: gradient.key3.g
-      value: 0.5564902
+      value: 0.336965
       objectReference: {fileID: 0}
     - target: {fileID: 4965804714991716740, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: gradient.key3.r
-      value: 0.33725494
+      value: 0.28235295
       objectReference: {fileID: 0}
     - target: {fileID: 4965804714991716740, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: gradient.key4.b
-      value: 0.597202
+      value: 0.60250634
       objectReference: {fileID: 0}
     - target: {fileID: 4965804714991716740, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: gradient.key4.g
-      value: 0.2831488
+      value: 0.6509434
       objectReference: {fileID: 0}
     - target: {fileID: 4965804714991716740, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: gradient.key4.r
-      value: 0.09989874
+      value: 0.43846565
       objectReference: {fileID: 0}
     - target: {fileID: 4965804714991716740, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: gradient.key5.b
@@ -98843,7 +98870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4965804714991716740, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: gradient.m_NumColorKeys
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8770566156078375187, guid: 29642d1bc83a6f44e8f7eea3a2108e4d, type: 3}
       propertyPath: m_Color.b

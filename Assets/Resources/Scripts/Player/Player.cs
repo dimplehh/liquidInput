@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public bool isSlime = false;
     public bool canStepup = false;
     public bool isSlow = false;
-    private bool isFlicker = false; //슬라임 형태에서 9초가 되었을 때 반짝이면서 유저에게 인간에게 돌아간다는 표현
+    public bool isFlicker = false; //슬라임 형태에서 9초가 되었을 때 반짝이면서 유저에게 인간에게 돌아간다는 표현
     private bool isHill = false; //언덕 오르기 
     private bool isWater = false; 
     public Vector3 sVec;
@@ -276,6 +276,7 @@ public class Player : MonoBehaviour
         anim.SetBool("IsSlime", true);
         isSlime = true;
         GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(StageManager.instance.currentStageIndex);
+        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, (0.5f + (float)GameManager.instance.curWaterReserves / 30.0f));
         this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.75f);
         this.transform.GetChild(3).transform.localPosition = new Vector2(0, -0.8f);
         this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.81f, 0.94f);
@@ -341,8 +342,11 @@ public class Player : MonoBehaviour
 
     private void Flickering(float time)
     {
-        if (time < 0.2f || 0.4f <= time && time < 0.6f || 0.8f <= time)
-            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
+        int curWater = GameManager.instance.curWaterReserves;
+
+        if (time >= 0.95f) isFlicker = false;
+        else if (time < 0.2f || 0.4f <= time && time < 0.6f || 0.8f <= time)
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         else
             GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
     }
