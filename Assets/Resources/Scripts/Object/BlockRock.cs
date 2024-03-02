@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class BlockRock : MonoBehaviour
 {
-    [SerializeField] GameObject Rock;
-    [SerializeField] float Xpos;
+    [SerializeField] GameObject rock;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            Rock.transform.localPosition = new Vector3(Xpos, Rock.transform.localPosition.y, Rock.transform.localPosition.z);
+            rock.GetComponent<Animator>().Play("RockBlocking");
         }
     }
 }
