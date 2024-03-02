@@ -157,13 +157,4 @@ public class StageManager : MonoBehaviour
             PlayerPrefs.SetInt(LAST_STAGE_KEY, lastStageIndex);
         }
     }
-
-    public void DataDelete() //중간발표 때 시연 - 데이터 삭제 편하게 하기 위해
-    {
-        for(int i=0; i<4; i++)
-        {
-            File.Delete(Managers.Data.path + "PlayerData" + i.ToString());
-            File.Delete(Managers.Data.path + "StageData" +i.ToString());
-        }
-    }
 }

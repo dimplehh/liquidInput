@@ -9,6 +9,7 @@ using UnityEngine.Localization.Settings;
 public class CheckSaveSlot : MonoBehaviour
 {
     [SerializeField] GameObject creat; //비어있는 슬롯을 눌렀을 때 뜨는 창
+    [SerializeField] GameObject reSelectPop;
     [SerializeField] private bool isCreat = false;
     public Text[] slotTxt;
     private bool[] saveFile = new bool[4];
@@ -58,6 +59,7 @@ public class CheckSaveSlot : MonoBehaviour
             }
             else
             {
+                saveFile[i] = false;
                 if (i == 0)
                 {
                     slotTxt[i].text = (lang == "ko") ? "<자동>" + "\n비어있음" : "<Auto>" + "\nEmpty";
@@ -147,5 +149,18 @@ public class CheckSaveSlot : MonoBehaviour
     {
         creat.gameObject.SetActive(true);
         isCreat = true;
+    }
+    public void DataDelete()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            File.Delete(Managers.Data.path + "PlayerData" + i.ToString());
+            File.Delete(Managers.Data.path + "StageData" + i.ToString());
+        }
+        if(reSelectPop != null)
+        {
+            reSelectPop.SetActive(false);
+            SlotSaveFileCheck();
+        }
     }
 }

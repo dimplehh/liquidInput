@@ -36,7 +36,6 @@ public class LoadSlotSelect : MonoBehaviour
         else
             if(noDataPopup != null)
                 noDataPopup.SetActive(true);
-
     }
     public void NewGame() 
     {
