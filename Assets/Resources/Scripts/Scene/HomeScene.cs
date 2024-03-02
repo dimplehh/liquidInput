@@ -11,14 +11,10 @@ public class HomeScene : MonoBehaviour
     public Slider[] volumeSlider; //볼륨 조절 슬라이더
     [SerializeField] private GameObject[] backgroundImage;
 
-    private void Awake()
+    private void Start()
     {
         appID = SteamUtils.GetAppID();
         m_GameID = new CGameID(SteamUtils.GetAppID());
-    }
-
-    private void Start()
-    {
         SetVolume();
         SoundManager.instance.BgmPlaySound(0);
         SoundManager.instance.SfxStopSound3();
