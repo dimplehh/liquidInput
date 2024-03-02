@@ -18,7 +18,6 @@ public class SteamIntegration : MonoBehaviour
     {
         appID = SteamUtils.GetAppID();
         m_GameID = new CGameID(SteamUtils.GetAppID());
-        //SetEverything();
     }
 
     private void Update()

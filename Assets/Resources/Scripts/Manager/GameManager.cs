@@ -164,7 +164,6 @@ public class GameManager : MonoBehaviour
             var foundData = Managers.Data.stageData.waterData.Find((x) => x.id == 9);
             if (foundData != null)waterReserves = foundData.waterReserves;
             poisonWater.gameObject.transform.position += new Vector3(0, checkStoneInPoisionWater.yPos * (2 - waterReserves), 0);
-            Debug.Log(poisonWater.gameObject.transform.position.y);
             checkStoneInPoisionWater.count = waterReserves;
         }
     }
