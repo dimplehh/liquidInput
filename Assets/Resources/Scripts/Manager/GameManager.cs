@@ -196,8 +196,7 @@ public class GameManager : MonoBehaviour
     private void Initialized()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        Debug.Log("데이터에 저장된 스테이지 챕터 "+Managers.Data.stageData.stageChapter +" 현재 스테이지 챕터 "+StageManager.instance.currentStageIndex);
-        if(Managers.Data.stageData.stageChapter == StageManager.instance.currentStageIndex)
+        if(Managers.Data.stageData.stageChapter == StageManager.instance.currentStageIndex) //씬이 넘어간 경우 (값을 이동시킴)
         {
             player.transform.position = new Vector3(Managers.Data.playerData.playerXPos, Managers.Data.playerData.playerYPos, 0);
             curWaterReserves = (int)Managers.Data.playerData.playerWaterReserves;
@@ -206,6 +205,8 @@ public class GameManager : MonoBehaviour
         }
         else //홈씬말고 게임씬에서 플레이 시작하는 경우 - 모두 기본 값, 기본 위치로 시작
         {
+            if(Managers.Data.stageData.stageChapter != StageManager.instance.currentStageIndex - 1)
+                StageManager.instance.currentStageIndex = Managers.Data.stageData.stageChapter + 1;
             player.transform.position = new Vector3(-20.0f, 0, 0);
             curWaterReserves = 5;
         }
@@ -216,6 +217,7 @@ public class GameManager : MonoBehaviour
             Managers.Data.isClear = false;
             Managers.Data.ClearStageData(Managers.Data.stageData.stageChapter);
         }
+        Debug.Log("데이터에 저장된 스테이지 챕터 " + Managers.Data.stageData.stageChapter + " 현재 스테이지 챕터 " + StageManager.instance.currentStageIndex);
         waterParticle.GetComponent<ParticleSystem>().Stop();
     }
 

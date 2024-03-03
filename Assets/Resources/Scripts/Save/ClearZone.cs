@@ -116,7 +116,10 @@ public class ClearZone : Zone
         if(StageManager.instance.currentStageIndex == 4) //진, 히든 엔딩은 마지막 크레딧 씬으로 넘어가도록 코드 짜기
         {
             if (endingIndex <= 1) //배드, 노말엔딩
+            {
+                Debug.Log(StageManager.instance.currentStageIndex);
                 LoadingSceneController.Instance.LoadScene("HomeScene");
+            }
             else if (endingIndex == 2) //진엔딩
                 LoadingSceneController.Instance.LoadScene("CreditScene");
             else if (endingIndex == 3) //히든엔딩
@@ -135,7 +138,10 @@ public class ClearZone : Zone
         if (StageManager.instance.currentStageIndex == 4) //진, 히든 엔딩은 마지막 크레딧 씬으로 넘어가도록 코드 짜기
         {
             if (endingIndex < 2) //배드, 노말엔딩
+            {
+                Debug.Log(StageManager.instance.currentStageIndex);
                 LoadingSceneController.Instance.LoadScene("HomeScene");
+            }
             else if(endingIndex ==2) //진엔딩
                 LoadingSceneController.Instance.LoadScene("CreditScene");
             else if (endingIndex == 3) //히든엔딩

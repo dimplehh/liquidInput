@@ -157,4 +157,11 @@ public class StageManager : MonoBehaviour
             PlayerPrefs.SetInt(LAST_STAGE_KEY, lastStageIndex);
         }
     }
+
+    public void SetStage(int _stageIndex)
+    {
+        currentStageIndex = _stageIndex;
+        lastStageIndex = currentStageIndex;
+        PlayerPrefs.SetInt(LAST_STAGE_KEY, lastStageIndex);
+    }
 }
