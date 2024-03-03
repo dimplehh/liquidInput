@@ -28,7 +28,7 @@ public class EndingManager : MonoBehaviour
     /// HIDDEN
     /// </summary>
     public readonly int Hidden_Ending_GoodGauge = 4;
-    public readonly int Hidden_Ending_WaterReserves = 35;
+    public readonly int Hidden_Ending_WaterReserves = 33;
 
     private void Awake()
     {

@@ -57,6 +57,8 @@ public class TutorialTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if(null != arrow)
+            arrow.SetActive(false);
         if (this.gameObject.activeSelf == true && collision.gameObject.CompareTag("Player") && keyText.color.a > 0)
             StartCoroutine("FadeOut");
     }

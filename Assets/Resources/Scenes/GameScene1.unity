@@ -2388,7 +2388,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 19
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &63284477
 MonoBehaviour:
@@ -3431,7 +3431,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &101909852
 MonoBehaviour:
@@ -3447,7 +3447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activatorTag: Player
   deactivateOnExit: 0
-  objectTurnOff: 0
+  objectTurnOff: 1
   objects:
   - {fileID: 1789487076}
   turnOffObj: {fileID: 1912221392}
@@ -3466,7 +3466,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.31828308, y: -0.9365442}
+  m_Offset: {x: 2.1243973, y: -1.0139492}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3477,7 +3477,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.2602844, y: 6.8185287}
+  m_Size: {x: 13.659088, y: 6.9733386}
   m_EdgeRadius: 0
 --- !u!1 &103034280
 GameObject:
@@ -9604,7 +9604,7 @@ MonoBehaviour:
   deactivateOnExit: 0
   objectTurnOff: 0
   objects:
-  - {fileID: 1912221392}
+  - {fileID: 1789487076}
   turnOffObj: {fileID: 222955373}
   lightColorController: {fileID: 3374805839087232203}
   time: 0.95
@@ -11131,7 +11131,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 24
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &294427560
 MonoBehaviour:
@@ -12933,7 +12933,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 8
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &323730734
 MonoBehaviour:
@@ -13883,7 +13883,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &333699859
 MonoBehaviour:
@@ -13901,7 +13901,7 @@ MonoBehaviour:
   deactivateOnExit: 0
   objectTurnOff: 1
   objects:
-  - {fileID: 1912221392}
+  - {fileID: 1789487076}
   turnOffObj: {fileID: 1912880908}
   lightColorController: {fileID: 3374805839087232203}
   time: 0.95
@@ -16260,7 +16260,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &361066583
 MonoBehaviour:
@@ -21142,7 +21142,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 12
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &465503165
 MonoBehaviour:
@@ -21177,7 +21177,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.1046228, y: 12.8249445}
+  m_Offset: {x: -2.0817127, y: 28.87791}
   m_SpriteTilingProperty:
     border: {x: 4.48, y: 2.9199998, z: 2.6399999, w: 8.42}
     pivot: {x: 0.5, y: 0.5}
@@ -21188,7 +21188,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 29.497892, y: 78.61598}
+  m_Size: {x: 39.870564, y: 110.72192}
   m_EdgeRadius: 0
 --- !u!1 &468489714
 GameObject:
@@ -25290,7 +25290,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -11.388}
 --- !u!61 &557104746
 BoxCollider2D:
@@ -27426,7 +27426,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 20
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &626188733
 MonoBehaviour:
@@ -32952,7 +32952,7 @@ MonoBehaviour:
   deactivateOnExit: 0
   objectTurnOff: 1
   objects:
-  - {fileID: 1912221392}
+  - {fileID: 222955373}
   turnOffObj: {fileID: 294427558}
   lightColorController: {fileID: 3374805839087232203}
   time: 0.75
@@ -33896,7 +33896,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 13
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &763840214
 MonoBehaviour:
@@ -34208,7 +34208,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 10
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &770439492
 BoxCollider2D:
@@ -44361,25 +44361,25 @@ Transform:
   - {fileID: 742850655}
   - {fileID: 256754135}
   - {fileID: 2115511505}
+  - {fileID: 770439491}
   - {fileID: 101909851}
   - {fileID: 361066582}
+  - {fileID: 63284476}
+  - {fileID: 1916723358}
+  - {fileID: 626188731}
   - {fileID: 323730733}
   - {fileID: 2083836041}
-  - {fileID: 770439491}
+  - {fileID: 294427559}
   - {fileID: 1389622470}
   - {fileID: 465503163}
   - {fileID: 763840213}
   - {fileID: 1349586428}
+  - {fileID: 1025861626}
   - {fileID: 1397206264}
   - {fileID: 1932660044}
-  - {fileID: 1025861626}
-  - {fileID: 1916723358}
-  - {fileID: 63284476}
-  - {fileID: 626188731}
   - {fileID: 333699857}
   - {fileID: 1673179497}
   - {fileID: 557104744}
-  - {fileID: 294427559}
   m_Father: {fileID: 1861462396}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46715,7 +46715,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1025861627
 MonoBehaviour:
@@ -61948,7 +61948,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 14
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1349586429
 MonoBehaviour:
@@ -64526,7 +64526,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 11
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1389622472
 MonoBehaviour:
@@ -64561,7 +64561,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -3.4658031, y: 35.92467}
+  m_Offset: {x: -3.4658031, y: 30.015625}
   m_SpriteTilingProperty:
     border: {x: 4.48, y: 2.9199998, z: 2.6399999, w: 8.42}
     pivot: {x: 0.5, y: 0.5}
@@ -64572,7 +64572,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 53.569027, y: 70.11495}
+  m_Size: {x: 53.569027, y: 81.933044}
   m_EdgeRadius: 0
 --- !u!4 &1393035367 stripped
 Transform:
@@ -64792,7 +64792,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 15
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1397206265
 MonoBehaviour:
@@ -69378,7 +69378,7 @@ PrefabInstance:
     - target: {fileID: 5348255735167013521, guid: 4f71003553d91c24dbf6dd21b52a02c7, type: 3}
       propertyPath: m_SceneBindings.Array.data[21].value
       value: 
-      objectReference: {fileID: 1912221397}
+      objectReference: {fileID: 1789487077}
     - target: {fileID: 5348255735167013522, guid: 4f71003553d91c24dbf6dd21b52a02c7, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -78329,8 +78329,16 @@ PrefabInstance:
       value: 0.64705884
       objectReference: {fileID: 0}
     - target: {fileID: 212596483244488648, guid: 4fcf060cab4b76d4c9957c011d4e2bcb, type: 3}
+      propertyPath: m_SortingLayer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 212596483244488648, guid: 4fcf060cab4b76d4c9957c011d4e2bcb, type: 3}
       propertyPath: m_SortingOrder
       value: 288
+      objectReference: {fileID: 0}
+    - target: {fileID: 212596483244488648, guid: 4fcf060cab4b76d4c9957c011d4e2bcb, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1579718139
       objectReference: {fileID: 0}
     - target: {fileID: 212596483244488648, guid: 4fcf060cab4b76d4c9957c011d4e2bcb, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -79684,10 +79692,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activatorTag: Player
   deactivateOnExit: 0
-  objectTurnOff: 1
+  objectTurnOff: 0
   objects:
-  - {fileID: 1912221392}
-  turnOffObj: {fileID: 294427558}
+  - {fileID: 1789487076}
+  turnOffObj: {fileID: 0}
   lightColorController: {fileID: 3374805839087232203}
   time: 0.75
 --- !u!61 &1627910355
@@ -81530,7 +81538,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -22.047}
 --- !u!114 &1673179498
 MonoBehaviour:
@@ -81549,7 +81557,7 @@ MonoBehaviour:
   objectTurnOff: 1
   objects:
   - {fileID: 1912880908}
-  turnOffObj: {fileID: 1912221392}
+  turnOffObj: {fileID: 1789487076}
   lightColorController: {fileID: 3374805839087232203}
   time: 0.95
 --- !u!61 &1673179499
@@ -93302,7 +93310,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 18
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1916723360
 MonoBehaviour:
@@ -94418,7 +94426,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 16
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 12.66}
 --- !u!114 &1932660045
 MonoBehaviour:
@@ -102019,7 +102027,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973769795}
-  m_RootOrder: 9
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2083836042
 MonoBehaviour:
@@ -103425,7 +103433,7 @@ MonoBehaviour:
   deactivateOnExit: 0
   objectTurnOff: 1
   objects:
-  - {fileID: 1912221392}
+  - {fileID: 1789487076}
   turnOffObj: {fileID: 222955373}
   lightColorController: {fileID: 3374805839087232203}
   time: 0.95

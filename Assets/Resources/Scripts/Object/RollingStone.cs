@@ -7,7 +7,7 @@ public class RollingStone : MonoBehaviour
     private bool isTrigger = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "SaveZone")
+        if (collision.gameObject.tag == "Player")
         {
             if(isTrigger == false)
             {
