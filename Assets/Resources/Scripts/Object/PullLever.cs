@@ -12,6 +12,7 @@ public class PullLever : MonoBehaviour
     [SerializeField] float ladderEndTime = 3.0f;
     [SerializeField] float ladderStartRotation = -15f;
     [SerializeField] float ladderEndRotation = -45f;
+    bool isTrigger = false;
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -29,8 +30,8 @@ public class PullLever : MonoBehaviour
             if((pushX == true && Input.GetKey(KeyCode.LeftArrow)  && collision.transform.position.x < this.gameObject.transform.position.x) ||
                 (pushX == true && Input.GetKey(KeyCode.RightArrow) && collision.transform.position.x > this.gameObject.transform.position.x))
             {
-                StartCoroutine("PullingLever", collision.transform.position.x - this.gameObject.transform.position.x);
-                //Debug.Log(collision.transform.position.x + "/" + this.gameObject.transform.position.x);
+                if (isTrigger == false)
+                    StartCoroutine("PullingLever", collision.transform.position.x - this.gameObject.transform.position.x);
             }
         }
     }
@@ -46,6 +47,7 @@ public class PullLever : MonoBehaviour
     IEnumerator PullingLever(float fromPlayerToLever)
     {
         float elapsedTime = 0f;
+        isTrigger = true;
         Quaternion startRotationQuaternion = Quaternion.Euler(0, 0, startRotation);
         Quaternion endRotationQuaternion = (fromPlayerToLever < 0) ? Quaternion.Euler(0, 0, startRotation + 30f) : Quaternion.Euler(0, 0, startRotation - 30f);
         //플레이어가 레버보다 왼쪽에 있으면 왼쪽으로 30도, 오른쪽에 있으면 오른쪽으로 30도 회전

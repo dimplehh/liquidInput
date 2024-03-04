@@ -34,7 +34,6 @@ public class SaveZone : Zone
             anim.enabled = true;
             anim.SetBool("Active",true);
             if(id != 99)SoundManager.instance.SfxPlaySound(6, transform.position);
-            //StageManager.instance.UpdateSave(this);
             AutoSave(other.gameObject);
             GameManager.instance.checkSaveSlot.SlotSaveFileCheck();
         }
