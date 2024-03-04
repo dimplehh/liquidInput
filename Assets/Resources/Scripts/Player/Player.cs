@@ -292,6 +292,7 @@ public class Player : MonoBehaviour
         this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.04f);
         this.transform.GetChild(3).transform.localPosition = new Vector2(0, 0);
         this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.81f, 2.37f); //player collider 크기 수정
+        curSlimeTime = 0;
         yield return new WaitForSeconds(1.0f);
     }
 
@@ -299,6 +300,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
+            if (attached) return;
             if (!isSlime && !isFlicker & !isSlow)//슬라임으로 변신
             {
                 StartCoroutine("PlayerToSlimeAnimator");
@@ -307,12 +309,12 @@ public class Player : MonoBehaviour
             {
                 StartCoroutine("SlimeToPlayerAnimator");
             }
-            else if (isSlime && isFlicker)//지속시간 늘리기
-            {
-                GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(StageManager.instance.currentStageIndex);
-                isFlicker = false;
-                curSlimeTime = 0;
-            }
+            //else if (isSlime && isFlicker)//지속시간 늘리기
+            //{
+            //    GameManager.instance.curWaterReserves -= GameManager.instance.CurrentStageWaterConsume(StageManager.instance.currentStageIndex);
+            //    isFlicker = false;
+            //    curSlimeTime = 0;
+            //}
 
         }
     }

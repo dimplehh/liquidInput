@@ -7,21 +7,16 @@ public class SeeSaw : MonoBehaviour
     public Transform stoneSpawnPoint;
     public GameObject stone;
     [SerializeField] GameObject board;
+    [SerializeField] GameObject director;
 
     private bool isTriggered = false;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !isTriggered)
+        if (director.activeSelf == false && collision.CompareTag("Player") && !isTriggered)
         {
             isTriggered = true;
             StartCoroutine(ActivateAndDeactivateStone());
-            //if(Managers.Data.stageData.stageChapter == 2)
-            //    if(Managers.Data.stageData.waterData.Find((x) => x.id == 9).waterReserves != 0)
-            //    {
-            //        isTriggered = true;
-            //        StartCoroutine(ActivateAndDeactivateStone());
-            //    }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -29,7 +24,7 @@ public class SeeSaw : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isTriggered = false;
-            stone.SetActive(false);
+            StartCoroutine(ActivateAndDeactivateStone());
         }
         if (collision.gameObject.layer == 24)
         {
@@ -43,10 +38,11 @@ public class SeeSaw : MonoBehaviour
     {
         if(isTriggered)
         {
+            stone.SetActive(false);
+            stone.SetActive(true);
             stone.transform.localPosition = stoneSpawnPoint.localPosition;
             SoundManager.instance.SfxPlaySound2(6, this.gameObject.transform.position);
             yield return null;
-            stone.SetActive(true);
         }
     }
 }
