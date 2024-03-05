@@ -158,7 +158,7 @@ public class Player : MonoBehaviour
     private void Run()
     {
         //쉬프트 눌렀을 때 달리기 아니면 걷기
-        if (Input.GetKey(KeyCode.LeftShift) && !isSlow)
+        if (Input.GetKey(KeyCode.LeftShift) && !isSlow && !anim.GetBool("canGrab"))
         {
             realMaxSpeed = 8f;
             anim.SetBool("IsRun", true);
