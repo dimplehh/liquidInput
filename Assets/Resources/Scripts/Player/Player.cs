@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Player : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject manualPanel;
     [SerializeField] GameObject loadPanel;
     [SerializeField] GameObject videoPanel;
+    [SerializeField] PlayableDirector[] timeline;
+
     [Header("상태")]
     private bool oneJump = false;
     public bool isGround = false;
@@ -58,6 +61,8 @@ public class Player : MonoBehaviour
         if (!GameManager.instance.isPlay)
             return;
         if (manualPanel.activeSelf == true || loadPanel.activeSelf == true || videoPanel.activeSelf == true)
+            return;
+        if ((timeline[0] != null && timeline[0].state == PlayState.Playing) || (timeline[1] != null && timeline[1].state == PlayState.Playing))
             return;
         Turn(); //이미지 좌우전환
         Run(); //달리기 
