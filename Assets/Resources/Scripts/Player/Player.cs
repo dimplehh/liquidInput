@@ -62,8 +62,9 @@ public class Player : MonoBehaviour
             return;
         if (manualPanel.activeSelf == true || loadPanel.activeSelf == true || videoPanel.activeSelf == true)
             return;
-        if ((timeline[0] != null && timeline[0].state == PlayState.Playing) || (timeline[1] != null && timeline[1].state == PlayState.Playing))
-            return;
+        if(timeline.Length == 2)
+            if ((timeline[0] != null && timeline[0].state == PlayState.Playing) || (timeline[1] != null && timeline[1].state == PlayState.Playing))
+                return;
         Turn(); //이미지 좌우전환
         Run(); //달리기 
         Jump(); //점프
