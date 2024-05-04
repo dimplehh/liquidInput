@@ -906,6 +906,7 @@ MonoBehaviour:
   - {fileID: 4654570525839947795}
   - {fileID: 4654570525839947794}
   - {fileID: 4654570525839947793}
+  steamMgr: {fileID: 981105671}
 --- !u!4 &780553771
 Transform:
   m_ObjectHideFlags: 0
@@ -1037,7 +1038,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -880, y: 678.315}
+  m_AnchoredPosition: {x: -880, y: 498}
   m_SizeDelta: {x: 520, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901219854
@@ -1111,6 +1112,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SteamManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2529993512762744433, guid: 5ac95aad677b969438a81e9e687b9952, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2529993512762744439, guid: 5ac95aad677b969438a81e9e687b9952, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -1157,6 +1162,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ac95aad677b969438a81e9e687b9952, type: 3}
+--- !u!1 &981105671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2529993512762744433, guid: 5ac95aad677b969438a81e9e687b9952, type: 3}
+  m_PrefabInstance: {fileID: 981105670}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &991475855 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5800303852019732518, guid: 7129a53c8cf602145b087a59b8917b79, type: 3}

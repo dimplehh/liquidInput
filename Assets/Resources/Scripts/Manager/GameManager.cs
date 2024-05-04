@@ -262,6 +262,7 @@ public class GameManager : MonoBehaviour
     {
         if(gameOver == false)
         {
+            SoundManager.instance.SfxStopSound3();
             SoundManager.instance.SfxPlaySound2(2, transform.position);
             SoundManager.instance.SfxPlaySound(1, transform.position);
             gameOver = true;
