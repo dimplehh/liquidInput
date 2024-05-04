@@ -10,10 +10,11 @@ public class HomeScene : MonoBehaviour
     public AppId_t appID;
     public Slider[] volumeSlider; //볼륨 조절 슬라이더
     [SerializeField] private GameObject[] backgroundImage;
+    [SerializeField] GameObject steamMgr;
 
     private void Start()
     {
-        if(SteamManager.Initialized)
+        if(steamMgr.activeSelf == true && SteamManager.Initialized)
         {
             appID = SteamUtils.GetAppID();
             m_GameID = new CGameID(SteamUtils.GetAppID());
@@ -47,7 +48,7 @@ public class HomeScene : MonoBehaviour
             if(stageData.stageChapter == 2) GetAndSetAchievemt("Step_One");
             if (stageData.stageChapter == 3)
             {
-                if (SteamManager.Initialized)
+                if (steamMgr.activeSelf == true && SteamManager.Initialized)
                 {
                     bool isAchieved = SteamUserStats.GetAchievement("Step_One", out bool achieved);
                     if (isAchieved && achieved) GetAndSetAchievemt("Slime_Step");
@@ -58,7 +59,7 @@ public class HomeScene : MonoBehaviour
 
     void GetAndSetAchievemt(string name)
     {
-        if (SteamManager.Initialized)
+        if (steamMgr.activeSelf == true && SteamManager.Initialized)
         {
             bool isAchieved = SteamUserStats.GetAchievement(name, out bool achieved);
             if (isAchieved)
