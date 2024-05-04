@@ -103,10 +103,10 @@ public class ChapterLoadKeyBoardClick : MonoBehaviour
                 name = (lang == "ko") ? "2챕 - 버려진마을" : "Ch2 - Abandoned Village" ;
                 break;
             case 3:
-                name = (lang == "ko") ? "3챕 - 지하 속" : "Ch3 - Underground";
+                name = (lang == "ko") ? "3챕 - 오염의 중심부" : "The heart of Pollution";
                 break;
             case 4:
-                name = (lang == "ko") ? "4챕 - 오염의 중심부(공장)" : "The heart of Pollution (Factory)";
+                name = (lang == "ko") ? "4챕 - 오염의 중심부" : "The heart of Pollution";
                 break;
         }
         return name;

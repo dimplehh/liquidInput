@@ -85,7 +85,7 @@ public class CheckSaveSlot : MonoBehaviour
                 currentName = (lang == "ko") ? "버려진 마을" : "Abandoned Village";
                 break;
             case 3:
-                currentName = (lang == "ko") ? "지하 속" : "Underground";
+                currentName = (lang == "ko") ? "오염의 중심부" : "The heart of Pollution";
                 break;
             case 4:
                 currentName = (lang == "ko") ? "오염의 중심부(공장)" : "The heart of Pollution (Factory)";

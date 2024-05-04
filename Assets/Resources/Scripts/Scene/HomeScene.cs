@@ -13,8 +13,11 @@ public class HomeScene : MonoBehaviour
 
     private void Start()
     {
-        appID = SteamUtils.GetAppID();
-        m_GameID = new CGameID(SteamUtils.GetAppID());
+        if(SteamManager.Initialized)
+        {
+            appID = SteamUtils.GetAppID();
+            m_GameID = new CGameID(SteamUtils.GetAppID());
+        }
         SetVolume();
         SoundManager.instance.BgmPlaySound(0);
         SoundManager.instance.SfxStopSound3();
@@ -44,21 +47,27 @@ public class HomeScene : MonoBehaviour
             if(stageData.stageChapter == 2) GetAndSetAchievemt("Step_One");
             if (stageData.stageChapter == 3)
             {
-                bool isAchieved = SteamUserStats.GetAchievement("Step_One", out bool achieved);
-                if (isAchieved && achieved) GetAndSetAchievemt("Slime_Step");
+                if (SteamManager.Initialized)
+                {
+                    bool isAchieved = SteamUserStats.GetAchievement("Step_One", out bool achieved);
+                    if (isAchieved && achieved) GetAndSetAchievemt("Slime_Step");
+                }
             } 
         }
     }
 
     void GetAndSetAchievemt(string name)
     {
-        bool isAchieved = SteamUserStats.GetAchievement(name, out bool achieved);
-        if (isAchieved)
+        if (SteamManager.Initialized)
         {
-            if (!achieved)
+            bool isAchieved = SteamUserStats.GetAchievement(name, out bool achieved);
+            if (isAchieved)
             {
-                SteamUserStats.SetAchievement(name);
-                Debug.Log("Achieve '" + name + "'");
+                if (!achieved)
+                {
+                    SteamUserStats.SetAchievement(name);
+                    Debug.Log("Achieve '" + name + "'");
+                }
             }
         }
     }

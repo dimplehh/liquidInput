@@ -85,7 +85,11 @@ public class ClearZone : Zone
                 }
                 else
                 {
-                    if(videoPanels != null)
+                    if (videoPanelParent != null)
+                        if (videoPanelParent.activeSelf == false)
+                            videoPanelParent.SetActive(true);
+
+                    if (videoPanels != null)
                     {
                         videoPanels[0].SetActive(true);
                         videoPanels[0].GetComponent<VideoPlayer>().Play();
